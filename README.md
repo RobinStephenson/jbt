@@ -1,4 +1,4 @@
-# jbt
+# Jamaican Bobsleigh Team
 Jamaican Bobsleigh Team SEPR project
 
 ## Git Workflow
