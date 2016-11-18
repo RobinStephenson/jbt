@@ -1,9 +1,19 @@
+language: csharp
+script:
+  - xbuild /p:Configuration=Debug YorkRoboticonColony.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore YorkRoboticonColony.sln
+after_script:
+  - nunit-console YorkRoboticonColony/bin/Debug/YorkRoboticonColony.dll
+
 notifications:
-    slack: 
-        rooms: 
-            - j-b-t:OIVY6djyR2ND1vGpgDR2G29R#general
-        on_success: change
-        on_failure: always
-    email:
-        on_success: never
-        on_failure: change  
+  slack: 
+    rooms: 
+      - j-b-t:OIVY6djyR2ND1vGpgDR2G29R#general
+    on_success: change
+    on_failure: always
+  email:
+    on_success: never
+    on_failure: change
