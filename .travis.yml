@@ -1,12 +1,12 @@
 language: csharp
 script:
-  - xbuild /p:Configuration=Debug YorkRoboticonColony.sln
+  - xbuild /p:Configuration=Debug RoboticonColony/RoboticonColony.sln
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore YorkRoboticonColony.sln
+  - nuget restore RoboticonColony/RoboticonColony.sln
 after_script:
-  - nunit-console YorkRoboticonColony/bin/Debug/YorkRoboticonColony.dll
+  - nunit-console RoboticonColony/RoboticonColony/bin/Debug/RoboticonColony.dll
 
 notifications:
   slack: 
