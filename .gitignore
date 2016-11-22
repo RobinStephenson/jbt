@@ -31,3 +31,5 @@ sysinfo.txt
 *.unitypackage
 RoboticonColony/Assets/Plugins.meta
 RoboticonColony/Assets/UnityTestTools.meta
+RoboticonColony/Assets/bin/
+RoboticonColony/Assets/obj/
