@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tile : MonoBehaviour {
+public class Market : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
