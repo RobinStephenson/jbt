@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Market {
-    public Resources Stock { get; private set; }
+sealed public class Market {
+    public Inventory Stock { get; private set; }
     public bool Open { get; private set; }
 
     private Dictionary<TradeableItem, int> _buyPrices;
@@ -43,3 +43,4 @@ public enum TradeableItem
     Ore = 1,
     Power,
     Roboticon
+}
