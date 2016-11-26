@@ -67,7 +67,6 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Classes\Inventory.cs" />
     <Compile Include="Assets\Code\Classes\Market.cs" />
-    <Compile Include="Assets\Code\Scripts\Temp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
