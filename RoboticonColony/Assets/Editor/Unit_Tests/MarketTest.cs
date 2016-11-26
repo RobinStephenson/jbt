@@ -5,7 +5,7 @@ using NUnit.Framework;
 public class MarketTest {
 
 	[Test]
-	public void EditorTest()
+	public void EditorTesbt()
 	{
 		//Arrange
 		var gameObject = new GameObject();

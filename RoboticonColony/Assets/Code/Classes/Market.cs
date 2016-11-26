@@ -55,7 +55,13 @@ sealed public class Market
         return false;
     }
 
-    ///
+    /// <summary>
+    /// Allows a player to sell to the market.
+    /// </summary>
+    /// <param name="item">The item the player wishes to sell.</param>
+    /// <param name="quantity">The quantity the player wishes to sell</param>
+    /// <param name="playerInventory">Reference to the players inventory.</param>
+    /// <returns></returns>
     public bool Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         //Attempt to transfer money from the market to the player. If successful, then try to transfer the purchased item(s)
