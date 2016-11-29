@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,41 +15,28 @@ sealed public class Market
     private Dictionary<ItemType, int> _sellprice;
 
     /// <summary>
-    /// Creates a market instance with an empty inventory as its stock.
-    /// </summary>
-    public Market()
-    {
-        Stock = new Inventory();
-        _buyprice = new Dictionary<ItemType, int>();
-        _sellprice = new Dictionary<ItemType, int>();
-
-        //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
-        _buyprice[ItemType.Ore] = 10;
-        _buyprice[ItemType.Power] = 11;
-        _buyprice[ItemType.Roboticon] = 12;
-        _sellprice[ItemType.Ore] = 9;
-        _sellprice[ItemType.Power] = 8;
-        _sellprice[ItemType.Roboticon] = 7;
-    }
-
-    /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
     /// <param name="stock">The starting stock for the market</param>
-    public Market(Inventory stock)
+    public Market(Inventory stock, int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice)
     {
         Stock = stock;
         _buyprice = new Dictionary<ItemType, int>();
         _sellprice = new Dictionary<ItemType, int>();
 
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
-        _buyprice[ItemType.Ore] = 10;
-        _buyprice[ItemType.Power] = 11;
-        _buyprice[ItemType.Roboticon] = 12;
-        _sellprice[ItemType.Ore] = 9;
-        _sellprice[ItemType.Power] = 8;
-        _sellprice[ItemType.Roboticon] = 7;
+        _buyprice[ItemType.Ore] = oreBuyPrice;
+        _buyprice[ItemType.Power] = powerBuyPrice;
+        _buyprice[ItemType.Roboticon] = roboticonBuyPrice;
+        _sellprice[ItemType.Ore] = oreSellPrice;
+        _sellprice[ItemType.Power] = powerSellPrice;
+        _sellprice[ItemType.Roboticon] = roboticonSellPrice;
     }
+
+    /// <summary>
+    /// Creates a market instance with an empty inventory as its stock.
+    /// </summary>
+    public Market(int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice) : this(new Inventory(), oreBuyPrice, powerBuyPrice, roboticonBuyPrice, oreSellPrice, powerSellPrice, roboticonSellPrice) { }
 
     /// <summary>
     /// Gets the price to buy the specified item from this market instance.
@@ -76,20 +64,34 @@ sealed public class Market
     /// <param name="item">The item the player wishes to buy.</param>
     /// <param name="Quantity">The quantity the player withes to buy.</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns></returns>
-    public bool Buy(ItemType item, int quantity, Inventory playerInventory)
+    /// <returns>This market reference, for method chaining.</returns>
+    public Market Buy(ItemType item, int quantity, Inventory playerInventory)
     {
-        //Attempt to transfer money from the player to the market. If successful, then try to transfer the purchased item(s)
-        if (playerInventory.TransferMoney(_buyprice[item] * quantity, Stock))
+        //Attempt to transfer money from the player to the market
+        try
         {
-            //Attempt to transfer the requested item(s) into the players inventory. If true, then the transaction is complete, if false, then revert the money transaction and return false.
-            if (Stock.TransferItem(item, quantity, playerInventory))
-                return true;
-            else
-                Stock.TransferMoney(_buyprice[item] * quantity, playerInventory);
-        }
+            playerInventory.TransferMoney(_buyprice[item] * quantity, Stock);
 
-        return false;
+            //Attempt to transfer the requested item(s) into the players inventory.
+            try
+            {
+                Stock.TransferItem(item, quantity, playerInventory);
+
+                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
+                return this;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
+                Stock.TransferMoney(_buyprice[item] * quantity, playerInventory);
+                throw;
+            }
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            //If the initial money transfer was unsuccessful, then re-throw the exception
+            throw;
+        }
     }
 
     /// <summary>
@@ -98,20 +100,34 @@ sealed public class Market
     /// <param name="item">The item the player wishes to sell.</param>
     /// <param name="quantity">The quantity the player wishes to sell</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns></returns>
-    public bool Sell(ItemType item, int quantity, Inventory playerInventory)
+    /// <returns>This market reference, for method chaining.</returns>
+    public Market Sell(ItemType item, int quantity, Inventory playerInventory)
     {
-        //Attempt to transfer money from the market to the player. If successful, then try to transfer the purchased item(s)
-        if (Stock.TransferMoney(_sellprice[item] * quantity, playerInventory))
+        //Attempt to transfer money from the market to the player.
+        try
         {
-            //Attempt to transfer the requested item(s) into the markets inventory. If true, then the transaction is complete, if false, then revert the money transaction and return false.
-            if (playerInventory.TransferItem(item, quantity, Stock))
-                return true;
-            else
-                playerInventory.TransferMoney(_sellprice[item] * quantity, Stock);
-        }
+            Stock.TransferMoney(_sellprice[item] * quantity, playerInventory);
 
-        return false;
+            //Attempt to transfer the requested item(s) into the markets inventory.
+            try
+            {                
+                playerInventory.TransferItem(item, quantity, Stock);
+
+                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
+                return this;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
+                playerInventory.TransferMoney(_sellprice[item] * quantity, Stock);
+                throw;
+            }
+        }
+        catch(ArgumentOutOfRangeException)
+        {
+            //If the initial money transfer was unsuccessful, then re-throw the exception
+            throw;
+        }
     }
 }
 

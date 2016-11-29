@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -30,14 +31,8 @@ sealed public class Inventory
     /// <summary>
     /// Creates an empty inventory instance, which holds all resources for a player or market.
     /// </summary>
-    public Inventory()
-    {
-        Money = 0;
-        Items = new Dictionary<ItemType, int>();
-        Items[ItemType.Ore] = 0;
-        Items[ItemType.Power] = 0;
-        Items[ItemType.Roboticon] = 0;
-    }
+    public Inventory() : this(0, 0, 0, 0) { }
+
 
     /// <summary>
     /// Get the amount of the specified item in this inventory instance.
@@ -74,15 +69,15 @@ sealed public class Inventory
     /// <param name="item">The item being transferred.</param>
     /// <param name="quantity">The quantity being transferred.</param>
     /// <param name="to">The inventory to transfer to.</param>
-    /// <returns>True if the transfer was successful, false otherwise.</returns>
-    public bool TransferItem(ItemType item, int quantity, Inventory to)
+    /// <returns>A reference to this inventory instance, used for method chaining.</returns>
+    public Inventory TransferItem(ItemType item, int quantity, Inventory to)
     {
         if (Items[item] - quantity < 0)
-            return false;
+            throw new ArgumentOutOfRangeException("quantity");
 
         Items[item] -= quantity;
         to.AddItem(item, quantity);
-        return true;
+        return this;
     }
 
     /// <summary>
@@ -90,14 +85,14 @@ sealed public class Inventory
     /// </summary>
     /// <param name="amount">The amount of money to send.</param>
     /// <param name="to">The inventory to transfer to</param>
-    /// <returns>True if the transfer was successful, false otherwise.</returns>
-    public bool TransferMoney(int amount, Inventory to)
+    /// <returns>A reference to this inventory instance, used for method chaining.</returns>
+    public Inventory TransferMoney(int amount, Inventory to)
     {
         if (Money - amount < 0)
-            return false;
+            throw new ArgumentOutOfRangeException("amount");
 
         Money -= amount;
         to.AddMoney(amount);
-        return true;
+        return this;
     }
 }
