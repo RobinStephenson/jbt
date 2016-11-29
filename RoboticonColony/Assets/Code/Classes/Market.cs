@@ -130,10 +130,3 @@ sealed public class Market
         }
     }
 }
-
-public enum ItemType
-{
-    Ore = 0,
-    Power,
-    Roboticon
-}
