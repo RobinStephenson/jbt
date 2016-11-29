@@ -20,7 +20,6 @@ public class TestHelper{
         if (!expected.IsSubclassOf(typeof(Exception)))
             throw new ArgumentException("Not a type of exception!", "expected");
 
-        //Attempt to transfer 2 money from inv1 to inv2, even though inv1 only has 1 money, which should throw an error
         try
         {
             //Execute the method
@@ -33,6 +32,7 @@ public class TestHelper{
                 return true;
         }
 
+        //Return false if the method completed without throwing an exception, or threw a differenct exception than expected
         return false;
     }
 
