@@ -6,7 +6,7 @@ public abstract class AbstractPlayer
 {
     private List<Tile> ownedTiles;
     private Inventory inventory;
-    private IInputController input;
+    protected IInputController input;
 
     public abstract void DoPhaseOne();
     public abstract void DoPhaseTwo();
