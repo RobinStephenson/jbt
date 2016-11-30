@@ -72,12 +72,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\AbstractPlayer.cs" />
-    <Compile Include="Assets\Code\HumanPlayer.cs" />
-    <Compile Include="Assets\Code\IInputController.cs" />
-    <Compile Include="Assets\Code\Inventory.cs" />
-    <Compile Include="Assets\Code\ItemType.cs" />
-    <Compile Include="Assets\Code\Market.cs" />
+    <Compile Include="Assets\Code\Classes\AbstractPlayer.cs" />
+    <Compile Include="Assets\Code\Classes\HumanPlayer.cs" />
+    <Compile Include="Assets\Code\Classes\IInputController.cs" />
+    <Compile Include="Assets\Code\Classes\Inventory.cs" />
+    <Compile Include="Assets\Code\Classes\Market.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

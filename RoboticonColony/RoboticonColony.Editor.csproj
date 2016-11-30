@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\Unit_Tests\InventoryTest.cs" />
+    <Compile Include="Assets\Editor\Unit_Tests\ItemType.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\MarketTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\TestHelper.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\Editor\AssertionComponentEditor.cs" />
