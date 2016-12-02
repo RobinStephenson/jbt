@@ -1,22 +1,23 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 sealed public class Tile
 {
-    //private Resources _resources;
-    //private Roboticon _installedRoboticon;
+    private Dictionary<ItemType, int> _Resources;
+    
     private int _cost;
     private int _ownerID;
 
     /// <summary>
-        /// Constructor for tile with provided parameters
-        /// </summary>
-        /// <param name="resources">Resources that the tile has</param>
-        /// <param name="roboticon">Roboticon on the tile, null if no roboticon</param>
-        /// <param name="cost">Cost of the tile</param>
-        /// <param name="owner">Owner of the tile</param>
+    /// Constructor for tile with provided parameters
+    /// </summary>
+    /// <param name="resources">Resources that the tile has</param>
+    /// <param name="roboticon">Roboticon on the tile, null if no roboticon</param>
+    /// <param name="cost">Cost of the tile</param>
+    /// <param name="owner">Owner of the tile</param>
     //public Tile(Resources resources, Roboticon roboticon, int cost, Player owner)
     //{
     //    _resources = resources;
@@ -26,39 +27,41 @@ sealed public class Tile
     //}
 
     /// <summary>
-        /// Constructor for tile with no owner or roboticon
-        /// </summary>
-        /// <param name="resource">Resources that the tile has</param>
-        /// <param name="cost">Cost of the tile</param>
-    //public Tile(Resources resource, int cost)
-    //{
-    //    _resources = resource;
-    //    _cost = cost;
-    //    //_installedRoboticon = null;
-    //    _ownerID = -1;
-    //}
+    /// Constructor for tile with no owner or roboticon
+    /// </summary>
+    /// <param name="resource">Resources that the tile has</param>
+    /// <param name="cost">Cost of the tile</param>
+    public Tile(int cost, int ore, int power, int roboticons)
+    {
+        _Resources = new Dictionary<ItemType, int>();
+        _Resources[ItemType.Ore] = ore;
+        _Resources[ItemType.Power] = power;
+        _Resources[ItemType.Roboticon] = roboticons;
+        _cost = cost;
+        _ownerID = -1;
+    }
 
     /// <summary>
-        /// Adds a roboticon to the tile
-        /// </summary>
-        /// <param name="newRoboticon">Roboticon to be added</param>
+    /// Adds a roboticon to the tile
+    /// </summary>
+    /// <param name="newRoboticon">Roboticon to be added</param>
     //public void addRoboticon(Roboticon newRoboticon)
     //{
     //    _installedRoboticon = newRoboticon;
     //}
 
     /// <summary>
-        /// Removes the roboticon from the tile
-        /// </summary>
+    /// Removes the roboticon from the tile
+    /// </summary>
     //public void removeRoboticon()
     //{
     //    _installedRoboticon = null;
     //}
 
     /// <summary>
-        /// Gets the cost of the tile
-        /// </summary>
-        /// <returns></returns>
+    /// Gets the cost of the tile
+    /// </summary>
+    /// <returns></returns>
     public int getCost()
     {
         return _cost;
