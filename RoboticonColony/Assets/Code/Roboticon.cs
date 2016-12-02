@@ -36,4 +36,13 @@ sealed public class Roboticon : MonoBehaviour {
         BonusProduction[resource_type] += production_bonus;
     }
 
+    /// <summary>
+    /// Returns the Bonus production of the selected resource
+    /// </summary>
+    /// <param name="resource_type"> The resource type selected (enum ItemType) </param>
+    /// <returns></returns>
+    public int BonusProductionGetter(ItemType resource_type)
+    {
+        return BonusProduction[resource_type];
+    }
 }
