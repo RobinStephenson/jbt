@@ -7,7 +7,6 @@ using System.Text;
 sealed public class Tile
 {
     private Dictionary<ItemType, int> _Resources;
-    
     private int _cost;
     private int _ownerID;
 
@@ -18,10 +17,12 @@ sealed public class Tile
     /// <param name="roboticon">Roboticon on the tile, null if no roboticon</param>
     /// <param name="cost">Cost of the tile</param>
     /// <param name="owner">Owner of the tile</param>
-    //public Tile(Resources resources, Roboticon roboticon, int cost, Player owner)
+    //public Tile(int cost, int ore, int power, Roboticon roboticon, Player owner)
     //{
-    //    _resources = resources;
-    //    _installedRoboticon = roboticon;
+    //    _Resources = new Dictionary<ItemType, int>();
+    //    _Resources[ItemType.Ore] = ore;
+    //    _Resources[ItemType.Power] = power;
+    //    _Resources[ItemType.Roboticon] = roboticon;
     //    _cost = cost;
     //    _ownerID = owner.PlayerID;
     //}
@@ -31,12 +32,12 @@ sealed public class Tile
     /// </summary>
     /// <param name="resource">Resources that the tile has</param>
     /// <param name="cost">Cost of the tile</param>
-    public Tile(int cost, int ore, int power, int roboticons)
+    public Tile(int cost, int ore, int power, int roboticon)
     {
         _Resources = new Dictionary<ItemType, int>();
         _Resources[ItemType.Ore] = ore;
         _Resources[ItemType.Power] = power;
-        _Resources[ItemType.Roboticon] = roboticons;
+        _Resources[ItemType.Roboticon] = roboticon;
         _cost = cost;
         _ownerID = -1;
     }
@@ -47,7 +48,7 @@ sealed public class Tile
     /// <param name="newRoboticon">Roboticon to be added</param>
     //public void addRoboticon(Roboticon newRoboticon)
     //{
-    //    _installedRoboticon = newRoboticon;
+    //    _Resources[ItemType.Roboticon] = newRoboticon;
     //}
 
     /// <summary>
@@ -55,7 +56,7 @@ sealed public class Tile
     /// </summary>
     //public void removeRoboticon()
     //{
-    //    _installedRoboticon = null;
+    //    _Resources[ItemType.Roboticon] = null;
     //}
 
     /// <summary>
@@ -68,18 +69,29 @@ sealed public class Tile
     }
 
     //public void produce()
-  
+    //{
+
     //}
 
-    //public Resources TileResources
+    //public void update()
     //{
-    //    get { return _resources; }
+
     //}
+
+    public int Ore
+    {
+        get { return _Resources[ItemType.Ore]; }
+    }
+
+    public int Power
+    {
+        get { return _Resources[ItemType.Ore]; }
+    }
 
     //public Roboticon InstalledRoboticon
     //{
-    //    get { return _installedRoboticon; }
-    //    set { _installedRoboticon = value; }
+    //    get { return _Resources[ItemType.Roboticon]; }
+    //    set { _Resources[ItemType.Roboticon] = value; }
     //}
 
     public int Cost
