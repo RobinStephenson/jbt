@@ -25,5 +25,15 @@ sealed public class Roboticon : MonoBehaviour {
         BonusProduction[ItemType.Ore] = 0;
         BonusProduction[ItemType.Power] = 0;
     }
-   
+
+    /// <summary>
+    /// Customises the roboticon and augments the selected resource type's production. 
+    /// </summary>
+    /// <param name="resource_type"> The type of resource to augment (Selected through enum ItemType). </param>
+    /// <param name="production_bonus"> The amount to augment the producition by. </param>
+    public void CustomiseRoboticon(ItemType resource_type, int production_bonus)
+    {
+        BonusProduction[resource_type] += production_bonus;
+    }
+
 }
