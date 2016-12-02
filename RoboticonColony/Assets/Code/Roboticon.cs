@@ -22,6 +22,8 @@ sealed public class Roboticon : MonoBehaviour {
     {
         Current_tile = selected_tile;
         BonusProduction = new Dictionary<ItemType, int>();
+
+        // Set Bonus Production to base roboticon stats
         BonusProduction[ItemType.Ore] = 0;
         BonusProduction[ItemType.Power] = 0;
     }
