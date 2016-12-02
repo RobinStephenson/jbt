@@ -71,11 +71,11 @@ sealed public class Tile
     /// <summary>
     /// Adds the resources on the tile to the player's inventory
     /// </summary>
-    public void Produce()
-    {
-        //Inventory.AddOre(_Resources[ItemType.Ore]);
-        //Inventory.AddPower(_Resources[ItemType.Power]);
-    }
+    //public void Produce()
+    //{
+    //    Inventory.AddItem(ItemType.Ore, Ore);
+    //    Inventory.AddItem(ItemType.Power, Power);
+    //}
 
     //public void update()
     //{
