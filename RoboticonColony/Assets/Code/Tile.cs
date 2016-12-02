@@ -46,7 +46,7 @@ sealed public class Tile
     /// Adds a roboticon to the tile
     /// </summary>
     /// <param name="newRoboticon">Roboticon to be added</param>
-    //public void addRoboticon(Roboticon newRoboticon)
+    //public void AddRoboticon(Roboticon newRoboticon)
     //{
     //    _Resources[ItemType.Roboticon] = newRoboticon;
     //}
@@ -54,7 +54,7 @@ sealed public class Tile
     /// <summary>
     /// Removes the roboticon from the tile
     /// </summary>
-    //public void removeRoboticon()
+    //public void RemoveRoboticon()
     //{
     //    _Resources[ItemType.Roboticon] = null;
     //}
@@ -63,15 +63,19 @@ sealed public class Tile
     /// Gets the cost of the tile
     /// </summary>
     /// <returns></returns>
-    public int getCost()
+    public int GetCost()
     {
         return _cost;
     }
 
-    //public void produce()
-    //{
-
-    //}
+    /// <summary>
+    /// Adds the resources on the tile to the player's inventory
+    /// </summary>
+    public void Produce()
+    {
+        //Inventory.AddOre(_Resources[ItemType.Ore]);
+        //Inventory.AddPower(_Resources[ItemType.Power]);
+    }
 
     //public void update()
     //{
