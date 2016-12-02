@@ -7,7 +7,9 @@ using UnityEngine;
 /// </summary>
 sealed public class Roboticon : MonoBehaviour {
 
+
     private Tile Current_tile;
+    private RoboticonCustomisation CurrentCusomisation;
 
     /// <summary>
     /// BonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
@@ -47,4 +49,16 @@ sealed public class Roboticon : MonoBehaviour {
     {
         return BonusProduction[resource_type];
     }
+
+
+}
+
+/// <summary>
+/// List of every Roboticon Cusomisation
+/// </summary>
+public enum RoboticonCustomisation
+{
+    Base = 0,
+    Ore,
+    Power,
 }
