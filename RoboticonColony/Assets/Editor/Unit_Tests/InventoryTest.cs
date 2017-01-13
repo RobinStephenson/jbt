@@ -7,22 +7,17 @@ using NUnit;
 public class InventoryTest
 {
     [Test]
-    public void CreateNewRoboticon()
+    public void CreateEmptyInventory()
     {
-
-
         //Create an empty inventory instance
-        Roboticon NewRoboticon = new Roboticon(Current_tile);
+        Inventory inv = new Inventory();
 
         //Check if all resources have initial value set to zero
-        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Ore));
-        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Power));
+        Assert.AreEqual(0, inv.Money);
+        Assert.AreEqual(0, inv.GetItemAmount(ItemType.Ore));
         Assert.AreEqual(0, inv.GetItemAmount(ItemType.Power));
         Assert.AreEqual(0, inv.GetItemAmount(ItemType.Roboticon));
     }
-        
-     
- }
 
     [Test]
     public void CreatePopulatedInventory()
@@ -90,7 +85,7 @@ public class InventoryTest
         //Create two inventories
         Inventory inv1 = new Inventory(8, 2, 3, 4);
         Inventory inv2 = new Inventory(10, 11, 12, 13);
-        
+
         //Attempt to transfer 2 money from inv1 to inv2, which should work
         inv1.TransferMoney(2, inv2);
 
