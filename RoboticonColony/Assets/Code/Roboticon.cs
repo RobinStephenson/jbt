@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,6 +60,9 @@ sealed public class Roboticon : MonoBehaviour {
     /// <returns></returns>
     public int BonusProductionGetter(ItemType resourceType)
     {
+        if (resourceType == ItemType.Roboticon){
+            throw new ArgumentOutOfRangeException("Roboticon not valid production type");
+        }
         return _bonusProduction[resourceType];
     }
 
