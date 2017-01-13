@@ -12,12 +12,12 @@ sealed public class Roboticon : MonoBehaviour {
     /// <summary>
     /// BonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
     /// </summary>
-    public Dictionary<ItemType, int> BonusProduction;
+    private Dictionary<ItemType, int> BonusProduction;
 
     /// <summary>
     /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
     /// </summary>
-    public List<RoboticonCustomisation> CurrentCustomisations;
+    private List<RoboticonCustomisation> CurrentCustomisations;
 
     /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
@@ -52,5 +52,14 @@ sealed public class Roboticon : MonoBehaviour {
     public int BonusProductionGetter(ItemType resource_type)
     {
         return BonusProduction[resource_type];
+    }
+
+    /// <summary>
+    /// Returns the Current Customisations of the roboticon.
+    /// </summary>
+    /// <returns></returns>
+    public List<RoboticonCustomisation> CurrentCustomisationGetter()
+    {
+        return CurrentCustomisations;
     }
 }

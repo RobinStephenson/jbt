@@ -4,25 +4,20 @@ using UnityEditor;
 using NUnit.Framework;
 using NUnit;
 
-public class InventoryTest
+public class RoboticonTest
 {
     [Test]
-    public void CreateNewRoboticon()
+    public void CreateEmptyInventory()
     {
-
-
         //Create an empty inventory instance
-        Roboticon NewRoboticon = new Roboticon(Current_tile);
+        Inventory inv = new Inventory();
 
         //Check if all resources have initial value set to zero
-        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Ore));
-        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Power));
+        Assert.AreEqual(0, inv.Money);
+        Assert.AreEqual(0, inv.GetItemAmount(ItemType.Ore));
         Assert.AreEqual(0, inv.GetItemAmount(ItemType.Power));
         Assert.AreEqual(0, inv.GetItemAmount(ItemType.Roboticon));
     }
-        
-     
- }
 
     [Test]
     public void CreatePopulatedInventory()
