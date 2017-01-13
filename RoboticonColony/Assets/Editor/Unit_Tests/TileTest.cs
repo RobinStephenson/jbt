@@ -19,8 +19,6 @@ public class TileTest {
         Assert.AreEqual(-1, tile.OwnerID);
     }
 
-
-    newrobtiucon = robicon
     [Test]
     ///
     public void ProduceTest()
