@@ -15,6 +15,11 @@ sealed public class Roboticon : MonoBehaviour {
     public Dictionary<ItemType, int> BonusProduction;
 
     /// <summary>
+    /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
+    /// </summary>
+    public List<RoboticonCustomisation> CurrentCustomisations;
+
+    /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
     /// </summary>
     /// <param name="selected_tile"> The Tile that the roboticon is being placed on. </param>
@@ -22,6 +27,7 @@ sealed public class Roboticon : MonoBehaviour {
     {
         Current_tile = selected_tile;
         BonusProduction = new Dictionary<ItemType, int>();
+        CurrentCustomisations = new List<RoboticonCustomisation>();
 
         // Set Bonus Production to base roboticon stats
         BonusProduction[ItemType.Ore] = 0;
