@@ -4,8 +4,8 @@ using UnityEditor;
 using NUnit.Framework;
 using NUnit;
 
-public class TileTest { 
-
+public class TileTest
+{ 
     [Test]
     public void CreateTile()
     {

@@ -13,7 +13,7 @@ sealed public class Tile
     private int _ownerID;
 
     /// <summary>
-    /// Constructor for tile with no owner or roboticon
+    /// Constructor for tile
     /// </summary> 
     /// <param name="cost">Cost of the tile</param>
     /// <param name="ore">Ore that the tile has</param>
@@ -52,7 +52,6 @@ sealed public class Tile
         playerInv.AddItem(ItemType.Ore, Ore);
         playerInv.AddItem(ItemType.Power, Power);
     }
-
 
     public int Ore
     {
