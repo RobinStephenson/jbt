@@ -11,7 +11,7 @@ sealed public class Roboticon : MonoBehaviour {
     /// The current Tile that the roboticon is assigned to. 
     /// Also allows reference to itself to read, not write. 
     /// </summary>
-    public Tile CurrentTile { get; private set; };
+    public Tile CurrentTile { get; private set; }
 
     /// <summary>
     /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
@@ -22,7 +22,7 @@ sealed public class Roboticon : MonoBehaviour {
     /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
     /// Also allows reference to itself to read, not write. 
     /// </summary>
-    public List<RoboticonCustomisation> CurrentCustomisations { get; private set; };
+    public List<RoboticonCustomisation> CurrentCustomisations { get; private set; }
 
     /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
