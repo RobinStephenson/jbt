@@ -13,24 +13,6 @@ sealed public class Tile
     private int _ownerID;
 
     /// <summary>
-    /// Constructor for tile with provided parameters
-    /// </summary>
-    /// <param name="cost">Cost of the tile</param>
-    /// <param name="ore">Ore that the tile has</param>
-    /// <param name="power">Power that the tile has</param>
-    /// <param name="roboticon">Roboticon on the tile, null if no roboticon</param>
-    /// <param name="owner">Owner of the tile</param>
-    //public Tile(int cost, int ore, int power, Roboticon roboticon, Player owner)
-    //{
-    //    _Resources = new Dictionary<ItemType, int>();
-    //    _Resources[ItemType.Ore] = ore;
-    //    _Resources[ItemType.Power] = power;
-    //    _Resources[ItemType.Roboticon] = roboticon;
-    //    _cost = cost;
-    //    _ownerID = owner.PlayerID;
-    //}
-
-    /// <summary>
     /// Constructor for tile with no owner or roboticon
     /// </summary> 
     /// <param name="cost">Cost of the tile</param>
@@ -71,10 +53,6 @@ sealed public class Tile
         playerInv.AddItem(ItemType.Power, Power);
     }
 
-    public void update()
-    {
-
-    }
 
     public int Ore
     {
