@@ -7,59 +7,59 @@ using UnityEngine;
 /// </summary>
 sealed public class Roboticon : MonoBehaviour {
 
-    private Tile Current_tile;
+    /// <summary>
+    /// The current Tile that the roboticon is assigned to. 
+    /// Also allows reference to itself to read, not write. 
+    /// </summary>
+    public Tile CurrentTile { get; private set; };
 
     /// <summary>
-    /// BonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
+    /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
     /// </summary>
-    private Dictionary<ItemType, int> BonusProduction;
+    private Dictionary<ItemType, int> _bonusProduction;
 
     /// <summary>
     /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
+    /// Also allows reference to itself to read, not write. 
     /// </summary>
-    private List<RoboticonCustomisation> CurrentCustomisations;
+    public List<RoboticonCustomisation> CurrentCustomisations { get; private set; };
 
     /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
     /// </summary>
-    /// <param name="selected_tile"> The Tile that the roboticon is being placed on. </param>
-    public Roboticon(Tile selected_tile)
+    /// <param name="selectedTile"> The Tile that the roboticon is being placed on. </param>
+    public Roboticon(Tile selectedTile)
     {
-        Current_tile = selected_tile;
-        BonusProduction = new Dictionary<ItemType, int>();
+        CurrentTile = selectedTile;
+        _bonusProduction = new Dictionary<ItemType, int>();
         CurrentCustomisations = new List<RoboticonCustomisation>();
 
         // Set Bonus Production to base roboticon stats
-        BonusProduction[ItemType.Ore] = 0;
-        BonusProduction[ItemType.Power] = 0;
+        _bonusProduction[ItemType.Ore] = 1;
+        _bonusProduction[ItemType.Power] = 1;
     }
 
+   
+
     /// <summary>
-    /// Customises the roboticon and augments the selected resource type's production. 
+    /// Adds the selectd customisation of type RoboticonCustomisations to the Roboticon.
+    /// Adds selected customisation's resource multiplier to the selected bonus 
     /// </summary>
-    /// <param name="resource_type"> The type of resource to augment (Selected through enum ItemType). </param>
-    /// <param name="production_bonus"> The amount to augment the producition by. </param>
-    public void CustomiseRoboticon(ItemType resource_type, int production_bonus)
+    /// <param name="selectedCustomisation"> An instanciated class of RoboticonCustomisation</param>
+    public void CustomiseRoboticon(RoboticonCustomisation selectedCustomisation)
     {
-        BonusProduction[resource_type] += production_bonus;
+        _bonusProduction[selectedCustomisation.Resource] = selectedCustomisation.BonusMultiplier;
+        CurrentCustomisations.Add(selectedCustomisation);
     }
 
     /// <summary>
     /// Returns the Bonus production of the selected resource
     /// </summary>
-    /// <param name="resource_type"> The resource type selected (enum ItemType) </param>
+    /// <param name="resourceType"> The resource type selected (enum ItemType) </param>
     /// <returns></returns>
-    public int BonusProductionGetter(ItemType resource_type)
+    public int BonusProductionGetter(ItemType resourceType)
     {
-        return BonusProduction[resource_type];
+        return _bonusProduction[resourceType];
     }
 
-    /// <summary>
-    /// Returns the Current Customisations of the roboticon.
-    /// </summary>
-    /// <returns></returns>
-    public List<RoboticonCustomisation> CurrentCustomisationGetter()
-    {
-        return CurrentCustomisations;
-    }
 }

@@ -7,20 +7,20 @@ using NUnit;
 public class RoboticonTest
 {
     [Test]
-    public void CreateEmptyInventory()
+    public void CreateNewRoboticon()
     {
-        //Create an empty inventory instance
-        Inventory inv = new Inventory();
+        Tile current_tile = new Tile();
+        //Create an empty Roboticon instance
+        Roboticon NewRoboticon = new Roboticon(current_tile);
 
         //Check if all resources have initial value set to zero
-        Assert.AreEqual(0, inv.Money);
-        Assert.AreEqual(0, inv.GetItemAmount(ItemType.Ore));
-        Assert.AreEqual(0, inv.GetItemAmount(ItemType.Power));
-        Assert.AreEqual(0, inv.GetItemAmount(ItemType.Roboticon));
+        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Ore));
+        Assert.AreEqual(0, NewRoboticon.BonusProductionGetter(ItemType.Power));
+        Assert.AreEqual(0, NewRoboticon.CurrentCustomisationGetter().Count);
     }
 
     [Test]
-    public void CreatePopulatedInventory()
+    public void SuccessfulCustomiseRoboticon()
     {
         //Create a populated inventory instance
         Inventory inv = new Inventory(4, 3, 2, 1);
