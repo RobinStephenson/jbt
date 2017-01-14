@@ -4,8 +4,7 @@ using System;
 
 public abstract class AbstractPlayer
 {
-    private List<Tile> ownedTiles;
-    private Inventory inventory;
+    protected Inventory inventory;
     protected IInputController input;
 
     public abstract void DoPhaseOne();
@@ -14,8 +13,9 @@ public abstract class AbstractPlayer
     public abstract void DoPhaseFour();
     public abstract void DoPhaseFive();
 
-    protected AbstractPlayer(IInputController inputController)
+    protected AbstractPlayer(IInputController inputController, Inventory inv)
     {
         input = inputController;
+        inventory = inv;
     }
 }
