@@ -38,11 +38,7 @@ sealed class RoboticonFactory
     /// <param name="selectedTile"> The Tile that the roboticon is being placed on. </param>
     public void CreateRoboticon(Tile selectedTile)
     {
-        /// if (CURRENTPHASE = PHASENEEDED) {
         RoboticonList.Add(new Roboticon(selectedTile));
-        /// else {
-        /// throw new Exception("Wrong phase to buy customisation. ")
-        /// }
     }
 
     /// <summary>
@@ -60,25 +56,22 @@ sealed class RoboticonFactory
 
 
     /// <summary>
-    /// If the customisation's prerequisites are met, the player has enough money and it is the correct phase, the customisation will be applied to the selected roboticon. 
+    /// If the customisation's prerequisites are met and the player has enough money, the customisation will be applied to the selected roboticon. 
     /// </summary>
     /// <param name="robo"> Reference to the Roboticon the customisation should be applied to</param>
     /// <param name="custom"> Reference to the Customisation that should be applied to the Roboticon</param>
-    public void BuyCustomisation(Roboticon robo, RoboticonCustomisation custom)
+    public void BuyCustomisation(Roboticon robo, RoboticonCustomisation custom, int curMoney)
     {
         if (customisationRequirementsTest(robo.CurrentCustomisations, custom.Prerequisites))
         {
-            /// if (CURRENTPHASE = PHASENEEDED) {
-            ///     if (Inventory.money > custom.Price) {
-            robo.CurrentCustomisations.Add(custom);
-            robo.SetBonusProduction(custom.ResourceType, custom.BonusMultiplier);
-            ///     }
-            ///     else {
-            ///     throw new Exception("Not enough money in inventory to buy this customisation. ")
-            ///}
-            /// else {
-            /// throw new Exception("Wrong phase to buy customisation. ")
-            /// }
+
+            if (curMoney > custom.Price) {
+                robo.CurrentCustomisations.Add(custom);
+                robo.SetBonusProduction(custom.ResourceType, custom.BonusMultiplier);
+            }
+            else {
+                throw new Exception("Not enough money in inventory to buy this customisation. ");
+            }
         }
         else
         {
