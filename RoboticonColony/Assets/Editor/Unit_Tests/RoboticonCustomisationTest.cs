@@ -19,19 +19,18 @@ public class RoboticonCustomisationTest
         Assert.AreEqual("test", NewCustomisation.Name);
         Assert.AreEqual(2, NewCustomisation.BonusMultiplier);
         Assert.AreEqual(ItemType.Ore, NewCustomisation.ResourceType);
-        Assert.AreEqual(prelist, NewCustomisation.Prerequisite);
+        Assert.AreEqual(prelist, NewCustomisation.Prerequisites);
     }
 
     [Test]
     public void FailedCreateNewRoboticonCustomisation()
     {
 
-        //Create a new RoboticonCustomisation instance
+        //Create a new list of Roboticon Customisations to later instance Roboticon customisation
         List<RoboticonCustomisation> prelist = new List<RoboticonCustomisation>();
-        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, prelist, ItemType.Roboticon);
 
-        //Check to ensure the class initialisation fails when a roboticon is used as the ItemType
-        Assert.True(TestHelper.Throws(() => RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, prelist, ItemType.Roboticon);, typeof(ArgumentOutOfRangeException)));
+        //Check to ensure the class fails when a roboticon is used as the ItemType
+        Assert.True(TestHelper.Throws(() => new RoboticonCustomisation("test", 2, prelist, ItemType.Roboticon), typeof(ArgumentOutOfRangeException)));
     }
 
 }
