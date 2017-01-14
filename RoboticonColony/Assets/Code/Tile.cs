@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Tile : MonoBehaviour {
 
-	// A placeholder
+    // A placeholder
+    public AbstractPlayer Owner;
 
 }
