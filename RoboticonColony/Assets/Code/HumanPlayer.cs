@@ -21,28 +21,28 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// The player may choose to buy a plot of land
     /// </summary>
-    public override void DoPhaseOne(int timeout)
+    /// <param name="timeout">a time for which the phase can run</param>
+    public override void DoPhaseOne(Timeout timeout)
     {
-        Tile chosenTile;
-        bool tileChosen = false;
-        int timeRemaining = timeout;
-        do
+        bool? wishestoPurchase = input.Prompt("Do you wish to purchase a tile?", timeout);
+        if (wishestoPurchase == true)
         {
-            // get the user to choose a tile
-            chosenTile = ChooseTile(timeRemaining);
+            Tile chosenTile;
+            bool tileChosen = false;
+            do
+            {
+                // get the user to choose a tile
+                chosenTile = ChooseTile(timeout);
 
-            // check the tile is now owned by anyone and the user has enough money
-            int tileCost = estateAgent.GetPrice(chosenTile);
-            tileChosen = chosenTile.Owner == null && tileCost <= inventory.Money;
+                // check the tile is now owned by anyone and the user has enough money
+                int tileCost = estateAgent.GetPrice(chosenTile);
+                tileChosen = chosenTile.Owner == null && tileCost <= inventory.Money;
+            } while (!tileChosen && timeout.SecondsRemaining > 0);
 
-            // update time remaining
-
-            // loop until the user has chosen a tile or run out of time
-        } while (!tileChosen && timeRemaining > 0);
-
-        if (tileChosen)
-        {
-            estateAgent.Buy(chosenTile, inventory);
+            if (tileChosen)
+            {
+                estateAgent.Buy(chosenTile, inventory);
+            }
         }
     }
 
