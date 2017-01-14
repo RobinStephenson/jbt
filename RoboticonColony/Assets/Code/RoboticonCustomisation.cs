@@ -21,7 +21,7 @@ public class RoboticonCustomisation {
     /// A variable of type ItemType that holds the resource type of the customisation.
     /// Also allows reference to itself to read, not write. 
     /// </summary>
-    public ItemType Resource { get; private set; }
+    public ItemType ResourceType { get; private set; }
 
     /// <summary>
     /// A list that holds each Prerequisite of type RoboticonCustomisation.
@@ -46,7 +46,7 @@ public class RoboticonCustomisation {
         Name = SelectedName;
         BonusMultiplier = SelectedBonusMultiplier;
         Prerequisites = SelectedPrerequisites;
-        Resource = SelectedResource;
+        ResourceType = SelectedResource;
     }
     
 }
