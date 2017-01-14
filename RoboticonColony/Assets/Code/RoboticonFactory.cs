@@ -20,7 +20,7 @@ sealed class RoboticonFactory
     public List<Roboticon> RoboticonList { get; private set; }
 
     /// <summary>
-    /// Creates a Roboticon Controller class.
+    /// Creates a Roboticon Factory.
     /// </summary>
     public RoboticonFactory()
     {
@@ -70,7 +70,7 @@ sealed class RoboticonFactory
                 robo.SetBonusProduction(custom.ResourceType, custom.BonusMultiplier);
             }
             else {
-                throw new Exception("Not enough money in inventory to buy this customisation. ");
+                throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
             }
         }
         else
