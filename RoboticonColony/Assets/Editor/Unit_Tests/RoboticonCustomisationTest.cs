@@ -30,7 +30,7 @@ public class RoboticonCustomisationTest
         List<RoboticonCustomisation> prelist = new List<RoboticonCustomisation>();
 
         //Check to ensure the class fails when a roboticon is used as the ItemType
-        Assert.True(TestHelper.Throws(() => new RoboticonCustomisation("test", 2, prelist, ItemType.Roboticon), typeof(ArgumentOutOfRangeException)));
+        Assert.True(TestHelper.Throws(() => new RoboticonCustomisation("test", 2, prelist, ItemType.Roboticon), typeof(ArgumentException)));
     }
 
 }
