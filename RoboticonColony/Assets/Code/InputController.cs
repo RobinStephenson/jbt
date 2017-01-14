@@ -71,4 +71,16 @@ public class InputController : MonoBehaviour {
     {
         throw new TimeoutException();
     }
+
+    /// <summary>
+    /// prompt the user to select a tile
+    /// </summary>
+    /// <param name="timeout" >a timeout for the user to choose in</param>
+    /// <exception cref="CancelledException">thrown if the user cancels</exception>
+    /// <exception cref="TimeoutException">thrown if the user runs out of time</exception>
+    /// <returns>the chosen tile or null if the user times out </returns>
+    public Tile ChooseTile(Timeout timeout)
+    {
+        return null;
+    }
 }

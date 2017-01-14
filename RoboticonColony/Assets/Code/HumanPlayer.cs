@@ -42,7 +42,7 @@ public class HumanPlayer : AbstractPlayer
             Tile chosenTile;
             try
             {
-                chosenTile = ChooseTile(timeout);
+                chosenTile = input.ChooseTile(timeout);
             }
             catch (Exception exception)
             {
@@ -201,17 +201,5 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseFive()
     {
 
-    }
-
-    /// <summary>
-    /// prompt the user to select a tile
-    /// </summary>
-    /// <param name="timeout" >a timeout for the user to choose in</param>
-    /// <exception cref="CancelledException">thrown if the user cancels</exception>
-    /// <exception cref="TimeoutException">thrown if the user runs out of time</exception>
-    /// <returns>the chosen tile or null if the user times out </returns>
-    private Tile ChooseTile(Timeout timeout)
-    {
-        return null;
     }
 }
