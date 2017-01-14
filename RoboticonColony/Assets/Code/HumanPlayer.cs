@@ -81,9 +81,9 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// prompt the user to select a tile
     /// </summary>
-    /// <param name="timeout" >the time the user has to choose</param>
+    /// <param name="timeout" >a timeout for the user to choose in</param>
     /// <returns>the chosen tile or null if the user times out </returns>
-    private Tile ChooseTile(int timeout = int.MaxValue)
+    private Tile ChooseTile(Timeout timeout)
     {
         return null;
     }
