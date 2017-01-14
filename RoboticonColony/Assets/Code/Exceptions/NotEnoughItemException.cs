@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class NotEnoughItemException : Exception
+public class NotEnoughItemException : TransactionException
 {
 
     public NotEnoughItemException()

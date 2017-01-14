@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class NotEnoughMoneyException : Exception {
+public class NotEnoughMoneyException : TransactionException {
 
     public NotEnoughMoneyException()
     {
