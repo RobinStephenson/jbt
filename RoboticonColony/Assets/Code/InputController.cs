@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class InputController : MonoBehaviour {
 
@@ -20,10 +22,11 @@ public class InputController : MonoBehaviour {
     /// <param name="trueOption">the option to display which will return true when selected</param>
     /// <param name="falseOption">the option to display which will return false when selected</param>
     /// <param name="timeout">the time the user has to decide</param>
-    /// <returns>true or false based on the users selection, or null if the user times out</returns>
-    public bool? PromptBool(string question, Timeout timeout, string trueOption = "Yes", string falseOption = "No")
+    /// <exception cref="TimeoutException">the user has taken too long</exception>
+    /// <returns>true or false based on the users selection</returns>
+    public bool PromptBool(string question, Timeout timeout, string trueOption = "Yes", string falseOption = "No")
     {
-        return null;
+        throw new TimeoutException();
     }
 
     /// <summary>
@@ -34,9 +37,11 @@ public class InputController : MonoBehaviour {
     /// <param name="min">the minium value the user can choose</param>
     /// <param name="max">the maximum value the user can choose</param>
     /// <param name="cancelable">should the user be able to cancel the prompt</param>
-    /// <returns>the chosen value, or null if the user times out or cancels</returns>
-    public int? PromptInt(string question, Timeout timeout, int min = 0, int max = int.MaxValue, bool cancelable = false)
+    /// <exception cref="CancelledException">the user cancelled the prompt</exception>
+    /// <exception cref="TimeoutException">the user has taken too long</exception>
+    /// <returns>the chosen value</returns>
+    public int PromptInt(string question, Timeout timeout, int min = 0, int max = int.MaxValue, bool cancelable = false)
     {
-        return null;
+        throw new CancelledException();
     }
 }
