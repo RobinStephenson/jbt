@@ -60,4 +60,15 @@ public class InputController : MonoBehaviour {
     {
         throw new CancelledException();
     }
+
+    /// <summary>
+    /// ask the user to confirm they have read a message
+    /// </summary>
+    /// <param name="message">the message for the user to read</param>
+    /// <param name="timeout">how long the user has</param>
+    /// <exception cref="TimeoutException">the user has taken too long</exception>
+    public void Confirm(string message, Timeout timeout)
+    {
+        throw new TimeoutException();
+    }
 }
