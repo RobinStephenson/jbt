@@ -142,6 +142,8 @@ public class HumanPlayer : AbstractPlayer
         }
     }
 
+    private void CustomiseRoboticons(Timeout timeout)
+    {
     }
 
     /// <summary>
