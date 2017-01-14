@@ -75,8 +75,72 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// The player may purchase and customise roboticons
     /// </summary>
-    public override void DoPhaseTwo(int timeout)
+    /// <param name="timeout">a time for which the phase can run</param>
+    public override void DoPhaseTwo(Timeout timeout)
     {
+        PurchaseRoboticons(timeout);
+        if (!timeout.Finished)
+        {
+            CustomiseRoboticons(timeout);
+        }
+        
+    }
+
+    private void PurchaseRoboticons(Timeout timeout)
+    {
+        // ask the user if they want to buy any roboticons
+        bool wishesToPurchase;
+        try
+        {
+            wishesToPurchase = input.PromptBool("Do you wish to look at the markets selection of roboticons?", timeout);
+        }
+        catch (TimeoutException)
+        {
+            return;
+        }
+
+        if (wishesToPurchase)
+        {
+            bool purchaseComplete = false;
+            do
+            {
+                // get the price and quantity of roboticons available from the market
+                int maxQuantity = market.Stock.GetItemAmount(ItemType.Roboticon);
+
+                // get the purchase the player wants to make
+                int quantity;
+                try
+                {
+                    quantity = input.PromptInt(
+                        "How many roboticons do you wish to purchase?",
+                        timeout,
+                        min: 1,
+                        max: maxQuantity,
+                        cancelable: true);
+                }
+                catch (Exception exception)
+                {
+                    if (exception is TimeoutException || exception is CancelledException)
+                    {
+                        return;
+                    }
+                    throw;
+                }
+
+                // try to make the purchase
+                try
+                {
+                    market.Buy(ItemType.Roboticon, quantity, inventory);
+                    purchaseComplete = true;
+                }
+                catch
+                {
+                    // TODO: Create a catch for not enough money
+                    // TODO: Create a catch for not enough stock
+                }
+            } while (!purchaseComplete);
+        }
+    }
 
     }
 
