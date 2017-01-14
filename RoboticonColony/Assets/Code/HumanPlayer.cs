@@ -152,6 +152,30 @@ public class HumanPlayer : AbstractPlayer
 
     private void CustomiseRoboticons(Timeout timeout)
     {
+        bool wishesToCustomise;
+        try
+        {
+            wishesToCustomise = input.PromptBool("Do you wish to customise a roboticon?", timeout);
+        }
+        catch (TimeoutException)
+        {
+            return;
+        }
+        
+        while (wishesToCustomise & !timeout.Finished)
+        {
+
+            // TODO: select roboticon to customise here
+
+            try
+            {
+                wishesToCustomise = input.PromptBool("Do you wish to customise another roboticon?", timeout);
+            }
+            catch (TimeoutException)
+            {
+                return;
+            }
+        }
     }
 
     /// <summary>
