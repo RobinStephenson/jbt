@@ -38,18 +38,7 @@ sealed public class Roboticon {
         bonusProduction[ItemType.Power] = 1;
     }
 
-   
-
-    /// <summary>
-    /// Adds the selectd customisation of type RoboticonCustomisations to the Roboticon.
-    /// Adds selected customisation's resource multiplier to the selected bonus 
-    /// </summary>
-    /// <param name="selectedCustomisation"> An instanciated class of RoboticonCustomisation</param>
-    public void Customise(RoboticonCustomisation selectedCustomisation)
-    {
-        bonusProduction[selectedCustomisation.ResourceType] = selectedCustomisation.BonusMultiplier;
-        CurrentCustomisations.Add(selectedCustomisation);
-    }
+    
 
     /// <summary>
     /// Returns the Bonus production of the selected resource
@@ -62,6 +51,22 @@ sealed public class Roboticon {
             throw new ArgumentException("Roboticon not valid production type");
         }
         return bonusProduction[resourceType];
+    }
+
+    /// <summary>
+    /// Sets the bonus multiplier for the selected resource type
+    /// </summary>
+    /// <param name="resourceType"> The resource type selected (enum ItemType) </param>
+    /// <param name="newVal"> The new value the bonus multiplier should be. </param>
+    /// <returns></returns>
+    public void SetBonusProduction(ItemType resourceType, int newVal)
+    {
+        if (resourceType == ItemType.Roboticon)
+        {
+            throw new ArgumentException("Roboticon not valid production type");
+        }
+
+        bonusProduction[resourceType] = newVal;
     }
 
 }

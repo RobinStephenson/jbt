@@ -14,11 +14,6 @@ sealed class RoboticonFactory
     /// </summary>
     private List<RoboticonCustomisation> customisationsList;
 
-    /// <summary>
-    /// roboticonList is a list of all built Roboticons
-    /// </summary>
-    private List<Roboticon> roboticonList;
-
     public RoboticonFactory()
     {
         customisationsList = null;
@@ -46,5 +41,16 @@ sealed class RoboticonFactory
     public void CreateCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
         customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+    }
+
+    /// <summary>
+    /// Adds the selectd customisation of type RoboticonCustomisations to the Roboticon.
+    /// Adds selected customisation's resource multiplier to the selected bonus 
+    /// </summary>
+    /// <param name="selectedCustomisation"> An instanciated class of RoboticonCustomisation</param>
+    public void Customise(RoboticonCustomisation selectedCustomisation)
+    {
+        bonusProduction[selectedCustomisation.ResourceType] = selectedCustomisation.BonusMultiplier;
+        CurrentCustomisations.Add(selectedCustomisation);
     }
 }
