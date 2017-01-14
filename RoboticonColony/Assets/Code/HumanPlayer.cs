@@ -42,7 +42,7 @@ public class HumanPlayer : AbstractPlayer
             Tile chosenTile;
             try
             {
-                chosenTile = input.ChooseTile(timeout);
+                chosenTile = input.ChooseTile(timeout, true);
             }
             catch (Exception exception)
             {
