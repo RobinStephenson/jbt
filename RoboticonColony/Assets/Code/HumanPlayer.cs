@@ -3,14 +3,18 @@ using System;
 
 public class HumanPlayer : AbstractPlayer
 {
-    EstateAgent estateAgent = new EstateAgent();
-
     /// <summary>
     /// Create a HumanPlayer with the given inputController
     /// </summary>
     /// <param name="inputController">object to gather user input</param>
     /// <param name="inv">a player inventory</param>
-    public HumanPlayer(IInputController inputController, Inventory inv) : base(inputController, inv)
+    /// <param name="market">the market</param>
+    /// <param name="estateAgent">the estate agent</param>
+    public HumanPlayer(
+        InputController inputController,
+        Inventory inv, 
+        Market market,
+        EstateAgent estateAgent) : base(inputController, inv, market, estateAgent)
     {
     }
 
