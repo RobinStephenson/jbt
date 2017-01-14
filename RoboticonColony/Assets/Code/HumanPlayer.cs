@@ -138,10 +138,13 @@ public class HumanPlayer : AbstractPlayer
                     market.Buy(ItemType.Roboticon, quantity, inventory);
                     purchaseComplete = true;
                 }
-                catch
+                catch (NotEnoughMoneyException)
                 {
-                    // TODO: Create a catch for not enough money
-                    // TODO: Create a catch for not enough stock
+                    input.Confirm("You do not have enough money", timeout);
+                }
+                catch (NotEnoughItemException)
+                {
+                    input.Confirm("The market does not have enought stock", timeout);
                 }
             } while (!purchaseComplete);
         }
