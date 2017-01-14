@@ -7,9 +7,9 @@ public abstract class AbstractPlayer
     protected Inventory inventory;
     protected IInputController input;
 
-    public abstract void DoPhaseOne();
-    public abstract void DoPhaseTwo();
-    public abstract void DoPhaseThree();
+    public abstract void DoPhaseOne(int timeout);
+    public abstract void DoPhaseTwo(int timeout);
+    public abstract void DoPhaseThree(int timeout);
     public abstract void DoPhaseFour();
     public abstract void DoPhaseFive();
 
