@@ -1,17 +1,17 @@
 ﻿using System;
 
-public class NotEnoughStockException : Exception
+public class NotEnoughItemException : Exception
 {
 
-    public NotEnoughStockException()
+    public NotEnoughItemException()
     {
     }
 
-    public NotEnoughStockException(string message) : base(message)
+    public NotEnoughItemException(string message) : base(message)
     {
     }
 
-    public NotEnoughStockException(string message, Exception inner) : base(message, inner)
+    public NotEnoughItemException(string message, Exception inner) : base(message, inner)
     {
     }
 }
