@@ -3,13 +3,15 @@ using System;
 
 public class HumanPlayer : AbstractPlayer
 {
+    EstateAgent estateAgent = new EstateAgent();
+
     /// <summary>
     /// Create a HumanPlayer with the given inputController
     /// </summary>
     /// <param name="inputController">object to gather user input</param>
-    public HumanPlayer(IInputController inputController) : base(inputController)
+    /// <param name="inv">a player inventory</param>
+    public HumanPlayer(IInputController inputController, Inventory inv) : base(inputController, inv)
     {
-        input = inputController;
     }
 
     /// <summary>
@@ -17,7 +19,27 @@ public class HumanPlayer : AbstractPlayer
     /// </summary>
     public override void DoPhaseOne()
     {
+        Tile chosenTile;
+        bool tileChosen = false;
+        int timeRemaining = 1;
+        do
+        {
+            // get the user to choose a tile
+            chosenTile = ChooseTile(timeRemaining);
 
+            // check the tile is now owned by anyone and the user has enough money
+            int tileCost = estateAgent.GetPrice(chosenTile);
+            tileChosen = chosenTile.Owner == null && tileCost <= inventory.Money;
+
+            // update time remaining
+
+            // loop until the user has chosen a tile
+        } while (!tileChosen && timeRemaining > 0);
+
+        if (tileChosen)
+        {
+            estateAgent.Buy(chosenTile, inventory);
+        }
     }
 
     /// <summary>
@@ -50,5 +72,15 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseFive()
     {
 
+    }
+
+    /// <summary>
+    /// prompt the user to select a tile
+    /// </summary>
+    /// <param name="timeout">the time the user has to choose</param>
+    /// <returns>the chosen tile or null if the user times out </returns>
+    private Tile ChooseTile(int timeout)
+    {
+        return null;
     }
 }
