@@ -13,13 +13,14 @@ public class RoboticonCustomisationTest
 
         //Create a new RoboticonCustomisation instance
         List<RoboticonCustomisation> prelist = new List<RoboticonCustomisation>();
-        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, prelist, ItemType.Ore);
+        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, prelist, ItemType.Ore, 10);
 
         //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
         Assert.AreEqual("test", NewCustomisation.Name);
         Assert.AreEqual(2, NewCustomisation.BonusMultiplier);
         Assert.AreEqual(ItemType.Ore, NewCustomisation.ResourceType);
         Assert.AreEqual(prelist, NewCustomisation.Prerequisites);
+        Assert.AreEqual(10, NewCustomisation.Price);
     }
 
     [Test]

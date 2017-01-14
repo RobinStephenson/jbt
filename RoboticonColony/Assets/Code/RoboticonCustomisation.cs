@@ -26,13 +26,18 @@ public class RoboticonCustomisation {
     public List<RoboticonCustomisation> Prerequisites { get; private set; }
 
     /// <summary>
+    /// An integer that holds the required money to purchase the customisation.
+    /// </summary>
+    public int Price { get; private set; }
+
+    /// <summary>
     /// Creates an customisation type for roboticons.
     /// </summary>
     /// <param name="SelectedName"> The name of the customisation. </param>
     /// <param name="SelectedBonusMultiplier"> The multiplier which the production will be boosted by. </param>
     /// <param name="SelectedPrerequisites"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="SelectedResource"> The type of resource which the customisation augments. </param>
-    public RoboticonCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource)
+    public RoboticonCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
         if (selectedResource == ItemType.Roboticon)
         {
@@ -43,6 +48,7 @@ public class RoboticonCustomisation {
         BonusMultiplier = bonusMult;
         Prerequisites = prereq;
         ResourceType = selectedResource;
+        Price = reqPrice;
     }
     
 }
