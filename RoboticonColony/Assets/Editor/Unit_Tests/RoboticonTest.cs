@@ -34,7 +34,7 @@ public class RoboticonTest
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Customise the empty roboticon
-        NewRoboticon.CustomiseRoboticon(NewCustomisation);
+        NewRoboticon.Customise(NewCustomisation);
 
         //Check if all resources have the value they were set
         Assert.AreEqual(2, NewRoboticon.GetBonusProduction(ItemType.Ore));
