@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// A Roboticon. Holds all information about the roboticon and facilitates upgrading said roboticon. 
 /// </summary>
-sealed public class Roboticon : MonoBehaviour {
+sealed public class Roboticon {
 
     /// <summary>
     /// The current Tile that the roboticon is assigned to. 

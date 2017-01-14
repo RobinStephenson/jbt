@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoboticonCustomisation : MonoBehaviour {
+public class RoboticonCustomisation {
 
     /// <summary>
     /// String that holds the name of the roboticon customisation.
@@ -37,6 +38,11 @@ public class RoboticonCustomisation : MonoBehaviour {
     /// <param name="SelectedResource"> The type of resource which the customisation augments. </param>
     public RoboticonCustomisation(string SelectedName, int SelectedBonusMultiplier, List<RoboticonCustomisation> SelectedPrerequisites, ItemType SelectedResource)
     {
+        if (SelectedResource == ItemType.Roboticon)
+        {
+            throw new ArgumentOutOfRangeException("Roboticon not valid production type");
+        }
+
         Name = SelectedName;
         BonusMultiplier = SelectedBonusMultiplier;
         Prerequisites = SelectedPrerequisites;
