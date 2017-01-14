@@ -71,7 +71,7 @@ public class MarketTest {
         Inventory playerInv = new Inventory(50, 0, 0, 0);
 
         //Attempt to buy 5 power from the market at the cost of 11 each, more than the player can afford, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Power, 5, playerInv), typeof(ArgumentOutOfRangeException)));
+        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Power, 5, playerInv), typeof(NotEnoughMoneyException)));
 
         //Check if the purchase was successful, which it shouldnt have been, and check if both inventories contain the same amount of power and money
         Assert.AreEqual(7, market.Stock.GetItemAmount(ItemType.Power));
@@ -80,7 +80,7 @@ public class MarketTest {
         Assert.AreEqual(50, playerInv.Money);
 
         //Now try to buy 3 roboticons, when the market only has 2, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Roboticon, 3, playerInv), typeof(ArgumentOutOfRangeException)));
+        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Roboticon, 3, playerInv), typeof(NotEnoughItemException)));
 
         //Check if the purchase was successful, which it shouldnt have been, and check if both inventories contain the same amount of roboticons and money
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));

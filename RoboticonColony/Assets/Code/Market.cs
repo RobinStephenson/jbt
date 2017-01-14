@@ -80,14 +80,14 @@ sealed public class Market
                 //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
                 return this;
             }
-            catch (ArgumentOutOfRangeException)
+            catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
                 Stock.TransferMoney(_buyprice[item] * quantity, playerInventory);
                 throw;
             }
         }
-        catch (ArgumentOutOfRangeException)
+        catch (NotEnoughMoneyException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
@@ -116,14 +116,14 @@ sealed public class Market
                 //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
                 return this;
             }
-            catch (ArgumentOutOfRangeException)
+            catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
                 playerInventory.TransferMoney(_sellprice[item] * quantity, Stock);
                 throw;
             }
         }
-        catch(ArgumentOutOfRangeException)
+        catch(NotEnoughMoneyException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
