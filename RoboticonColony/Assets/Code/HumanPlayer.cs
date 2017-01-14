@@ -83,7 +83,8 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// The player may install/remove roboticons from their owned tiles
     /// </summary>
-    public override void DoPhaseThree(int timeout)
+    /// <param name="timeout">a time for which the phase can run</param>
+    public override void DoPhaseThree(Timeout timeout)
     {
 
     }
