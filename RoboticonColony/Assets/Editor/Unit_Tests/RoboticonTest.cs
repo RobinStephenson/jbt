@@ -23,27 +23,6 @@ public class RoboticonTest
     }
 
     [Test]
-    public void SuccessfulCustomise()
-    {
-        //Create a new RoboticonCustomisation instance
-        List<RoboticonCustomisation> prelist = new List<RoboticonCustomisation>();
-        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, prelist, ItemType.Ore);
-
-        //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-
-        //Customise the empty roboticon
-        NewRoboticon.Customise(NewCustomisation);
-
-        //Check if all resources have the value they were set
-        Assert.AreEqual(2, NewRoboticon.GetBonusProduction(ItemType.Ore));
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
-        Assert.AreEqual(prelist, NewRoboticon.CurrentCustomisations);
-        Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
-    }
-
-    [Test]
     public void SuccessfulGetBonusProduction()
     {
         //Create an empty Roboticon instance
@@ -63,5 +42,27 @@ public class RoboticonTest
 
         //Check to ensure the class fails when a roboticon is used as the ItemType
         Assert.True(TestHelper.Throws(() => NewRoboticon.GetBonusProduction(ItemType.Roboticon), typeof(ArgumentException)));
+    }
+
+    public void SuccessfulSetBonusProduction()
+    {
+        //Create an empty Roboticon instance
+        Tile currentTile = new Tile();
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+        NewRoboticon.SetBonusProduction(ItemType.Ore);
+
+        //Check if all resources have the value they were set
+        Assert.AreEqual(2, NewRoboticon.GetBonusProduction(ItemType.Ore));
+        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
+    }
+
+    public void FailedSetBonusProduction()
+    {
+        //Create an empty Roboticon instance
+        Tile currentTile = new Tile();
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+
+        //Check to ensure the class fails when a roboticon is used as the ItemType
+        Assert.True(TestHelper.Throws(() => NewRoboticon.SetBonusProduction(ItemType.Roboticon), typeof(ArgumentException)));
     }
 }
