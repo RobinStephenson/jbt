@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\AbstractPlayer.cs" />
+    <Compile Include="Assets\Code\AbstractPromptListItem.cs" />
     <Compile Include="Assets\Code\CancelledException.cs" />
     <Compile Include="Assets\Code\EstateAgent.cs" />
     <Compile Include="Assets\Code\HumanPlayer.cs" />
