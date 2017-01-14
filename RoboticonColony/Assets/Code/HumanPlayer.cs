@@ -24,7 +24,7 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="timeout">a time for which the phase can run</param>
     public override void DoPhaseOne(Timeout timeout)
     {
-        bool? wishestoPurchase = input.Prompt("Do you wish to purchase a tile?", timeout);
+        bool? wishestoPurchase = input.PromptBool("Do you wish to purchase a tile?", timeout);
         if (wishestoPurchase == true)
         {
             Tile chosenTile;
