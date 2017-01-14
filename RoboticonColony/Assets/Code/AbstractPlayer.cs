@@ -5,17 +5,21 @@ using System;
 public abstract class AbstractPlayer
 {
     protected Inventory inventory;
-    protected IInputController input;
+    protected InputController input;
+    protected EstateAgent estateAgent;
+    protected Market market;
 
-    public abstract void DoPhaseOne(int timeout);
-    public abstract void DoPhaseTwo(int timeout);
-    public abstract void DoPhaseThree(int timeout);
+    public abstract void DoPhaseOne(Timeout timeout);
+    public abstract void DoPhaseTwo(Timeout timeout);
+    public abstract void DoPhaseThree(Timeout timeout);
     public abstract void DoPhaseFour();
     public abstract void DoPhaseFive();
 
-    protected AbstractPlayer(IInputController inputController, Inventory inv)
+    protected AbstractPlayer(InputController inputController, Inventory inv, Market mark, EstateAgent estate)
     {
         input = inputController;
         inventory = inv;
+        market = mark;
+        estateAgent = estate;
     }
 }
