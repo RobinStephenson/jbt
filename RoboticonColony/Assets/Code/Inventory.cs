@@ -73,7 +73,9 @@ sealed public class Inventory
     public Inventory TransferItem(ItemType item, int quantity, Inventory to)
     {
         if (Items[item] - quantity < 0)
-            throw new ArgumentOutOfRangeException("quantity");
+        {
+            throw new NotEnoughItemException();
+        }
 
         Items[item] -= quantity;
         to.AddItem(item, quantity);
@@ -89,7 +91,9 @@ sealed public class Inventory
     public Inventory TransferMoney(int amount, Inventory to)
     {
         if (Money - amount < 0)
-            throw new ArgumentOutOfRangeException("amount");
+        {
+            throw new NotEnoughMoneyException();
+        }
 
         Money -= amount;
         to.AddMoney(amount);
