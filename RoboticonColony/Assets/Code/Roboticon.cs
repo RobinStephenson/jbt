@@ -10,18 +10,16 @@ sealed public class Roboticon {
 
     /// <summary>
     /// The current Tile that the roboticon is assigned to. 
-    /// Also allows reference to itself to read, not write. 
     /// </summary>
     public Tile CurrentTile { get; private set; }
 
     /// <summary>
     /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
     /// </summary>
-    private Dictionary<ItemType, int> _bonusProduction;
+    private Dictionary<ItemType, int> bonusProduction;
 
     /// <summary>
     /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
-    /// Also allows reference to itself to read, not write. 
     /// </summary>
     public List<RoboticonCustomisation> CurrentCustomisations { get; private set; }
 
@@ -32,12 +30,12 @@ sealed public class Roboticon {
     public Roboticon(Tile selectedTile)
     {
         CurrentTile = selectedTile;
-        _bonusProduction = new Dictionary<ItemType, int>();
+        bonusProduction = new Dictionary<ItemType, int>();
         CurrentCustomisations = new List<RoboticonCustomisation>();
 
         // Set Bonus Production to base roboticon stats
-        _bonusProduction[ItemType.Ore] = 1;
-        _bonusProduction[ItemType.Power] = 1;
+        bonusProduction[ItemType.Ore] = 1;
+        bonusProduction[ItemType.Power] = 1;
     }
 
    
@@ -47,9 +45,9 @@ sealed public class Roboticon {
     /// Adds selected customisation's resource multiplier to the selected bonus 
     /// </summary>
     /// <param name="selectedCustomisation"> An instanciated class of RoboticonCustomisation</param>
-    public void CustomiseRoboticon(RoboticonCustomisation selectedCustomisation)
+    public void Customise(RoboticonCustomisation selectedCustomisation)
     {
-        _bonusProduction[selectedCustomisation.Resource] = selectedCustomisation.BonusMultiplier;
+        bonusProduction[selectedCustomisation.ResourceType] = selectedCustomisation.BonusMultiplier;
         CurrentCustomisations.Add(selectedCustomisation);
     }
 
@@ -58,12 +56,12 @@ sealed public class Roboticon {
     /// </summary>
     /// <param name="resourceType"> The resource type selected (enum ItemType) </param>
     /// <returns></returns>
-    public int BonusProductionGetter(ItemType resourceType)
+    public int GetBonusProduction(ItemType resourceType)
     {
         if (resourceType == ItemType.Roboticon){
-            throw new ArgumentOutOfRangeException("Roboticon not valid production type");
+            throw new ArgumentException("Roboticon not valid production type");
         }
-        return _bonusProduction[resourceType];
+        return bonusProduction[resourceType];
     }
 
 }
