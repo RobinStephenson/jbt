@@ -44,4 +44,20 @@ public class InputController : MonoBehaviour {
     {
         throw new CancelledException();
     }
+
+    /// <summary>
+    /// prompt the user to choose an item from the list
+    /// </summary>
+    /// <typeparam name="T">The type of the list of items which must inherit AbstractPromptListItem</typeparam>
+    /// <param name="question">the questions to display to the user</param>
+    /// <param name="timeout">the time the user has to decide</param>
+    /// <param name="items">the list of items the user can choose from.</param>
+    /// <param name="cancelable">should teh user be able to cancel the prompt</param>
+    /// <exception cref="CancelledException">the user cancelled the prompt</exception>
+    /// <exception cref="TimeoutException">the user has taken too long</exception>
+    /// <returns>the selected item</returns>
+    public T PromptList<T>(string question, Timeout timeout, List<T> items, bool cancelable = false) where T: AbstractPromptListItem
+    {
+        throw new CancelledException();
+    }
 }
