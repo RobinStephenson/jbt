@@ -14,11 +14,22 @@ sealed class RoboticonFactory
     /// </summary>
     private List<RoboticonCustomisation> customisationsList;
 
+    /// <summary>
+    /// RoboticonList is a list of all the roboticons
+    /// </summary>
+    public List<Roboticon> RoboticonList { get; private set; }
+
+    /// <summary>
+    /// Creates a Roboticon Controller class.
+    /// </summary>
     public RoboticonFactory()
     {
         customisationsList = null;
-        roboticonList = null;
+        RoboticonList = null;
 
+        /// Temporary initialisation of customisations, may be done through reading in a file later. 
+        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -27,7 +38,11 @@ sealed class RoboticonFactory
     /// <param name="selectedTile"> The Tile that the roboticon is being placed on. </param>
     public void CreateRoboticon(Tile selectedTile)
     {
-        roboticonList.Add(new Roboticon(selectedTile));
+        /// if (CURRENTPHASE = PHASENEEDED) {
+        RoboticonList.Add(new Roboticon(selectedTile));
+        /// else {
+        /// throw new Exception("Wrong phase to buy customisation. ")
+        /// }
     }
 
     /// <summary>
@@ -38,7 +53,7 @@ sealed class RoboticonFactory
     /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
     /// <param name="reqPrice"> The required price of the customisation. </param>
-    public void CreateCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    private void createCustomisations(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
         customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
