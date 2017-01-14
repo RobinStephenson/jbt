@@ -26,4 +26,25 @@ sealed class RoboticonFactory
 
     }
 
+    /// <summary>
+    /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
+    /// </summary>
+    /// <param name="selectedTile"> The Tile that the roboticon is being placed on. </param>
+    public void CreateRoboticon(Tile selectedTile)
+    {
+        roboticonList.Add(new Roboticon(selectedTile));
+    }
+
+    /// <summary>
+    /// Creates an customisation type for roboticons.
+    /// </summary>
+    /// <param name="SelectedName"> The name of the customisation. </param>
+    /// <param name="SelectedBonusMultiplier"> The multiplier which the production will be boosted by. </param>
+    /// <param name="SelectedPrerequisites"> The list of other customisations which must completed already before this customisation can be applied. </param>
+    /// <param name="SelectedResource"> The type of resource which the customisation augments. </param>
+    /// <param name="reqPrice"> The required price of the customisation. </param>
+    public void CreateCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    {
+        customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+    }
 }
