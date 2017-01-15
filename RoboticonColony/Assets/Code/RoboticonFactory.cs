@@ -143,7 +143,6 @@ sealed class RoboticonFactory
     public RoboticonFactory()
     {
         customisationsList = null;
-        RoboticonList = null;
 
         /// Temporary initialisation of customisations, may be done through reading in a file later. 
         createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
