@@ -161,9 +161,9 @@ sealed public class Market
     /// </summary>
     private void BuyRoboticonOre()
     {
-        if (Stock.GetItemAmount(ItemType.Ore) > _buyprice[ItemType.Roboticon])
+        if (Stock.GetItemAmount(ItemType.Ore) > 0)
         {
-            Stock.AddItem(ItemType.Ore, -_buyprice[ItemType.Roboticon]);
+            Stock.AddItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
         }
         else
