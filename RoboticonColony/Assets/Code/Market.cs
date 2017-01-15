@@ -127,6 +127,9 @@ sealed public class Market
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
+            RoboticonFactory test = new RoboticonFactory();
+            test.test().GetBonusProduction(ItemType.Ore);
         }
     }
+    
 }
