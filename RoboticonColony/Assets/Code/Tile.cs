@@ -44,15 +44,25 @@ sealed public class Tile
     //    _InstalledRoboticon = null;
     //}
 
+    //public void AddPlayer(Player playerID)
+    //{
+    //   _OwnerID = playerID;
+    //}
+
     /// <summary>
-    /// Returns the resources produced by the tile
+    /// Returns the Ore produced by the tile
     /// </summary>
-    public int ProduceOre(Inventory playerInv)
+    /// <returns>Ore</returns>
+    public int ProduceOre()
     {
         return Ore;
     }
 
-    public int ProducePower(Inventory playerInv)
+    /// <summary>
+    /// Returns the Power produced by the tile
+    /// </summary>
+    /// <returns>Power</returns>
+    public int ProducePower()
     {
         return Power;
     }
