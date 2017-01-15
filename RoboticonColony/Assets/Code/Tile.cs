@@ -7,10 +7,9 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    public int OwnerID { get; private set; }
-
+    //public Player OwnerID { get; private set; }
+    //public Roboticon InstalledRoboticon { get; private set; }
     private Dictionary<ItemType, int> _Resources;
-    private int _ownerID;
 
     /// <summary>
     /// Constructor for tile
@@ -24,7 +23,8 @@ sealed public class Tile
         _Resources = new Dictionary<ItemType, int>();
         _Resources[ItemType.Ore] = ore;
         _Resources[ItemType.Power] = power;
-        OwnerID = -1;
+        //_OwnerID = null;
+        //_InstalledRoboticon = null;
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ sealed public class Tile
     /// <param name="newRoboticon">Roboticon to be added</param>
     //public void AddRoboticon(Roboticon newRoboticon)
     //{
-    //    _Resources[ItemType.Roboticon] = newRoboticon;
+    //    _InstalledRoboticon = newRoboticon;
     //}
 
     /// <summary>
@@ -41,16 +41,20 @@ sealed public class Tile
     /// </summary>
     //public void RemoveRoboticon()
     //{
-    //    _Resources[ItemType.Roboticon] = null;
+    //    _InstalledRoboticon = null;
     //}
 
     /// <summary>
-    /// Adds the resources on the tile to the player's inventory
+    /// Returns the resources produced by the tile
     /// </summary>
-    public void Produce(Inventory playerInv)
+    public int ProduceOre(Inventory playerInv)
     {
-        playerInv.AddItem(ItemType.Ore, Ore);
-        playerInv.AddItem(ItemType.Power, Power);
+        return Ore;
+    }
+
+    public int ProducePower(Inventory playerInv)
+    {
+        return Power;
     }
 
     public int Ore
@@ -65,8 +69,8 @@ sealed public class Tile
 
     //public Roboticon InstalledRoboticon
     //{
-    //    get { return _Resources[ItemType.Roboticon]; }
-    //    set { _Resources[ItemType.Roboticon] = value; }
+    //    get { return _Roboticon; }
+    //    set { _Roboticon = value; }
     //}
 
 }
