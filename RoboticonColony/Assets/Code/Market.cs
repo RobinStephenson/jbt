@@ -110,7 +110,7 @@ sealed public class Market
 
             //Attempt to transfer the requested item(s) into the markets inventory.
             try
-            {                
+            {
                 playerInventory.TransferItem(item, quantity, Stock);
 
                 //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
@@ -123,13 +123,82 @@ sealed public class Market
                 throw;
             }
         }
-        catch(ArgumentOutOfRangeException)
+        catch (ArgumentOutOfRangeException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
-            RoboticonFactory test = new RoboticonFactory();
-            test.test().GetBonusProduction(ItemType.Ore);
+
         }
     }
-    
+
+    /// <summary>
+    /// The Roboticon Factory. Handles interactions between all roboticons and the player / market.  
+    /// </summary>
+    public class RoboticonFactory
+    {
+        /// <summary>
+        /// customisationsList is a list of all RoboticonCustomisations
+        /// </summary>
+        public List<RoboticonCustomisation> customisationsList { set; private get; }
+
+        /// <summary>
+        /// Creates a Roboticon Factory.
+        /// </summary>
+        public RoboticonFactory()
+        {
+            customisationsList = null;
+
+            /// Temporary initialisation of customisations, may be done through reading in a file later. 
+            createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+            createCustomisations("Power 1", 2, null, ItemType.Power, 10);
+        }
+
+        /// <summary>
+        /// Creates an customisation type for roboticons.
+        /// </summary>
+        /// <param name="selectedName"> The name of the customisation. </param>
+        /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
+        /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
+        /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
+        /// <param name="reqPrice"> The required price of the customisation. </param>
+        private void createCustomisations(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+        {
+            customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+        }
+
+        /// <summary>
+        /// Adds a roboticon to the specified inventory
+        /// </summary>
+        /// <param name="inv"> The inventory of the player buying a roboticon. </param>
+        public Roboticon BuyRoboticon(Inventory inv)
+        {
+            ///if (inv.Money > PRICE) {
+            ///inv.AddMoney(-PRICE);
+            return new Roboticon();
+            ///}
+            ///else {
+            ///throw new ArgumentException("Not enough money in inventory to buy this roboticon. ");
+        }
+
+        /// <summary>
+        /// Function to buy a specified customisation for the specified roboticon.
+        /// </summary>
+        /// <param name="inv"> The player's inventory</param>
+        /// <param name="customisation"> The selected roboticon customisation</param>
+        /// <param name="roboticon"> The selected Roboticon</param>
+        public void BuyCustomisation(Inventory inv, RoboticonCustomisation customisation, Roboticon roboticon)
+        {
+            if (inv.Money > customisation.Price)
+            {
+                roboticon.addCustomisation(customisation);
+                inv.AddMoney(-customisation.Price);
+            }
+            else
+            {
+                throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+            }
+
+        }
+
+    }
 }
