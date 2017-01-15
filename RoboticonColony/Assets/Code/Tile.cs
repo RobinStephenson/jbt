@@ -8,7 +8,7 @@ sealed public class Tile
 {
     public int Cost { get; private set; }
     public AbstractPlayer Owner { get; private set; }
-    private Roboticon installedRoboticon { get; set; }
+    public Roboticon installedRoboticon { get; private set; }
     private Dictionary<ItemType, int> resources;
 
     /// <summary>
@@ -55,6 +55,7 @@ sealed public class Tile
     /// <returns>Ore</returns>
     public int ProduceOre()
     {
+        //Will apply roboticon multiplier later on
         return Ore;
     }
 
@@ -64,6 +65,7 @@ sealed public class Tile
     /// <returns>Power</returns>
     public int ProducePower()
     {
+        //Will apply roboticon multiplier later on
         return Power;
     }
 
