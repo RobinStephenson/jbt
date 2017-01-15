@@ -60,28 +60,18 @@ public class Roboticon
     public Dictionary<ItemType, int> Production()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
-        if (CurrentTile = null)
-        {
-            return produced;
-        }
-        else
-        {
-            Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
-
-            produced[ItemType.Ore] = CurrentTile.Ore * bonusProduction[ItemType.Ore];
-            produced[ItemType.Power] = CurrentTile.Ore * bonusProduction[ItemType.Power];
-            return produced;
-        }
-        
+        produced[ItemType.Ore] = CurrentTile.Ore * bonusProduction[ItemType.Ore];
+        produced[ItemType.Power] = CurrentTile.Ore * bonusProduction[ItemType.Power];
+        return produced;    
     }
 
     /// <summary>
     /// If the customisation's prerequisites are met the customisation will be applied to the selected roboticon. 
     /// </summary>
     /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
-    public void addCustomisation(RoboticonCustomisation customisation)
+    public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        if (customisationRequirementsTest(CurrentCustomisations, customisation.Prerequisites))
+        if (CustomisationRequirementsTest(CurrentCustomisations, customisation.Prerequisites))
         {
             CurrentCustomisations.Add(customisation);
             bonusProduction[customisation.ResourceType] = customisation.BonusMultiplier;
@@ -101,7 +91,7 @@ public class Roboticon
     /// <param name="completedCustomisations"> List of roboticon customisations already applied to the roboticon</param>
     /// <param name="prerequisites">List of roboticon customisations required to have already been applied to the roboticon</param>
     /// <returns> If within the compled customisations list, every item of prerequisites is present, return True, else return False</returns>
-    private bool customisationRequirementsTest(List<RoboticonCustomisation> completedCustomisations, List<RoboticonCustomisation> prerequisites)
+    private bool CustomisationRequirementsTest(List<RoboticonCustomisation> completedCustomisations, List<RoboticonCustomisation> prerequisites)
     {
         // If the customisation has Prerequisites then...
         if (prerequisites.Count > 0)
@@ -125,16 +115,4 @@ public class Roboticon
         }
     }
 
-    /// <summary>
-    /// Move the Roboticon to the selectedTile
-    /// </summary>
-    /// <param name="selectedTile"> The tile the roboticon should be moved to</param>
-    public void MoveRoboticon(Tile selectedTile)
-    {
-        CurrentTile = selectedTile;
-    }
-
-
-
-    
 }

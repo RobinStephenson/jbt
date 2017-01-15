@@ -15,6 +15,11 @@ sealed public class Market
     private Dictionary<ItemType, int> _sellprice;
 
     /// <summary>
+    /// customisationsList is a list of all RoboticonCustomisations
+    /// </summary>
+    public List<RoboticonCustomisation> customisationsList { set; private get; }
+
+    /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
     /// <param name="stock">The starting stock for the market</param>
@@ -33,11 +38,11 @@ sealed public class Market
         _sellprice[ItemType.Power] = powerSellPrice;
         _sellprice[ItemType.Roboticon] = roboticonSellPrice;
 
-        
 
+        List<RoboticonCustomisation> blankCustomisationList = new List<RoboticonCustomisation>();
         /// Temporary initialisation of customisations, may be done through reading in a file later. 
-        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
-        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
+        createCustomisations("Ore 1", 2, blankCustomisationList, ItemType.Ore, 10);
+        createCustomisations("Power 1", 2, blankCustomisationList, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -138,10 +143,7 @@ sealed public class Market
         }
     }
 
-    /// <summary>
-    /// customisationsList is a list of all RoboticonCustomisations
-    /// </summary>
-    public List<RoboticonCustomisation> customisationsList { set; private get; }
+
 
     /// <summary>
     /// Creates an customisation type for roboticons.
@@ -166,10 +168,6 @@ sealed public class Market
             Stock.AddItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
         }
-        else
-        {
-            throw new ArgumentException("Not enough ore in stock to buy this roboticon. ");
-        }
     }
 
     /// <summary>
@@ -182,7 +180,7 @@ sealed public class Market
     {
         if (inv.Money > customisation.Price)
         {
-            roboticon.addCustomisation(customisation);
+            roboticon.AddCustomisation(customisation);
             inv.AddMoney(-customisation.Price);
         }
         else
