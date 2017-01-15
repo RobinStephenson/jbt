@@ -7,9 +7,9 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    public Player OwnerID { get; private set; }
-    public Roboticon InstalledRoboticon { get; private set; }
-    private Dictionary<ItemType, int> _Resources;
+    public AbstractPlayer Owner { get; private set; }
+    private Roboticon installedRoboticon { get; set; }
+    private Dictionary<ItemType, int> resources;
 
     /// <summary>
     /// Constructor for tile
@@ -20,11 +20,11 @@ sealed public class Tile
     public Tile(int cost, int ore, int power)
     {
         Cost = cost;
-        _Resources = new Dictionary<ItemType, int>();
-        _Resources[ItemType.Ore] = ore;
-        _Resources[ItemType.Power] = power;
-        //_OwnerID = null;
-        //_InstalledRoboticon = null;
+        resources = new Dictionary<ItemType, int>();
+        resources[ItemType.Ore] = ore;
+        resources[ItemType.Power] = power;
+        Owner = null;
+        installedRoboticon = null;
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ sealed public class Tile
     /// <param name="newRoboticon">Roboticon to be added</param>
     public void AddRoboticon(Roboticon newRoboticon)
     {
-        _InstalledRoboticon = newRoboticon;
+        installedRoboticon = newRoboticon;
     }
 
     /// <summary>
@@ -41,12 +41,12 @@ sealed public class Tile
     /// </summary>
     public void RemoveRoboticon()
     {
-        _InstalledRoboticon = null;
+        installedRoboticon = null;
     }
 
-    public void AddPlayer(Player playerID)
+    public void AddPlayer(Player player)
     {
-        _OwnerID = playerID;
+        Owner = player;
     }
 
     /// <summary>
@@ -69,18 +69,18 @@ sealed public class Tile
 
     public int Ore
     {
-        get { return _Resources[ItemType.Ore]; }
+        get { return resources[ItemType.Ore]; }
     }
 
     public int Power
     {
-        get { return _Resources[ItemType.Ore]; }
+        get { return resources[ItemType.Ore]; }
     }
 
     public Roboticon InstalledRoboticon
     {
-        get { return _Roboticon; }
-        set { _Roboticon = value; }
+        get { return installedRoboticon; }
+        set { installedRoboticon = value; }
     }
 
 }
