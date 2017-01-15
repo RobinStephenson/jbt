@@ -7,8 +7,8 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    //public Player OwnerID { get; private set; }
-    //public Roboticon InstalledRoboticon { get; private set; }
+    public Player OwnerID { get; private set; }
+    public Roboticon InstalledRoboticon { get; private set; }
     private Dictionary<ItemType, int> _Resources;
 
     /// <summary>
@@ -31,23 +31,23 @@ sealed public class Tile
     /// Adds a roboticon to the tile
     /// </summary>
     /// <param name="newRoboticon">Roboticon to be added</param>
-    //public void AddRoboticon(Roboticon newRoboticon)
-    //{
-    //    _InstalledRoboticon = newRoboticon;
-    //}
+    public void AddRoboticon(Roboticon newRoboticon)
+    {
+        _InstalledRoboticon = newRoboticon;
+    }
 
     /// <summary>
     /// Removes the roboticon from the tile
     /// </summary>
-    //public void RemoveRoboticon()
-    //{
-    //    _InstalledRoboticon = null;
-    //}
+    public void RemoveRoboticon()
+    {
+        _InstalledRoboticon = null;
+    }
 
-    //public void AddPlayer(Player playerID)
-    //{
-    //   _OwnerID = playerID;
-    //}
+    public void AddPlayer(Player playerID)
+    {
+        _OwnerID = playerID;
+    }
 
     /// <summary>
     /// Returns the Ore produced by the tile
@@ -77,10 +77,10 @@ sealed public class Tile
         get { return _Resources[ItemType.Ore]; }
     }
 
-    //public Roboticon InstalledRoboticon
-    //{
-    //    get { return _Roboticon; }
-    //    set { _Roboticon = value; }
-    //}
+    public Roboticon InstalledRoboticon
+    {
+        get { return _Roboticon; }
+        set { _Roboticon = value; }
+    }
 
 }
