@@ -157,31 +157,6 @@ sealed public class Market
     }
 
     /// <summary>
-    /// Adds a roboticon to the specified inventory
-    /// </summary>
-    /// <param name="inv"> The inventory of the player buying a roboticon. </param>
-    public Roboticon BuyRoboticonMoney(Inventory inv)
-    {
-        if (inv.Money > _buyprice[ItemType.Roboticon])
-        {
-            if (Stock.GetItemAmount(ItemType.Roboticon) > 0)
-            {
-                inv.AddMoney(-_sellprice[ItemType.Roboticon]);
-                Stock.AddItem(ItemType.Roboticon, -1);
-                return new Roboticon();
-            }
-            else
-            {
-                throw new ArgumentException("Not enough stock in market to buy this roboticon. ");
-            }
-        }
-        else
-        {
-            throw new ArgumentException("Not enough money in inventory to buy this roboticon. ");
-        }
-    }
-
-    /// <summary>
     /// Adds a roboticon to the market stock.
     /// </summary>
     private void BuyRoboticonOre()

@@ -134,13 +134,7 @@ public class Roboticon
         CurrentTile = selectedTile;
     }
 
-    /// <summary>
-    /// Remove the Roboticon from the selected tile.
-    /// </summary>
-    public void RemoveRoboticon()
-    {
-        CurrentTile = null;
-    }
+
 
     
 }
