@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class RoboticonCustomisation {
+
+/// <summary>
+/// A Customisation for roboticons. Holds all information about 
+/// </summary>
+sealed public class RoboticonCustomisation
+{
 
     /// <summary>
     /// String that holds the name of the roboticon customisation.
@@ -37,6 +40,7 @@ public class RoboticonCustomisation {
     /// <param name="SelectedBonusMultiplier"> The multiplier which the production will be boosted by. </param>
     /// <param name="SelectedPrerequisites"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="SelectedResource"> The type of resource which the customisation augments. </param>
+    /// <param name="reqPrice"> The required price of the customisation. </param>
     public RoboticonCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
         if (selectedResource == ItemType.Roboticon)
@@ -50,5 +54,5 @@ public class RoboticonCustomisation {
         ResourceType = selectedResource;
         Price = reqPrice;
     }
-    
+
 }
