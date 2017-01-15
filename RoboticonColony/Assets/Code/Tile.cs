@@ -77,10 +77,4 @@ sealed public class Tile
         get { return resources[ItemType.Ore]; }
     }
 
-    public Roboticon InstalledRoboticon
-    {
-        get { return installedRoboticon; }
-        set { installedRoboticon = value; }
-    }
-
 }
