@@ -17,7 +17,7 @@ public class Roboticon
     /// <summary>
     /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
     /// </summary>
-    private Dictionary<ItemType, int> bonusProduction;
+    private Dictionary<ItemType, int> productionMultiplier;
 
     /// <summary>
     /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
@@ -30,12 +30,12 @@ public class Roboticon
     public Roboticon()
     {
         CurrentTile = null;
-        bonusProduction = new Dictionary<ItemType, int>();
+        productionMultiplier = new Dictionary<ItemType, int>();
         CurrentCustomisations = new List<RoboticonCustomisation>();
 
         // Set Bonus Production to base roboticon stats
-        bonusProduction[ItemType.Ore] = 1;
-        bonusProduction[ItemType.Power] = 1;
+        productionMultiplier[ItemType.Ore] = 1;
+        productionMultiplier[ItemType.Power] = 1;
     }
 
     /// <summary>
@@ -45,12 +45,12 @@ public class Roboticon
     public Roboticon(Tile selectedTile)
     {
         CurrentTile = selectedTile;
-        bonusProduction = new Dictionary<ItemType, int>();
+        productionMultiplier = new Dictionary<ItemType, int>();
         CurrentCustomisations = new List<RoboticonCustomisation>();
 
         // Set Bonus Production to base roboticon stats
-        bonusProduction[ItemType.Ore] = 1;
-        bonusProduction[ItemType.Power] = 1;
+        productionMultiplier[ItemType.Ore] = 1;
+        productionMultiplier[ItemType.Power] = 1;
     }
 
     /// <summary>
@@ -60,8 +60,8 @@ public class Roboticon
     public Dictionary<ItemType, int> Production()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
-        produced[ItemType.Ore] = CurrentTile.Ore * bonusProduction[ItemType.Ore];
-        produced[ItemType.Power] = CurrentTile.Ore * bonusProduction[ItemType.Power];
+        produced[ItemType.Ore] = CurrentTile.Ore * productionMultiplier[ItemType.Ore];
+        produced[ItemType.Power] = CurrentTile.Ore * productionMultiplier[ItemType.Power];
         return produced;    
     }
 
@@ -71,10 +71,10 @@ public class Roboticon
     /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        if (CustomisationRequirementsTest(CurrentCustomisations, customisation.Prerequisites))
+        if (SatisfiesRequirements(CurrentCustomisations, customisation.Prerequisites))
         {
             CurrentCustomisations.Add(customisation);
-            bonusProduction[customisation.ResourceType] = customisation.BonusMultiplier;
+            productionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
             
 
         }
@@ -91,7 +91,7 @@ public class Roboticon
     /// <param name="completedCustomisations"> List of roboticon customisations already applied to the roboticon</param>
     /// <param name="prerequisites">List of roboticon customisations required to have already been applied to the roboticon</param>
     /// <returns> If within the compled customisations list, every item of prerequisites is present, return True, else return False</returns>
-    private bool CustomisationRequirementsTest(List<RoboticonCustomisation> completedCustomisations, List<RoboticonCustomisation> prerequisites)
+    private bool SatisfiesRequirements(List<RoboticonCustomisation> completedCustomisations, List<RoboticonCustomisation> prerequisites)
     {
         // If the customisation has Prerequisites then...
         if (prerequisites.Count > 0)
