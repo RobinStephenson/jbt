@@ -85,6 +85,8 @@ public class Roboticon
         {
             CurrentCustomisations.Add(customisation);
             bonusProduction[customisation.ResourceType] = customisation.BonusMultiplier;
+            
+
         }
         else
         {

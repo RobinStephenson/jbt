@@ -23,6 +23,7 @@ sealed public class Market
         Stock = stock;
         _buyprice = new Dictionary<ItemType, int>();
         _sellprice = new Dictionary<ItemType, int>();
+        customisationsList = null;
 
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         _buyprice[ItemType.Ore] = oreBuyPrice;
@@ -31,6 +32,12 @@ sealed public class Market
         _sellprice[ItemType.Ore] = oreSellPrice;
         _sellprice[ItemType.Power] = powerSellPrice;
         _sellprice[ItemType.Roboticon] = roboticonSellPrice;
+
+        
+
+        /// Temporary initialisation of customisations, may be done through reading in a file later. 
+        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -132,73 +139,82 @@ sealed public class Market
     }
 
     /// <summary>
-    /// The Roboticon Factory. Handles interactions between all roboticons and the player / market.  
+    /// customisationsList is a list of all RoboticonCustomisations
     /// </summary>
-    public class RoboticonFactory
+    public List<RoboticonCustomisation> customisationsList { set; private get; }
+
+    /// <summary>
+    /// Creates an customisation type for roboticons.
+    /// </summary>
+    /// <param name="selectedName"> The name of the customisation. </param>
+    /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
+    /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
+    /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
+    /// <param name="reqPrice"> The required price of the customisation. </param>
+    private void createCustomisations(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
-        /// <summary>
-        /// customisationsList is a list of all RoboticonCustomisations
-        /// </summary>
-        public List<RoboticonCustomisation> customisationsList { set; private get; }
+        customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+    }
 
-        /// <summary>
-        /// Creates a Roboticon Factory.
-        /// </summary>
-        public RoboticonFactory()
+    /// <summary>
+    /// Adds a roboticon to the specified inventory
+    /// </summary>
+    /// <param name="inv"> The inventory of the player buying a roboticon. </param>
+    public Roboticon BuyRoboticonMoney(Inventory inv)
+    {
+        if (inv.Money > _buyprice[ItemType.Roboticon])
         {
-            customisationsList = null;
-
-            /// Temporary initialisation of customisations, may be done through reading in a file later. 
-            createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
-            createCustomisations("Power 1", 2, null, ItemType.Power, 10);
-        }
-
-        /// <summary>
-        /// Creates an customisation type for roboticons.
-        /// </summary>
-        /// <param name="selectedName"> The name of the customisation. </param>
-        /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
-        /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
-        /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
-        /// <param name="reqPrice"> The required price of the customisation. </param>
-        private void createCustomisations(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
-        {
-            customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
-        }
-
-        /// <summary>
-        /// Adds a roboticon to the specified inventory
-        /// </summary>
-        /// <param name="inv"> The inventory of the player buying a roboticon. </param>
-        public Roboticon BuyRoboticon(Inventory inv)
-        {
-            ///if (inv.Money > PRICE) {
-            ///inv.AddMoney(-PRICE);
-            return new Roboticon();
-            ///}
-            ///else {
-            ///throw new ArgumentException("Not enough money in inventory to buy this roboticon. ");
-        }
-
-        /// <summary>
-        /// Function to buy a specified customisation for the specified roboticon.
-        /// </summary>
-        /// <param name="inv"> The player's inventory</param>
-        /// <param name="customisation"> The selected roboticon customisation</param>
-        /// <param name="roboticon"> The selected Roboticon</param>
-        public void BuyCustomisation(Inventory inv, RoboticonCustomisation customisation, Roboticon roboticon)
-        {
-            if (inv.Money > customisation.Price)
+            if (Stock.GetItemAmount(ItemType.Roboticon) > 0)
             {
-                roboticon.addCustomisation(customisation);
-                inv.AddMoney(-customisation.Price);
+                inv.AddMoney(-_sellprice[ItemType.Roboticon]);
+                Stock.AddItem(ItemType.Roboticon, -1);
+                return new Roboticon();
             }
             else
             {
-                throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+                throw new ArgumentException("Not enough stock in market to buy this roboticon. ");
             }
+        }
+        else
+        {
+            throw new ArgumentException("Not enough money in inventory to buy this roboticon. ");
+        }
+    }
 
+    /// <summary>
+    /// Adds a roboticon to the market stock.
+    /// </summary>
+    private void BuyRoboticonOre()
+    {
+        if (Stock.GetItemAmount(ItemType.Ore) > _buyprice[ItemType.Roboticon])
+        {
+            Stock.AddItem(ItemType.Ore, -_buyprice[ItemType.Roboticon]);
+            Stock.AddItem(ItemType.Roboticon, 1);
+        }
+        else
+        {
+            throw new ArgumentException("Not enough ore in stock to buy this roboticon. ");
+        }
+    }
+
+    /// <summary>
+    /// Function to buy a specified customisation for the specified roboticon.
+    /// </summary>
+    /// <param name="inv"> The player's inventory</param>
+    /// <param name="customisation"> The selected roboticon customisation</param>
+    /// <param name="roboticon"> The selected Roboticon</param>
+    public void BuyCustomisation(Inventory inv, RoboticonCustomisation customisation, Roboticon roboticon)
+    {
+        if (inv.Money > customisation.Price)
+        {
+            roboticon.addCustomisation(customisation);
+            inv.AddMoney(-customisation.Price);
+        }
+        else
+        {
+            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
         }
 
     }
+   
 }
