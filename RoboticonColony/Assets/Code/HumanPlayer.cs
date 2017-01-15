@@ -25,10 +25,10 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseOne(Timeout timeout)
     {
         // does the player want to buy a tile?
-        bool wishesToPurchase = false;
+        bool WishesToPurchase = false;
         try
         {
-            wishesToPurchase = input.PromptBool("Do you wish to purchase a tile?", timeout);
+            WishesToPurchase = Input.PromptBool("Do you wish to purchase a tile?", timeout);
         }
         catch (TimeoutException)
         {
@@ -36,13 +36,13 @@ public class HumanPlayer : AbstractPlayer
         }
 
         // loop until timeout, cancel, or tile purchased
-        while (wishesToPurchase)
+        while (WishesToPurchase)
         {
             // get the user to choose a tile to buy
-            Tile chosenTile;
+            Tile ChosenTile;
             try
             {
-                chosenTile = input.ChooseTile(timeout, true);
+                ChosenTile = Input.ChooseTile(timeout, true);
             }
             catch (Exception exception)
             {
@@ -56,8 +56,8 @@ public class HumanPlayer : AbstractPlayer
             // try to buy the tile
             try
             {
-                estateAgent.Buy(chosenTile, inventory);
-                wishesToPurchase = false;
+                EstateAgent.Buy(ChosenTile, Inventory);
+                WishesToPurchase = false;
             }
             catch (TimeoutException)
             {
@@ -89,38 +89,38 @@ public class HumanPlayer : AbstractPlayer
     private void PurchaseRoboticons(Timeout timeout)
     {
         // ask the user if they want to buy any roboticons
-        bool wishesToPurchase;
+        bool WishesToPurchase;
         try
         {
-            wishesToPurchase = input.PromptBool("Do you wish to look at the markets selection of roboticons?", timeout);
+            WishesToPurchase = Input.PromptBool("Do you wish to look at the markets selection of roboticons?", timeout);
         }
         catch (TimeoutException)
         {
             return;
         }
 
-        if (wishesToPurchase)
+        if (WishesToPurchase)
         {
             // get the price and quantity of roboticons available from the market
-            int roboticonPrice = market.GetBuyPrice(ItemType.Roboticon);
-            int quantityInMarket = market.Stock.GetItemAmount(ItemType.Roboticon);
+            int RoboticonPrice = Market.GetBuyPrice(ItemType.Roboticon);
+            int QuantityInMarket = Market.Stock.GetItemAmount(ItemType.Roboticon);
 
             // work out the maximimum number of roboticons a player can buy
-            int quantityPlayerCanAfford = inventory.Money / roboticonPrice;
-            int maxQuantity = Math.Min(quantityInMarket, quantityPlayerCanAfford);
+            int QuantityPlayerCanAfford = Inventory.Money / RoboticonPrice;
+            int MaxQuantity = Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
 
-            bool purchaseComplete = false;
+            bool PurchaseComplete = false;
             do
             {
                 // get the number of roboticons te player wants to buy
-                int quantity;
+                int Quantity;
                 try
                 {
-                    quantity = input.PromptInt(
-                        String.Format("How many roboticons do you wish to purchase? £{0} per roboticon", roboticonPrice),
+                    Quantity = Input.PromptInt(
+                        String.Format("How many roboticons do you wish to purchase? £{0} per roboticon", RoboticonPrice),
                         timeout,
                         min: 1,
-                        max: maxQuantity,
+                        max: MaxQuantity,
                         cancelable: true);
                 }
                 catch (Exception exception)
@@ -135,41 +135,41 @@ public class HumanPlayer : AbstractPlayer
                 // try to make the purchase
                 try
                 {
-                    market.Buy(ItemType.Roboticon, quantity, inventory);
-                    purchaseComplete = true;
+                    Market.Buy(ItemType.Roboticon, Quantity, Inventory);
+                    PurchaseComplete = true;
                 }
                 catch (NotEnoughMoneyException)
                 {
-                    input.Confirm("You do not have enough money", timeout);
+                    Input.Confirm("You do not have enough money", timeout);
                 }
                 catch (NotEnoughItemException)
                 {
-                    input.Confirm("The market does not have enought stock", timeout);
+                    Input.Confirm("The market does not have enought stock", timeout);
                 }
-            } while (!purchaseComplete);
+            } while (!PurchaseComplete);
         }
     }
 
     private void CustomiseRoboticons(Timeout timeout)
     {
-        bool wishesToCustomise;
+        bool WishesToCustomise;
         try
         {
-            wishesToCustomise = input.PromptBool("Do you wish to customise a roboticon?", timeout);
+            WishesToCustomise = Input.PromptBool("Do you wish to customise a roboticon?", timeout);
         }
         catch (TimeoutException)
         {
             return;
         }
         
-        while (wishesToCustomise & !timeout.Finished)
+        while (WishesToCustomise & !timeout.Finished)
         {
 
-            // TODO: select roboticon to customise here
+            // TODO: select roboticon to customise from a list here
 
             try
             {
-                wishesToCustomise = input.PromptBool("Do you wish to customise another roboticon?", timeout);
+                WishesToCustomise = Input.PromptBool("Do you wish to customise another roboticon?", timeout);
             }
             catch (TimeoutException)
             {
