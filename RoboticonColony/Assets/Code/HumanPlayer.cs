@@ -140,14 +140,6 @@ public class HumanPlayer : AbstractPlayer
 
         if (WishesToPurchase)
         {
-            // get the price and quantity of roboticons available from the market
-            int RoboticonPrice = Market.GetBuyPrice(ItemType.Roboticon);
-            int QuantityInMarket = Market.Stock.GetItemAmount(ItemType.Roboticon);
-
-            // work out the maximimum number of roboticons a player can buy
-            int QuantityPlayerCanAfford = Inventory.Money / RoboticonPrice;
-            int MaxQuantity = Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
-
             bool PurchaseComplete = false;
             do
             {
@@ -156,7 +148,7 @@ public class HumanPlayer : AbstractPlayer
                 try
                 {
                     Quantity = Input.PromptInt(
-                        String.Format("How many roboticons do you wish to purchase? £{0} per roboticon", RoboticonPrice),
+                        String.Format("How many roboticons do you wish to purchase? £{0} per roboticon", Market.GetBuyPrice(ItemType.Roboticon)),
                         timeout,
                         min: 1,
                         max: MaxQuantity,
@@ -240,5 +232,16 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseFive()
     {
 
+    /// <summary>
+    /// the maximum quanitity of an item a player can buy based on market stock and player money
+    /// </summary>
+    /// <param name="item">the item the being bought</param>
+    /// <returns>the maximum quantity</returns>
+    private int MaxQuantityPlayerCanBuy(ItemType item)
+    {
+        int ItemPrice = Market.GetBuyPrice(ItemType.Roboticon);
+        int QuantityInMarket = Market.Stock.GetItemAmount(item);
+        int QuantityPlayerCanAfford = Inventory.Money / ItemPrice;
+        return Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
     }
 }
