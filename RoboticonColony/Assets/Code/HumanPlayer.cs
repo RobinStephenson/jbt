@@ -281,6 +281,52 @@ public class HumanPlayer : AbstractPlayer
             }
         }
     }
+
+    private void InstallRoboticons(Timeout timeout)
+    {
+        // doest the user want to install a roboticon?
+        bool WishesToInstall;
+        try
+        {
+            WishesToInstall = Input.PromptBool("Would you like to install a roboticon on any of your tiles?", timeout);
+        }
+        catch (TimeoutException)
+        {
+            return;
+        }
+        while (WishesToInstall)
+        {
+            // where does the user want to install the roboticon
+            Tile ChosenTile;
+            try
+            {
+                ChosenTile = Input.ChooseTile(timeout, true);
+            }
+            catch (Exception exception)
+            {
+                if (exception is TimeoutException || exception is CancelledException)
+                {
+                    return;
+                }
+                throw;
+            }
+
+            // TODO: RemoveRoboticon should also set the installedOnTile field in the roboticon field to null
+            // And vice versa if we have a roboticon.removefromtile method
+            ChosenTile.RemoveRoboticon();
+
+            // does the user want to install another roboticon
+            try
+            {
+                WishesToInstall = Input.PromptBool("Would you like to install another?", timeout);
+            }
+            catch (TimeoutException)
+            {
+                return;
+            }
+        }
+    }
+
     /// <summary>
     /// Show the player their inventory after the colony has produced
     /// </summary>
