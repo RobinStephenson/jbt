@@ -408,6 +408,11 @@ public class HumanPlayer : AbstractPlayer
         return Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
     }
 
+    /// <summary>
+    /// the maximum quantity of an item a player can sell to the market, based on user stock and market ruless
+    /// </summary>
+    /// <param name="item">the item being sold</param>
+    /// <returns>the maximum quantity</returns>
     private int MaxQuantityPlayerCanSell(ItemType item)
     {
         // TODO: Create a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
