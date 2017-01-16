@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 
 public class HumanPlayer : AbstractPlayer
 {
@@ -231,6 +230,9 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="timeout">a time for which the phase can run</param>
     public override void DoPhaseThree(Timeout timeout)
     {
+        // remove roboticons frist so that the player can then install them elsewhere
+        // TODO: check the player actually has some roboticons installed
+        RemoveRoboticons(timeout);
 
         if (!timeout.Finished && Inventory.GetItemAmount(ItemType.Roboticon) >= 1)
         {
@@ -238,6 +240,7 @@ public class HumanPlayer : AbstractPlayer
         }
     }
 
+    // TODO see if this can be combined with InstallRoboticons
     private void RemoveRoboticons(Timeout timeout)
     {
         // doest the user want to remove a roboticon?
@@ -267,7 +270,6 @@ public class HumanPlayer : AbstractPlayer
                 throw;
             }
 
-            // TODO: check whether we should add it back into the inventory or whether this happens automatically
             ChosenTile.RemoveRoboticon();
 
             // does the user want to remove another roboticon
@@ -311,9 +313,9 @@ public class HumanPlayer : AbstractPlayer
                 throw;
             }
 
-            // TODO: RemoveRoboticon should also set the installedOnTile field in the roboticon field to null
-            // And vice versa if we have a roboticon.removefromtile method
-            ChosenTile.RemoveRoboticon();
+            // TODO which roboticon does the user want to install?
+            Roboticon ChosenRoboticon = new Roboticon();
+            ChosenTile.InstallRoboticon(ChosenRoboticon);
 
             // does the user want to install another roboticon
             try
@@ -332,7 +334,14 @@ public class HumanPlayer : AbstractPlayer
     /// </summary>
     public override void DoPhaseFour()
     {
-        
+        // TODO
+        // for each tile
+        // for each roboticon
+        // for each resource
+        // add to the total production
+        // display
+
+        Input.Confirm("Your colony produced XYZ this turn");
     }
 
     /// <summary>
