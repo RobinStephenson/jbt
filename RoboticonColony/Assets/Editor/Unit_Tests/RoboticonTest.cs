@@ -8,10 +8,23 @@ using System.Collections.Generic;
 public class RoboticonTest
 {
     [Test]
-    public void CreateNewRoboticon()
+    public void CreateNewRoboticonEmpty()
     {
 
         //Create an empty Roboticon instance
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+
+        //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
+        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Ore));
+        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
+        Assert.AreEqual(0, NewRoboticon.CurrentCustomisations.Count);
+        Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
+    }
+
+    public void CreateNewRoboticon()
+    {
+
+        //Create a Roboticon instance
         Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
 

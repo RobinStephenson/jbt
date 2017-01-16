@@ -24,19 +24,6 @@ public class Roboticon
     /// </summary>
     public RoboticonCustomisation CurrentCustomisation { get; private set; }
 
-    /// <summary>
-    /// Create an Roboticon instance with no CurrentTile.
-    /// </summary>
-    public Roboticon()
-    {
-        CurrentTile = null;
-        productionMultiplier = new Dictionary<ItemType, int>();
-        CurrentCustomisation = null;
-
-        // Set Bonus Production to base roboticon stats
-        productionMultiplier[ItemType.Ore] = 1;
-        productionMultiplier[ItemType.Power] = 1;
-    }
 
     /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
