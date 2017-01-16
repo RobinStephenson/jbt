@@ -340,6 +340,54 @@ public class HumanPlayer : AbstractPlayer
     /// </summary>
     public override void DoPhaseFive()
     {
+        bool WishesToBuyOrSell = Input.PromptBool("Would you like to go to the market?");
+        while (WishesToBuyOrSell)
+        {
+            // TODO
+            // display a list of resources with buy/sell prices
+            // ...choose which resource the player wants to buy/sell
+            // ...temorarily set as ore to stop error messages
+            ItemType TransactionItem = ItemType.Ore;
+
+            // does the player want to buy or sell the resource?
+            bool ChoseToBuy = Input.PromptBool("Do you want to buy or sell?", trueOption: "Buy", falseOption: "Sell");
+            if (ChoseToBuy)
+            {
+                int MaxQuantity = MaxQuantityPlayerCanBuy(TransactionItem);
+                int ChosenQuantity = 0;
+                try
+                {
+                     ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
+                }
+                catch (CancelledException)
+                {
+                }
+                if (ChosenQuantity > 0)
+                {
+                    Market.Buy(TransactionItem, ChosenQuantity, Inventory);
+                }
+            }
+            else
+            {
+                // The user chose to sell
+                int MaxQuantity = MaxQuantityPlayerCanSell(TransactionItem);
+                int ChosenQuantity = 0;
+                try
+                {
+                    ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
+                }
+                catch (CancelledException)
+                {
+                }
+                if (ChosenQuantity > 0)
+                {
+                    Market.Sell(TransactionItem, ChosenQuantity, Inventory);
+                }
+            }
+
+            WishesToBuyOrSell = Input.PromptBool("Do you want to stay at the market?");
+        }
+    }
 
     /// <summary>
     /// the maximum quanitity of an item a player can buy based on market stock and player money
