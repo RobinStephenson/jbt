@@ -7,75 +7,62 @@ using System.Collections.Generic;
 
 public class RoboticonTest
 {
+
+    //NEEDS UPDATING WHEN TILE IS MERGED
     [Test]
-    public void CreateNewRoboticonEmpty()
-    {
-
-        //Create an empty Roboticon instance
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-
-        //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Ore));
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
-        Assert.AreEqual(0, NewRoboticon.CurrentCustomisations.Count);
-        Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
-    }
-
     public void CreateNewRoboticon()
     {
-
-        //Create a Roboticon instance
+        //Create an empty Roboticon instance
         Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
-
-        //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Ore));
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
-        Assert.AreEqual(0, NewRoboticon.CurrentCustomisations.Count);
+    
+    
+        //Check if roboticon produces the correct amount of each resource and the initial values of Roboticon are set correctly
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production[ItemType.Ore]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production[ItemType.Power]);
+        Assert.AreEqual(null, NewRoboticon.CurrentCustomisation);
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
 
     [Test]
-    public void SuccessfulGetBonusProduction()
+    public void SuccessfulCreateNewRoboticon()
     {
         //Create an empty Roboticon instance
         Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
-        //Check if all resources have the value they were set
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Ore));
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
+        //Create an empty Roboticon instance
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+
+        //Create a new RoboticonCustomisation instance
+        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, null, ItemType.Ore, 10);
+
+        //Apply customisation to Roboticon
+        NewRoboticon.AddCustomisation(NewCustomisation);
+
+        //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production[ItemType.Ore]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production[ItemType.Power]);
+        Assert.AreEqual(NewCustomisation, NewRoboticon.CurrentCustomisation);
+        Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
 
-    public void FailedGetBonusProduction()
+    public void FailedCreateNewRoboticon()
     {
         //Create an empty Roboticon instance
         Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
-        //Check to ensure the class fails when a roboticon is used as the ItemType
-        Assert.True(TestHelper.Throws(() => NewRoboticon.GetBonusProduction(ItemType.Roboticon), typeof(ArgumentException)));
-    }
-
-    public void SuccessfulSetBonusProduction()
-    {
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-        NewRoboticon.SetBonusProduction(ItemType.Ore);
-
-        //Check if all resources have the value they were set
-        Assert.AreEqual(2, NewRoboticon.GetBonusProduction(ItemType.Ore));
-        Assert.AreEqual(1, NewRoboticon.GetBonusProduction(ItemType.Power));
-    }
-
-    public void FailedSetBonusProduction()
-    {
-        //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
-        //Check to ensure the class fails when a roboticon is used as the ItemType
-        Assert.True(TestHelper.Throws(() => NewRoboticon.SetBonusProduction(ItemType.Roboticon), typeof(ArgumentException)));
+        //Create a new RoboticonCustomisation instance
+        RoboticonCustomisation PrereqCustomisation = new RoboticonCustomisation("test", 2, null, ItemType.Ore, 10);
+        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test2", 3, PrereqCustomisation, ItemType.Ore, 10);
+
+        //Check to ensure the class fails when a customisation cannot be applied
+        Assert.True(TestHelper.Throws(() => NewRoboticon.AddCustomisation(NewCustomisation), typeof(ArgumentException)));
     }
+
+
 }

@@ -24,7 +24,6 @@ public class Roboticon
     /// </summary>
     public RoboticonCustomisation CurrentCustomisation { get; private set; }
 
-
     /// <summary>
     /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
     /// </summary>
@@ -56,6 +55,7 @@ public class Roboticon
     /// If the customisation's prerequisite is met the customisation will be applied to the selected roboticon. 
     /// </summary>
     /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
+    /// <exception cref="ArgumentException"> Thrown when customisation requirements are not met. </exception>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
         if (CurrentCustomisation == customisation.Prerequisites || customisation.Prerequisites == null)
