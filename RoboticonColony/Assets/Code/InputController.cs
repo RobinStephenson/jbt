@@ -56,7 +56,7 @@ public class InputController : MonoBehaviour {
     /// <exception cref="CancelledException">the user cancelled the prompt</exception>
     /// <exception cref="TimeoutException">the user has taken too long</exception>
     /// <returns>the selected item</returns>
-    public T PromptList<T>(string question, List<T> items, Timeout timeout = null, bool cancelable = false) where T: AbstractPromptListItem
+    public T PromptList<T>(string question, List<T> items, Timeout timeout = null, bool cancelable = false) where T: IPromptListItem
     {
         throw new CancelledException();
     }
