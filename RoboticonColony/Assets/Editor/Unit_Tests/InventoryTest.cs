@@ -81,6 +81,9 @@ public class InventoryTest
         //Attempt to transfer 2 money from inv1 to inv2, even though inv1 only has 1 money, which should throw an error
         Assert.True(TestHelper.Throws(() => inv1.TransferMoney(2, inv2), typeof(NotEnoughMoneyException)));
 
+        //Attempt to transfer -1 money from inv1 to inv2, which should throw an error as it is not possible
+        Assert.True(TestHelper.Throws(() => inv1.TransferMoney(-1, inv2), typeof(ArgumentOutOfRangeException)));
+
         //Check that both inventories still have the amount of money they started with
         Assert.AreEqual(1, inv1.Money);
         Assert.AreEqual(10, inv2.Money);
@@ -102,36 +105,6 @@ public class InventoryTest
     }
 
     [Test]
-    public void NegativeMoneyTransaction()
-    {
-        //Create two inventories
-        Inventory inv1 = new Inventory(3, 7, 2, 5);
-        Inventory inv2 = new Inventory(8, 2, 4, 7);
-
-        //Attempt to transfer -1 money from inv1 to inv2, which should throw an error as it is not possible
-        Assert.True(TestHelper.Throws(() => inv1.TransferMoney(-1, inv2), typeof(ArgumentOutOfRangeException)));
-
-        //Check that the two inventories still have the same amount of power they started with
-        Assert.AreEqual(3, inv1.Money);
-        Assert.AreEqual(8, inv2.Money);
-    }
-
-    [Test]
-    public void NegativeItemTransaction()
-    {
-        //Create two inventories
-        Inventory inv1 = new Inventory(3, 7, 2, 5);
-        Inventory inv2 = new Inventory(8, 2, 4, 7);
-
-        //Attempt to transfer -2 power from inv2 to inv1, which should throw an error as it is not possible
-        Assert.True(TestHelper.Throws(() => inv2.TransferItem(ItemType.Power, -2, inv1), typeof(ArgumentOutOfRangeException)));
-
-        //Check that the two inventories still have the same amount of power they started with
-        Assert.AreEqual(2, inv1.GetItemAmount(ItemType.Power));
-        Assert.AreEqual(4, inv2.GetItemAmount(ItemType.Power));
-    }
-
-    [Test]
     public void FailedItemTransaction()
     {
         //Create two inventories
@@ -140,6 +113,9 @@ public class InventoryTest
 
         //Attempt to transfer 5 power from inv2 to inv1, even though inv2 only has 4 power, which should throw an error
         Assert.True(TestHelper.Throws(() => inv2.TransferItem(ItemType.Power, 5, inv1), typeof(NotEnoughItemException)));
+
+        //Attempt to transfer -2 power from inv2 to inv1, which should throw an error as it is not possible
+        Assert.True(TestHelper.Throws(() => inv2.TransferItem(ItemType.Power, -2, inv1), typeof(ArgumentOutOfRangeException)));
 
         //Check that the two inventories still have the same amount of power they started with
         Assert.AreEqual(2, inv1.GetItemAmount(ItemType.Power));

@@ -20,6 +20,11 @@ sealed public class Market
     /// <param name="stock">The starting stock for the market</param>
     public Market(Inventory stock, int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice)
     {
+        if (oreBuyPrice < 0 || powerBuyPrice < 0 || roboticonBuyPrice < 0 || oreSellPrice < 0 || powerSellPrice < 0 || roboticonSellPrice < 0)
+        {
+            throw new ArgumentOutOfRangeException("Buy and sell prices cannot be negative");
+        }
+
         Stock = stock;
         buyprice = new Dictionary<ItemType, int>();
         sellprice = new Dictionary<ItemType, int>();
@@ -67,6 +72,11 @@ sealed public class Market
     /// <returns>This market reference, for method chaining.</returns>
     public Market Buy(ItemType item, int quantity, Inventory playerInventory)
     {
+        if(quantity < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot buy negative amounts of items");
+        }
+
         //Attempt to transfer money from the player to the market
         try
         {
@@ -103,6 +113,11 @@ sealed public class Market
     /// <returns>This market reference, for method chaining.</returns>
     public Market Sell(ItemType item, int quantity, Inventory playerInventory)
     {
+        if (quantity < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot sell negative amounts of items");
+        }
+
         //Attempt to transfer money from the market to the player.
         try
         {
