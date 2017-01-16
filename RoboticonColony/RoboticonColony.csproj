@@ -78,14 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\AbstractPlayer.cs" />
-    <Compile Include="Assets\Code\IPromptListItem.cs" />
     <Compile Include="Assets\Code\EstateAgent.cs" />
     <Compile Include="Assets\Code\Exceptions\CancelledException.cs" />
     <Compile Include="Assets\Code\Exceptions\NotEnoughItemException.cs" />
     <Compile Include="Assets\Code\Exceptions\NotEnoughMoneyException.cs" />
+    <Compile Include="Assets\Code\Exceptions\RoboticonAlreadyInstalledException.cs" />
     <Compile Include="Assets\Code\Exceptions\TileAlreadyOwnedException.cs" />
     <Compile Include="Assets\Code\Exceptions\TransactionException.cs" />
     <Compile Include="Assets\Code\HumanPlayer.cs" />
+    <Compile Include="Assets\Code\IPromptListItem.cs" />
     <Compile Include="Assets\Code\InputController.cs" />
     <Compile Include="Assets\Code\Inventory.cs" />
     <Compile Include="Assets\Code\ItemType.cs" />
