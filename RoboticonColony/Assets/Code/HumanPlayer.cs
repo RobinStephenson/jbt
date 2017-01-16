@@ -24,6 +24,29 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="timeout">a time for which the phase can run</param>
     public override void DoPhaseOne(Timeout timeout)
     {
+        // check the player has enough money for at least the cheapest tile
+        int CheapestTilePrice = int.MaxValue;
+        foreach (Tile UnsoldTile in EstateAgent.GetAvailableTiles())
+        {
+            int CurrentTilePrice = EstateAgent.GetPrice(UnsoldTile);
+            if (CurrentTilePrice < CheapestTilePrice)
+            {
+                CheapestTilePrice = CurrentTilePrice;
+            }
+        }
+        if (Inventory.Money < CheapestTilePrice)
+        {
+            try
+            {
+                Input.Confirm("You dont have enough money to buy a tile this round", timeout);
+            }
+            catch (TimeoutException)
+            {
+                return;
+            }
+            return;
+        }
+
         // does the player want to buy a tile?
         bool WishesToPurchase = false;
         try
