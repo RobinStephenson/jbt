@@ -7,8 +7,8 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    public AbstractPlayer Owner { get; private set; }
-    public Roboticon installedRoboticon { get; private set; }
+    private AbstractPlayer owner { get; set; }
+    private Roboticon installedRoboticon { get; set; }
     private Dictionary<ItemType, int> resources;
 
     /// <summary>
@@ -46,7 +46,7 @@ sealed public class Tile
 
     public void AddPlayer(Player player)
     {
-        Owner = player;
+        owner = player;
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ sealed public class Tile
 
     public int Power
     {
-        get { return resources[ItemType.Ore]; }
+        get { return resources[ItemType.Power]; }
     }
 
 }
