@@ -20,9 +20,9 @@ public class Roboticon
     private Dictionary<ItemType, int> productionMultiplier;
 
     /// <summary>
-    /// CurrentCustomisations is a list of RoboticonCustomisations which the roboticon currently has applied. 
+    /// CurrentCustomisations is a RoboticonCustomisations which the roboticon currently has applied. 
     /// </summary>
-    public List<RoboticonCustomisation> CurrentCustomisations { get; private set; }
+    public RoboticonCustomisation CurrentCustomisation { get; private set; }
 
     /// <summary>
     /// Create an Roboticon instance with no CurrentTile.
@@ -31,7 +31,7 @@ public class Roboticon
     {
         CurrentTile = null;
         productionMultiplier = new Dictionary<ItemType, int>();
-        CurrentCustomisations = new List<RoboticonCustomisation>();
+        CurrentCustomisation = null;
 
         // Set Bonus Production to base roboticon stats
         productionMultiplier[ItemType.Ore] = 1;
@@ -46,7 +46,7 @@ public class Roboticon
     {
         CurrentTile = selectedTile;
         productionMultiplier = new Dictionary<ItemType, int>();
-        CurrentCustomisations = new List<RoboticonCustomisation>();
+        CurrentCustomisation = null;
 
         // Set Bonus Production to base roboticon stats
         productionMultiplier[ItemType.Ore] = 1;
@@ -66,53 +66,21 @@ public class Roboticon
     }
 
     /// <summary>
-    /// If the customisation's prerequisites are met the customisation will be applied to the selected roboticon. 
+    /// If the customisation's prerequisite is met the customisation will be applied to the selected roboticon. 
     /// </summary>
     /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        if (SatisfiesRequirements(CurrentCustomisations, customisation.Prerequisites))
+        if (CurrentCustomisation == customisation.Prerequisites)
         {
-            CurrentCustomisations.Add(customisation);
+            CurrentCustomisation = customisation;
             productionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
-            
-
         }
         else
         {
             throw new ArgumentException("Roboticon doesn't meet the requirements for the specified customisation. ");
         }
 
-    }
-
-    /// <summary>
-    /// Tests to ensure that, within the compled customisations list, every item of prerequisites is present.
-    /// </summary>
-    /// <param name="completedCustomisations"> List of roboticon customisations already applied to the roboticon</param>
-    /// <param name="prerequisites">List of roboticon customisations required to have already been applied to the roboticon</param>
-    /// <returns> If within the compled customisations list, every item of prerequisites is present, return True, else return False</returns>
-    private bool SatisfiesRequirements(List<RoboticonCustomisation> completedCustomisations, List<RoboticonCustomisation> prerequisites)
-    {
-        // If the customisation has Prerequisites then...
-        if (prerequisites.Count > 0)
-        {
-            foreach (RoboticonCustomisation currentCustomisation in prerequisites)
-            {
-                if (!completedCustomisations.Contains(currentCustomisation))
-                {
-                    // if Completed Customisations does not contains one Prerequisites then requirements are not met
-                    return false;
-                }
-            }
-            // if Completed Customisations contains all Prerequisites then requirements are met
-            return true;
-        }
-        // else (Customisation has no Prerequisites)
-        else
-        {
-            // As the customisation requires no prerequisites then the requirements are met
-            return true;
-        }
     }
 
 }

@@ -26,7 +26,7 @@ sealed public class RoboticonCustomisation
     /// <summary>
     /// A list that holds each Prerequisite of type RoboticonCustomisation.
     /// </summary>
-    public List<RoboticonCustomisation> Prerequisites { get; private set; }
+    public RoboticonCustomisation Prerequisites { get; private set; }
 
     /// <summary>
     /// An integer that holds the required money to purchase the customisation.
@@ -41,7 +41,7 @@ sealed public class RoboticonCustomisation
     /// <param name="SelectedPrerequisites"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="SelectedResource"> The type of resource which the customisation augments. </param>
     /// <param name="reqPrice"> The required price of the customisation. </param>
-    public RoboticonCustomisation(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    public RoboticonCustomisation(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
     {
         if (selectedResource == ItemType.Roboticon)
         {

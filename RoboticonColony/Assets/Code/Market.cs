@@ -17,7 +17,7 @@ sealed public class Market
     /// <summary>
     /// customisationsList is a list of all RoboticonCustomisations
     /// </summary>
-    public List<RoboticonCustomisation> customisationsList { set; private get; }
+    public List<RoboticonCustomisation> customisationsList { get; private set; }
 
     /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
@@ -39,10 +39,9 @@ sealed public class Market
         _sellprice[ItemType.Roboticon] = roboticonSellPrice;
 
 
-        List<RoboticonCustomisation> blankCustomisationList = new List<RoboticonCustomisation>();
         /// Temporary initialisation of customisations, may be done through reading in a file later. 
-        createCustomisations("Ore 1", 2, blankCustomisationList, ItemType.Ore, 10);
-        createCustomisations("Power 1", 2, blankCustomisationList, ItemType.Power, 10);
+        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -153,7 +152,7 @@ sealed public class Market
     /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
     /// <param name="reqPrice"> The required price of the customisation. </param>
-    private void createCustomisations(string selectedName, int bonusMult, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    private void createCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
     {
         customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
@@ -165,7 +164,7 @@ sealed public class Market
     {
         if (Stock.GetItemAmount(ItemType.Ore) > 0)
         {
-            Stock.AddItem(ItemType.Ore, 1);
+            Stock.AddItem(ItemType.Ore, -1);
             Stock.AddItem(ItemType.Roboticon, 1);
         }
     }
