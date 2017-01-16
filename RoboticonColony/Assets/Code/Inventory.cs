@@ -21,6 +21,11 @@ sealed public class Inventory
     /// <param name="roboticons">The roboticons in the inventory.</param>
     public Inventory(int money, int ore, int power, int roboticons)
     {
+        if(money < 0 || ore < 0 || power < 0 || roboticons < 0)
+        {
+            throw new ArgumentOutOfRangeException("Inventories cannot hold negative amounts of money/items");
+        }
+
         Money = money;
         Items = new Dictionary<ItemType, int>();
         Items[ItemType.Ore] = ore;
@@ -51,6 +56,10 @@ sealed public class Inventory
     /// <param name="amount">The amount of the item to add.</param>
     public void AddItem(ItemType item, int amount)
     {
+        if (amount < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
+        }
         Items[item] += amount;
     }
 
@@ -60,6 +69,10 @@ sealed public class Inventory
     /// <param name="amount">The amount of money to add.</param>
     public void AddMoney(int amount)
     {
+        if(amount < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of money");
+        }
         Money += amount;
     }
 
@@ -75,6 +88,11 @@ sealed public class Inventory
         if (Items[item] - quantity < 0)
         {
             throw new NotEnoughItemException();
+        }
+
+        if(quantity < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
         }
 
         Items[item] -= quantity;
@@ -93,6 +111,11 @@ sealed public class Inventory
         if (Money - amount < 0)
         {
             throw new NotEnoughMoneyException();
+        }
+
+        if(amount < 0)
+        {
+            throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of money");
         }
 
         Money -= amount;
