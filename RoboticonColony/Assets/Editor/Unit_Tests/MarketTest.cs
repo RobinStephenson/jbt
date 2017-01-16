@@ -163,4 +163,126 @@ public class MarketTest {
         Assert.AreEqual(118, market.Stock.Money);
         Assert.AreEqual(69, playerInv.Money);
     }
+
+
+
+
+
+
+    [Test]
+    public void CreateNewCustomisations()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 6, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Create new customisation
+        market.createCustomisations("test2", 3, null, ItemType.Ore, 10);
+
+        //Check if customisation was added to Customisation list
+        Assert.AreEqual(1, market.CustomisationList.count());
+    }
+
+    [Test]
+    public void SuccessfulBuyRoboticonWithOre()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 6, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Attempt to buy a roboticon with ore
+        market.BuyRoboticonOre();
+
+        //Check if the roboticon was bought and ore was taken
+        Assert.AreEqual(3, market.Stock.GetItemAmount[ItemType.Roboticon]);
+        Assert.AreEqual(5, market.Stock.GetItemAmount[ItemType.Ore]);
+    }
+
+    [Test]
+    public void FailedBuyRoboticonWithOre()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 0, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Attempt to buy a roboticon with ore
+        market.BuyRoboticonOre();
+
+        //Check to ensure the stock remains the same
+        Assert.AreEqual(2, market.Stock.GetItemAmount[ItemType.Roboticon]);
+        Assert.AreEqual(0, market.Stock.GetItemAmount[ItemType.Ore]);
+    }
+
+
+    public void BuyCustomisation(Inventory inv, RoboticonCustomisation customisation, Roboticon roboticon)
+    {
+        if (inv.Money > customisation.Price)
+        {
+            roboticon.AddCustomisation(customisation);
+            inv.AddMoney(-customisation.Price);
+        }
+        else
+        {
+            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+        }
+
+    }
+
+
+    [Test]
+    public void SuccessfulBuyCustomisation()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 0, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Create a mock player inventory
+        Inventory playerInv = new Inventory(37, 3, 6, 27);
+
+        //Create an empty Roboticon instance
+        Tile currentTile = new Tile();
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+
+        //Create a new RoboticonCustomisation instance
+        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, null, ItemType.Ore, 10);
+
+        //Attempt to Buy a customisation, which should not thrown an exception
+        Assert.False(TestHelper.Throws(() => market.BuyCustomisation(playerInv, NewCustomisation, NewRoboticon), typeof(ArgumentException)));
+
+        //Check to ensure the customisation price has been deducted. 
+        Assert.AreEqual(27, playerInv.Money);
+    }
+
+    [Test]
+    public void SuccessfulBuyCustomisation()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 0, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Create a mock player inventory
+        Inventory playerInv = new Inventory(9, 3, 6, 27);
+
+        //Create an empty Roboticon instance
+        Tile currentTile = new Tile();
+        Roboticon NewRoboticon = new Roboticon(currentTile);
+
+        //Create a new RoboticonCustomisation instance
+        RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, null, ItemType.Ore, 10);
+
+        //Attempt to Buy a customisation, which should thrown an exception
+        Assert.True(TestHelper.Throws(() => market.BuyCustomisation(playerInv, NewCustomisation, NewRoboticon), typeof(ArgumentException)));
+
+    }
+
 }

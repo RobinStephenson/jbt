@@ -17,7 +17,7 @@ sealed public class Market
     /// <summary>
     /// customisationsList is a list of all RoboticonCustomisations
     /// </summary>
-    public List<RoboticonCustomisation> customisationsList { get; private set; }
+    public List<RoboticonCustomisation> CustomisationsList { get; private set; }
 
     /// <summary>
     /// Creates a market instance with the provided inventory as its stock.

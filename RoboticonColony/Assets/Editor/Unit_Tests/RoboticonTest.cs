@@ -25,20 +25,17 @@ public class RoboticonTest
     }
 
     [Test]
-    public void SuccessfulCreateNewRoboticon()
+    public void SuccessfulAddCustomisation()
     {
         //Create an empty Roboticon instance
         Tile currentTile = new Tile();
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
-        //Create an empty Roboticon instance
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-
         //Create a new RoboticonCustomisation instance
         RoboticonCustomisation NewCustomisation = new RoboticonCustomisation("test", 2, null, ItemType.Ore, 10);
 
-        //Apply customisation to Roboticon
-        NewRoboticon.AddCustomisation(NewCustomisation);
+        //Apply customisation to Roboticon, which should not thrown an exception
+        Assert.False(TestHelper.Throws(() => NewRoboticon.AddCustomisation(NewCustomisation), typeof(ArgumentException)));
 
         //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
         Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production[ItemType.Ore]);
@@ -47,13 +44,10 @@ public class RoboticonTest
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
 
-    public void FailedCreateNewRoboticon()
+    public void FailedAddCustomisation()
     {
         //Create an empty Roboticon instance
         Tile currentTile = new Tile();
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-
-        //Create an empty Roboticon instance
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Create a new RoboticonCustomisation instance
