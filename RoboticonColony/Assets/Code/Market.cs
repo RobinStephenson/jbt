@@ -11,8 +11,8 @@ sealed public class Market
     public Inventory Stock { get; private set; }
     public bool Open { get; private set; }
 
-    private Dictionary<ItemType, int> _buyprice;
-    private Dictionary<ItemType, int> _sellprice;
+    private Dictionary<ItemType, int> buyprice;
+    private Dictionary<ItemType, int> sellprice;
 
     /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
@@ -21,16 +21,16 @@ sealed public class Market
     public Market(Inventory stock, int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice)
     {
         Stock = stock;
-        _buyprice = new Dictionary<ItemType, int>();
-        _sellprice = new Dictionary<ItemType, int>();
+        buyprice = new Dictionary<ItemType, int>();
+        sellprice = new Dictionary<ItemType, int>();
 
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
-        _buyprice[ItemType.Ore] = oreBuyPrice;
-        _buyprice[ItemType.Power] = powerBuyPrice;
-        _buyprice[ItemType.Roboticon] = roboticonBuyPrice;
-        _sellprice[ItemType.Ore] = oreSellPrice;
-        _sellprice[ItemType.Power] = powerSellPrice;
-        _sellprice[ItemType.Roboticon] = roboticonSellPrice;
+        buyprice[ItemType.Ore] = oreBuyPrice;
+        buyprice[ItemType.Power] = powerBuyPrice;
+        buyprice[ItemType.Roboticon] = roboticonBuyPrice;
+        sellprice[ItemType.Ore] = oreSellPrice;
+        sellprice[ItemType.Power] = powerSellPrice;
+        sellprice[ItemType.Roboticon] = roboticonSellPrice;
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ sealed public class Market
     /// <returns>The buy price of the specified item.</returns>
     public int GetBuyPrice(ItemType item)
     {
-        return _buyprice[item];
+        return buyprice[item];
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ sealed public class Market
     /// <returns>The sell price of the specified item.</returns>
     public int GetSellPrice(ItemType item)
     {
-        return _sellprice[item];
+        return sellprice[item];
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ sealed public class Market
         //Attempt to transfer money from the player to the market
         try
         {
-            playerInventory.TransferMoney(_buyprice[item] * quantity, Stock);
+            playerInventory.TransferMoney(buyprice[item] * quantity, Stock);
 
             //Attempt to transfer the requested item(s) into the players inventory.
             try
@@ -83,7 +83,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
-                Stock.TransferMoney(_buyprice[item] * quantity, playerInventory);
+                Stock.TransferMoney(buyprice[item] * quantity, playerInventory);
                 throw;
             }
         }
@@ -106,7 +106,7 @@ sealed public class Market
         //Attempt to transfer money from the market to the player.
         try
         {
-            Stock.TransferMoney(_sellprice[item] * quantity, playerInventory);
+            Stock.TransferMoney(sellprice[item] * quantity, playerInventory);
 
             //Attempt to transfer the requested item(s) into the markets inventory.
             try
@@ -119,7 +119,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
-                playerInventory.TransferMoney(_sellprice[item] * quantity, Stock);
+                playerInventory.TransferMoney(sellprice[item] * quantity, Stock);
                 throw;
             }
         }
