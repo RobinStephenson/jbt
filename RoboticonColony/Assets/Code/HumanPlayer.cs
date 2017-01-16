@@ -353,40 +353,46 @@ public class HumanPlayer : AbstractPlayer
             bool ChoseToBuy = Input.PromptBool("Do you want to buy or sell?", trueOption: "Buy", falseOption: "Sell");
             if (ChoseToBuy)
             {
-                int MaxQuantity = MaxQuantityPlayerCanBuy(TransactionItem);
-                int ChosenQuantity = 0;
-                try
-                {
-                     ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
-                }
-                catch (CancelledException)
-                {
-                }
-                if (ChosenQuantity > 0)
-                {
-                    Market.Buy(TransactionItem, ChosenQuantity, Inventory);
-                }
+                BuyResource(TransactionItem);
             }
             else
             {
-                // The user chose to sell
-                int MaxQuantity = MaxQuantityPlayerCanSell(TransactionItem);
-                int ChosenQuantity = 0;
-                try
-                {
-                    ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
-                }
-                catch (CancelledException)
-                {
-                }
-                if (ChosenQuantity > 0)
-                {
-                    Market.Sell(TransactionItem, ChosenQuantity, Inventory);
-                }
+                SellResource(TransactionItem);
             }
 
             WishesToBuyOrSell = Input.PromptBool("Do you want to stay at the market?");
         }
+    }
+
+    // TODO Refactor BuyResource and SellResource into one method
+    private void BuyResource(ItemType transactionItem)
+    {
+        int MaxQuantity = MaxQuantityPlayerCanBuy(transactionItem);
+        int ChosenQuantity = 0;
+        try
+        {
+            ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
+        }
+        catch (CancelledException)
+        {
+            return;
+        }
+        Market.Buy(transactionItem, ChosenQuantity, Inventory);
+    }
+
+    private void SellResource(ItemType transactionItem)
+    {
+        int MaxQuantity = MaxQuantityPlayerCanSell(transactionItem);
+        int ChosenQuantity = 0;
+        try
+        {
+            ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
+        }
+        catch (CancelledException)
+        {
+            return;
+        }
+        Market.Sell(transactionItem, ChosenQuantity, Inventory);
     }
 
     /// <summary>
