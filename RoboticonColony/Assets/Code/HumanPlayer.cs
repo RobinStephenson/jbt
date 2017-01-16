@@ -86,11 +86,27 @@ public class HumanPlayer : AbstractPlayer
             {
                 return;
             }
-            catch
+            catch (TileAlreadyOwnedException)
             {
-                // TODO catch a not enough money exception
-                // TODO catch a already owned exception
-                // give the user another go to pick a tile
+                try
+                {
+                    Input.Confirm("The tile you selected is already owned", timeout);
+                }
+                catch (TimeoutException)
+                {
+                    return;
+                }
+            }
+            catch (NotEnoughMoneyException)
+            {
+                try
+                {
+                    WishesToPurchase = Input.PromptBool("You cannot afford that tile. Would you like to pick another?", timeout);
+                }
+                catch (TimeoutException)
+                {
+                    return;
+                }
             }
         }
     }
