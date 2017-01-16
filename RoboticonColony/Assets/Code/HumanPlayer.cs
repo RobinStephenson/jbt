@@ -118,6 +118,8 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseTwo(Timeout timeout)
     {
         PurchaseRoboticons(timeout);
+
+        // TODO: check the player actually has roboticons to customise and money to buy new customisations
         if (!timeout.Finished)
         {
             CustomiseRoboticons(timeout);
@@ -127,6 +129,20 @@ public class HumanPlayer : AbstractPlayer
 
     private void PurchaseRoboticons(Timeout timeout)
     {
+        int MaxQuantity = MaxQuantityPlayerCanBuy(ItemType.Roboticon);
+        if (MaxQuantity <= 0)
+        {
+            try
+            {
+                Input.Confirm("You dont have enough money to buy any roboticons this round", timeout);
+            }
+            catch (TimeoutException)
+            {
+                return;
+            }
+            return;
+        }
+        
         // ask the user if they want to buy any roboticons
         bool WishesToPurchase;
         try
