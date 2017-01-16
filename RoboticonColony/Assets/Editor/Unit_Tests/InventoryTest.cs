@@ -164,9 +164,8 @@ public class InventoryTest
     /// <summary>
     /// Used by the CreateNegativeInventory Test method to attempt to create an inventory with some negative items
     /// </summary>
-    /// <returns>An inventory with negative power</returns>
-    Inventory NegativeInventoryCreate()
+    void NegativeInventoryCreate()
     {
-        return new Inventory(46, 3, -5, 2);
+        Inventory inv = new Inventory(46, 3, -5, 2);
     }
 }
