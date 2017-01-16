@@ -71,7 +71,7 @@ public class Roboticon
     /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        if (CurrentCustomisation == customisation.Prerequisites)
+        if (CurrentCustomisation == customisation.Prerequisites || customisation.Prerequisites == null)
         {
             CurrentCustomisation = customisation;
             productionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
