@@ -36,7 +36,7 @@ public class InventoryTest
     public void CreateNegativeInventory()
     {
         //Attempt to create an inventory with some negative items, which should not work and return an error
-        Assert.True(TestHelper.Throws(() => CreateNegativeInventory(), typeof(ArgumentOutOfRangeException)));
+        Assert.True(TestHelper.Throws(() => NegativeInventory(), typeof(ArgumentOutOfRangeException)));
     }
 
     [Test]
@@ -164,8 +164,8 @@ public class InventoryTest
     /// <summary>
     /// Used by the CreateNegativeInventory Test method to attempt to create an inventory with some negative items
     /// </summary>
-    void NegativeInventoryCreate()
+    Inventory NegativeInventory()
     {
-        Inventory inv = new Inventory(46, 3, -5, 2);
+        return new Inventory(46, 3, -5, 2);
     }
 }
