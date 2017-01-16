@@ -12,6 +12,10 @@ public class Timeout
     /// <param name="time">time in seconds of the timeout</param>
     public Timeout(int time)
     {
+        if (time < 1)
+        {
+            throw new ArgumentOutOfRangeException("Must be at least one second");
+        }
         timeAllowed = time;
     }
 
