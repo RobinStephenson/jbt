@@ -260,4 +260,11 @@ public class HumanPlayer : AbstractPlayer
         int QuantityPlayerCanAfford = Inventory.Money / ItemPrice;
         return Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
     }
+
+    private int MaxQuantityPlayerCanSell(ItemType item)
+    {
+        // TODO: Create a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
+        int QuantityShopWillBuy = int.MaxValue;
+        return Math.Min(Inventory.GetItemAmount(item), QuantityShopWillBuy);
+    }
 }
