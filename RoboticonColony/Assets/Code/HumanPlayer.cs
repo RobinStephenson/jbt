@@ -238,6 +238,49 @@ public class HumanPlayer : AbstractPlayer
         }
     }
 
+    private void RemoveRoboticons(Timeout timeout)
+    {
+        // doest the user want to remove a roboticon?
+        bool WishesToRemove;
+        try
+        {
+            WishesToRemove = Input.PromptBool("Would you like to remove a roboticon from any of your tiles?", timeout);
+        }
+        catch (TimeoutException)
+        {
+            return;
+        }
+        while (WishesToRemove)
+        {
+            // which roboticon does the user want to remove
+            Tile ChosenTile;
+            try
+            {
+                ChosenTile = Input.ChooseTile(timeout, true);
+            }
+            catch (Exception exception)
+            {
+                if (exception is TimeoutException || exception is CancelledException)
+                {
+                    return;
+                }
+                throw;
+            }
+
+            // TODO: check whether we should add it back into the inventory or whether this happens automatically
+            ChosenTile.RemoveRoboticon();
+
+            // does the user want to remove another roboticon
+            try
+            {
+                WishesToRemove = Input.PromptBool("Would you like to remove another?", timeout);
+            }
+            catch (TimeoutException)
+            {
+                return;
+            }
+        }
+    }
     /// <summary>
     /// Show the player their inventory after the colony has produced
     /// </summary>
