@@ -226,12 +226,16 @@ public class HumanPlayer : AbstractPlayer
     }
 
     /// <summary>
-    /// The player may install/remove roboticons from their owned tiles
+    /// The player may remove and install roboticons from their owned tiles
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
     public override void DoPhaseThree(Timeout timeout)
     {
 
+        if (!timeout.Finished && Inventory.GetItemAmount(ItemType.Roboticon) >= 1)
+        {
+            InstallRoboticons(timeout);
+        }
     }
 
     /// <summary>
