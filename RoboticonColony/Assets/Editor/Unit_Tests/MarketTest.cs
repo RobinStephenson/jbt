@@ -155,7 +155,7 @@ public class MarketTest {
         Inventory playerInv = new Inventory(37, 3, 6, 27);
 
         //Attempt to sell 4 power to the market at the cost of 8 each, which should work and not throw an exception
-        Assert.False(TestHelper.Throws(() => market.Sell(ItemType.Power, 4, playerInv), typeof(ArgumentOutOfRangeException)));
+        Assert.False(TestHelper.Throws(() => market.Sell(ItemType.Power, 4, playerInv), typeof(TransactionException)));
 
         //Check if both inventories have been updated accordingly
         Assert.AreEqual(11, market.Stock.GetItemAmount(ItemType.Power));
