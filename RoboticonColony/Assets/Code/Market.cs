@@ -68,8 +68,7 @@ sealed public class Market
     /// <param name="item">The item the player wishes to buy.</param>
     /// <param name="Quantity">The quantity the player withes to buy.</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns>This market reference, for method chaining.</returns>
-    public Market Buy(ItemType item, int quantity, Inventory playerInventory)
+    public void Buy(ItemType item, int quantity, Inventory playerInventory)
     {
         if(quantity < 0)
         {
@@ -86,8 +85,8 @@ sealed public class Market
             {
                 Stock.TransferItem(item, quantity, playerInventory);
 
-                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
-                return this;
+                //If the transfer completes without error, then the transaction is complete
+                return;
             }
             catch (NotEnoughItemException)
             {
@@ -109,8 +108,7 @@ sealed public class Market
     /// <param name="item">The item the player wishes to sell.</param>
     /// <param name="quantity">The quantity the player wishes to sell</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns>This market reference, for method chaining.</returns>
-    public Market Sell(ItemType item, int quantity, Inventory playerInventory)
+    public void Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         if (quantity < 0)
         {
@@ -127,8 +125,8 @@ sealed public class Market
             {                
                 playerInventory.TransferItem(item, quantity, Stock);
 
-                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
-                return this;
+                //If the transfer completes without error, then the transaction is complete
+                return;
             }
             catch (NotEnoughItemException)
             {

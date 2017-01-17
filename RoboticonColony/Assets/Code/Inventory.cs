@@ -10,7 +10,8 @@ sealed public class Inventory
 {
     public int Money { get; private set; }
 
-    private Dictionary<ItemType, int> Items;
+    private List<Tile> tiles;
+    private Dictionary<ItemType, int> items;
 
     /// <summary>
     /// Create an inventory instance, which holds all resources for a player or market.
@@ -27,17 +28,17 @@ sealed public class Inventory
         }
 
         Money = money;
-        Items = new Dictionary<ItemType, int>();
-        Items[ItemType.Ore] = ore;
-        Items[ItemType.Power] = power;
-        Items[ItemType.Roboticon] = roboticons;
+        tiles = new List<Tile>();
+        items = new Dictionary<ItemType, int>();
+        items[ItemType.Ore] = ore;
+        items[ItemType.Power] = power;
+        items[ItemType.Roboticon] = roboticons;
     }
 
     /// <summary>
     /// Creates an empty inventory instance, which holds all resources for a player or market.
     /// </summary>
     public Inventory() : this(0, 0, 0, 0) { }
-
 
     /// <summary>
     /// Get the amount of the specified item in this inventory instance.
@@ -46,7 +47,7 @@ sealed public class Inventory
     /// <returns>The amount of the specified item.</returns>
     public int GetItemAmount(ItemType item)
     {
-        return Items[item];
+        return items[item];
     }
 
     /// <summary>
@@ -60,7 +61,7 @@ sealed public class Inventory
         {
             throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
         }
-        Items[item] += amount;
+        items[item] += amount;
     }
 
     /// <summary>
@@ -82,10 +83,9 @@ sealed public class Inventory
     /// <param name="item">The item being transferred.</param>
     /// <param name="quantity">The quantity being transferred.</param>
     /// <param name="to">The inventory to transfer to.</param>
-    /// <returns>A reference to this inventory instance, used for method chaining.</returns>
-    public Inventory TransferItem(ItemType item, int quantity, Inventory to)
+    public void TransferItem(ItemType item, int quantity, Inventory to)
     {
-        if (Items[item] - quantity < 0)
+        if (items[item] - quantity < 0)
         {
             throw new NotEnoughItemException();
         }
@@ -95,9 +95,9 @@ sealed public class Inventory
             throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
         }
 
-        Items[item] -= quantity;
+        items[item] -= quantity;
         to.AddItem(item, quantity);
-        return this;
+        return;
     }
 
     /// <summary>
@@ -105,8 +105,7 @@ sealed public class Inventory
     /// </summary>
     /// <param name="amount">The amount of money to send.</param>
     /// <param name="to">The inventory to transfer to</param>
-    /// <returns>A reference to this inventory instance, used for method chaining.</returns>
-    public Inventory TransferMoney(int amount, Inventory to)
+    public void TransferMoney(int amount, Inventory to)
     {
         if (Money - amount < 0)
         {
@@ -120,6 +119,32 @@ sealed public class Inventory
 
         Money -= amount;
         to.AddMoney(amount);
-        return this;
+        return;
+    }
+
+    public 
+
+    /// <summary>
+    /// Getter used to get the amount of tiles in the tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
+    /// </summary>
+    /// <returns>The amount of tiles in the tiles list</returns>
+    public int TileCount()
+    {
+        return tiles.Count;
+    }
+
+    /// <summary>
+    /// Getter used to get the tile at the supplied index in the tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
+    /// </summary>
+    /// <param name="index">The index to get the tile of</param>
+    /// <returns>The requested tile reference</returns>
+    public Tile GetTile(int index)
+    {
+        if(index < tiles.Count - 1)
+        {
+            throw new ArgumentOutOfRangeException("Supplied index is greater than length of tile list: " + tiles.Count.ToString());
+        }
+
+        return tiles[index];
     }
 }
