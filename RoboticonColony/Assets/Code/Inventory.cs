@@ -78,6 +78,35 @@ sealed public class Inventory
     }
 
     /// <summary>
+    /// Remove an amount of money from this player instance
+    /// </summary>
+    /// <param name="amount">The amount of money to remove</param>
+    public void SubtractMoney(int amount)
+    {
+        if(amount > Money)
+        {
+            throw new NotEnoughMoneyException("Tried to remove more money than the inventory has");
+        }
+        Money -= amount;
+    }
+
+    /// <summary>
+    /// Add the supplied tile to this inventory instance
+    /// </summary>
+    /// <param name="tile">The tile to add to this inventory instance</param>
+    public void AddTile(Tile tile)
+    {
+        if(tiles.Contains(tile))
+        {
+            throw new ArgumentException("The supplied tile already located in this inventory")
+        }
+        else
+        {
+            tiles.Add(tile);
+        }
+    }
+
+    /// <summary>
     /// Transfers a select quantity of an item to the provided inventory.
     /// </summary>
     /// <param name="item">The item being transferred.</param>
@@ -122,7 +151,22 @@ sealed public class Inventory
         return;
     }
 
-    public 
+    /// <summary>
+    /// Transfers a selected tile to the provided inventory.
+    /// </summary>
+    /// <param name="tile">The tile to transfer</param>
+    /// <param name="to">The inventory to transfer to</param>
+    public void TransferTile(Tile tile, Inventory to)
+    {
+        if(!tiles.Contains(tile))
+        {
+            throw new ArgumentOutOfRangeException("Supplied tile does not belong to this inventory");
+        }
+
+        tiles.Remove(tile);
+        to.AddTile(tile);
+        return;
+    }
 
     /// <summary>
     /// Getter used to get the amount of tiles in the tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called

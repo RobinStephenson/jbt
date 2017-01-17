@@ -27,4 +27,9 @@ public class Tile {
             return Id == ((Tile)obj).Id;
         }
     }
+
+    public int GetCost()
+    {
+        return 1;
+    }
 }

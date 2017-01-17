@@ -141,4 +141,38 @@ sealed public class Market
             throw;
         }
     }
+
+    /// <summary>
+    /// Allows players to buy tiles from the market. Purchased tiles from the market do not actually reduce the markets balance.
+    /// </summary>
+    /// <param name="tile">The tile to buy</param>
+    /// <param name="playerInventory">Reference ot the players inventory</param>
+    public void BuyTile(Tile tile, Inventory playerInventory)
+    {
+        //Attempt to remove the money for the purchase form the player
+        try
+        {
+            playerInventory.SubtractMoney(tile.GetCost());
+
+            //Attempt to transfer the requested tile from the markets inventory
+            try
+            {
+                Stock.TransferTile(tile, playerInventory);
+
+                //If the transfer completes without error, then the transaction is complete
+                return;
+            }
+            catch (NotEnoughItemException)
+            {
+                //If the item transfer was unsuccessful, then revert the change in the players balance
+                playerInventory.AddMoney(tile.GetCost());
+                throw;
+            }
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            //If the initial money transfer was unsuccessful, then re-throw the exception
+            throw;
+        }
+    }
 }
