@@ -10,11 +10,7 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="inv">a player inventory</param>
     /// <param name="market">the market</param>
     /// <param name="estateAgent">the estate agent</param>
-    public HumanPlayer(
-        InputController inputController,
-        Inventory inv, 
-        Market market,
-        EstateAgent estateAgent) : base(inputController, inv, market)
+    public HumanPlayer(InputController inputController, Inventory inv, Market market) : base(inputController, inv, market)
     {
     }
 
