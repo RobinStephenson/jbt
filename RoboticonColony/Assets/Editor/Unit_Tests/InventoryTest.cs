@@ -137,6 +137,18 @@ public class InventoryTest
         Assert.AreEqual(1, inv2.GetItemAmount(ItemType.Power));
     }
 
+    [Test]
+    public void SuccessfulTileTransfer()
+    {
+        Assert.Fail();
+    }
+
+    [Test]
+    public void FailedTileTransfer()
+    {
+        Assert.Fail();
+    }
+
     /// <summary>
     /// Used by the CreateNegativeInventory Test method to attempt to create an inventory with some negative items
     /// </summary>

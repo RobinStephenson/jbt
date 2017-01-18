@@ -98,7 +98,7 @@ sealed public class Inventory
     {
         if(tiles.Contains(tile))
         {
-            throw new ArgumentException("The supplied tile already located in this inventory")
+            throw new ArgumentException("The supplied tile already located in this inventory");
         }
         else
         {
