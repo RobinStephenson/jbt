@@ -21,12 +21,10 @@ public class InputController : MonoBehaviour {
     /// <param name="question">the question to display</param>
     /// <param name="trueOption">the option to display which will return true when selected</param>
     /// <param name="falseOption">the option to display which will return false when selected</param>
-    /// <param name="timeout">the time the user has to decide</param>
-    /// <exception cref="TimeoutException">the user has taken too long</exception>
-    /// <returns>true or false based on the users selection</returns>
-    public bool PromptBool(string question, Timeout timeout = null, string trueOption = "Yes", string falseOption = "No")
+    /// <param name="timeout">if the user times out the callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void PromptBool(string question, Action<bool?> callback, Timeout timeout = null, string trueOption = "Yes", string falseOption = "No", bool cancelable = false)
     {
-        throw new TimeoutException();
     }
 
     /// <summary>
@@ -36,13 +34,10 @@ public class InputController : MonoBehaviour {
     /// <param name="timeout">the time the user has to decide</param>
     /// <param name="min">the minium value the user can choose</param>
     /// <param name="max">the maximum value the user can choose</param>
-    /// <param name="cancelable">should the user be able to cancel the prompt</param>
-    /// <exception cref="CancelledException">the user cancelled the prompt</exception>
-    /// <exception cref="TimeoutException">the user has taken too long</exception>
-    /// <returns>the chosen value</returns>
-    public int PromptInt(string question, Timeout timeout = null, int min = 0, int max = int.MaxValue, bool cancelable = false)
+    /// <param name="timeout">if the user times out the callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void PromptInt(string question, Action<int?> callback, Timeout timeout = null, int min = 0, int max = int.MaxValue, bool cancelable = false)
     {
-        throw new CancelledException();
     }
 
     /// <summary>
@@ -51,37 +46,28 @@ public class InputController : MonoBehaviour {
     /// <typeparam name="T">The type of the list of items which must inherit AbstractPromptListItem</typeparam>
     /// <param name="question">the questions to display to the user</param>
     /// <param name="items">the list of items the user can choose from.</param>
-    /// <param name="timeout">the time the user has to decide</param>
-    /// <param name="cancelable">should teh user be able to cancel the prompt</param>
-    /// <exception cref="CancelledException">the user cancelled the prompt</exception>
-    /// <exception cref="TimeoutException">the user has taken too long</exception>
-    /// <returns>the selected item</returns>
-    public T PromptList<T>(string question, List<T> items, Timeout timeout = null, bool cancelable = false) where T: IPromptListItem
+    /// <param name="timeout">if the user times out the callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void PromptList<T>(string question, Action<T> callback, List<T> items, Timeout timeout = null, bool cancelable = false) where T: IPromptListItem
     {
-        throw new CancelledException();
     }
 
     /// <summary>
     /// ask the user to confirm they have read a message
     /// </summary>
     /// <param name="message">the message for the user to read</param>
-    /// <param name="timeout">how long the user has</param>
-    /// <exception cref="TimeoutException">the user has taken too long</exception>
-    public void Confirm(string message, Timeout timeout = null)
+    /// <param name="timeout">if the user times out the callback wont be called</param>
+    public void Confirm(string message, Action callback, Timeout timeout = null)
     {
-        throw new TimeoutException();
     }
 
     /// <summary>
     /// prompt the user to select a tile
     /// </summary>
-    /// <param name="timeout" >a timeout for the user to choose in</param>
-    /// <param name="cancelable">should the user be able to cancel the prompt</param>
-    /// <exception cref="CancelledException">thrown if the user cancels</exception>
-    /// <exception cref="TimeoutException">thrown if the user runs out of time</exception>
-    /// <returns>the chosen tile or null if the user times out </returns>
-    public Tile ChooseTile(Timeout timeout = null, bool cancelable = false)
+    /// <param name="callback">call this with the chosen tile as the paramater</param>
+    /// <param name="timeout" >if the user times out the callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void ChooseTile(Action<Tile> callback, Timeout timeout = null, bool cancelable = false)
     {
-        return null;
     }
 }
