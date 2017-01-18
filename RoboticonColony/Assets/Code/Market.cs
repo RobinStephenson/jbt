@@ -9,7 +9,6 @@ using System.Collections.Generic;
 sealed public class Market
 {
     public Inventory Stock { get; private set; }
-    public bool Open { get; private set; }
 
     private Dictionary<ItemType, int> buyprice;
     private Dictionary<ItemType, int> sellprice;
