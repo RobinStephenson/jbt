@@ -42,15 +42,26 @@ public class InputController : MonoBehaviour {
     }
 
     /// <summary>
-    /// prompt the user to choose an item from the list
+    /// prompt the user to choose a tile from the list
     /// </summary>
-    /// <typeparam name="T">The type of the list of items which must inherit AbstractPromptListItem</typeparam>
     /// <param name="callback">call this with the chosen item</param>
-    /// <param name="question">the questions to display to the user</param>
-    /// <param name="items">the list of items the user can choose from.</param>
+    /// <param name="question">the question to display to the user</param>
+    /// <param name="tiles">the list of tiles the user can choose from.</param>
     /// <param name="timeout">if the user times out the callback wont be called</param>
     /// <param name="cancelable">if the user cancels the callback will be called with null</param>
-    public void PromptList<T>(string question, Action<T> callback, List<T> items, Timeout timeout = null, bool cancelable = false) where T: IPromptListItem
+    public void PromptTile(string question, Action<Tile> callback, List<Tile> tiles, Timeout timeout = null, bool cancelable = false)
+    {
+    }
+
+    /// <summary>
+    /// prompt the user to choose a roboticon customisation from the list
+    /// </summary>
+    /// <param name="callback">call this with the chosen item</param>
+    /// <param name="question">the question to display to the user</param>
+    /// <param name="customisations">the list of customisations the user can choose from.</param>
+    /// <param name="timeout">if the user times out the callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void PromptCustomisation(string question, Action<RoboticonCustomisation> callback, List<RoboticonCustomisation> customisations, Timeout timeout = null, bool cancelable = false)
     {
     }
 
