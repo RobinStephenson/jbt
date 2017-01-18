@@ -66,6 +66,18 @@ public class InputController : MonoBehaviour {
     }
 
     /// <summary>
+    /// prompt the user to choose a resource from the list
+    /// this does not include roboticons
+    /// </summary>
+    /// <param name="question">the question to show the user</param>
+    /// <param name="callback">call this with the chosen resource</param>
+    /// <param name="timeout">if the user timesout callback wont be called</param>
+    /// <param name="cancelable">if the user cancels the callback will be called with null</param>
+    public void PromptResource(string question, Action<ItemType?> callback, Timeout timeout = null, bool cancelable = false)
+    {
+    }
+
+    /// <summary>
     /// ask the user to confirm they have read a message
     /// </summary>
     /// <param name="message">the message for the user to read</param>

@@ -53,28 +53,12 @@ public class HumanPlayer : AbstractPlayer
 
             if (wantsToBuy == true)
             {
-                Input.PromptList<Tile>("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
+                Input.PromptTile("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
             }
         };
 
         // does the player want to buy a tile?
         Input.PromptBool("Do you want to buy a tile?", ChooseTileToBuy, timeout);
-    }
-
-    /// <summary>
-    /// The player may purchase and customise roboticons
-    /// </summary>
-    /// <param name="timeout">a time for which the phase can run</param>
-    public override void DoPhaseTwo(Timeout timeout)
-    {
-        PurchaseRoboticons(timeout);
-
-        // TODO: check the player actually has roboticons to customise and money to buy new customisations
-        if (!timeout.Finished)
-        {
-            CustomiseRoboticons(timeout);
-        }
-        
     }
 
     private void PurchaseRoboticons(Timeout timeout)
@@ -94,35 +78,125 @@ public class HumanPlayer : AbstractPlayer
             }
         };
 
-        Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity);
+        Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity, cancelable: true);
     }
 
     private void CustomiseRoboticons(Timeout timeout)
     {
-        bool WishesToCustomise;
-        try
+        Action<Tile> WhichCustomisation = delegate (Tile tile)
         {
-            WishesToCustomise = Input.PromptBool("Do you wish to customise a roboticon?", timeout);
-        }
-        catch (TimeoutException)
-        {
-            return;
-        }
-        
-        while (WishesToCustomise & !timeout.Finished)
-        {
+            Roboticon RoboticonToCustomise = tile.InstalledRoboticon;
 
-            // TODO: select roboticon to customise from a list here
-
-            try
+            Action<RoboticonCustomisation> BuyCustomisationForRoboticon = delegate (RoboticonCustomisation customisation)
             {
-                WishesToCustomise = Input.PromptBool("Do you wish to customise another roboticon?", timeout);
-            }
-            catch (TimeoutException)
+                if (customisation == null)
+                {
+                    return;
+                }
+                else
+                {
+                    Market.BuyCustomisation(customisation, RoboticonToCustomise, Inventory);
+                }
+            };
+
+            if (tile == null)
             {
                 return;
             }
+            else
+            {
+                // TODO: get a list of available customisations for the roboticon
+                List<RoboticonCustomisation> AvailableCustomisations = null;
+
+                Input.PromptCustomisation("Which customisation do you want to apply", BuyCustomisationForRoboticon, AvailableCustomisations);
+            }
+        };
+
+        Action<bool?> ChooseRoboticonToCustomise = delegate (bool? wantsToCustomise)
+        {
+            if (wantsToCustomise == true)
+            {
+
+
+                // Can only customise installed roboticons as at time of writing removing a roboticon from a tile clears customisations
+                // TODO: create a list of tiles with installed roboticons here
+                List<Tile> TilesWithRoboticon = null;
+                Input.PromptTile("Which robototicon do you want to customise?", WhichCustomisation, TilesWithRoboticon, timeout, cancelable: true);
+            }
+        };
+
+        Input.PromptBool("Do you want to customise a roboticon?", ChooseRoboticonToCustomise, timeout);
+    }
+
+    /// <summary>
+    /// The player may purchase and customise roboticons
+    /// </summary>
+    /// <param name="timeout">a time for which the phase can run</param>
+    public override void DoPhaseTwo(Timeout timeout)
+    {
+        PurchaseRoboticons(timeout);
+
+        // TODO: check the player actually has roboticons to customise and money to buy new customisations
+        if (timeout.Finished)
+        {
+            return;
         }
+
+        CustomiseRoboticons(timeout);
+        
+    }
+
+    private void RemoveRoboticons(Timeout timeout)
+    {
+        Action<Tile> RemoveRoboticonFromTile = delegate (Tile tile)
+        {
+            if (tile != null)
+            {
+                tile.RemoveRoboticon();
+            }
+        
+            // Recursive so that players can remove another roboticon or go again if they cancelled
+            RemoveRoboticons(timeout);
+        };
+
+        Action<bool?> ChooseRoboticonToRemove = delegate (bool? wantsToRemove)
+        {
+            if (wantsToRemove == true)
+            {
+                // TODO create a list of roboticons the player has installed
+                List<Tile> TilesWithRoboticonInstalled = null;
+                Input.PromptTile("Which tile do you want to remove the roboticon from?", RemoveRoboticonFromTile, TilesWithRoboticonInstalled, timeout, cancelable: true);
+            }
+        };
+
+        Input.PromptBool("Do you want to remove any roboticons? this will remove their customisations", ChooseRoboticonToRemove, timeout);
+    }
+
+    private void InstallRoboticons(Timeout timeout)
+    {
+        Action<Tile> InstallRoboticon = delegate (Tile tile)
+        {
+            if (tile != null)
+            {
+                tile.InstallRoboticon(Inventory);
+            }
+
+            // Recursive so that players can install another roboticon or go again if they cancelled
+            InstallRoboticons(timeout);
+            
+        };
+
+        Action<bool?> ChooseTileToInstall = delegate (bool? wantsToInstall)
+        {
+            if (wantsToInstall == true)
+            {
+                // TODO Create a list of tiles where the player could install a roboticon
+                List<Tile> PossibleTiles = null;
+                Input.PromptTile("Where do you want to install a roboticon", InstallRoboticon, PossibleTiles, timeout, cancelable: true);
+            }
+        };
+
+        Input.PromptBool("Do you want to isntall a roboticon?", ChooseTileToInstall, timeout);
     }
 
     /// <summary>
@@ -132,6 +206,7 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseThree(Timeout timeout)
     {
         // remove roboticons frist so that the player can then install them elsewhere
+        // TODO: notify the user that this will clear their customisations
         // TODO: check the player actually has some roboticons installed
         RemoveRoboticons(timeout);
 
@@ -141,108 +216,22 @@ public class HumanPlayer : AbstractPlayer
         }
     }
 
-    // TODO see if this can be combined with InstallRoboticons
-    private void RemoveRoboticons(Timeout timeout)
-    {
-        // doest the user want to remove a roboticon?
-        bool WishesToRemove;
-        try
-        {
-            WishesToRemove = Input.PromptBool("Would you like to remove a roboticon from any of your tiles?", timeout);
-        }
-        catch (TimeoutException)
-        {
-            return;
-        }
-        while (WishesToRemove)
-        {
-            // which roboticon does the user want to remove
-            Tile ChosenTile;
-            try
-            {
-                ChosenTile = Input.ChooseTile(timeout, true);
-            }
-            catch (Exception exception)
-            {
-                if (exception is TimeoutException || exception is CancelledException)
-                {
-                    return;
-                }
-                throw;
-            }
-
-            ChosenTile.RemoveRoboticon();
-
-            // does the user want to remove another roboticon
-            try
-            {
-                WishesToRemove = Input.PromptBool("Would you like to remove another?", timeout);
-            }
-            catch (TimeoutException)
-            {
-                return;
-            }
-        }
-    }
-
-    private void InstallRoboticons(Timeout timeout)
-    {
-        // doest the user want to install a roboticon?
-        bool WishesToInstall;
-        try
-        {
-            WishesToInstall = Input.PromptBool("Would you like to install a roboticon on any of your tiles?", timeout);
-        }
-        catch (TimeoutException)
-        {
-            return;
-        }
-        while (WishesToInstall)
-        {
-            // where does the user want to install the roboticon
-            Tile ChosenTile;
-            try
-            {
-                ChosenTile = Input.ChooseTile(timeout, true);
-            }
-            catch (Exception exception)
-            {
-                if (exception is TimeoutException || exception is CancelledException)
-                {
-                    return;
-                }
-                throw;
-            }
-
-            // TODO which roboticon does the user want to install?
-            Roboticon ChosenRoboticon = new Roboticon();
-            ChosenTile.InstallRoboticon(ChosenRoboticon);
-
-            // does the user want to install another roboticon
-            try
-            {
-                WishesToInstall = Input.PromptBool("Would you like to install another?", timeout);
-            }
-            catch (TimeoutException)
-            {
-                return;
-            }
-        }
-    }
-
     /// <summary>
     /// Show the player their inventory after the colony has produced
     /// </summary>
     public override void DoPhaseFour()
     {
+        int OreProduction = 0;
+        int EnergyProduction = 0;
+
         // TODO
         // for each tile
         // for each roboticon
         // for each resource
         // add to the total production
-        // display
 
-        Input.Confirm("Your colony produced XYZ this turn");
+        String ProductionMessage = String.Format("Your colony produced {0} Ore, {1} Food this turn", OreProduction, EnergyProduction);
+        Input.Confirm(ProductionMessage);
     }
 
     /// <summary>
@@ -250,59 +239,66 @@ public class HumanPlayer : AbstractPlayer
     /// </summary>
     public override void DoPhaseFive()
     {
-        bool WishesToBuyOrSell = Input.PromptBool("Would you like to go to the market?");
-        while (WishesToBuyOrSell)
+        Action<ItemType?> ChooseQuantityToSell = delegate (ItemType? resource)
         {
-            // TODO
-            // display a list of resources with buy/sell prices
-            // ...choose which resource the player wants to buy/sell
-            // ...temorarily set as ore to stop error messages
-            ItemType TransactionItem = ItemType.Ore;
-
-            // does the player want to buy or sell the resource?
-            bool ChoseToBuy = Input.PromptBool("Do you want to buy or sell?", trueOption: "Buy", falseOption: "Sell");
-            if (ChoseToBuy)
+            if (resource != null)
             {
-                BuyResource(TransactionItem);
+                Action<int?> SellResource = delegate (int? quantity)
+                {
+                    if (quantity > 0)
+                    {
+                        Market.Buy((ItemType)resource, (int)quantity, Inventory);
+                    }
+                };
+
+                Input.PromptInt(
+                   "How much?",
+                   SellResource,
+                   min: 1,
+                   max: MaxQuantityPlayerCanSell((ItemType)resource),
+                   cancelable: true);
             }
-            else
+        };
+
+        Action<ItemType?> ChooseQuantityToBuy = delegate (ItemType? resource)
+        {
+            if (resource != null)
             {
-                SellResource(TransactionItem);
+                Action<int?> BuyResource = delegate (int? quantity)
+                {
+                    if (quantity > 0)
+                    {
+                        Market.Buy((ItemType)resource, (int)quantity, Inventory);
+                    }
+                };
+
+                Input.PromptInt(
+                    "How much?",
+                    BuyResource,
+                    min: 1,
+                    max: MaxQuantityPlayerCanBuy((ItemType)resource),
+                    cancelable: true);
+            }
+        };
+
+        Action<bool?> ChooseResource = delegate (bool? wantsToBuy)
+        {
+            if (wantsToBuy == true)
+            {
+                // which resource
+                Input.PromptResource("Which resource do you want to buy?", ChooseQuantityToBuy, cancelable: true);
+            }
+            else if (wantsToBuy == false)
+            {
+                // wants to sell
+                Input.PromptResource("Which resource do you want to sell?", ChooseQuantityToSell, cancelable: true);
             }
 
-            WishesToBuyOrSell = Input.PromptBool("Do you want to stay at the market?");
-        }
-    }
+            // recurive so the player can buy/sell again
+            DoPhaseFive();
+        };
 
-    // TODO Refactor BuyResource and SellResource into one method
-    private void BuyResource(ItemType transactionItem)
-    {
-        int MaxQuantity = MaxQuantityPlayerCanBuy(transactionItem);
-        int ChosenQuantity = 0;
-        try
-        {
-            ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
-        }
-        catch (CancelledException)
-        {
-            return;
-        }
-        Market.Buy(transactionItem, ChosenQuantity, Inventory);
-    }
-
-    private void SellResource(ItemType transactionItem)
-    {
-        int MaxQuantity = MaxQuantityPlayerCanSell(transactionItem);
-        int ChosenQuantity = 0;
-        try
-        {
-            ChosenQuantity = Input.PromptInt("How many?", min: 1, max: MaxQuantity, cancelable: true);
-        }
-        catch (CancelledException)
-        {
-            return;
-        }
-        Market.Sell(transactionItem, ChosenQuantity, Inventory);
+        Input.PromptBool("Do you want to buy or sell at the market?", ChooseResource, trueOption: "Buy", falseOption: "Sell", cancelable: true);
     }
 
     /// <summary>
@@ -325,7 +321,7 @@ public class HumanPlayer : AbstractPlayer
     /// <returns>the maximum quantity</returns>
     private int MaxQuantityPlayerCanSell(ItemType item)
     {
-        // TODO: Create a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
+        // TODO: use a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
         int QuantityShopWillBuy = int.MaxValue;
         return Math.Min(Inventory.GetItemAmount(item), QuantityShopWillBuy);
     }

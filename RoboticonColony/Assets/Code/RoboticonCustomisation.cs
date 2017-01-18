@@ -1,5 +1,3 @@
-﻿public enum RoboticonCustomisation
+﻿public class RoboticonCustomisation
 {
-    Ore = 0,
-    Power
 }
