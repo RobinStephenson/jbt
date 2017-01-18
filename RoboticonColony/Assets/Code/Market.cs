@@ -134,4 +134,20 @@ sealed public class Market
     {
 
     }
+
+    public List<Tile> GetUnsoldTiles()
+    {
+        return null;
+    }
+
+    public int GetTilePrice(Tile tile)
+    {
+        return 0;
+    }
+
+    public void BuyCustomisation(RoboticonCustomisation customisation, Roboticon roboticon, Inventory inventory)
+    {
+    }
+
+
 }
