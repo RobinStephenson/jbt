@@ -23,8 +23,8 @@ public class Tile : MonoBehaviour {
     /// install a roboticon on this tile
     /// </summary>
     /// <exception cref="RoboticonAlreadyInstalledException">A roboticon is already installled</exception>
-    /// <param name="newRoboticon">the roboticon being installed</param>
-    public void InstallRoboticon(Roboticon newRoboticon)
+    /// <param name="inventory">the players inventory</param>
+    public void InstallRoboticon(Inventory inventory)
     {
         // should also set the installedTile on the roboticon to this one
         throw new RoboticonAlreadyInstalledException();
