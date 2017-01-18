@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{6F56CB48-5A97-BB1A-F5DD-E58D59F7BA00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -46,42 +47,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Code\AbstractPlayer.cs" />
-     <Compile Include="Assets\Code\EstateAgent.cs" />
-     <Compile Include="Assets\Code\Exceptions\CancelledException.cs" />
-     <Compile Include="Assets\Code\Exceptions\NotEnoughItemException.cs" />
-     <Compile Include="Assets\Code\Exceptions\NotEnoughMoneyException.cs" />
-     <Compile Include="Assets\Code\Exceptions\RoboticonAlreadyInstalledException.cs" />
-     <Compile Include="Assets\Code\Exceptions\TileAlreadyOwnedException.cs" />
-     <Compile Include="Assets\Code\Exceptions\TransactionException.cs" />
-     <Compile Include="Assets\Code\HumanPlayer.cs" />
-     <Compile Include="Assets\Code\IPromptListItem.cs" />
-     <Compile Include="Assets\Code\InputController.cs" />
-     <Compile Include="Assets\Code\Inventory.cs" />
-     <Compile Include="Assets\Code\ItemType.cs" />
-     <Compile Include="Assets\Code\Market.cs" />
-     <Compile Include="Assets\Code\Roboticon.cs" />
-     <Compile Include="Assets\Code\RoboticonCustomisation.cs" />
-     <Compile Include="Assets\Code\Tile.cs" />
-     <Compile Include="Assets\Code\Timeout.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.PlaymodeTestsRunner">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Code\AbstractPlayer.cs" />
+    <Compile Include="Assets\Code\Exceptions\CancelledException.cs" />
+    <Compile Include="Assets\Code\Exceptions\NotEnoughItemException.cs" />
+    <Compile Include="Assets\Code\Exceptions\NotEnoughMoneyException.cs" />
+    <Compile Include="Assets\Code\Exceptions\RoboticonAlreadyInstalledException.cs" />
+    <Compile Include="Assets\Code\Exceptions\TileAlreadyOwnedException.cs" />
+    <Compile Include="Assets\Code\Exceptions\TransactionException.cs" />
+    <Compile Include="Assets\Code\HumanPlayer.cs" />
+    <Compile Include="Assets\Code\IPromptListItem.cs" />
+    <Compile Include="Assets\Code\InputController.cs" />
+    <Compile Include="Assets\Code\Inventory.cs" />
+    <Compile Include="Assets\Code\ItemType.cs" />
+    <Compile Include="Assets\Code\Market.cs" />
+    <Compile Include="Assets\Code\Roboticon.cs" />
+    <Compile Include="Assets\Code\RoboticonCustomisation.cs" />
+    <Compile Include="Assets\Code\Tile.cs" />
+    <Compile Include="Assets\Code\Timeout.cs" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PlaymodeTestsRunner">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>C:/Unity/5.5.0/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -91,5 +91,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
