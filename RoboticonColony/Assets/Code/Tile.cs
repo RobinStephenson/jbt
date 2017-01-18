@@ -29,4 +29,6 @@ public class Tile : MonoBehaviour {
         // should also set the installedTile on the roboticon to this one
         throw new RoboticonAlreadyInstalledException();
     }
+
+    public int Price;
 }

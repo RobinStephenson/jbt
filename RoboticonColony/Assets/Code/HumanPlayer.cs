@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class HumanPlayer : AbstractPlayer
 {
@@ -13,8 +14,22 @@ public class HumanPlayer : AbstractPlayer
         InputController inputController,
         Inventory inv, 
         Market market,
-        EstateAgent estateAgent) : base(inputController, inv, market, estateAgent)
+        EstateAgent estateAgent) : base(inputController, inv, market)
     {
+    }
+
+    private bool CanBuyCheapest()
+    {
+        int CheapestTilePrice = int.MaxValue;
+        foreach (Tile UnsoldTile in Market.GetUnsoldTiles())
+        {
+            int CurrentTilePrice = Market.GetTilePrice(UnsoldTile);
+            if (CurrentTilePrice < CheapestTilePrice)
+            {
+                CheapestTilePrice = CurrentTilePrice;
+            }
+        }
+        return CheapestTilePrice <= Inventory.Money;
     }
 
     /// <summary>
@@ -24,90 +39,30 @@ public class HumanPlayer : AbstractPlayer
     public override void DoPhaseOne(Timeout timeout)
     {
         // check the player has enough money for at least the cheapest tile
-        int CheapestTilePrice = int.MaxValue;
-        foreach (Tile UnsoldTile in EstateAgent.GetAvailableTiles())
+        if (!CanBuyCheapest())
         {
-            int CurrentTilePrice = EstateAgent.GetPrice(UnsoldTile);
-            if (CurrentTilePrice < CheapestTilePrice)
-            {
-                CheapestTilePrice = CurrentTilePrice;
-            }
-        }
-        if (Inventory.Money < CheapestTilePrice)
-        {
-            try
-            {
-                Input.Confirm("You dont have enough money to buy a tile this round", timeout);
-            }
-            catch (TimeoutException)
-            {
-                return;
-            }
+            Input.Confirm("You dont have enough money to buy a tile this round", timeout: timeout);
             return;
         }
+
+        Action<Tile> BuyTile = delegate (Tile tileToBuy)
+        {
+            Market.BuyTile(tileToBuy, Inventory);
+        };
+
+        Action<bool?> ChooseTileToBuy = delegate (bool? wantsToBuy)
+        {
+            // TODO create a list of unnocupied tiles the player can afford
+            List<Tile> AvailableTiles = null;
+
+            if (wantsToBuy == true)
+            {
+                Input.PromptList<Tile>("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
+            }
+        };
 
         // does the player want to buy a tile?
-        bool WishesToPurchase = false;
-        try
-        {
-            WishesToPurchase = Input.PromptBool("Do you wish to purchase a tile?", timeout);
-        }
-        catch (TimeoutException)
-        {
-            return;
-        }
-
-        // loop until timeout, cancel, or tile purchased
-        while (WishesToPurchase)
-        {
-            // get the user to choose a tile to buy
-            Tile ChosenTile;
-            try
-            {
-                ChosenTile = Input.ChooseTile(timeout, true);
-            }
-            catch (Exception exception)
-            {
-                if (exception is CancelledException || exception is TimeoutException)
-                {
-                    return;
-                }
-                throw;
-            }
-
-            // try to buy the tile
-            try
-            {
-                EstateAgent.Buy(ChosenTile, Inventory);
-                WishesToPurchase = false;
-            }
-            catch (TimeoutException)
-            {
-                return;
-            }
-            catch (TileAlreadyOwnedException)
-            {
-                try
-                {
-                    Input.Confirm("The tile you selected is already owned", timeout);
-                }
-                catch (TimeoutException)
-                {
-                    return;
-                }
-            }
-            catch (NotEnoughMoneyException)
-            {
-                try
-                {
-                    WishesToPurchase = Input.PromptBool("You cannot afford that tile. Would you like to pick another?", timeout);
-                }
-                catch (TimeoutException)
-                {
-                    return;
-                }
-            }
-        }
+        Input.PromptBool("Do you want to buy a tile?", ChooseTileToBuy, timeout);
     }
 
     /// <summary>
@@ -131,69 +86,19 @@ public class HumanPlayer : AbstractPlayer
         int MaxQuantity = MaxQuantityPlayerCanBuy(ItemType.Roboticon);
         if (MaxQuantity <= 0)
         {
-            try
-            {
-                Input.Confirm("You dont have enough money to buy any roboticons this round", timeout);
-            }
-            catch (TimeoutException)
-            {
-                return;
-            }
-            return;
-        }
-        
-        // ask the user if they want to buy any roboticons
-        bool WishesToPurchase;
-        try
-        {
-            WishesToPurchase = Input.PromptBool("Do you wish to look at the markets selection of roboticons?", timeout);
-        }
-        catch (TimeoutException)
-        {
+            Input.Confirm("You cant afford any roboticons this round", timeout: timeout);
             return;
         }
 
-        if (WishesToPurchase)
+        Action<int?> BuyRoboticons = delegate (int? quantityToBuy)
         {
-            bool PurchaseComplete = false;
-            do
+            if (quantityToBuy > 0)
             {
-                // get the number of roboticons te player wants to buy
-                int Quantity;
-                try
-                {
-                    Quantity = Input.PromptInt(
-                        String.Format("How many roboticons do you wish to purchase? £{0} per roboticon", Market.GetBuyPrice(ItemType.Roboticon)),
-                        timeout,
-                        min: 1,
-                        max: MaxQuantity,
-                        cancelable: true);
-                }
-                catch (Exception exception)
-                {
-                    if (exception is TimeoutException || exception is CancelledException)
-                    {
-                        return;
-                    }
-                    throw;
-                }
+                Market.Buy(ItemType.Roboticon, (int)quantityToBuy, Inventory);
+            }
+        };
 
-                // try to make the purchase
-                try
-                {
-                    Market.Buy(ItemType.Roboticon, Quantity, Inventory);
-                    PurchaseComplete = true;
-                }
-                catch (NotEnoughMoneyException)
-                {
-                    Input.Confirm("You do not have enough money", timeout);
-                }
-                catch (NotEnoughItemException)
-                {
-                    Input.Confirm("The market does not have enought stock", timeout);
-                }
-            } while (!PurchaseComplete);
-        }
+        Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity);
     }
 
     private void CustomiseRoboticons(Timeout timeout)

@@ -129,4 +129,9 @@ sealed public class Market
             throw;
         }
     }
+
+    public void BuyTile(Tile tileToBuy, Inventory inventory)
+    {
+
+    }
 }
