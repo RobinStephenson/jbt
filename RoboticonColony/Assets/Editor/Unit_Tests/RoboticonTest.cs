@@ -18,8 +18,8 @@ public class RoboticonTest
     
     
         //Check if roboticon produces the correct amount of each resource and the initial values of Roboticon are set correctly
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production()[ItemType.Ore]);
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production()[ItemType.Power]);
+        Assert.AreEqual(0, currentTile.Production()[ItemType.Ore]);
+        Assert.AreEqual(0, currentTile.Production()[ItemType.Power]);
         Assert.AreEqual(null, NewRoboticon.CurrentCustomisation);
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
@@ -38,8 +38,8 @@ public class RoboticonTest
         Assert.False(TestHelper.Throws(() => NewRoboticon.AddCustomisation(NewCustomisation), typeof(ArgumentException)));
 
         //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production()[ItemType.Ore]);
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production()[ItemType.Ore]);
+        Assert.AreEqual(4, currentTile.Production()[ItemType.Ore]);
+        Assert.AreEqual(0, currentTile.Production()[ItemType.Power]);
         Assert.AreEqual(NewCustomisation, NewRoboticon.CurrentCustomisation);
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
