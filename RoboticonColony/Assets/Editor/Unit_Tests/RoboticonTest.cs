@@ -13,13 +13,13 @@ public class RoboticonTest
     public void CreateNewRoboticon()
     {
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
+        Tile currentTile = new Tile(2,2,2);
         Roboticon NewRoboticon = new Roboticon(currentTile);
     
     
         //Check if roboticon produces the correct amount of each resource and the initial values of Roboticon are set correctly
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production[ItemType.Ore]);
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production[ItemType.Power]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production()[ItemType.Ore]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 1, NewRoboticon.Production()[ItemType.Power]);
         Assert.AreEqual(null, NewRoboticon.CurrentCustomisation);
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
@@ -28,7 +28,7 @@ public class RoboticonTest
     public void SuccessfulAddCustomisation()
     {
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
+        Tile currentTile = new Tile(2,2,2);
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Create a new RoboticonCustomisation instance
@@ -38,8 +38,8 @@ public class RoboticonTest
         Assert.False(TestHelper.Throws(() => NewRoboticon.AddCustomisation(NewCustomisation), typeof(ArgumentException)));
 
         //Check if all resources have initial value set to one, lists are empty and the current tile has been assigned correctly.
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production[ItemType.Ore]);
-        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production[ItemType.Power]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production()[ItemType.Ore]);
+        Assert.AreEqual(NEEDS CHANGING TO TILE OUTPUT * 2, NewRoboticon.Production()[ItemType.Ore]);
         Assert.AreEqual(NewCustomisation, NewRoboticon.CurrentCustomisation);
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
@@ -47,7 +47,7 @@ public class RoboticonTest
     public void FailedAddCustomisation()
     {
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
+        Tile currentTile = new Tile(2,2,2);
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Create a new RoboticonCustomisation instance

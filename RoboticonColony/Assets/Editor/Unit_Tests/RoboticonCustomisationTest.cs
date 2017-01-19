@@ -27,7 +27,7 @@ public class RoboticonCustomisationTest
     {
 
         //Check to ensure the class fails when a roboticon is used as the ItemType
-        Assert.True(TestHelper.Throws(() => new RoboticonCustomisation("test", 2, null, ItemType.Roboticon), typeof(ArgumentException)));
+        Assert.True(TestHelper.Throws(() => new RoboticonCustomisation("Test",2,null,ItemType.Roboticon,10), typeof(ArgumentException)));
     }
 
 }
