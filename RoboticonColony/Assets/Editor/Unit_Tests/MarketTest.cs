@@ -227,7 +227,7 @@ public class MarketTest {
         Inventory playerInv = new Inventory(37, 3, 6, 27);
 
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
+        Tile currentTile = new Tile(2,2,2);
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Create a new RoboticonCustomisation instance
@@ -253,7 +253,7 @@ public class MarketTest {
         Inventory playerInv = new Inventory(9, 3, 6, 27);
 
         //Create an empty Roboticon instance
-        Tile currentTile = new Tile();
+        Tile currentTile = new Tile(2,2,2);
         Roboticon NewRoboticon = new Roboticon(currentTile);
 
         //Create a new RoboticonCustomisation instance
