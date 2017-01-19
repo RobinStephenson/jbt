@@ -28,9 +28,9 @@ sealed public class Tile
     }
 
     /// <summary>
-    /// A function which will return an int representing the amount of the specified ItemType produced on the tile. 
+    /// A function which will return an int representing the amount of the specified resource produced on the tile. 
     /// </summary>
-    /// <param name="resourceType"></param>
+    /// <param name="resourceType">The resource type that should be found.</param>
     /// <returns></returns>
     public int Produce(ItemType resourceType)
     {
