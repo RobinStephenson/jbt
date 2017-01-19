@@ -23,7 +23,7 @@ sealed public class Tile
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
         resources[ItemType.Power] = power;
-        Owner = null;
+        owner = null;
         installedRoboticon = null;
     }
 
