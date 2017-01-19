@@ -18,19 +18,7 @@ public class TileTest
         Assert.AreEqual(1, tile.Power);
         Assert.AreEqual(-1, tile.OwnerID);
     }
-    // Temporary AddRoboticon test
-    [Test]
-    public void AddRoboticon()
-    {
-        Assert.Fail();
-    }
 
-    //Temporary RemoveRoboticon test
-    [Test]
-    public void RemoveRoboticonTest()
-    {
-        Assert.Fail();
-    }
     //Temporary Produce test
     [Test]
     

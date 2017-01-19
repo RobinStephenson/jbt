@@ -7,8 +7,8 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    private AbstractPlayer owner { get; set; }
-    private Roboticon installedRoboticon { get; set; }
+    private AbstractPlayer Owner { get; set; }
+    private Roboticon InstalledRoboticon { get; set; }
     private Dictionary<ItemType, int> resources;
 
     /// <summary>
@@ -23,57 +23,32 @@ sealed public class Tile
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
         resources[ItemType.Power] = power;
-        owner = null;
-        installedRoboticon = null;
+        Owner = null;
+        InstalledRoboticon = null;
     }
 
     /// <summary>
-    /// Adds a roboticon to the tile
+    /// A function which will return an int representing the amount of the specified resource produced on the tile. 
     /// </summary>
-    /// <param name="newRoboticon">Roboticon to be added</param>
-    public void AddRoboticon(Roboticon newRoboticon)
-    {
-        installedRoboticon = newRoboticon;
-    }
-
-    /// <summary>
-    /// Removes the roboticon from the tile
-    /// </summary>
-    public void RemoveRoboticon()
-    {
-        installedRoboticon = null;
-    }
-
-    public void AddPlayer(Player player)
-    {
-        owner = player;
-    }
-
-    /// <summary>
-    /// Returns the Ore produced by the tile
-    /// </summary>
-    /// <returns>Ore</returns>
-    public int ProduceOre()
+    /// <param name="resourceType">The resource type that should be found.</param>
+    /// <returns></returns>
+    public int Produce(ItemType resourceType)
     {
         //Will apply roboticon multiplier later on
-        return Ore;
+        return resources[resourceType];
     }
 
     /// <summary>
-    /// Returns the Power produced by the tile
+    /// Returns the available ore on the tile
     /// </summary>
-    /// <returns>Power</returns>
-    public int ProducePower()
-    {
-        //Will apply roboticon multiplier later on
-        return Power;
-    }
-
     public int Ore
     {
         get { return resources[ItemType.Ore]; }
     }
 
+    /// <summary>
+    /// Returns the available power on the tile
+    /// </summary>
     public int Power
     {
         get { return resources[ItemType.Power]; }
