@@ -32,24 +32,10 @@ sealed public class Tile
         owner = player;
     }
 
-    /// <summary>
-    /// Returns the Ore produced by the tile
-    /// </summary>
-    /// <returns>Ore</returns>
-    public int ProduceOre()
+    public int Produce(ItemType resourceType)
     {
         //Will apply roboticon multiplier later on
-        return Ore;
-    }
-
-    /// <summary>
-    /// Returns the Power produced by the tile
-    /// </summary>
-    /// <returns>Power</returns>
-    public int ProducePower()
-    {
-        //Will apply roboticon multiplier later on
-        return Power;
+        return resources[resourceType];
     }
 
     public int Ore
