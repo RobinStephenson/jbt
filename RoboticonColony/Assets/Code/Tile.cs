@@ -7,8 +7,8 @@ using System.Text;
 sealed public class Tile
 {
     public int Cost { get; private set; }
-    private AbstractPlayer owner { get; set; }
-    private Roboticon installedRoboticon { get; set; }
+    private AbstractPlayer Owner { get; set; }
+    private Roboticon InstalledRoboticon { get; set; }
     private Dictionary<ItemType, int> resources;
 
     /// <summary>
@@ -24,23 +24,6 @@ sealed public class Tile
         resources[ItemType.Ore] = ore;
         resources[ItemType.Power] = power;
         owner = null;
-        installedRoboticon = null;
-    }
-
-    /// <summary>
-    /// Adds a roboticon to the tile
-    /// </summary>
-    /// <param name="newRoboticon">Roboticon to be added</param>
-    public void AddRoboticon(Roboticon newRoboticon)
-    {
-        installedRoboticon = newRoboticon;
-    }
-
-    /// <summary>
-    /// Removes the roboticon from the tile
-    /// </summary>
-    public void RemoveRoboticon()
-    {
         installedRoboticon = null;
     }
 
