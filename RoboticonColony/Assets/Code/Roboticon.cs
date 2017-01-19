@@ -35,8 +35,8 @@ public class Roboticon
         CurrentCustomisation = null;
 
         // Set Bonus Production to base roboticon stats
-        productionMultiplier[ItemType.Ore] = 1;
-        productionMultiplier[ItemType.Power] = 1;
+        productionMultiplier[ItemType.Ore] = 0;
+        productionMultiplier[ItemType.Power] = 0;
     }
 
     /// <summary>
