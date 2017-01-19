@@ -17,7 +17,7 @@ public class Roboticon
     /// <summary>
     /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
     /// </summary>
-    private Dictionary<ItemType, int> productionMultiplier;
+    public Dictionary<ItemType, int> ProductionMultiplier { get; private set; }
 
     /// <summary>
     /// CurrentCustomisations is a RoboticonCustomisations which the roboticon currently has applied. 
@@ -37,18 +37,6 @@ public class Roboticon
         // Set Bonus Production to base roboticon stats
         productionMultiplier[ItemType.Ore] = 0;
         productionMultiplier[ItemType.Power] = 0;
-    }
-
-    /// <summary>
-    /// Returns a dictionary of what the roboticon produces each turn.
-    /// </summary>
-    /// <returns>A dictionary of (ItemType, Int) containing the amount of each resource produced each turn. </ItemType></returns>
-    public Dictionary<ItemType, int> Production()
-    {
-        Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
-        produced[ItemType.Ore] = CurrentTile.Ore * productionMultiplier[ItemType.Ore];
-        produced[ItemType.Power] = CurrentTile.Ore * productionMultiplier[ItemType.Power];
-        return produced;    
     }
 
     /// <summary>

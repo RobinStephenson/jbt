@@ -28,14 +28,24 @@ sealed public class Tile
     }
 
     /// <summary>
-    /// A function which will return an int representing the amount of the specified resource produced on the tile. 
+    /// Returns a dictionary of what the roboticon produces each turn.
     /// </summary>
-    /// <param name="resourceType">The resource type that should be found.</param>
-    /// <returns></returns>
-    public int Produce(ItemType resourceType)
+    /// <returns>A dictionary of (ItemType, Int) containing the amount of each resource produced each turn. </ItemType></returns>
+    public Dictionary<ItemType, int> Production()
     {
-        //Will apply roboticon multiplier later on
-        return resources[resourceType];
+        Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
+        if (!(InstalledRoboticon == null))
+        {
+            produced = InstalledRoboticon.ProductionMultiplier;
+            return produced;
+        }
+        else
+        {
+            produced[ItemType.Ore] = 0;
+            produced[ItemType.Power] = 0;
+            return produced;
+        }
+
     }
 
     /// <summary>
