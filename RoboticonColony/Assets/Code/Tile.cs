@@ -27,17 +27,28 @@ sealed public class Tile
         InstalledRoboticon = null;
     }
 
+    /// <summary>
+    /// A function which will return an int representing the amount of the specified ItemType produced on the tile. 
+    /// </summary>
+    /// <param name="resourceType"></param>
+    /// <returns></returns>
     public int Produce(ItemType resourceType)
     {
         //Will apply roboticon multiplier later on
         return resources[resourceType];
     }
 
+    /// <summary>
+    /// Returns the available ore on the tile
+    /// </summary>
     public int Ore
     {
         get { return resources[ItemType.Ore]; }
     }
 
+    /// <summary>
+    /// Returns the available power on the tile
+    /// </summary>
     public int Power
     {
         get { return resources[ItemType.Power]; }
