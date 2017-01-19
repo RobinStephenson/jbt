@@ -27,11 +27,6 @@ sealed public class Tile
         installedRoboticon = null;
     }
 
-    public void AddPlayer(Player player)
-    {
-        owner = player;
-    }
-
     public int Produce(ItemType resourceType)
     {
         //Will apply roboticon multiplier later on
