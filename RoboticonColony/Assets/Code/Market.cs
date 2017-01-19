@@ -31,7 +31,7 @@ sealed public class Market
         Stock = stock;
         _buyprice = new Dictionary<ItemType, int>();
         _sellprice = new Dictionary<ItemType, int>();
-        customisationsList = null;
+        CustomisationsList = null;
 
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         _buyprice[ItemType.Ore] = oreBuyPrice;
@@ -154,7 +154,7 @@ sealed public class Market
     /// <param name="reqPrice"> The required price of the customisation. </param>
     private void createCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
     {
-        customisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
 
     /// <summary>
