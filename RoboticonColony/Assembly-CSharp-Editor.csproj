@@ -1,4 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+
+<?xml version="1.0" encoding="utf-8"?>
+
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,6 +49,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Assets\Editor\Unit_Tests\TileTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\InventoryTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\MarketTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\RoboticonCustomisationTest.cs" />

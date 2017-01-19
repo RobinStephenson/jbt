@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,16 +9,19 @@ using System.Collections.Generic;
 sealed public class Market
 {
     public Inventory Stock { get; private set; }
-    public bool Open { get; private set; }
 
     private Dictionary<ItemType, int> _buyprice;
     private Dictionary<ItemType, int> _sellprice;
-
+  
     /// <summary>
     /// customisationsList is a list of all RoboticonCustomisations
     /// </summary>
     public List<RoboticonCustomisation> CustomisationsList { get; private set; }
-
+  
+    /// <summary>
+    /// Creates a market instance with the provided inventory as its stock.
+    /// </summary>
+    /// <param name="stock">The starting stock for the market</param>
     /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
@@ -91,14 +94,14 @@ sealed public class Market
                 //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
                 return this;
             }
-            catch (ArgumentOutOfRangeException)
+            catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
                 Stock.TransferMoney(_buyprice[item] * quantity, playerInventory);
                 throw;
             }
         }
-        catch (ArgumentOutOfRangeException)
+        catch (NotEnoughMoneyException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
@@ -121,29 +124,26 @@ sealed public class Market
 
             //Attempt to transfer the requested item(s) into the markets inventory.
             try
-            {
+            {                
                 playerInventory.TransferItem(item, quantity, Stock);
 
                 //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
                 return this;
             }
-            catch (ArgumentOutOfRangeException)
+            catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
                 playerInventory.TransferMoney(_sellprice[item] * quantity, Stock);
                 throw;
             }
         }
-        catch (ArgumentOutOfRangeException)
+        catch(NotEnoughMoneyException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
-
         }
     }
-
-
-
+ 
     /// <summary>
     /// Creates an customisation type for roboticons.
     /// </summary>
@@ -188,5 +188,4 @@ sealed public class Market
         }
 
     }
-   
 }
