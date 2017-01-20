@@ -54,5 +54,4 @@ sealed public class RoboticonCustomisation
         ResourceType = selectedResource;
         Price = reqPrice;
     }
-
 }

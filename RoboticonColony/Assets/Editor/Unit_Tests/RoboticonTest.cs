@@ -7,15 +7,12 @@ using System.Collections.Generic;
 
 public class RoboticonTest
 {
-
-    //NEEDS UPDATING WHEN TILE IS MERGED
     [Test]
     public void CreateNewRoboticon()
     {
         //Create an empty Roboticon instance
         Tile currentTile = new Tile(2,2,2);
-        Roboticon NewRoboticon = new Roboticon(currentTile);
-    
+        Roboticon NewRoboticon = new Roboticon(currentTile);    
     
         //Check if roboticon produces the correct amount of each resource and the initial values of Roboticon are set correctly
         Assert.AreEqual(0, currentTile.Production()[ItemType.Ore]);
@@ -44,6 +41,7 @@ public class RoboticonTest
         Assert.AreEqual(currentTile, NewRoboticon.CurrentTile);
     }
 
+    [Test]
     public void FailedAddCustomisation()
     {
         //Create an empty Roboticon instance
@@ -57,6 +55,4 @@ public class RoboticonTest
         //Check to ensure the class fails when a customisation cannot be applied
         Assert.True(TestHelper.Throws(() => NewRoboticon.AddCustomisation(NewCustomisation), typeof(ArgumentException)));
     }
-
-
 }

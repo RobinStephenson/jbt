@@ -13,15 +13,14 @@ public class TileTest
         Tile tile = new Tile(5, 2, 1);
 
         //Check if all resources have correct values
-        Assert.AreEqual(5, tile.Cost);
+        Assert.AreEqual(5, tile.Price);
         Assert.AreEqual(2, tile.Ore);
         Assert.AreEqual(1, tile.Power);
-        Assert.AreEqual(-1, tile.OwnerID);
+        //Assert.AreEqual(-1, tile.Owner.ID);
     }
 
     //Temporary Produce test
-    [Test]
-    
+    [Test]    
     public void ProduceTest()
     {
         Assert.Fail();

@@ -6,9 +6,9 @@ using System.Text;
 
 sealed public class Tile
 {
-    public int Cost { get; private set; }
-    private AbstractPlayer Owner { get; set; }
-    private Roboticon InstalledRoboticon { get; set; }
+    public int Price { get; private set; }
+    public AbstractPlayer Owner { get; private set; }
+    public Roboticon InstalledRoboticon { get; private set; }
     private Dictionary<ItemType, int> resources;
 
     /// <summary>

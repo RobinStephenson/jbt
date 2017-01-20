@@ -17,14 +17,15 @@ public class HumanPlayer : AbstractPlayer
     private bool CanBuyCheapest()
     {
         int CheapestTilePrice = int.MaxValue;
-        foreach (Tile UnsoldTile in Market.GetUnsoldTiles())
-        {
-            int CurrentTilePrice = Market.GetTilePrice(UnsoldTile);
-            if (CurrentTilePrice < CheapestTilePrice)
-            {
-                CheapestTilePrice = CurrentTilePrice;
-            }
-        }
+        //TODO: Uncomment when estateagent is merged
+        //foreach (Tile UnsoldTile in Market.GetUnsoldTiles())
+        //{
+        //    int CurrentTilePrice = Market.GetTilePrice(UnsoldTile);
+        //    if (CurrentTilePrice < CheapestTilePrice)
+        //    {
+        //        CheapestTilePrice = CurrentTilePrice;
+        //    }
+        //}
         return CheapestTilePrice <= Inventory.Money;
     }
 
@@ -43,7 +44,8 @@ public class HumanPlayer : AbstractPlayer
 
         Action<Tile> BuyTile = delegate (Tile tileToBuy)
         {
-            Market.BuyTile(tileToBuy, Inventory);
+            //TODO: Uncomment when estateagent is merged
+            //Market.BuyTile(tileToBuy, Inventory);
         };
 
         Action<bool?> ChooseTileToBuy = delegate (bool? wantsToBuy)

@@ -43,8 +43,8 @@ sealed public class Market
 
 
         /// Temporary initialisation of customisations, may be done through reading in a file later. 
-        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
-        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
+        //CreateCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+        //CreateCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -152,7 +152,7 @@ sealed public class Market
     /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
     /// <param name="reqPrice"> The required price of the customisation. </param>
-    private void createCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
+    private void CreateCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
     {
         CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
@@ -165,7 +165,7 @@ sealed public class Market
     /// <summary>
     /// Adds a roboticon to the market stock.
     /// </summary>
-    private void BuyRoboticonOre()
+    public void BuyRoboticonOre()
     {
         //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
         if (Stock.GetItemAmount(ItemType.Ore) > 0)
@@ -183,10 +183,10 @@ sealed public class Market
     /// <param name="roboticon"> The selected Roboticon</param>
     public void BuyCustomisation(RoboticonCustomisation customisation, Roboticon roboticon, Inventory inventory)
     {
-        if (inv.Money > customisation.Price)
+        if (inventory.Money > customisation.Price)
         {
             roboticon.AddCustomisation(customisation);
-            inv.AddMoney(-customisation.Price);
+            inventory.AddMoney(-customisation.Price);
         }
         else
         {

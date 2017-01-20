@@ -31,12 +31,12 @@ public class Roboticon
     public Roboticon(Tile selectedTile)
     {
         CurrentTile = selectedTile;
-        productionMultiplier = new Dictionary<ItemType, int>();
+        ProductionMultiplier = new Dictionary<ItemType, int>();
         CurrentCustomisation = null;
 
         // Set Bonus Production to base roboticon stats
-        productionMultiplier[ItemType.Ore] = 0;
-        productionMultiplier[ItemType.Power] = 0;
+        ProductionMultiplier[ItemType.Ore] = 0;
+        ProductionMultiplier[ItemType.Power] = 0;
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class Roboticon
         if (CurrentCustomisation == customisation.Prerequisites || customisation.Prerequisites == null)
         {
             CurrentCustomisation = customisation;
-            productionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
+            ProductionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
         }
         else
         {
