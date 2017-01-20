@@ -27,6 +27,10 @@ sealed public class Tile
         InstalledRoboticon = null;
     }
 
+    /// <summary>
+    /// Get the production of the tile
+    /// </summary>
+    /// <returns>Dictionary of ItemType -> Ammount produced of that resource</returns>
     public Dictionary<ItemType, int> Produce()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
@@ -41,7 +45,7 @@ sealed public class Tile
             }
             else
             {
-                produced[itemType] = resources[itemType] * InstalledRoboticon.ProductionMultiplier[itemType];
+                produced[itemType] = resources[itemType] * InstalledRoboticon.ProductionMultiplier(itemType);
             }
         }
         return produced;

@@ -8,54 +8,59 @@ using UnityEngine;
 /// </summary>
 public class Roboticon
 {
-
-    /// <summary>
-    /// The current Tile that the roboticon is assigned to. 
-    /// </summary>
     public Tile CurrentTile { get; private set; }
 
-    /// <summary>
-    /// _bonusProduction is a dictionary which holds the int value (Total production of each recource) it produces.
-    /// </summary>
-    public Dictionary<ItemType, int> ProductionMultiplier { get; private set; }
+    public AbstractPlayer Owner { get; private set; }
 
-    /// <summary>
-    /// CurrentCustomisations is a RoboticonCustomisations which the roboticon currently has applied. 
-    /// </summary>
-    public RoboticonCustomisation CurrentCustomisation { get; private set; }
+    public List<RoboticonCustomisation> InstalledCustomisations;
 
-    /// <summary>
-    /// Creates a Roboticon instance that creates a non-customised roboticon in the specified tile.
-    /// </summary>
-    /// <param name="selectedTile"> The Tile that the roboticon is being placed on. </param>
-    public Roboticon(Tile selectedTile)
+    public Roboticon(Tile selectedTile, AbstractPlayer owner)
     {
         CurrentTile = selectedTile;
-        ProductionMultiplier = new Dictionary<ItemType, int>();
-        CurrentCustomisation = null;
-
-        // Set Bonus Production to base roboticon stats
-        ProductionMultiplier[ItemType.Ore] = 0;
-        ProductionMultiplier[ItemType.Power] = 0;
+        Owner = owner;
     }
 
     /// <summary>
-    /// If the customisation's prerequisite is met the customisation will be applied to the selected roboticon. 
+    /// Add the given customisation to this roboticon
     /// </summary>
-    /// <param name="customisation"> Reference to the Customisation that should be applied to the Roboticon</param>
-    /// <exception cref="ArgumentException"> Thrown when customisation requirements are not met. </exception>
+    /// <param name="customisation">the customisation to apply</param>
+    /// <exception cref="ArgumentException">The prerequisite customisations are not installed</exception>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        if (CurrentCustomisation == customisation.Prerequisites || customisation.Prerequisites == null)
+        // check customisations prerequisites are installed
+        foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
         {
-            CurrentCustomisation = customisation;
-            ProductionMultiplier[customisation.ResourceType] = customisation.BonusMultiplier;
+            if (!InstalledCustomisations.Contains(prerequisite))
+            {
+                throw new ArgumentException("Prerequisite customisations not installed");
+            }
         }
-        else
+        InstalledCustomisations.Add(customisation);
+    }
+
+    /// <summary>
+    /// get the best production multiplier of any of the installed customisations
+    /// defaults to 0 if there are no installed customisations
+    /// </summary>
+    /// <param name="itemType">the ItemType the multiplier is to be applied too</param>
+    /// <returns>the highest production multiplier</returns>
+    public int ProductionMultiplier(ItemType itemType)
+    {
+        if (itemType == ItemType.Roboticon)
         {
-            throw new ArgumentException("Roboticon doesn't meet the requirements for the specified customisation. ");
+            throw new ArgumentException("Roboticon is not valid");
         }
 
+        int CurrentBestMultiplier = 0;
+        foreach (RoboticonCustomisation customisation in InstalledCustomisations)
+        {
+            int NewMultiplier = customisation.GetMultiplier(itemType);
+            if ( NewMultiplier > CurrentBestMultiplier)
+            {
+                CurrentBestMultiplier = NewMultiplier;
+            }
+        }
+        return CurrentBestMultiplier;
     }
 
 }

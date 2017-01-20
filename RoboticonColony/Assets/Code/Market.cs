@@ -40,11 +40,6 @@ sealed public class Market
         _sellprice[ItemType.Ore] = oreSellPrice;
         _sellprice[ItemType.Power] = powerSellPrice;
         _sellprice[ItemType.Roboticon] = roboticonSellPrice;
-
-
-        /// Temporary initialisation of customisations, may be done through reading in a file later. 
-        //CreateCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
-        //CreateCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -152,9 +147,9 @@ sealed public class Market
     /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
     /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
     /// <param name="reqPrice"> The required price of the customisation. </param>
-    private void CreateCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
+    private void CreateCustomisations(string selectedName, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
-        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
+        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonuses, prereq, reqPrice));
     }
 
     public int GetTilePrice(Tile tile)
