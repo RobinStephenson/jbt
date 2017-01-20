@@ -18,9 +18,8 @@ public class HumanPlayer : AbstractPlayer {
         }
         else if(expectingInputForPhase == 1)
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) && Tile.selectedTile != null)
             {
-                Debug.Log("fuck");
                 EndPhase1(Tile.selectedTile);
             }
         }

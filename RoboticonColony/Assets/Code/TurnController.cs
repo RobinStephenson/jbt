@@ -18,13 +18,16 @@ public class TurnController : MonoBehaviour {
     private float phaseDuration = 60;
     private float currentPhaseTime;
 
+    //Turn Display variables
+    public Text TurnDisplay;
+    public Text PhaseDisplay;
+    public Text PlayerDisplay;
+
 	void Start () {
         //Initialise
         turnCount = 1;
         activePhase = 1;
         currentPhaseTime = 0;
-        player1 = gameObject.AddComponent<HumanPlayer>();
-        player2 = gameObject.AddComponent<HumanPlayer>();
         activePlayer = player1;
 
         //Get a list of all tiles to populate the market with
@@ -40,6 +43,7 @@ public class TurnController : MonoBehaviour {
 
         //Start the game
         activePlayer.StartPhase1();
+        SetTurnText();
 	}
 	
 	void Update () {
@@ -51,6 +55,9 @@ public class TurnController : MonoBehaviour {
     {
         if(activePlayer == player1)
         {
+            Debug.Log((activePlayer == player1).ToString());
+            Debug.Log(player1.Name);
+            Debug.Log(player2.Name);
             activePlayer = player2;
         }
         else
@@ -61,5 +68,16 @@ public class TurnController : MonoBehaviour {
 
         if (activePhase == 6)
             activePhase = 0;
+
+        Debug.Log(activePlayer.Name);
+        SetTurnText();
+    }
+
+    private void SetTurnText()
+    {
+        TurnDisplay.text = "Turn " + turnCount.ToString();
+        PhaseDisplay.text = "Phase " + activePhase.ToString();
+        //Debug.Log(activePlayer.Name);
+        PlayerDisplay.text = activePlayer.Name;
     }
 }
