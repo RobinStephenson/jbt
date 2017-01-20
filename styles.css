@@ -1,0 +1,15 @@
+article {
+    max-width: 1140px;
+    width: 100%;
+}
+
+.screenshot-desc {
+    background-color: #ecf0f1;
+    padding: 1em;
+}
+.screenshot-desc h3 {
+    margin-top: 0;
+}
+.margin-xl-top {
+    margin-top: 6em;
+}
