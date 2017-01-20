@@ -27,25 +27,24 @@ sealed public class Tile
         InstalledRoboticon = null;
     }
 
-    /// <summary>
-    /// Returns a dictionary of what the roboticon produces each turn.
-    /// </summary>
-    /// <returns>A dictionary of (ItemType, Int) containing the amount of each resource produced each turn. </ItemType></returns>
-    public Dictionary<ItemType, int> Production()
+    public Dictionary<ItemType, int> Produce()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
-        if (!(InstalledRoboticon == null))
+        List<ItemType> itemTypes = new List<ItemType>();
+        itemTypes.Add(ItemType.Ore);
+        itemTypes.Add(ItemType.Power);
+        foreach (ItemType itemType in itemTypes)
         {
-            produced = InstalledRoboticon.ProductionMultiplier;
-            return produced;
+            if (InstalledRoboticon == null)
+            {
+                produced[itemType] = 0;
+            }
+            else
+            {
+                produced[itemType] = resources[itemType] * InstalledRoboticon.ProductionMultiplier[itemType];
+            }
         }
-        else
-        {
-            produced[ItemType.Ore] = 0;
-            produced[ItemType.Power] = 0;
-            return produced;
-        }
-
+        return produced;
     }
   
     /// <summary>
