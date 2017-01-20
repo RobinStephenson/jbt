@@ -16,7 +16,7 @@ public class TileTest
         Assert.AreEqual(5, tile.Price);
         Assert.AreEqual(2, tile.Ore);
         Assert.AreEqual(1, tile.Power);
-        //Assert.AreEqual(-1, tile.Owner.ID);
+        Assert.AreEqual(null, tile.Owner);
     }
 
     //Temporary Produce test
