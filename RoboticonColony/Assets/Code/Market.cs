@@ -113,6 +113,7 @@ sealed public class Market
     /// <param name="quantity">The quantity the player wishes to sell</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
     /// <returns>This market reference, for method chaining.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when a negative quanitity of items are sold.</exception>
     public Market Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         if (quantity < 0)
