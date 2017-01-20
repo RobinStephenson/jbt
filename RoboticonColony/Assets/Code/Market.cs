@@ -194,4 +194,38 @@ sealed public class Market
         }
 
     }
+
+    /// <summary>
+    /// Function to find the maximum amount of the specified item type that the market will buy.
+    /// </summary>
+    /// <param name="typeToBeBought"> The item type that the market will buy</param>
+    /// <returns>An int which represents the maximum number of the specified type of item that the market will buy.</returns>
+    public int MaxWillBuy(ItemType typeToBeBought)
+    {
+        if(Stock.Money - (GetBuyPrice(typeToBeBought)*10) > 0)
+        {
+            if(Stock.GetItemAmount(typeToBeBought) >= 10)
+            {
+                return 10;
+            }
+            else
+            {
+                return Stock.GetItemAmount(typeToBeBought);
+            }
+
+        }
+        else
+        {
+            int moneyAvailable = Stock.Money;
+            int quantityAvailable = Stock.GetItemAmount(typeToBeBought);
+            int quantity = 0;
+            while((moneyAvailable > 0) && quantityAvailable > 0)
+            {
+                moneyAvailable -= GetBuyPrice(typeToBeBought);
+                quantity += 1;
+                quantityAvailable -= 1;
+            }
+            return quantity;
+        }
+    }
 }

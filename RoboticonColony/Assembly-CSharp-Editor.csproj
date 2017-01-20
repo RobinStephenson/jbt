@@ -52,6 +52,7 @@
      <Compile Include="Assets\Editor\Unit_Tests\RoboticonTest.cs" />
      <Compile Include="Assets\Editor\Unit_Tests\TestHelper.cs" />
      <Compile Include="Assets\Editor\Unit_Tests\TileTest.cs" />
+     <Compile Include="Assets\Editor\Unit_Tests\TimeoutTest.cs" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
