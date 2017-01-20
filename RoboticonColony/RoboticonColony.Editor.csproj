@@ -123,7 +123,7 @@
     <Compile Include="Assets\Editor\Unit_Tests\InventoryTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\MarketTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\TestHelper.cs" />
-    <Compile Include="Assets\Editor\Unit_Tests\TimeoutTest.cs" />
+    <Compile Include="Assets\Editor\Unit_Tests\TileTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

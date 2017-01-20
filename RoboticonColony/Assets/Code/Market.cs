@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,11 +9,19 @@ using System.Collections.Generic;
 sealed public class Market
 {
     public Inventory Stock { get; private set; }
-    public bool Open { get; private set; }
 
     private Dictionary<ItemType, int> _buyprice;
     private Dictionary<ItemType, int> _sellprice;
-
+  
+    /// <summary>
+    /// customisationsList is a list of all RoboticonCustomisations
+    /// </summary>
+    public List<RoboticonCustomisation> CustomisationsList { get; private set; }
+  
+    /// <summary>
+    /// Creates a market instance with the provided inventory as its stock.
+    /// </summary>
+    /// <param name="stock">The starting stock for the market</param>
     /// <summary>
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
@@ -23,6 +31,7 @@ sealed public class Market
         Stock = stock;
         _buyprice = new Dictionary<ItemType, int>();
         _sellprice = new Dictionary<ItemType, int>();
+        CustomisationsList = null;
 
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         _buyprice[ItemType.Ore] = oreBuyPrice;
@@ -31,6 +40,11 @@ sealed public class Market
         _sellprice[ItemType.Ore] = oreSellPrice;
         _sellprice[ItemType.Power] = powerSellPrice;
         _sellprice[ItemType.Roboticon] = roboticonSellPrice;
+
+
+        /// Temporary initialisation of customisations, may be done through reading in a file later. 
+        createCustomisations("Ore 1", 2, null, ItemType.Ore, 10);
+        createCustomisations("Power 1", 2, null, ItemType.Power, 10);
     }
 
     /// <summary>
@@ -129,25 +143,55 @@ sealed public class Market
             throw;
         }
     }
-
-    public void BuyTile(Tile tileToBuy, Inventory inventory)
+ 
+    /// <summary>
+    /// Creates an customisation type for roboticons.
+    /// </summary>
+    /// <param name="selectedName"> The name of the customisation. </param>
+    /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
+    /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
+    /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
+    /// <param name="reqPrice"> The required price of the customisation. </param>
+    private void createCustomisations(string selectedName, int bonusMult, RoboticonCustomisation prereq, ItemType selectedResource, int reqPrice)
     {
-
-    }
-
-    public List<Tile> GetUnsoldTiles()
-    {
-        return null;
+        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
 
     public int GetTilePrice(Tile tile)
     {
-        return 0;
+        return tile.Price;
+    }
+  
+    /// <summary>
+    /// Adds a roboticon to the market stock.
+    /// </summary>
+    private void BuyRoboticonOre()
+    {
+        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
+        if (Stock.GetItemAmount(ItemType.Ore) > 0)
+        {
+            Stock.AddItem(ItemType.Ore, -1);
+            Stock.AddItem(ItemType.Roboticon, 1);
+        }
     }
 
+    /// <summary>
+    /// Function to buy a specified customisation for the specified roboticon.
+    /// </summary>
+    /// <param name="inv"> The player's inventory</param>
+    /// <param name="customisation"> The selected roboticon customisation</param>
+    /// <param name="roboticon"> The selected Roboticon</param>
     public void BuyCustomisation(RoboticonCustomisation customisation, Roboticon roboticon, Inventory inventory)
     {
+        if (inv.Money > customisation.Price)
+        {
+            roboticon.AddCustomisation(customisation);
+            inv.AddMoney(-customisation.Price);
+        }
+        else
+        {
+            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+        }
+
     }
-
-
 }
