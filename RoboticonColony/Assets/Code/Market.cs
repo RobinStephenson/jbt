@@ -17,6 +17,7 @@ sealed public class Market
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
     /// <param name="stock">The starting stock for the market</param>
+    /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when the market is initialised with negative parameters.</exception>
     public Market(Inventory stock, int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice)
     {
         if (oreBuyPrice < 0 || powerBuyPrice < 0 || roboticonBuyPrice < 0 || oreSellPrice < 0 || powerSellPrice < 0 || roboticonSellPrice < 0)
@@ -68,6 +69,7 @@ sealed public class Market
     /// <param name="item">The item the player wishes to buy.</param>
     /// <param name="Quantity">The quantity the player withes to buy.</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
+    /// <exception cref="ArgumentOutOfRangeException">The Excpetion thrown when a negative amount of items are bought.</exception>
     public void Buy(ItemType item, int quantity, Inventory playerInventory)
     {
         if(quantity < 0)
@@ -108,6 +110,7 @@ sealed public class Market
     /// <param name="item">The item the player wishes to sell.</param>
     /// <param name="quantity">The quantity the player wishes to sell</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
+    /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when a negative quanitity of items are sold.</exception>
     public void Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         if (quantity < 0)
