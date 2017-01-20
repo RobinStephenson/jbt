@@ -165,6 +165,18 @@ public class MarketTest {
         Assert.AreEqual(69, playerInv.Money);
     }
 
+    [Test]
+    public void SuccessfulTileBuy()
+    {
+        Assert.Fail();
+    }
+
+    [Test]
+    public void FailedTileBuy()
+    {
+        Assert.Fail();
+    }
+
     /// <summary>
     /// Used by the CreateNegativeMarket Test method to attempt to create a market with negative prices
     /// </summary>
