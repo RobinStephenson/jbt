@@ -81,7 +81,6 @@
     <Compile Include="Assets\Code\Inventory.cs" />
     <Compile Include="Assets\Code\ItemType.cs" />
     <Compile Include="Assets\Code\Market.cs" />
-    <Compile Include="Assets\Code\Temp\Tile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
