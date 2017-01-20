@@ -137,6 +137,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &3673768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -531,6 +532,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &46944215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -626,6 +628,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &84026925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -764,6 +767,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &96096292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -970,6 +974,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &119496237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1065,6 +1070,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &150240427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1160,6 +1166,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &155832152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1255,6 +1262,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &163320828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1350,6 +1358,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &179677913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1515,6 +1524,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &207777406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1610,6 +1620,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &207816899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1705,6 +1716,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &215624151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1800,6 +1812,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &222150324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1895,6 +1908,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &246480616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1990,6 +2004,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &253209014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2085,6 +2100,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &256427192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2180,6 +2196,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &273845519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2275,6 +2292,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &277169709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2370,6 +2388,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &305347534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2551,6 +2570,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &344639773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2720,6 +2740,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &357093172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2815,6 +2836,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &387256664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2984,6 +3006,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &396065700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3079,6 +3102,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &397347676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3128,6 +3152,57 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &429270494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 429270496}
+  - component: {fileID: 429270495}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &429270495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429270494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d3a9c782f8f2b469a534deeda28e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1612545280}
+  player2: {fileID: 2087659063}
+  turnCount: 0
+  activePhase: 0
+  activePlayer: {fileID: 0}
+  TimerText: {fileID: 345426296}
+  TurnDisplay: {fileID: 497086995}
+  PhaseDisplay: {fileID: 393560840}
+  PlayerDisplay: {fileID: 1934902278}
+--- !u!4 &429270496
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429270494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1612545281}
+  - {fileID: 2087659064}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437031590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,6 +3249,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &437031593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3269,6 +3345,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &444612313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3438,6 +3515,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &508026562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3533,6 +3611,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &548567444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3628,6 +3707,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &566117237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3723,6 +3803,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &569651254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3818,6 +3899,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &585406720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3987,6 +4069,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &610449251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4082,6 +4165,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &614935081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4177,6 +4261,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &615762046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4272,6 +4357,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &620564860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4409,6 +4495,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &641140549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4504,6 +4591,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &659230727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4599,6 +4687,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &662996383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4715,7 +4804,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 000
 --- !u!222 &664753674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4768,6 +4857,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &686252925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4863,6 +4953,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &706248560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5143,6 +5234,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &749570632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5238,6 +5330,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &765519996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5333,6 +5426,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &798618200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5428,6 +5522,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &800987383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5523,6 +5618,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &809266280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5618,6 +5714,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &818686001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5713,6 +5810,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &839371372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5795,7 +5893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.2, y: 1.5}
+  m_AnchoredPosition: {x: -134.9, y: 1.5}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &844481035
@@ -5850,6 +5948,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &846108517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5945,6 +6044,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &849328723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6040,6 +6140,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &865308306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6135,6 +6236,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &866499598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6298,6 +6400,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &873339754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6393,6 +6496,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &874680163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6488,6 +6592,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &896398359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6657,6 +6762,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &918345612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6752,6 +6858,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &942424181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6847,6 +6954,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &956807316
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6942,6 +7050,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &957637858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7037,6 +7146,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &967539833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7132,6 +7242,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1026204830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7227,6 +7338,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1060012104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7322,6 +7434,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1076117612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7417,6 +7530,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1088385620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7512,6 +7626,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1103453999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7754,6 +7869,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1116363031
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7849,6 +7965,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1160808648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7944,6 +8061,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1164048394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8039,6 +8157,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1185040243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8134,6 +8253,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1193280305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8229,6 +8349,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1199217862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8387,6 +8508,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1261331590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8482,6 +8604,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1268524461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8577,6 +8700,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1269570250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8672,6 +8796,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1300146123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8880,6 +9005,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1344178058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8975,6 +9101,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1350232019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9070,6 +9197,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1393459669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9165,6 +9293,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1405606152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9260,6 +9389,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1412367248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9429,6 +9559,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1455539508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9524,6 +9655,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1461877313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9690,6 +9822,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1476179680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9785,6 +9918,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1476180169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9883,7 +10017,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.8722109, b: 0.7352941, a: 0}
+  m_BackGroundColor: {r: 0.36807957, g: 0.6764706, b: 0.43401143, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -9967,6 +10101,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1500311233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10062,6 +10197,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1513981676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10157,6 +10293,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1539944504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10252,6 +10389,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1553548404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10489,6 +10627,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1606927772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10584,6 +10723,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1609312840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10633,6 +10773,49 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &1612545279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1612545281}
+  - component: {fileID: 1612545280}
+  m_Layer: 0
+  m_Name: Player 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1612545280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1612545279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febed6b900faa58488884b807f6dfdbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
+  ID: 1
+  Name: Mikeywalsh
+--- !u!4 &1612545281
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1612545279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 429270496}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613347631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10679,6 +10862,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1613347634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10774,6 +10958,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1614203129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10869,6 +11054,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1645381216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10964,6 +11150,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1652654531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11059,6 +11246,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1696206151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11154,6 +11342,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1708488076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11249,6 +11438,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1708904688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11418,6 +11608,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1732503836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11513,6 +11704,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1736664130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11608,6 +11800,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1759286068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11703,6 +11896,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1800795479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11798,6 +11992,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1842314290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11893,6 +12088,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1860262756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11988,6 +12184,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1872398442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12219,6 +12416,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1903267956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12314,6 +12512,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1911472732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12483,6 +12682,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1948875002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12620,6 +12820,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1980862409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12715,6 +12916,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1996847824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12810,6 +13012,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &1997622815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12940,6 +13143,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!61 &2008991063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13000,6 +13204,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2016131614
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13095,6 +13300,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2016719683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13190,6 +13396,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2036875249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13285,6 +13492,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2074725896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13380,6 +13588,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2074845251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13475,6 +13684,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2078122697
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13524,6 +13734,49 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &2087659062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2087659064}
+  - component: {fileID: 2087659063}
+  m_Layer: 0
+  m_Name: Player 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2087659063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087659062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febed6b900faa58488884b807f6dfdbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
+  ID: 2
+  Name: Someguy
+--- !u!4 &2087659064
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087659062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 429270496}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115458816
 GameObject:
   m_ObjectHideFlags: 0
@@ -13570,6 +13823,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2115458819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13665,6 +13919,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2128593360
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13760,6 +14015,7 @@ MonoBehaviour:
   Cost: 0
   Ore: 0
   Power: 0
+  Bought: 0
 --- !u!212 &2142212016
 SpriteRenderer:
   m_ObjectHideFlags: 0

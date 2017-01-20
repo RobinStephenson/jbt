@@ -47,6 +47,7 @@ public class TurnController : MonoBehaviour {
 	}
 	
 	void Update () {
+        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + activePhase.ToString() + " Player: " + activePlayer.Name.ToString());
         currentPhaseTime += Time.deltaTime;
         TimerText.text = (int)(phaseDuration - currentPhaseTime) + "s";
 	}
@@ -69,8 +70,27 @@ public class TurnController : MonoBehaviour {
         if (activePhase == 6)
             activePhase = 0;
 
-        Debug.Log(activePlayer.Name);
         SetTurnText();
+        currentPhaseTime = 0;
+        
+        switch(activePhase)
+        {
+            case 1:
+                activePlayer.StartPhase1();
+                break;
+            case 2:
+                activePlayer.StartPhase2();
+                break;
+            case 3:
+                activePlayer.StartPhase3();
+                break;
+            case 4:
+                activePlayer.StartPhase4();
+                break;
+            case 5:
+                activePlayer.StartPhase5();
+                break;
+        }
     }
 
     private void SetTurnText()

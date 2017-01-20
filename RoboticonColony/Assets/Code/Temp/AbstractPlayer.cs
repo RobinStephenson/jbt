@@ -11,8 +11,6 @@ public abstract class AbstractPlayer : MonoBehaviour {
     Inventory Inv;
 
 	public virtual void Start () {
-        ID = 1;
-        Name = "Mikeywalsh";
         Inv = new Inventory();
         Controller = GameObject.Find("Controller").GetComponent<TurnController>();
 	}	
