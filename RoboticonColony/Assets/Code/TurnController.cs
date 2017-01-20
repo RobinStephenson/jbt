@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIHandler : MonoBehaviour {
+public class TurnController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
