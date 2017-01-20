@@ -5,12 +5,14 @@ using UnityEngine;
 public class Tile : MonoBehaviour {
 
     private static int TotalTiles;
-    private static Tile selectedTile;
+    public static Tile selectedTile;
 
     public int Id;
     public int Cost;
     public int Ore;
     public int Power;
+
+    public bool Bought;
 
     public void Start()
     {
@@ -18,6 +20,7 @@ public class Tile : MonoBehaviour {
         Cost = Random.Range(5, 50);
         Ore = Random.Range(0, 5);
         Power = Random.Range(0, 5);
+        Bought = false;
     }
 
     public override bool Equals(object obj)

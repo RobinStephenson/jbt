@@ -9,6 +9,7 @@ using System.Collections.Generic;
 sealed public class Inventory
 {
     public int Money { get; private set; }
+    public List<Tile> Tiles;
 
     private Dictionary<ItemType, int> Items;
 
@@ -26,7 +27,7 @@ sealed public class Inventory
             throw new ArgumentOutOfRangeException("Inventories cannot hold negative amounts of money/items");
         }
 
-        Money = money;
+        Tiles = new List<Tile>();
         Items = new Dictionary<ItemType, int>();
         Items[ItemType.Ore] = ore;
         Items[ItemType.Power] = power;
@@ -38,6 +39,11 @@ sealed public class Inventory
     /// </summary>
     public Inventory() : this(0, 0, 0, 0) { }
 
+    //TEMP
+    public void SetTiles(List<Tile> t)
+    {
+        Tiles = t;
+    }
 
     /// <summary>
     /// Get the amount of the specified item in this inventory instance.

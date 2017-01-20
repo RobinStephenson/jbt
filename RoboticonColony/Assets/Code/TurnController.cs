@@ -1,16 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnController : MonoBehaviour {
 
-	// Use this for initialization
+    Market m;
+    public AbstractPlayer player1;
+    public AbstractPlayer player2;
+
+    public int turnCount;
+    public int activePhase;
+    public AbstractPlayer activePlayer;
+
+    //Timer variables
+    public Text TimerText;
+    private float phaseDuration = 60;
+    private float currentPhaseTime;
+
 	void Start () {
-		
+        //Initialise
+        turnCount = 1;
+        activePhase = 1;
+        currentPhaseTime = 0;
+        player1 = gameObject.AddComponent<HumanPlayer>();
+        player2 = gameObject.AddComponent<HumanPlayer>();
+        activePlayer = player1;
+
+        //Get a list of all tiles to populate the market with
+        List<Tile> allTiles = new List<Tile>();
+        for(int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
+        {
+            allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<Tile>());
+        }
+
+        //Create Market instance for this game
+        m = new Market(5,6,3,5,3,5);
+        m.Stock.SetTiles(allTiles);
+
+        //Start the game
+        activePlayer.StartPhase1();
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
+        currentPhaseTime += Time.deltaTime;
+        TimerText.text = (int)(phaseDuration - currentPhaseTime) + "s";
 	}
+
+    public void NextPhase()
+    {
+        if(activePlayer == player1)
+        {
+            activePlayer = player2;
+        }
+        else
+        {
+            activePhase++;
+            activePlayer = player1;
+        }
+
+        if (activePhase == 6)
+            activePhase = 0;
+    }
 }
