@@ -157,11 +157,17 @@ sealed public class Market
         CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonusMult, prereq, selectedResource, reqPrice));
     }
 
+    public int GetTilePrice(Tile tile)
+    {
+        return tile.Price;
+    }
+  
     /// <summary>
     /// Adds a roboticon to the market stock.
     /// </summary>
     private void BuyRoboticonOre()
     {
+        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
         if (Stock.GetItemAmount(ItemType.Ore) > 0)
         {
             Stock.AddItem(ItemType.Ore, -1);
@@ -175,7 +181,7 @@ sealed public class Market
     /// <param name="inv"> The player's inventory</param>
     /// <param name="customisation"> The selected roboticon customisation</param>
     /// <param name="roboticon"> The selected Roboticon</param>
-    public void BuyCustomisation(Inventory inv, RoboticonCustomisation customisation, Roboticon roboticon)
+    public void BuyCustomisation(RoboticonCustomisation customisation, Roboticon roboticon, Inventory inventory)
     {
         if (inv.Money > customisation.Price)
         {

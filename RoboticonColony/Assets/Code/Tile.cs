@@ -17,9 +17,9 @@ sealed public class Tile
     /// <param name="cost">Cost of the tile</param>
     /// <param name="ore">Ore that the tile has</param>
     /// <param name="power">Power that the tile has</param>
-    public Tile(int cost, int ore, int power)
+    public Tile(int price, int ore, int power)
     {
-        Cost = cost;
+        Price = price;
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
         resources[ItemType.Power] = power;
@@ -47,7 +47,29 @@ sealed public class Tile
         }
 
     }
+  
+    /// <summary>
+    /// install a roboticon on this tile
+    /// </summary>
+    /// <exception cref="RoboticonAlreadyInstalledException">A roboticon is already installled</exception>
+    /// <param name="inventory">the players inventory</param>
+    public void InstallRoboticon(Inventory inventory)
+    {
+        // should also set the installedTile on the roboticon to this one
+        throw new RoboticonAlreadyInstalledException();
+    }
 
+     /// <summary>
+    /// remove the roboticon installed on this tile
+    /// </summary>
+    /// <exception cref="InvalidOperationException">there is no roboticon installed</exception>
+    /// <returns>the removed roboticon</returns>
+    public Roboticon RemoveRoboticon()
+    {
+        // should also set installed tile to null on the roboticon
+        throw new InvalidOperationException("No Roboticon installed");
+    }
+  
     /// <summary>
     /// Returns the available ore on the tile
     /// </summary>
