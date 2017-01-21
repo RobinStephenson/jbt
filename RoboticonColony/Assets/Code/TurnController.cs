@@ -23,12 +23,18 @@ public class TurnController : MonoBehaviour {
     public Text PhaseDisplay;
     public Text PlayerDisplay;
 
+    //Tile information display variables
+    public GameObject selectedInfoPanel;
+    public Text selectedInfoText;
+    private string infoString;
+
 	void Start () {
         //Initialise
         turnCount = 1;
         activePhase = 1;
         currentPhaseTime = 0;
         activePlayer = player1;
+        infoString = selectedInfoText.text;
 
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
@@ -50,6 +56,17 @@ public class TurnController : MonoBehaviour {
         Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + activePhase.ToString() + " Player: " + activePlayer.Name.ToString());
         currentPhaseTime += Time.deltaTime;
         TimerText.text = (int)(phaseDuration - currentPhaseTime) + "s";
+
+        //Display information about currently selected tile
+        if(Tile.selectedTile != null)
+        {
+            selectedInfoPanel.SetActive(true);
+            selectedInfoText.text = string.Format(infoString, "Nobody", 15, Tile.selectedTile.Ore.ToString("00"), Tile.selectedTile.Power.ToString("00"), "No roboticon installed");
+        }
+        else
+        {
+            selectedInfoPanel.SetActive(false);
+        }
 	}
 
     public void NextPhase()
