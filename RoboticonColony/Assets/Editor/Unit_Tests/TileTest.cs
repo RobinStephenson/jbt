@@ -19,10 +19,12 @@ public class TileTest
         Assert.AreEqual(null, tile.Owner);
     }
 
-    //Temporary Produce test
     [Test]    
     public void ProduceTest()
     {
+        Tile tile = new Tile(4, 3, 2);
+        // install a roboticon with a known customisation
+        // assert it gives the expected production
         Assert.Fail();
     }
 }
