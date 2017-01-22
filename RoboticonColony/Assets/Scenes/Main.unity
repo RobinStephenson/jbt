@@ -1144,7 +1144,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104835800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: RemoveRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &104835800
@@ -2969,7 +2980,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Current:
 
-    Base'
+    {0}'
 --- !u!222 &223933776
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3987,7 +3998,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 322273077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: CancelCustomiseRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &322273077
@@ -5337,6 +5359,12 @@ MonoBehaviour:
   baseRoboticonStockText: 
   InstallRobitconPanel: {fileID: 1969057458}
   CustomiseRoboticonPanel: {fileID: 1276377814}
+  CurrentCustomisationName: {fileID: 223933775}
+  CurrentCustomisationText: {fileID: 758472872}
+  CurrentCustomisationDescription: 
+  UpgradeOne: {fileID: 604609730}
+  UpgradeTwo: {fileID: 223593360}
+  CurrentUpgradeImage: {fileID: 897041278}
   ProductionDisplay: {fileID: 440486306}
   ProductionText: {fileID: 1868672148}
   BaseProductionText: 
@@ -8548,7 +8576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x01    x01
+  m_Text: x{0}    x{1}
 --- !u!222 &758472873
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -36,6 +36,16 @@ public class TurnController : MonoBehaviour {
         market = new Market(marketInv,5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
 
+        //Create customisations for the Market
+        Dictionary<ItemType, int> oreIBonus = new Dictionary<ItemType, int>();
+        Dictionary<ItemType, int> powerIBonus = new Dictionary<ItemType, int>();
+        oreIBonus[ItemType.Ore] = 2;
+        powerIBonus[ItemType.Power] = 2;
+        RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Objects/OreRobo");
+        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Objects/PowerRobo");
+        market.AddCustomisation(oreI);
+        market.AddCustomisation(powerI);
+
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
@@ -116,7 +126,17 @@ public class TurnController : MonoBehaviour {
                     }
                     else
                     {
-                        UIController.ShowCustomiseRoboticon();
+                        string spritePath;
+
+                        if (PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon.InstalledCustomisations.Count == 0)
+                        {
+                            spritePath = "Objects/BaseRobo";
+                        }
+                        else
+                        {
+                            spritePath = PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon.InstalledCustomisations[0].SpritePath;
+                        }
+                        UIController.ShowCustomiseRoboticon(spritePath);
                     }
                 }
             }

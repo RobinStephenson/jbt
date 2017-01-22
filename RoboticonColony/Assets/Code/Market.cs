@@ -150,17 +150,9 @@ sealed public class Market
         }
     }
   
-    /// <summary>
-    /// Creates an customisation type for roboticons.
-    /// </summary>
-    /// <param name="selectedName"> The name of the customisation. </param>
-    /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
-    /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
-    /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
-    /// <param name="reqPrice"> The required price of the customisation. </param>
-    private void CreateCustomisations(string selectedName, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    public void AddCustomisation(RoboticonCustomisation rc)
     {
-        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonuses, prereq, reqPrice));
+        CustomisationsList.Add(rc);
     }
 
     public int GetTilePrice(Tile tile)

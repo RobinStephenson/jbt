@@ -40,6 +40,12 @@ public class UIController : MonoBehaviour {
     //Phase 3 variables
     public GameObject InstallRobitconPanel;
     public GameObject CustomiseRoboticonPanel;
+    public Text CurrentCustomisationName;
+    public Text CurrentCustomisationText;
+    public string CurrentCustomisationDescription;
+    public GameObject UpgradeOne;
+    public GameObject UpgradeTwo;
+    public Image CurrentUpgradeImage;
 
     //Phase 4 variables
     public GameObject ProductionDisplay;
@@ -57,6 +63,7 @@ public class UIController : MonoBehaviour {
         baseTileText = selectedTileText.text;
         baseRoboticonStockText = MarketRoboticonStock.text;
         BaseProductionText = ProductionText.text;
+        CurrentCustomisationDescription = CurrentCustomisationText.text;
     }
 	
 	void Update () {
@@ -115,9 +122,10 @@ public class UIController : MonoBehaviour {
         controller.InstallRobitconPanel.SetActive(true);
     }
 
-    public static void ShowCustomiseRoboticon()
+    public static void ShowCustomiseRoboticon(string currentCustomisationPath)
     {
         controller.CustomiseRoboticonPanel.SetActive(true);
+        controller.CurrentUpgradeImage.sprite = Resources.Load<Sprite>(currentCustomisationPath);
     }
 
     public static void HideInstallRoboticon()
@@ -149,5 +157,17 @@ public class UIController : MonoBehaviour {
     public static void HideMarketDisplay()
     {
 
+    }
+
+    public static void ShowUpgrades()
+    {
+        controller.UpgradeOne.SetActive(true);
+        controller.UpgradeTwo.SetActive(true);
+    }
+
+    public static void HideUpgrades()
+    {
+        controller.UpgradeOne.SetActive(false);
+        controller.UpgradeTwo.SetActive(false);
     }
 }
