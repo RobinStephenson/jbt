@@ -4,7 +4,7 @@ using System.Diagnostics;
 public class Timeout
 {
     private int timeAllowed;
-    private Stopwatch stopwatch = new Stopwatch();
+    private Stopwatch stopwatch;
 
     /// <summary>
     /// creates a timout object. use to keep track of how long phases are going
@@ -16,6 +16,7 @@ public class Timeout
         {
             throw new ArgumentOutOfRangeException("Must be at least one second");
         }
+        stopwatch = new Stopwatch();
         timeAllowed = time;
     }
 

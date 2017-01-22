@@ -5,34 +5,31 @@ using UnityEngine.UI;
 
 public class TurnController : MonoBehaviour {
 
-    //Used to set UI elements text
-    private UIController UIC;
-
+    //Player and market variables
     private Market market;
     public AbstractPlayer player1;
     public AbstractPlayer player2;
 
-    //Market
+    //Turn variables
     public int turnCount;
     public int phaseCount;
     public AbstractPlayer activePlayer;
 
     //Timer variables
     public Text TimerText;
-    private float phaseDuration = 60;
-    private float currentPhaseTime;
+    private Timeout currentTimer;
     
     //Hardcoded(for now) time limits for each phase
     private int[] PhaseTimes = new int[5] { 60, 60, 60, 60, 60 };
 
 	void Start () {
-        //Set the UI controller
-        UIC = GetComponent<UIController>();
+        //Initialise players
+        player1 = new HumanPlayer("Mikeywalsh", new Inventory(), market);
+        player2 = new HumanPlayer("Some Guy", new Inventory(), market);
 
         //Initialise Turn/Phase variables and set the activePlayer to player 1
         turnCount = 1;
-        phaseCount = 1;
-        currentPhaseTime = 0;
+        phaseCount = 0;
         activePlayer = player1;
 
         //Get a list of all tiles to populate the market with
@@ -48,13 +45,14 @@ public class TurnController : MonoBehaviour {
 
         //Start the game
         activePlayer.StartPhaseOne();
+        currentTimer = new Timeout(PhaseTimes[0]);
         UIController.UpdateTurnInfo(turnCount,phaseCount,activePlayer.PlayerName);
 	}
 	
 	void Update () {
-        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.Name.ToString());
-        currentPhaseTime += Time.deltaTime;
-        TimerText.text = (int)(phaseDuration - currentPhaseTime) + "s";
+        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
+
+        UIController.UpdateTimer(currentTimer);
 
         //Display information about currently selected tile
         if(PhysicalTile.selectedTile != null)
@@ -72,8 +70,8 @@ public class TurnController : MonoBehaviour {
         if(activePlayer == player1)
         {
             Debug.Log((activePlayer == player1).ToString());
-            Debug.Log(player1.Name);
-            Debug.Log(player2.Name);
+            Debug.Log(player1.PlayerName);
+            Debug.Log(player2.PlayerName);
             activePlayer = player2;
         }
         else
@@ -85,8 +83,8 @@ public class TurnController : MonoBehaviour {
         if (phaseCount == 6)
             phaseCount = 0;
 
-        SetTurnText();
-        currentPhaseTime = 0;
+        UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
+        currentTimer = new Timeout(phaseCount);
         
         switch(phaseCount)
         {

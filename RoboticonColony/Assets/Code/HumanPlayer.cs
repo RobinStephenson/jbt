@@ -6,11 +6,10 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// Create a HumanPlayer with the given inputController
     /// </summary>
-    /// <param name="inputController">object to gather user input</param>
     /// <param name="inv">a player inventory</param>
     /// <param name="market">the market</param>
     /// <param name="estateAgent">the estate agent</param>
-    public HumanPlayer(InputController inputController, Inventory inv, Market market) : base(inputController, inv, market)
+    public HumanPlayer(string playerName, Inventory inv, Market market) : base(playerName, inv, market)
     {
     }
 
@@ -33,12 +32,12 @@ public class HumanPlayer : AbstractPlayer
     /// The player may choose to buy a plot of land
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void StartPhaseOne(Timeout timeout)
+    public override void StartPhaseOne()
     {
         // check the player has enough money for at least the cheapest tile
         if (!CanBuyCheapest())
         {
-            Input.Confirm("You dont have enough money to buy a tile this round", timeout: timeout);
+            //Input.Confirm("You dont have enough money to buy a tile this round", timeout: timeout);
             return;
         }
 
@@ -55,20 +54,20 @@ public class HumanPlayer : AbstractPlayer
 
             if (wantsToBuy == true)
             {
-                Input.PromptTile("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
+                //Input.PromptTile("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
             }
         };
 
         // does the player want to buy a tile?
-        Input.PromptBool("Do you want to buy a tile?", ChooseTileToBuy, timeout);
+        //Input.PromptBool("Do you want to buy a tile?", ChooseTileToBuy, timeout);
     }
 
-    private void PurchaseRoboticons(Timeout timeout)
+    private void PurchaseRoboticons()
     {
         int MaxQuantity = MaxQuantityPlayerCanBuy(ItemType.Roboticon);
         if (MaxQuantity <= 0)
         {
-            Input.Confirm("You cant afford any roboticons this round", timeout: timeout);
+            //Input.Confirm("You cant afford any roboticons this round", timeout: timeout);
             return;
         }
 
@@ -80,10 +79,10 @@ public class HumanPlayer : AbstractPlayer
             }
         };
 
-        Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity, cancelable: true);
+        //Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity, cancelable: true);
     }
 
-    private void CustomiseRoboticons(Timeout timeout)
+    private void CustomiseRoboticons()
     {
         Action<Tile> WhichCustomisation = delegate (Tile tile)
         {
@@ -110,7 +109,7 @@ public class HumanPlayer : AbstractPlayer
                 // TODO: get a list of available customisations for the roboticon
                 List<RoboticonCustomisation> AvailableCustomisations = null;
 
-                Input.PromptCustomisation("Which customisation do you want to apply", BuyCustomisationForRoboticon, AvailableCustomisations);
+                //Input.PromptCustomisation("Which customisation do you want to apply", BuyCustomisationForRoboticon, AvailableCustomisations);
             }
         };
 
@@ -122,33 +121,33 @@ public class HumanPlayer : AbstractPlayer
 
                 // Can only customise installed roboticons as at time of writing removing a roboticon from a tile clears customisations
                 // TODO: create a list of tiles with installed roboticons here
-                List<Tile> TilesWithRoboticon = null;
-                Input.PromptTile("Which robototicon do you want to customise?", WhichCustomisation, TilesWithRoboticon, timeout, cancelable: true);
+                //List<Tile> TilesWithRoboticon = null;
+                //Input.PromptTile("Which robototicon do you want to customise?", WhichCustomisation, TilesWithRoboticon, timeout, cancelable: true);
             }
         };
 
-        Input.PromptBool("Do you want to customise a roboticon?", ChooseRoboticonToCustomise, timeout);
+        //Input.PromptBool("Do you want to customise a roboticon?", ChooseRoboticonToCustomise, timeout);
     }
 
     /// <summary>
     /// The player may purchase and customise roboticons
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void StartPhaseTwo(Timeout timeout)
+    public override void StartPhaseTwo()
     {
-        PurchaseRoboticons(timeout);
+        //PurchaseRoboticons(timeout);
 
-        // TODO: check the player actually has roboticons to customise and money to buy new customisations
-        if (timeout.Finished)
-        {
-            return;
-        }
+        //// TODO: check the player actually has roboticons to customise and money to buy new customisations
+        //if (timeout.Finished)
+        //{
+        //    return;
+        //}
 
-        CustomiseRoboticons(timeout);
+        //CustomiseRoboticons(timeout);
         
     }
 
-    private void RemoveRoboticons(Timeout timeout)
+    private void RemoveRoboticons()
     {
         Action<Tile> RemoveRoboticonFromTile = delegate (Tile tile)
         {
@@ -158,7 +157,7 @@ public class HumanPlayer : AbstractPlayer
             }
         
             // Recursive so that players can remove another roboticon or go again if they cancelled
-            RemoveRoboticons(timeout);
+            //RemoveRoboticons(timeout);
         };
 
         Action<bool?> ChooseRoboticonToRemove = delegate (bool? wantsToRemove)
@@ -167,14 +166,14 @@ public class HumanPlayer : AbstractPlayer
             {
                 // TODO create a list of roboticons the player has installed
                 List<Tile> TilesWithRoboticonInstalled = null;
-                Input.PromptTile("Which tile do you want to remove the roboticon from?", RemoveRoboticonFromTile, TilesWithRoboticonInstalled, timeout, cancelable: true);
+                //Input.PromptTile("Which tile do you want to remove the roboticon from?", RemoveRoboticonFromTile, TilesWithRoboticonInstalled, timeout, cancelable: true);
             }
         };
 
-        Input.PromptBool("Do you want to remove any roboticons? this will remove their customisations", ChooseRoboticonToRemove, timeout);
+        //Input.PromptBool("Do you want to remove any roboticons? this will remove their customisations", ChooseRoboticonToRemove, timeout);
     }
 
-    private void InstallRoboticons(Timeout timeout)
+    private void InstallRoboticons()
     {
         Action<Tile> InstallRoboticon = delegate (Tile tile)
         {
@@ -184,7 +183,7 @@ public class HumanPlayer : AbstractPlayer
             }
 
             // Recursive so that players can install another roboticon or go again if they cancelled
-            InstallRoboticons(timeout);
+            //InstallRoboticons(timeout);
             
         };
 
@@ -194,28 +193,28 @@ public class HumanPlayer : AbstractPlayer
             {
                 // TODO Create a list of tiles where the player could install a roboticon
                 List<Tile> PossibleTiles = null;
-                Input.PromptTile("Where do you want to install a roboticon", InstallRoboticon, PossibleTiles, timeout, cancelable: true);
+                //Input.PromptTile("Where do you want to install a roboticon", InstallRoboticon, PossibleTiles, timeout, cancelable: true);
             }
         };
 
-        Input.PromptBool("Do you want to isntall a roboticon?", ChooseTileToInstall, timeout);
+        //Input.PromptBool("Do you want to isntall a roboticon?", ChooseTileToInstall, timeout);
     }
 
     /// <summary>
     /// The player may remove and install roboticons from their owned tiles
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void StartPhaseThree(Timeout timeout)
+    public override void StartPhaseThree()
     {
         // remove roboticons frist so that the player can then install them elsewhere
         // TODO: notify the user that this will clear their customisations
         // TODO: check the player actually has some roboticons installed
-        RemoveRoboticons(timeout);
+        //RemoveRoboticons(timeout);
 
-        if (!timeout.Finished && Inventory.GetItemAmount(ItemType.Roboticon) >= 1)
-        {
-            InstallRoboticons(timeout);
-        }
+        //if (!timeout.Finished && Inventory.GetItemAmount(ItemType.Roboticon) >= 1)
+        //{
+        //    InstallRoboticons(timeout);
+        //}
     }
 
     /// <summary>
@@ -233,7 +232,7 @@ public class HumanPlayer : AbstractPlayer
         // add to the total production
 
         String ProductionMessage = String.Format("Your colony produced {0} Ore, {1} Food this turn", OreProduction, EnergyProduction);
-        Input.Confirm(ProductionMessage);
+        //Input.Confirm(ProductionMessage);
     }
 
     /// <summary>
@@ -253,12 +252,12 @@ public class HumanPlayer : AbstractPlayer
                     }
                 };
 
-                Input.PromptInt(
-                   "How much?",
-                   SellResource,
-                   min: 1,
-                   max: MaxQuantityPlayerCanSell((ItemType)resource),
-                   cancelable: true);
+                //Input.PromptInt(
+                //   "How much?",
+                //   SellResource,
+                //   min: 1,
+                //   max: MaxQuantityPlayerCanSell((ItemType)resource),
+                //   cancelable: true);
             }
         };
 
@@ -274,12 +273,12 @@ public class HumanPlayer : AbstractPlayer
                     }
                 };
 
-                Input.PromptInt(
-                    "How much?",
-                    BuyResource,
-                    min: 1,
-                    max: MaxQuantityPlayerCanBuy((ItemType)resource),
-                    cancelable: true);
+                //Input.PromptInt(
+                //    "How much?",
+                //    BuyResource,
+                //    min: 1,
+                //    max: MaxQuantityPlayerCanBuy((ItemType)resource),
+                //    cancelable: true);
             }
         };
 
@@ -288,19 +287,19 @@ public class HumanPlayer : AbstractPlayer
             if (wantsToBuy == true)
             {
                 // which resource
-                Input.PromptResource("Which resource do you want to buy?", ChooseQuantityToBuy, cancelable: true);
+                //Input.PromptResource("Which resource do you want to buy?", ChooseQuantityToBuy, cancelable: true);
             }
             else if (wantsToBuy == false)
             {
                 // wants to sell
-                Input.PromptResource("Which resource do you want to sell?", ChooseQuantityToSell, cancelable: true);
+                //Input.PromptResource("Which resource do you want to sell?", ChooseQuantityToSell, cancelable: true);
             }
 
             // recurive so the player can buy/sell again
             StartPhaseFive();
         };
 
-        Input.PromptBool("Do you want to buy or sell at the market?", ChooseResource, trueOption: "Buy", falseOption: "Sell", cancelable: true);
+        //Input.PromptBool("Do you want to buy or sell at the market?", ChooseResource, trueOption: "Buy", falseOption: "Sell", cancelable: true);
     }
 
     /// <summary>

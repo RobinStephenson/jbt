@@ -31,10 +31,10 @@ sealed public class Inventory
 
         Money = money;
         Tiles = new List<Tile>();
-        Items = new Dictionary<ItemType, int>();
-        Items[ItemType.Ore] = ore;
-        Items[ItemType.Power] = power;
-        Items[ItemType.Roboticon] = roboticons;
+        items = new Dictionary<ItemType, int>();
+        items[ItemType.Ore] = ore;
+        items[ItemType.Power] = power;
+        items[ItemType.Roboticon] = roboticons;
     }
 
     /// <summary>

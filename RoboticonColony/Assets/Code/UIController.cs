@@ -23,6 +23,9 @@ public class UIController : MonoBehaviour {
     //Message variables
     public Text MessageText;
 
+    //Timer variables
+    public Text TimerText;
+
     void Start () {
         //Set the static reference to the controller to the only controller in the scene
         controller = GetComponent<UIController>();
@@ -56,5 +59,10 @@ public class UIController : MonoBehaviour {
     public static void DisplayMessage(string message)
     {
         controller.MessageText.text = message;
+    }
+
+    public static void UpdateTimer(Timeout t)
+    {
+        controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
     }
 }
