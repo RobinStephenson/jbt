@@ -208,9 +208,9 @@ sealed public class Market
     /// <returns>An int which represents the maximum number of the specified type of item that the market will buy.</returns>
     public int MaxWillBuy(ItemType typeToBeBought)
     {
-        if(Stock.Money - (GetBuyPrice(typeToBeBought)*10) > 0)
+        if (Stock.Money - (GetBuyPrice(typeToBeBought) * 10) > 0)
         {
-            if(Stock.GetItemAmount(typeToBeBought) >= 10)
+            if (Stock.GetItemAmount(typeToBeBought) >= 10)
             {
                 return 10;
             }
@@ -225,7 +225,7 @@ sealed public class Market
             int moneyAvailable = Stock.Money;
             int quantityAvailable = Stock.GetItemAmount(typeToBeBought);
             int quantity = 0;
-            while((moneyAvailable > 0) && quantityAvailable > 0)
+            while ((moneyAvailable > 0) && quantityAvailable > 0)
             {
                 moneyAvailable -= GetBuyPrice(typeToBeBought);
                 quantity += 1;
@@ -233,6 +233,7 @@ sealed public class Market
             }
             return quantity;
         }
+    }
       
     /// <summary>
     /// Allows players to buy tiles from the market. Purchased tiles from the market do not actually reduce the markets balance.
@@ -244,7 +245,7 @@ sealed public class Market
         //Attempt to remove the money for the purchase form the player
         try
         {
-            playerInventory.SubtractMoney(tile.GetCost());
+            playerInventory.SubtractMoney(tile.Price);
 
             //Attempt to transfer the requested tile from the markets inventory
             try
@@ -257,7 +258,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the change in the players balance
-                playerInventory.AddMoney(tile.GetCost());
+                playerInventory.AddMoney(tile.Price);
                 throw;
             }
         }
