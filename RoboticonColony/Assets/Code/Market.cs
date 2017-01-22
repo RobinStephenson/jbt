@@ -9,7 +9,6 @@ using System.Collections.Generic;
 sealed public class Market
 {
     public Inventory Stock { get; private set; }
-    public bool Open { get; private set; }
 
     private Dictionary<ItemType, int> buyprice;
     private Dictionary<ItemType, int> sellprice;
@@ -18,6 +17,7 @@ sealed public class Market
     /// Creates a market instance with the provided inventory as its stock.
     /// </summary>
     /// <param name="stock">The starting stock for the market</param>
+    /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when the market is initialised with negative parameters.</exception>
     public Market(Inventory stock, int oreBuyPrice, int powerBuyPrice, int roboticonBuyPrice, int oreSellPrice, int powerSellPrice, int roboticonSellPrice)
     {
         if (oreBuyPrice < 0 || powerBuyPrice < 0 || roboticonBuyPrice < 0 || oreSellPrice < 0 || powerSellPrice < 0 || roboticonSellPrice < 0)
@@ -69,8 +69,8 @@ sealed public class Market
     /// <param name="item">The item the player wishes to buy.</param>
     /// <param name="Quantity">The quantity the player withes to buy.</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns>This market reference, for method chaining.</returns>
-    public Market Buy(ItemType item, int quantity, Inventory playerInventory)
+    /// <exception cref="ArgumentOutOfRangeException">The Excpetion thrown when a negative amount of items are bought.</exception>
+    public void Buy(ItemType item, int quantity, Inventory playerInventory)
     {
         if(quantity < 0)
         {
@@ -87,8 +87,8 @@ sealed public class Market
             {
                 Stock.TransferItem(item, quantity, playerInventory);
 
-                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
-                return this;
+                //If the transfer completes without error, then the transaction is complete
+                return;
             }
             catch (NotEnoughItemException)
             {
@@ -110,8 +110,8 @@ sealed public class Market
     /// <param name="item">The item the player wishes to sell.</param>
     /// <param name="quantity">The quantity the player wishes to sell</param>
     /// <param name="playerInventory">Reference to the players inventory.</param>
-    /// <returns>This market reference, for method chaining.</returns>
-    public Market Sell(ItemType item, int quantity, Inventory playerInventory)
+    /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when a negative quanitity of items are sold.</exception>
+    public void Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         if (quantity < 0)
         {
@@ -128,8 +128,8 @@ sealed public class Market
             {                
                 playerInventory.TransferItem(item, quantity, Stock);
 
-                //If the transfer completes without error, then the transaction is complete and a reference to this market instance is returned.
-                return this;
+                //If the transfer completes without error, then the transaction is complete
+                return;
             }
             catch (NotEnoughItemException)
             {
@@ -139,6 +139,40 @@ sealed public class Market
             }
         }
         catch(NotEnoughMoneyException)
+        {
+            //If the initial money transfer was unsuccessful, then re-throw the exception
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Allows players to buy tiles from the market. Purchased tiles from the market do not actually reduce the markets balance.
+    /// </summary>
+    /// <param name="tile">The tile to buy</param>
+    /// <param name="playerInventory">Reference ot the players inventory</param>
+    public void BuyTile(Tile tile, Inventory playerInventory)
+    {
+        //Attempt to remove the money for the purchase form the player
+        try
+        {
+            playerInventory.SubtractMoney(tile.GetCost());
+
+            //Attempt to transfer the requested tile from the markets inventory
+            try
+            {
+                Stock.TransferTile(tile, playerInventory);
+
+                //If the transfer completes without error, then the transaction is complete
+                return;
+            }
+            catch (NotEnoughItemException)
+            {
+                //If the item transfer was unsuccessful, then revert the change in the players balance
+                playerInventory.AddMoney(tile.GetCost());
+                throw;
+            }
+        }
+        catch (ArgumentOutOfRangeException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
