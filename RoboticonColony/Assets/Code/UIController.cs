@@ -20,6 +20,12 @@ public class UIController : MonoBehaviour {
     public Text PhaseDisplay;
     public Text PlayerDisplay;
 
+    //Resource Display variables
+    public Text MoneyDisplay;
+    public Text OreDisplay;
+    public Text PowerDisplay;
+    public Text RoboticonDisplay;
+
     //Message variables
     public Text MessageText;
 
@@ -67,5 +73,13 @@ public class UIController : MonoBehaviour {
     public static void UpdateTimerDisplay(Timeout t)
     {
         controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
+    }
+
+    public static void UpdateResourceDisplay(Inventory playerInv)
+    {
+        controller.MoneyDisplay.text = playerInv.Money.ToString("000");
+        controller.OreDisplay.text = playerInv.GetItemAmount(ItemType.Ore).ToString("000");
+        controller.PowerDisplay.text = playerInv.GetItemAmount(ItemType.Power).ToString("000");
+        controller.RoboticonDisplay.text = "00" + playerInv.GetItemAmount(ItemType.Roboticon).ToString("00");
     }
 }

@@ -34,9 +34,11 @@ public class TurnController : MonoBehaviour {
         market = new Market(5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
 
-        //Initialise players
-        player1 = new HumanPlayer("Mikeywalsh", new Inventory(), market);
-        player2 = new HumanPlayer("Some Guy", new Inventory(), market);
+        //Initialise players and inventories
+        Inventory p1Inv = new Inventory(100, 10, 10, 0);
+        Inventory p2Inv = new Inventory(100, 10, 10, 0);
+        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market);
+        player2 = new HumanPlayer("Some Guy", p2Inv, market);
 
         //Start the game
         NextPhase();
@@ -105,6 +107,7 @@ public class TurnController : MonoBehaviour {
         }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
+        UIController.UpdateResourceDisplay(activePlayer.Inventory);
         currentTimer = new Timeout(PhaseTimes[phaseCount - 1]);
         
         switch(phaseCount)
