@@ -27,6 +27,7 @@ sealed public class Inventory
             throw new ArgumentOutOfRangeException("Inventories cannot hold negative amounts of money/items");
         }
 
+        Money = money;
         Tiles = new List<Tile>();
         Items = new Dictionary<ItemType, int>();
         Items[ItemType.Ore] = ore;
