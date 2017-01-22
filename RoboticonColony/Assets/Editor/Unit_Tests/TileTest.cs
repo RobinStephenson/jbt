@@ -23,7 +23,8 @@ public class TileTest
     public void ProduceTest()
     {
         Tile tile = new Tile(4, 3, 2);
-        // install a roboticon with a known customisation
+        Roboticon roboticon = new Roboticon(tile);
+        // Give roboticon a customisation
         // assert it gives the expected production
         Assert.Fail();
     }
