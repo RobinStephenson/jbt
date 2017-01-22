@@ -27,10 +27,13 @@ public class UIController : MonoBehaviour {
     public Text TimerText;
     //Timeout t;
 
-    void Start () {
+    private void Awake()
+    {
         //Set the static reference to the controller to the only controller in the scene
         controller = GetComponent<UIController>();
+    }
 
+    void Start () {
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
         //t = new Timeout(60);
@@ -54,7 +57,7 @@ public class UIController : MonoBehaviour {
 
     public static void UpdateTurnInfo(int turn, int phase, string playerName)
     {
-        controller.TurnDisplay.text = "Turn " + turn.ToString();
+        controller.TurnDisplay.text = "Turn " + turn.ToString("00");
         controller.PhaseDisplay.text = "Phase " + phase.ToString();
         controller.PlayerDisplay.text = playerName;
     }

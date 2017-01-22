@@ -39,18 +39,13 @@ public class TurnController : MonoBehaviour {
         market.Stock.SetTiles(allTiles);
 
         //Start the game
-        turnCount = 1;
-        phaseCount = 0;
-        activePlayer = player1;
-        activePlayer.StartPhaseOne();
-        currentTimer = new Timeout(PhaseTimes[phaseCount]);        
-        UIController.UpdateTurnInfo(turnCount,phaseCount,activePlayer.PlayerName);
+        NextPhase();
 	}
 	
 	void Update () {
         Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
 
-        UIController.UpdateTimerDisplay(currentTimer);
+        //UIController.UpdateTimerDisplay(currentTimer);
 
         //Display information about currently selected tile
         if(PhysicalTile.selectedTile != null)
@@ -65,7 +60,14 @@ public class TurnController : MonoBehaviour {
 
     public void NextPhase()
     {
-        if(activePlayer == player1)
+        //If activePlayer is null, then the game has just begun, initialise variables and start the game
+        if(activePlayer == null)
+        {
+            turnCount = 1;
+            phaseCount = 0;
+            activePlayer = player1;
+        }
+        else if(activePlayer == player1)
         {
             Debug.Log((activePlayer == player1).ToString());
             Debug.Log(player1.PlayerName);
@@ -79,7 +81,10 @@ public class TurnController : MonoBehaviour {
         }
 
         if (phaseCount == 6)
+        {
+            turnCount++;
             phaseCount = 0;
+        }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
         currentTimer = new Timeout(PhaseTimes[phaseCount]);
