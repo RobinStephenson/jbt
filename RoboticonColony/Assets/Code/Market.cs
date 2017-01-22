@@ -169,15 +169,16 @@ sealed public class Market
     }
   
     /// <summary>
-    /// Adds a roboticon to the market stock.
+    /// Converts up to 5 ore in the markets inventory into roboticons per turn
     /// </summary>
     public void BuyRoboticonOre()
     {
-        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
-        if (Stock.GetItemAmount(ItemType.Ore) > 0)
+        int converted = 0;
+        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 6)
         {
-            Stock.AddItem(ItemType.Ore, -1);
+            Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
+            converted++;
         }
     }
 

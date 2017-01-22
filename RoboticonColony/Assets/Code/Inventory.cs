@@ -72,6 +72,16 @@ sealed public class Inventory
         items[item] += amount;
     }
 
+    public void SubtractItem(ItemType item, int amount)
+    {
+        if(amount > items[item])
+        {
+            throw new NotEnoughItemException("Tried to remove more items than this inventory owns");
+        }
+
+        items[item] -= amount;
+    }
+
     /// <summary>
     /// Add an amount of money to this inventory instance.
     /// </summary>

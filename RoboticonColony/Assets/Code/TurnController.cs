@@ -149,6 +149,7 @@ public class TurnController : MonoBehaviour {
                 UIController.HideInstallRoboticon();
                 UIController.HideCustomiseRoboticon();
                 UIController.ShowProductionDisplay(activePlayer.DoPhaseFour());
+                market.BuyRoboticonOre();
                 UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:
