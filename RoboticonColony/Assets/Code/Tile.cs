@@ -59,7 +59,19 @@ sealed public class Tile
     public void InstallRoboticon(Inventory inventory)
     {
         // should also set the installedTile on the roboticon to this one
-        throw new RoboticonAlreadyInstalledException();
+        if (InstalledRoboticon != null)
+        {
+            throw new RoboticonAlreadyInstalledException();
+        }
+        else if (inventory.GetItemAmount(ItemType.Roboticon) == 0)
+        {
+            throw new NotEnoughItemException("Not enough Roboticons");
+        }
+        else
+        {
+            //InstalledRoboticon = ;
+        }
+        
     }
 
      /// <summary>
