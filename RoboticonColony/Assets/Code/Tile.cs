@@ -65,8 +65,10 @@ sealed public class Tile
     /// <param name="inventory">the players inventory</param>
     public void InstallRoboticon(Inventory inventory)
     {
-        // should also set the installedTile on the roboticon to this one
-        throw new RoboticonAlreadyInstalledException();
+        if (InstalledRoboticon != null)
+        {
+            throw new RoboticonAlreadyInstalledException();
+        }
     }
 
      /// <summary>

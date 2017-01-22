@@ -112,22 +112,22 @@ public class UIController : MonoBehaviour {
 
     public static void ShowInstallRoboticon()
     {
-
+        controller.InstallRobitconPanel.SetActive(true);
     }
 
     public static void ShowCustomiseRoboticon()
     {
-
+        controller.CustomiseRoboticonPanel.SetActive(true);
     }
 
     public static void HideInstallRoboticon()
     {
-
+        controller.InstallRobitconPanel.SetActive(false);
     }
 
     public static void HideCustomiseRoboticon()
     {
-
+        controller.CustomiseRoboticonPanel.SetActive(false);
     }
 
     public static void ShowProductionDisplay(Dictionary<ItemType, int> production)

@@ -27,4 +27,24 @@ public abstract class AbstractPlayer
         Market = market;
         TileSprite = tileSprite;
     }
+    
+    /// <summary>
+    /// The total amount of installed roboticons that this player has
+    /// </summary>
+    public int InstalledRoboticonCount
+    {
+        get
+        {
+            int amount = 0;
+            foreach(Tile t in Inv.Tiles)
+            {
+                if(t.InstalledRoboticon != null)
+                {
+                    amount++;
+                }
+            }
+
+            return amount;
+        }
+    }
 }

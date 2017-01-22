@@ -109,7 +109,15 @@ public class TurnController : MonoBehaviour {
                 else
                 {
                     PhysicalTile.canSelect = false;
-                    UIController.ShowInstallRoboticon();
+                    //Display install roboticon panel if there is no roboticon on the tile, else display customise roboticon
+                    if (PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon == null)
+                    {
+                        UIController.ShowInstallRoboticon();
+                    }
+                    else
+                    {
+                        UIController.ShowCustomiseRoboticon();
+                    }
                 }
             }
         }
@@ -199,5 +207,10 @@ public class TurnController : MonoBehaviour {
         {
             UIController.DisplayMessage("Could not purchase the required amount of roboticons");
         }
+    }
+
+    public void InstallRoboticonPressed()
+    {
+
     }
 }
