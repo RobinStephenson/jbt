@@ -23,10 +23,6 @@ public class TurnController : MonoBehaviour {
     private int[] PhaseTimes = new int[5] { 60, 60, 60, 60, 60 };
 
 	void Start () {
-        //Initialise players
-        player1 = new HumanPlayer("Mikeywalsh", new Inventory(), market);
-        player2 = new HumanPlayer("Some Guy", new Inventory(), market);
-
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
         for(int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
@@ -37,6 +33,10 @@ public class TurnController : MonoBehaviour {
         //Create Market instance for this game and populate it with the new tiles
         market = new Market(5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
+
+        //Initialise players
+        player1 = new HumanPlayer("Mikeywalsh", new Inventory(), market);
+        player2 = new HumanPlayer("Some Guy", new Inventory(), market);
 
         //Start the game
         NextPhase();
