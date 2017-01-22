@@ -34,32 +34,30 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="timeout">a time for which the phase can run</param>
     public override void StartPhaseOne()
     {
-        // check the player has enough money for at least the cheapest tile
-        if (!CanBuyCheapest())
+
+    }
+
+    public override bool DoPhaseOne(Tile t)
+    {
+        try
         {
-            //Input.Confirm("You dont have enough money to buy a tile this round", timeout: timeout);
-            return;
+            Market.BuyTile(t, Inventory);
+            return true;
+        }
+        catch(ArgumentOutOfRangeException)
+        {
+            return false;
+        }
+        catch(NotEnoughItemException)
+        {
+            return false;
+        }
+        catch(Exception)
+        {
+            throw;
         }
 
-        Action<Tile> BuyTile = delegate (Tile tileToBuy)
-        {
-            //TODO: Uncomment when estateagent is merged
-            //Market.BuyTile(tileToBuy, Inventory);
-        };
-
-        Action<bool?> ChooseTileToBuy = delegate (bool? wantsToBuy)
-        {
-            // TODO create a list of unnocupied tiles the player can afford
-            List<Tile> AvailableTiles = null;
-
-            if (wantsToBuy == true)
-            {
-                //Input.PromptTile("Which tile would you like to buy?", BuyTile, AvailableTiles, timeout);
-            }
-        };
-
-        // does the player want to buy a tile?
-        //Input.PromptBool("Do you want to buy a tile?", ChooseTileToBuy, timeout);
+        //return false;
     }
 
     private void PurchaseRoboticons()

@@ -25,7 +25,6 @@ public class UIController : MonoBehaviour {
 
     //Timer variables
     public Text TimerText;
-    //Timeout t;
 
     private void Awake()
     {
@@ -36,12 +35,10 @@ public class UIController : MonoBehaviour {
     void Start () {
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
-        //t = new Timeout(60);
     }
 	
 	void Update () {
-        //t.UpdateTimer();
-        //Debug.Log(t.SecondsRemaining.ToString());
+        
 	}
 
     public static void DisplayTileInfo(PhysicalTile t)

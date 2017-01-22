@@ -45,16 +45,34 @@ public class TurnController : MonoBehaviour {
 	void Update () {
         Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
 
-        //UIController.UpdateTimerDisplay(currentTimer);
+        UIController.UpdateTimerDisplay(currentTimer);
 
-        //Display information about currently selected tile
-        if(PhysicalTile.selectedTile != null)
+        //Display information about currently selected tile, can only be done on phase 1 and phase 3
+        if (phaseCount == 1 || phaseCount == 3)
         {
-            UIController.DisplayTileInfo(PhysicalTile.selectedTile);            
+            if (PhysicalTile.selectedTile != null)
+            {
+                UIController.DisplayTileInfo(PhysicalTile.selectedTile);
+            }
+            else
+            {
+                UIController.HideTileInfo();
+            }
         }
-        else
+
+        if(phaseCount == 1)
         {
-            UIController.HideTileInfo();
+            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile)
+            {
+                if(activePlayer.DoPhaseOne(PhysicalTile.selectedTile.ContainedTile))
+                {
+                    NextPhase();
+                }
+                else
+                {
+                    UIController.DisplayMessage("You cannot afford this tile, please buy another!");
+                }
+            }
         }
 	}
 
@@ -64,7 +82,7 @@ public class TurnController : MonoBehaviour {
         if(activePlayer == null)
         {
             turnCount = 1;
-            phaseCount = 0;
+            phaseCount = 1;
             activePlayer = player1;
         }
         else if(activePlayer == player1)
@@ -83,11 +101,11 @@ public class TurnController : MonoBehaviour {
         if (phaseCount == 6)
         {
             turnCount++;
-            phaseCount = 0;
+            phaseCount = 1;
         }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
-        currentTimer = new Timeout(PhaseTimes[phaseCount]);
+        currentTimer = new Timeout(PhaseTimes[phaseCount - 1]);
         
         switch(phaseCount)
         {

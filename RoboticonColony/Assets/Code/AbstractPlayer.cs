@@ -5,8 +5,10 @@ using System;
 public abstract class AbstractPlayer
 {
     public string PlayerName { get; private set; }
-    protected Inventory Inventory;
+    public Inventory Inventory;
     protected Market Market;
+
+    public abstract bool DoPhaseOne(Tile t);
 
     public abstract void StartPhaseOne();
     public abstract void StartPhaseTwo();
