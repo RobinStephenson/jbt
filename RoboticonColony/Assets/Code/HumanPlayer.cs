@@ -25,7 +25,7 @@ public class HumanPlayer : AbstractPlayer
         //        CheapestTilePrice = CurrentTilePrice;
         //    }
         //}
-        return CheapestTilePrice <= Inventory.Money;
+        return CheapestTilePrice <= Inv.Money;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class HumanPlayer : AbstractPlayer
     {
         try
         {
-            Market.BuyTile(t, Inventory);
+            Market.BuyTile(t, this);
             return true;
         }
         catch(NotEnoughMoneyException)
@@ -69,13 +69,13 @@ public class HumanPlayer : AbstractPlayer
             return;
         }
 
-        Action<int?> BuyRoboticons = delegate (int? quantityToBuy)
-        {
-            if (quantityToBuy > 0)
-            {
-                Market.Buy(ItemType.Roboticon, (int)quantityToBuy, Inventory);
-            }
-        };
+        //Action<int?> BuyRoboticons = delegate (int? quantityToBuy)
+        //{
+        //    if (quantityToBuy > 0)
+        //    {
+        //        Market.Buy(ItemType.Roboticon, (int)quantityToBuy, Inventory);
+        //    }
+        //};
 
         //Input.PromptInt("How many roboticons don you want to buy this turn?", BuyRoboticons, timeout, max: MaxQuantity, cancelable: true);
     }
@@ -94,7 +94,7 @@ public class HumanPlayer : AbstractPlayer
                 }
                 else
                 {
-                    Market.BuyCustomisation(customisation, RoboticonToCustomise, Inventory);
+                    Market.BuyCustomisation(customisation, RoboticonToCustomise, Inv);
                 }
             };
 
@@ -177,7 +177,7 @@ public class HumanPlayer : AbstractPlayer
         {
             if (tile != null)
             {
-                tile.InstallRoboticon(Inventory);
+                tile.InstallRoboticon(Inv);
             }
 
             // Recursive so that players can install another roboticon or go again if they cancelled
@@ -246,7 +246,7 @@ public class HumanPlayer : AbstractPlayer
                 {
                     if (quantity > 0)
                     {
-                        Market.Buy((ItemType)resource, (int)quantity, Inventory);
+                        Market.Buy((ItemType)resource, (int)quantity, this);
                     }
                 };
 
@@ -259,43 +259,43 @@ public class HumanPlayer : AbstractPlayer
             }
         };
 
-        Action<ItemType?> ChooseQuantityToBuy = delegate (ItemType? resource)
-        {
-            if (resource != null)
-            {
-                Action<int?> BuyResource = delegate (int? quantity)
-                {
-                    if (quantity > 0)
-                    {
-                        Market.Buy((ItemType)resource, (int)quantity, Inventory);
-                    }
-                };
+        //Action<ItemType?> ChooseQuantityToBuy = delegate (ItemType? resource)
+        //{
+        //    if (resource != null)
+        //    {
+        //        Action<int?> BuyResource = delegate (int? quantity)
+        //        {
+        //            if (quantity > 0)
+        //            {
+        //                Market.Buy((ItemType)resource, (int)quantity, this);
+        //            }
+        //        };
 
-                //Input.PromptInt(
-                //    "How much?",
-                //    BuyResource,
-                //    min: 1,
-                //    max: MaxQuantityPlayerCanBuy((ItemType)resource),
-                //    cancelable: true);
-            }
-        };
+        //        //Input.PromptInt(
+        //        //    "How much?",
+        //        //    BuyResource,
+        //        //    min: 1,
+        //        //    max: MaxQuantityPlayerCanBuy((ItemType)resource),
+        //        //    cancelable: true);
+        //    }
+        //};
 
-        Action<bool?> ChooseResource = delegate (bool? wantsToBuy)
-        {
-            if (wantsToBuy == true)
-            {
-                // which resource
-                //Input.PromptResource("Which resource do you want to buy?", ChooseQuantityToBuy, cancelable: true);
-            }
-            else if (wantsToBuy == false)
-            {
-                // wants to sell
-                //Input.PromptResource("Which resource do you want to sell?", ChooseQuantityToSell, cancelable: true);
-            }
+        //Action<bool?> ChooseResource = delegate (bool? wantsToBuy)
+        //{
+        //    if (wantsToBuy == true)
+        //    {
+        //        // which resource
+        //        //Input.PromptResource("Which resource do you want to buy?", ChooseQuantityToBuy, cancelable: true);
+        //    }
+        //    else if (wantsToBuy == false)
+        //    {
+        //        // wants to sell
+        //        //Input.PromptResource("Which resource do you want to sell?", ChooseQuantityToSell, cancelable: true);
+        //    }
 
-            // recurive so the player can buy/sell again
-            StartPhaseFive();
-        };
+        //    // recurive so the player can buy/sell again
+        //    StartPhaseFive();
+        //};
 
         //Input.PromptBool("Do you want to buy or sell at the market?", ChooseResource, trueOption: "Buy", falseOption: "Sell", cancelable: true);
     }
@@ -309,7 +309,7 @@ public class HumanPlayer : AbstractPlayer
     {
         int ItemPrice = Market.GetBuyPrice(ItemType.Roboticon);
         int QuantityInMarket = Market.Stock.GetItemAmount(item);
-        int QuantityPlayerCanAfford = Inventory.Money / ItemPrice;
+        int QuantityPlayerCanAfford = Inv.Money / ItemPrice;
         return Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
     }
 
@@ -322,6 +322,6 @@ public class HumanPlayer : AbstractPlayer
     {
         // TODO: use a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
         int QuantityShopWillBuy = int.MaxValue;
-        return Math.Min(Inventory.GetItemAmount(item), QuantityShopWillBuy);
+        return Math.Min(Inv.GetItemAmount(item), QuantityShopWillBuy);
     }
 }

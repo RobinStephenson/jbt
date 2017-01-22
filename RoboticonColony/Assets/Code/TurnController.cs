@@ -68,6 +68,8 @@ public class TurnController : MonoBehaviour {
             {
                 if(activePlayer.DoPhaseOne(PhysicalTile.selectedTile.ContainedTile))
                 {
+                    PhysicalTile.selectedTile.SetOwnerSprite();
+                    UIController.HideTileInfo();
                     NextPhase();
                 }
                 else
@@ -107,7 +109,7 @@ public class TurnController : MonoBehaviour {
         }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
-        UIController.UpdateResourceDisplay(activePlayer.Inventory);
+        UIController.UpdateResourceDisplay(activePlayer.Inv);
         currentTimer = new Timeout(PhaseTimes[phaseCount - 1]);
         
         switch(phaseCount)

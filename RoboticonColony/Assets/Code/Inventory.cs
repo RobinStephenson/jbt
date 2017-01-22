@@ -11,7 +11,6 @@ sealed public class Inventory
     public int Money { get; private set; }
     public List<Tile> Tiles;
 
-    private List<Tile> tiles;
     private Dictionary<ItemType, int> items;
 
     /// <summary>
@@ -106,13 +105,13 @@ sealed public class Inventory
     /// <param name="tile">The tile to add to this inventory instance</param>
     public void AddTile(Tile tile)
     {
-        if(tiles.Contains(tile))
+        if(Tiles.Contains(tile))
         {
             throw new ArgumentException("The supplied tile already located in this inventory");
         }
         else
         {
-            tiles.Add(tile);
+            Tiles.Add(tile);
         }
     }
 
@@ -172,37 +171,37 @@ sealed public class Inventory
     /// <param name="to">The inventory to transfer to</param>
     public void TransferTile(Tile tile, Inventory to)
     {
-        if(!tiles.Contains(tile))
+        if(!Tiles.Contains(tile))
         {
             throw new ArgumentOutOfRangeException("Supplied tile does not belong to this inventory");
         }
 
-        tiles.Remove(tile);
+        Tiles.Remove(tile);
         to.AddTile(tile);
         return;
     }
 
     /// <summary>
-    /// Getter used to get the amount of tiles in the tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
+    /// Getter used to get the amount of Tiles in the Tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
     /// </summary>
-    /// <returns>The amount of tiles in the tiles list</returns>
+    /// <returns>The amount of Tiles in the Tiles list</returns>
     public int TileCount()
     {
-        return tiles.Count;
+        return Tiles.Count;
     }
 
     /// <summary>
-    /// Getter used to get the tile at the supplied index in the tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
+    /// Getter used to get the tile at the supplied index in the Tiles list. Cannot allow access to the list directly, even in a getter, as methods like Add can still be called
     /// </summary>
     /// <param name="index">The index to get the tile of</param>
     /// <returns>The requested tile reference</returns>
     public Tile GetTile(int index)
     {
-        if(index < tiles.Count - 1)
+        if(index < Tiles.Count - 1)
         {
-            throw new ArgumentOutOfRangeException("Supplied index is greater than length of tile list: " + tiles.Count.ToString());
+            throw new ArgumentOutOfRangeException("Supplied index is greater than length of tile list: " + Tiles.Count.ToString());
         }
 
-        return tiles[index];
+        return Tiles[index];
     }
 }

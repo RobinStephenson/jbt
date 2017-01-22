@@ -27,6 +27,11 @@ sealed public class Tile
         InstalledRoboticon = null;
     }
 
+    public void SetOwner(AbstractPlayer p)
+    {
+        Owner = p;
+    }
+
     /// <summary>
     /// Get the production of the tile
     /// </summary>

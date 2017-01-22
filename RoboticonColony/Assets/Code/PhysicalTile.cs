@@ -45,6 +45,11 @@ public class PhysicalTile : MonoBehaviour {
         ClearSelected();
     }
 
+    public void SetOwnerSprite()
+    {
+        
+    }
+
     private static void MakeSelected(PhysicalTile t)
     {
         ClearSelected();
