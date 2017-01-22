@@ -3820,10 +3820,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 326405466}
   - {fileID: 844481034}
-  - {fileID: 1313636854}
   - {fileID: 1976159638}
+  - {fileID: 1313636854}
+  - {fileID: 326405466}
   m_Father: {fileID: 1328964489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3867,7 +3867,7 @@ RectTransform:
   - {fileID: 867498036}
   - {fileID: 1712245190}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5141,6 +5141,10 @@ MonoBehaviour:
   TurnDisplay: {fileID: 497086995}
   PhaseDisplay: {fileID: 393560840}
   PlayerDisplay: {fileID: 1934902278}
+  MoneyDisplay: {fileID: 664753673}
+  OreDisplay: {fileID: 593775997}
+  PowerDisplay: {fileID: 1575384002}
+  RoboticonDisplay: {fileID: 1712245191}
   MessageText: {fileID: 1080771205}
   TimerText: {fileID: 345426296}
 --- !u!1 &437031590
@@ -6780,7 +6784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 000
 --- !u!222 &593775998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9068,11 +9072,11 @@ RectTransform:
   - {fileID: 31339984}
   - {fileID: 664753672}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -166.9, y: 1.1}
+  m_AnchoredPosition: {x: -185.5, y: 1.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &844481035
@@ -13274,7 +13278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.3, y: 0.1}
+  m_AnchoredPosition: {x: -37.7, y: 0.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1313636855
@@ -15538,7 +15542,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 000
 --- !u!222 &1575384003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19388,11 +19392,11 @@ RectTransform:
   - {fileID: 5291820}
   - {fileID: 593775996}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87.2, y: 1.1}
+  m_AnchoredPosition: {x: -112.8, y: 1.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1976159639
