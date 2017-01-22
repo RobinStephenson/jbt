@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Roboticon
 {
-    public Tile CurrentTile { get; private set; }
+    public Tile CurrentTile { get; set; }
 
     public List<RoboticonCustomisation> InstalledCustomisations;
 

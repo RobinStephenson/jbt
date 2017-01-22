@@ -67,10 +67,19 @@ sealed public class Tile
     /// </summary>
     /// <exception cref="InvalidOperationException">there is no roboticon installed</exception>
     /// <returns>the removed roboticon</returns>
-    public Roboticon RemoveRoboticon()
+    public void RemoveRoboticon()
     {
         // should also set installed tile to null on the roboticon
-        throw new InvalidOperationException("No Roboticon installed");
+        if (InstalledRoboticon == null)
+        {
+            throw new InvalidOperationException("No Roboticon installed");
+        }
+        else
+        {
+            InstalledRoboticon.CurrentTile = null;
+            InstalledRoboticon = null;
+
+        }
     }
   
     /// <summary>
