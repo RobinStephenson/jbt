@@ -6,7 +6,7 @@ using System.Text;
 
 sealed public class Tile
 {
-
+    public int Id { get; private set; }
     public int Price { get; private set; }
     public AbstractPlayer Owner { get; private set; }
     public Roboticon InstalledRoboticon { get; private set; }
@@ -18,8 +18,9 @@ sealed public class Tile
     /// <param name="cost">Cost of the tile</param>
     /// <param name="ore">Ore that the tile has</param>
     /// <param name="power">Power that the tile has</param>
-    public Tile(int price, int ore, int power)
+    public Tile(int id, int price, int ore, int power)
     {
+        Id = id;
         Price = price;
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
@@ -93,6 +94,19 @@ sealed public class Tile
     public int Power
     {
         get { return resources[ItemType.Power]; }
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (!(obj is Tile))
+            return false;
+
+        return Id == ((Tile)obj).Id;
+    }
+
+    public override int GetHashCode()
+    {
+        return Id;
     }
 
 }

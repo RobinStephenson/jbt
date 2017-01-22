@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class HumanPlayer : AbstractPlayer
 {
@@ -9,7 +10,7 @@ public class HumanPlayer : AbstractPlayer
     /// <param name="inv">a player inventory</param>
     /// <param name="market">the market</param>
     /// <param name="estateAgent">the estate agent</param>
-    public HumanPlayer(string playerName, Inventory inv, Market market) : base(playerName, inv, market)
+    public HumanPlayer(string playerName, Inventory inv, Market market, Sprite tileSprite) : base(playerName, inv, market, tileSprite)
     {
     }
 
@@ -39,23 +40,23 @@ public class HumanPlayer : AbstractPlayer
 
     public override bool DoPhaseOne(Tile t)
     {
-        try
-        {
+        //try
+        //{
             Market.BuyTile(t, this);
             return true;
-        }
-        catch(NotEnoughMoneyException)
-        {
-            return false;
-        }
-        catch(NotEnoughItemException)
-        {
-            return false;
-        }
-        catch(Exception)
-        {
-            throw;
-        }
+        //}
+        //catch(NotEnoughMoneyException)
+        //{
+        //    return false;
+        //}
+        //catch(ArgumentOutOfRangeException)
+        //{
+        //    return false;
+        //}
+        //catch(Exception)
+        //{
+        //    throw;
+        //}
 
         //return false;
     }

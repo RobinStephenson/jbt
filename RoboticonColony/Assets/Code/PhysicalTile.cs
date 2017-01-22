@@ -18,7 +18,7 @@ public class PhysicalTile : MonoBehaviour {
     public void Start()
     {
         Id = TotalTiles++;
-        ContainedTile = new Tile(Random.Range(5, 50), Random.Range(5, 50), Random.Range(5, 50));
+        ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(5, 50), Random.Range(5, 50));
         Bought = false;
     }
 
@@ -45,9 +45,9 @@ public class PhysicalTile : MonoBehaviour {
         ClearSelected();
     }
 
-    public void SetOwnerSprite()
+    public void SetSprite(Sprite s)
     {
-        
+        GetComponent<SpriteRenderer>().sprite = s;
     }
 
     private static void MakeSelected(PhysicalTile t)

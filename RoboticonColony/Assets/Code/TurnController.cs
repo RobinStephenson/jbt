@@ -25,7 +25,8 @@ public class TurnController : MonoBehaviour {
 	void Start () {
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
-        for(int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
+        Debug.Log(GameObject.Find("Tiles").transform.childCount.ToString());
+        for (int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
         {
             allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<PhysicalTile>().ContainedTile);
         }
@@ -33,21 +34,29 @@ public class TurnController : MonoBehaviour {
         //Create Market instance for this game and populate it with the new tiles
         market = new Market(5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
+        Debug.Log(allTiles.Contains(allTiles[4]));
+        Debug.Log(market.Stock.Tiles.Contains(allTiles[5]));
+        Debug.Log(allTiles[5] == allTiles[6]);
 
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
-        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market);
-        player2 = new HumanPlayer("Some Guy", p2Inv, market);
+        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Player1 Tile"));
+        player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Player2 Tile"));
 
         //Start the game
         NextPhase();
 	}
 	
 	void Update () {
-        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
-
+        if (PhysicalTile.selectedTile != null)
+        {
+            Debug.Log(market.Stock.TileCount().ToString());
+            Debug.Log(market.Stock.Tiles.Contains(PhysicalTile.selectedTile.ContainedTile));
+        }
+            //Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
         UIController.UpdateTimerDisplay(currentTimer);
+        UIController.UpdateResourceDisplay(activePlayer.Inv);
 
         //Display information about currently selected tile, can only be done on phase 1 and phase 3
         if (phaseCount == 1 || phaseCount == 3)
@@ -64,11 +73,17 @@ public class TurnController : MonoBehaviour {
 
         if(phaseCount == 1)
         {
-            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile)
+            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
             {
-                if(activePlayer.DoPhaseOne(PhysicalTile.selectedTile.ContainedTile))
+                if(PhysicalTile.selectedTile.ContainedTile.Owner != null)
                 {
-                    PhysicalTile.selectedTile.SetOwnerSprite();
+                    UIController.DisplayMessage("This tile is already owned by a player!");
+                    return;
+                }
+
+                if (activePlayer.DoPhaseOne(PhysicalTile.selectedTile.ContainedTile))
+                {
+                    PhysicalTile.selectedTile.SetSprite(activePlayer.TileSprite);
                     UIController.HideTileInfo();
                     NextPhase();
                 }

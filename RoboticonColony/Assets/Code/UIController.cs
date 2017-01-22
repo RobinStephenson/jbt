@@ -50,7 +50,7 @@ public class UIController : MonoBehaviour {
     public static void DisplayTileInfo(PhysicalTile t)
     {
         controller.selectedTilePanel.SetActive(true);
-        controller.selectedTileText.text = string.Format(controller.baseTileText, "Nobody", 15, t.Ore.ToString("00"), t.Power.ToString("00"), "No roboticon installed");
+        controller.selectedTileText.text = string.Format(controller.baseTileText, "Nobody", t.Price, t.Ore.ToString("00"), t.Power.ToString("00"), "No roboticon installed");
     }
 
     public static void HideTileInfo()
