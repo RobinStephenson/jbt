@@ -13,13 +13,11 @@ public class PhysicalTile : MonoBehaviour {
     public int Id;
     public Tile ContainedTile;
 
-    public bool Bought;
-
     public void Start()
     {
-        Id = TotalTiles++;
+        Id = TotalTiles;
         ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(5, 50), Random.Range(5, 50));
-        Bought = false;
+        TotalTiles++;
     }
 
     public override bool Equals(object obj)

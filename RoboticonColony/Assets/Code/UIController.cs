@@ -41,6 +41,11 @@ public class UIController : MonoBehaviour {
     public GameObject InstallRobitconPanel;
     public GameObject CustomiseRoboticonPanel;
 
+    //Phase 4 variables
+    public GameObject ProductionDisplay;
+    public Text ProductionText;
+    public string BaseProductionText;
+
     private void Awake()
     {
         //Set the static reference to the controller to the only controller in the scene
@@ -51,6 +56,7 @@ public class UIController : MonoBehaviour {
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
         baseRoboticonStockText = MarketRoboticonStock.text;
+        BaseProductionText = ProductionText.text;
     }
 	
 	void Update () {
@@ -102,5 +108,46 @@ public class UIController : MonoBehaviour {
     public static void HideBuyRoboticon()
     {
         controller.BuyRoboticonPanel.SetActive(false);
+    }
+
+    public static void ShowInstallRoboticon()
+    {
+
+    }
+
+    public static void ShowCustomiseRoboticon()
+    {
+
+    }
+
+    public static void HideInstallRoboticon()
+    {
+
+    }
+
+    public static void HideCustomiseRoboticon()
+    {
+
+    }
+
+    public static void ShowProductionDisplay()
+    {
+        controller.ProductionDisplay.SetActive(true);
+        controller.ProductionText.text = "FUK";
+    }
+
+    public static void HideProductionDisplay()
+    {
+        controller.ProductionDisplay.SetActive(false);
+    }
+
+    public static void ShowMarketDisplay()
+    {
+
+    }
+
+    public static void HideMarketDisplay()
+    {
+
     }
 }

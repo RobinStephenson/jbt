@@ -49,8 +49,10 @@ public class TurnController : MonoBehaviour {
 	}
 	
 	void Update () {
-        //for(int i = 0; i < 100; i++)
-        //    Debug.Log(market.Stock.Tiles[0].Id);
+        if(currentTimer.Finished)
+        {
+            NextPhase();
+        }
 
         if (PhysicalTile.selectedTile != null)
         {
@@ -133,24 +135,26 @@ public class TurnController : MonoBehaviour {
         switch(phaseCount)
         {
             case 1:
-                activePlayer.StartPhaseOne();
+                UIController.HideMarketDisplay();
                 UIController.DisplayMessage("Buy a tile, or click next phase!");
                 break;
             case 2:
-                activePlayer.StartPhaseTwo();
                 UIController.ShowBuyRoboticon(market);
                 UIController.DisplayMessage("Buy roboticons from the market, click next phase when finished!");
                 break;
             case 3:
-                activePlayer.StartPhaseThree();
+                UIController.HideBuyRoboticon();
                 UIController.DisplayMessage("Install/Customise Roboticons, click next phase when finished!");
                 break;
             case 4:
-                activePlayer.StartPhaseFour();
+                UIController.HideInstallRoboticon();
+                UIController.HideCustomiseRoboticon();
+                UIController.ShowProductionDisplay();
                 UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:
-                activePlayer.StartPhaseFive();
+                UIController.HideProductionDisplay();
+                UIController.ShowMarketDisplay();
                 UIController.DisplayMessage("Buy/Sell from the market, then click next phase when finished!");
                 break;
         }
@@ -161,10 +165,16 @@ public class TurnController : MonoBehaviour {
         if(activePlayer.DoPhaseTwo(amount))
         {
             UIController.DisplayMessage("You bought " + amount.ToString() + " Roboticons!");
+            UIController.ShowBuyRoboticon(market);
         }
         else
         {
             UIController.DisplayMessage("Could not purchase the required amount of roboticons");
         }
+    }
+
+    public void NextPhasePressed()
+    {
+        NextPhase();
     }
 }
