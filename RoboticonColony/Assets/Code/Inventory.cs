@@ -172,7 +172,6 @@ sealed public class Inventory
 
         tiles.Remove(tile);
         to.AddTile(tile);
-        tile.Owner = to.
         return;
     }
 
