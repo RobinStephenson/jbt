@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour {
 
     //Timer variables
     public Text TimerText;
+    //Timeout t;
 
     void Start () {
         //Set the static reference to the controller to the only controller in the scene
@@ -32,10 +33,12 @@ public class UIController : MonoBehaviour {
 
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
-	}
+        //t = new Timeout(60);
+    }
 	
 	void Update () {
-		
+        //t.UpdateTimer();
+        //Debug.Log(t.SecondsRemaining.ToString());
 	}
 
     public static void DisplayTileInfo(PhysicalTile t)
@@ -61,7 +64,7 @@ public class UIController : MonoBehaviour {
         controller.MessageText.text = message;
     }
 
-    public static void UpdateTimer(Timeout t)
+    public static void UpdateTimerDisplay(Timeout t)
     {
         controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
     }

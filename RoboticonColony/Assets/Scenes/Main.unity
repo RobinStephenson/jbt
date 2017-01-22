@@ -134,9 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &3673768
 SpriteRenderer:
@@ -713,9 +710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &46944215
 SpriteRenderer:
@@ -877,9 +871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &84026925
 SpriteRenderer:
@@ -1016,9 +1007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &96096292
 SpriteRenderer:
@@ -1403,9 +1391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &119496237
 SpriteRenderer:
@@ -1717,9 +1702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &150240427
 SpriteRenderer:
@@ -1887,9 +1869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &155832152
 SpriteRenderer:
@@ -1983,9 +1962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &163320828
 SpriteRenderer:
@@ -2147,9 +2123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &179677913
 SpriteRenderer:
@@ -2433,9 +2406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &207777406
 SpriteRenderer:
@@ -2529,9 +2499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &207816899
 SpriteRenderer:
@@ -2670,9 +2637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &215624151
 SpriteRenderer:
@@ -2766,9 +2730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &222150324
 SpriteRenderer:
@@ -3058,9 +3019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &246480616
 SpriteRenderer:
@@ -3154,9 +3112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &253209014
 SpriteRenderer:
@@ -3325,9 +3280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &256427192
 SpriteRenderer:
@@ -3421,9 +3373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &273845519
 SpriteRenderer:
@@ -3591,9 +3540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &277169709
 SpriteRenderer:
@@ -3798,9 +3744,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &305347534
 SpriteRenderer:
@@ -4123,9 +4066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &344639773
 SpriteRenderer:
@@ -4367,9 +4307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &357093172
 SpriteRenderer:
@@ -4648,9 +4585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &387256664
 SpriteRenderer:
@@ -4818,9 +4752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &396065700
 SpriteRenderer:
@@ -4914,9 +4845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &397347676
 SpriteRenderer:
@@ -5161,6 +5089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429270496}
   - component: {fileID: 429270495}
+  - component: {fileID: 429270497}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -5179,17 +5108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3a9c782f8f2b469a534deeda28e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
   turnCount: 0
-  activePhase: 0
-  activePlayer: {fileID: 0}
+  phaseCount: 0
   TimerText: {fileID: 345426296}
-  TurnDisplay: {fileID: 497086995}
-  PhaseDisplay: {fileID: 393560840}
-  PlayerDisplay: {fileID: 1934902278}
-  selectedInfoPanel: {fileID: 29254506}
-  selectedInfoText: {fileID: 742051876}
 --- !u!4 &429270496
 Transform:
   m_ObjectHideFlags: 0
@@ -5203,6 +5124,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429270497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429270494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a1bdc5975e32428d54ef0deaf56a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTilePanel: {fileID: 29254506}
+  selectedTileText: {fileID: 742051876}
+  baseTileText: 
+  TurnDisplay: {fileID: 497086995}
+  PhaseDisplay: {fileID: 393560840}
+  PlayerDisplay: {fileID: 1934902278}
+  MessageText: {fileID: 1080771205}
+  TimerText: {fileID: 345426296}
 --- !u!1 &437031590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,9 +5186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &437031593
 SpriteRenderer:
@@ -5414,9 +5351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &444612313
 SpriteRenderer:
@@ -5956,9 +5890,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &508026562
 SpriteRenderer:
@@ -6453,9 +6384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &548567444
 SpriteRenderer:
@@ -6549,9 +6477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &566117237
 SpriteRenderer:
@@ -6645,9 +6570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &569651254
 SpriteRenderer:
@@ -6741,9 +6663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &585406720
 SpriteRenderer:
@@ -7031,9 +6950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &610449251
 SpriteRenderer:
@@ -7127,9 +7043,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &614935081
 SpriteRenderer:
@@ -7223,9 +7136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &615762046
 SpriteRenderer:
@@ -7319,9 +7229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &620564860
 SpriteRenderer:
@@ -7459,9 +7366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &641140549
 SpriteRenderer:
@@ -7555,9 +7459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &659230727
 SpriteRenderer:
@@ -7651,9 +7552,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &662996383
 SpriteRenderer:
@@ -7821,9 +7719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &686252925
 SpriteRenderer:
@@ -7985,9 +7880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &706248560
 SpriteRenderer:
@@ -8342,9 +8234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &749570632
 SpriteRenderer:
@@ -8512,9 +8401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &765519996
 SpriteRenderer:
@@ -8731,9 +8617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &798618200
 SpriteRenderer:
@@ -8827,9 +8710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &800987383
 SpriteRenderer:
@@ -8923,9 +8803,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &809266280
 SpriteRenderer:
@@ -9019,9 +8896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &818686001
 SpriteRenderer:
@@ -9115,9 +8989,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &839371372
 SpriteRenderer:
@@ -9253,9 +9124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &846108517
 SpriteRenderer:
@@ -9349,9 +9217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &849328723
 SpriteRenderer:
@@ -9588,9 +9453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &865308306
 SpriteRenderer:
@@ -9758,9 +9620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &866499598
 SpriteRenderer:
@@ -9922,9 +9781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &873339754
 SpriteRenderer:
@@ -10018,9 +9874,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &874680163
 SpriteRenderer:
@@ -10182,9 +10035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &896398359
 SpriteRenderer:
@@ -10489,9 +10339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &918345612
 SpriteRenderer:
@@ -10653,9 +10500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &942424181
 SpriteRenderer:
@@ -10977,9 +10821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &956807316
 SpriteRenderer:
@@ -11073,9 +10914,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &957637858
 SpriteRenderer:
@@ -11169,9 +11007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &967539833
 SpriteRenderer:
@@ -11413,9 +11248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1026204830
 SpriteRenderer:
@@ -11509,9 +11341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1060012104
 SpriteRenderer:
@@ -11605,9 +11434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1076117612
 SpriteRenderer:
@@ -11775,9 +11601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1088385620
 SpriteRenderer:
@@ -11939,9 +11762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1103453999
 SpriteRenderer:
@@ -12182,9 +12002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1116363031
 SpriteRenderer:
@@ -12278,9 +12095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1160808648
 SpriteRenderer:
@@ -12374,9 +12188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1164048394
 SpriteRenderer:
@@ -12470,9 +12281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1185040243
 SpriteRenderer:
@@ -12566,9 +12374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1193280305
 SpriteRenderer:
@@ -12662,9 +12467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1199217862
 SpriteRenderer:
@@ -12895,9 +12697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1261331590
 SpriteRenderer:
@@ -13065,9 +12864,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1268524461
 SpriteRenderer:
@@ -13161,9 +12957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1269570250
 SpriteRenderer:
@@ -13230,7 +13023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276377815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13330,9 +13123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1300146123
 SpriteRenderer:
@@ -13607,9 +13397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1344178058
 SpriteRenderer:
@@ -13703,9 +13490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1350232019
 SpriteRenderer:
@@ -13868,9 +13652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1393459669
 SpriteRenderer:
@@ -13964,9 +13745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1405606152
 SpriteRenderer:
@@ -14060,9 +13838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1412367248
 SpriteRenderer:
@@ -14410,9 +14185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1455539508
 SpriteRenderer:
@@ -14581,9 +14353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1461877313
 SpriteRenderer:
@@ -14816,9 +14585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1476179680
 SpriteRenderer:
@@ -14912,9 +14678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1476180169
 SpriteRenderer:
@@ -15163,9 +14926,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1500311233
 SpriteRenderer:
@@ -15259,9 +15019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1513981676
 SpriteRenderer:
@@ -15429,9 +15186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1539944504
 SpriteRenderer:
@@ -15599,9 +15353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1553548404
 SpriteRenderer:
@@ -15908,9 +15659,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1606927772
 SpriteRenderer:
@@ -16004,9 +15752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1609312840
 SpriteRenderer:
@@ -16100,9 +15845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1613347634
 SpriteRenderer:
@@ -16196,9 +15938,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1614203129
 SpriteRenderer:
@@ -16292,9 +16031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1645381216
 SpriteRenderer:
@@ -16388,9 +16124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1652654531
 SpriteRenderer:
@@ -16626,9 +16359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1696206151
 SpriteRenderer:
@@ -17018,9 +16748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1708488076
 SpriteRenderer:
@@ -17114,9 +16841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1708904688
 SpriteRenderer:
@@ -17358,9 +17082,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1732503836
 SpriteRenderer:
@@ -17528,9 +17249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1736664130
 SpriteRenderer:
@@ -17735,9 +17453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1759286068
 SpriteRenderer:
@@ -18017,9 +17732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1800795479
 SpriteRenderer:
@@ -18187,9 +17899,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1842314290
 SpriteRenderer:
@@ -18283,9 +17992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1860262756
 SpriteRenderer:
@@ -18530,9 +18236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1872398442
 SpriteRenderer:
@@ -18700,9 +18403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1903267956
 SpriteRenderer:
@@ -18870,9 +18570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1911472732
 SpriteRenderer:
@@ -19361,9 +19058,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1948875002
 SpriteRenderer:
@@ -19750,9 +19444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1980862409
 SpriteRenderer:
@@ -19846,9 +19537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1996847824
 SpriteRenderer:
@@ -19942,9 +19630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &1997622815
 SpriteRenderer:
@@ -20141,9 +19826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!61 &2008991063
 BoxCollider2D:
@@ -20276,9 +19958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2016131614
 SpriteRenderer:
@@ -20372,9 +20051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2016719683
 SpriteRenderer:
@@ -20468,9 +20144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2036875249
 SpriteRenderer:
@@ -20706,9 +20379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2074725896
 SpriteRenderer:
@@ -20802,9 +20472,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2074845251
 SpriteRenderer:
@@ -20898,9 +20565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2078122697
 SpriteRenderer:
@@ -21136,9 +20800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2115458819
 SpriteRenderer:
@@ -21232,9 +20893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2128593360
 SpriteRenderer:
@@ -21328,9 +20986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
   Bought: 0
 --- !u!212 &2142212016
 SpriteRenderer:

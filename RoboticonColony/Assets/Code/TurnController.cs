@@ -17,7 +17,7 @@ public class TurnController : MonoBehaviour {
 
     //Timer variables
     public Text TimerText;
-    private Timeout currentTimer;
+    public Timeout currentTimer;
     
     //Hardcoded(for now) time limits for each phase
     private int[] PhaseTimes = new int[5] { 60, 60, 60, 60, 60 };
@@ -27,16 +27,11 @@ public class TurnController : MonoBehaviour {
         player1 = new HumanPlayer("Mikeywalsh", new Inventory(), market);
         player2 = new HumanPlayer("Some Guy", new Inventory(), market);
 
-        //Initialise Turn/Phase variables and set the activePlayer to player 1
-        turnCount = 1;
-        phaseCount = 0;
-        activePlayer = player1;
-
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
         for(int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
         {
-            allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<Tile>());
+            allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<PhysicalTile>().ContainedTile);
         }
 
         //Create Market instance for this game and populate it with the new tiles
@@ -44,15 +39,18 @@ public class TurnController : MonoBehaviour {
         market.Stock.SetTiles(allTiles);
 
         //Start the game
+        turnCount = 1;
+        phaseCount = 0;
+        activePlayer = player1;
         activePlayer.StartPhaseOne();
-        currentTimer = new Timeout(PhaseTimes[0]);
+        currentTimer = new Timeout(PhaseTimes[phaseCount]);        
         UIController.UpdateTurnInfo(turnCount,phaseCount,activePlayer.PlayerName);
 	}
 	
 	void Update () {
         Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
 
-        UIController.UpdateTimer(currentTimer);
+        UIController.UpdateTimerDisplay(currentTimer);
 
         //Display information about currently selected tile
         if(PhysicalTile.selectedTile != null)
@@ -84,24 +82,29 @@ public class TurnController : MonoBehaviour {
             phaseCount = 0;
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
-        currentTimer = new Timeout(phaseCount);
+        currentTimer = new Timeout(PhaseTimes[phaseCount]);
         
         switch(phaseCount)
         {
             case 1:
                 activePlayer.StartPhaseOne();
+                UIController.DisplayMessage("Buy a tile, or click next phase!");
                 break;
             case 2:
                 activePlayer.StartPhaseTwo();
+                UIController.DisplayMessage("Buy roboticons from the market, click next phase when finished!");
                 break;
             case 3:
                 activePlayer.StartPhaseThree();
+                UIController.DisplayMessage("Install/Customise Roboticons, click next phase when finished!");
                 break;
             case 4:
                 activePlayer.StartPhaseFour();
+                UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:
                 activePlayer.StartPhaseFive();
+                UIController.DisplayMessage("Buy/Sell from the market, then click next phase when finished!");
                 break;
         }
     }

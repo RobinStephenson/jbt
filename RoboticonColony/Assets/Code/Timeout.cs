@@ -16,8 +16,9 @@ public class Timeout
         {
             throw new ArgumentOutOfRangeException("Must be at least one second");
         }
-        stopwatch = new Stopwatch();
         timeAllowed = time;
+        stopwatch = new Stopwatch();
+        stopwatch.Start();
     }
 
     /// <summary>
