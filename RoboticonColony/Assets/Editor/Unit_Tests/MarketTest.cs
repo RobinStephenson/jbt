@@ -37,7 +37,7 @@ public class MarketTest {
     public void CreateNegativeMarket()
     {
         //Attempt to create a market with some negative prices, which should not work and return an error
-        Assert.True(TestHelper.Throws(() => NegativeMarket(), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => NegativeMarket());
     }
 
     [Test]
@@ -77,13 +77,13 @@ public class MarketTest {
         Inventory playerInv = new Inventory(50, 0, 0, 0);
 
         //Attempt to buy 5 power from the market at the cost of 11 each, more than the player can afford, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Power, 5, playerInv), typeof(NotEnoughMoneyException)));
+        Assert.Throws<NotEnoughMoneyException>(() => market.Buy(ItemType.Power, 5, playerInv));
 
         //Now try to buy 3 roboticons, when the market only has 2, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Roboticon, 3, playerInv), typeof(NotEnoughItemException)));
+        Assert.Throws<NotEnoughItemException>(() => market.Buy(ItemType.Roboticon, 3, playerInv));
 
         //Now try to buy a negative amount of items from the market, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Ore, -4, playerInv), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => market.Sell(ItemType.Ore, -4, playerInv));
 
         //Check if the purchase was successful, which it shouldnt have been, and check if both inventories contain the same amount of roboticons and money
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
@@ -103,9 +103,6 @@ public class MarketTest {
 
         //Create a mock player inventory
         Inventory playerInv = new Inventory(50, 0, 0, 0);
-
-        //Attempt to buy 3 power from the market at the cost of 11 each, which should work and not throw an exception
-        Assert.False(TestHelper.Throws(() => market.Buy(ItemType.Power, 3, playerInv), typeof(TransactionException)));
 
         //Check if both inventories have been updated accordingly
         Assert.AreEqual(4, market.Stock.GetItemAmount(ItemType.Power));
@@ -127,13 +124,13 @@ public class MarketTest {
         Inventory playerInv = new Inventory(37, 3, 6, 27);
 
         //Attempt to sell 5 ore to the market at the cost of 9 each, which is more ore than the player has, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Ore, 5, playerInv), typeof(NotEnoughItemException)));
+        Assert.Throws<NotEnoughItemException>(() => market.Sell(ItemType.Ore, 5, playerInv));
 
         //Now try to sell 25 roboticons at 7 each, which the market cannot afford, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Roboticon, 25, playerInv), typeof(NotEnoughMoneyException)));
+        Assert.Throws<NotEnoughMoneyException>(() => market.Sell(ItemType.Roboticon, 25, playerInv));
 
         //Now try to sell a negative amount of items to the market, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Power, -2, playerInv), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => market.Sell(ItemType.Power, -2, playerInv));
 
         //Check if both inventories contain the same amount of roboticons and money
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
@@ -153,9 +150,6 @@ public class MarketTest {
 
         //Create a mock player inventory
         Inventory playerInv = new Inventory(37, 3, 6, 27);
-
-        //Attempt to sell 4 power to the market at the cost of 8 each, which should work and not throw an exception
-        Assert.False(TestHelper.Throws(() => market.Sell(ItemType.Power, 4, playerInv), typeof(TransactionException)));
 
         //Check if both inventories have been updated accordingly
         Assert.AreEqual(11, market.Stock.GetItemAmount(ItemType.Power));
