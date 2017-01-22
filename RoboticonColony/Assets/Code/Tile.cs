@@ -19,6 +19,7 @@ sealed public class Tile
     /// <param name="power">Power that the tile has</param>
     public Tile(int price, int ore, int power)
     {
+        ID
         Price = price;
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
@@ -69,7 +70,7 @@ sealed public class Tile
         }
         else
         {
-            //InstalledRoboticon = ;
+            InstalledRoboticon = new Roboticon(tileID);
         }
         
     }
@@ -85,6 +86,7 @@ sealed public class Tile
             throw new InvalidOperationException("No Roboticon installed");
         }
         else
+        //removes roboticon from tile and tile from roboticon
         {
             InstalledRoboticon.CurrentTile = null;
             InstalledRoboticon = null;
@@ -115,10 +117,6 @@ sealed public class Tile
     /// <exception cref="ArgumentException">The Exception thrown when the old owner = the new owner. </exception>
     public void SetOwner(AbstractPlayer newOwner)
     {
-        if(Owner == newOwner)
-        {
-            throw new ArgumentException("New owner cannot be the same as the old owner.");
-        }
         Owner = newOwner;
     }
 }
