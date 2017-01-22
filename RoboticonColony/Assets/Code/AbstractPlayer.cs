@@ -12,6 +12,7 @@ public abstract class AbstractPlayer
 
     public abstract bool DoPhaseOne(Tile t);
     public abstract bool DoPhaseTwo(int amount);
+    public abstract bool DoPhaseFour();
 
     public abstract void StartPhaseOne();
     public abstract void StartPhaseTwo();

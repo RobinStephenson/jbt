@@ -133,7 +133,8 @@ public class UIController : MonoBehaviour {
     public static void ShowProductionDisplay()
     {
         controller.ProductionDisplay.SetActive(true);
-        controller.ProductionText.text = "FUK";
+
+        controller.ProductionText.text = string.Format(controller.BaseProductionText, "FUCK", "UNITY");
     }
 
     public static void HideProductionDisplay()

@@ -13,7 +13,7 @@ public class PhysicalTile : MonoBehaviour {
     public int Id;
     public Tile ContainedTile;
 
-    public void Start()
+    public void Awake()
     {
         Id = TotalTiles;
         ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(5, 50), Random.Range(5, 50));

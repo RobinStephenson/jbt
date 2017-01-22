@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &3673768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -327,7 +326,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 19198705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyRoboticonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &19198705
@@ -659,6 +669,7 @@ RectTransform:
   - {fileID: 1328964489}
   - {fileID: 623816089}
   - {fileID: 215045701}
+  - {fileID: 149077288}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -710,7 +721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &46944215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -871,7 +881,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &84026925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1007,7 +1016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &96096292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1391,7 +1399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &119496237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1659,6 +1666,68 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141393639}
+--- !u!1 &149077287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 149077288}
+  - component: {fileID: 149077290}
+  - component: {fileID: 149077289}
+  m_Layer: 5
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149077288
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 40334273}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149077289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &149077290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!1 &150240424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &150240427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1869,7 +1937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &155832152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1962,7 +2029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &163320828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2123,7 +2189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &179677913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2406,7 +2471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &207777406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2499,7 +2563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &207816899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2637,7 +2700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &215624151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2730,7 +2792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &222150324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3019,7 +3080,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &246480616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3112,7 +3172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &253209014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3280,7 +3339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &256427192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3373,7 +3431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &273845519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3540,7 +3597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &277169709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3744,7 +3800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &305347534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4066,7 +4121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &344639773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4307,7 +4361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &357093172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4585,7 +4638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &387256664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4752,7 +4804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &396065700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4845,7 +4896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &397347676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5147,6 +5197,14 @@ MonoBehaviour:
   RoboticonDisplay: {fileID: 1712245191}
   MessageText: {fileID: 1080771205}
   TimerText: {fileID: 345426296}
+  BuyRoboticonPanel: {fileID: 405640798}
+  MarketRoboticonStock: {fileID: 141393641}
+  baseRoboticonStockText: 
+  InstallRobitconPanel: {fileID: 1969057458}
+  CustomiseRoboticonPanel: {fileID: 1276377814}
+  ProductionDisplay: {fileID: 440486306}
+  ProductionText: {fileID: 1868672148}
+  BaseProductionText: 
 --- !u!1 &437031590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5190,7 +5248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &437031593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5355,7 +5412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &444612313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5894,7 +5950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &508026562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6388,7 +6443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &548567444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6481,7 +6535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &566117237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6574,7 +6627,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &569651254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6667,7 +6719,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &585406720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6954,7 +7005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &610449251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7047,7 +7097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &614935081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7140,7 +7189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &615762046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7233,7 +7281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &620564860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7370,7 +7417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &641140549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7463,7 +7509,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &659230727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7556,7 +7601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &662996383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7723,7 +7767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &686252925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7884,7 +7927,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &706248560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8238,7 +8280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &749570632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8405,7 +8446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &765519996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8621,7 +8661,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &798618200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8714,7 +8753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &800987383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8807,7 +8845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &809266280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8900,7 +8937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &818686001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8993,7 +9029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &839371372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9128,7 +9163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &846108517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9221,7 +9255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &849328723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9457,7 +9490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &865308306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9624,7 +9656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &866499598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9785,7 +9816,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &873339754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9878,7 +9908,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &874680163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10039,7 +10068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &896398359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10343,7 +10371,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &918345612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10504,7 +10531,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &942424181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10825,7 +10851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &956807316
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10918,7 +10943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &957637858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11011,7 +11035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &967539833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11252,7 +11275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1026204830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11345,7 +11367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1060012104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11438,7 +11459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1076117612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11605,7 +11625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1088385620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11766,7 +11785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1103453999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12006,7 +12024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1116363031
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12099,7 +12116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1160808648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12192,7 +12208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1164048394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12285,7 +12300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1185040243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12378,7 +12392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1193280305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12471,7 +12484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1199217862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12701,7 +12713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1261331590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12868,7 +12879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1268524461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12961,7 +12971,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1269570250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13127,7 +13136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1300146123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13401,7 +13409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1344178058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13494,7 +13501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1350232019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13656,7 +13662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1393459669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13749,7 +13754,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1405606152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13842,7 +13846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1412367248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14189,7 +14192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1455539508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14357,7 +14359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1461877313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14589,7 +14590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1476179680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14682,7 +14682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1476180169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14930,7 +14929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1500311233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15023,7 +15021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1513981676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15190,7 +15187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1539944504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15357,7 +15353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1553548404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15663,7 +15658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1606927772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15756,7 +15750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1609312840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15849,7 +15842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1613347634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15942,7 +15934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1614203129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16035,7 +16026,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1645381216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16128,7 +16118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1652654531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16363,7 +16352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1696206151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16752,7 +16740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1708488076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16845,7 +16832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1708904688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17086,7 +17072,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1732503836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17253,7 +17238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1736664130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17378,7 +17362,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748798576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: NextPhase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1748798576
@@ -17457,7 +17452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1759286068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17736,7 +17730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1800795479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17903,7 +17896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1842314290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17996,7 +17988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1860262756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18116,10 +18107,10 @@ MonoBehaviour:
   m_Text: 'You produced:
 
 
-    027
+    {0}
 
 
-    019
+    {1}
 
 
     This turn!'
@@ -18240,7 +18231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1872398442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18407,7 +18397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1903267956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18574,7 +18563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1911472732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19062,7 +19050,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1948875002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19187,7 +19174,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1955518810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyRoboticonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1955518810
@@ -19448,7 +19446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1980862409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19541,7 +19538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1996847824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19634,7 +19630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &1997622815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19830,7 +19825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!61 &2008991063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19962,7 +19956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2016131614
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20055,7 +20048,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2016719683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20148,7 +20140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2036875249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20383,7 +20374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2074725896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20476,7 +20466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2074845251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20569,7 +20558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2078122697
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20804,7 +20792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2115458819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20897,7 +20884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2128593360
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20990,7 +20976,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  Bought: 0
 --- !u!212 &2142212016
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -43,7 +43,6 @@ public class TurnController : MonoBehaviour {
         player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Player2 Tile"));
 
 
-
         //Start the game
         NextPhase();
 	}
