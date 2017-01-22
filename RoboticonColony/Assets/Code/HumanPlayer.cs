@@ -44,7 +44,7 @@ public class HumanPlayer : AbstractPlayer
             Market.BuyTile(t, Inventory);
             return true;
         }
-        catch(ArgumentOutOfRangeException)
+        catch(NotEnoughMoneyException)
         {
             return false;
         }

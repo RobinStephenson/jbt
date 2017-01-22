@@ -262,7 +262,7 @@ sealed public class Market
                 throw;
             }
         }
-        catch (ArgumentOutOfRangeException)
+        catch (NotEnoughMoneyException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
