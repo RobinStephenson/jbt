@@ -14,6 +14,7 @@ public class Roboticon
 
     public Roboticon(Tile selectedTile)
     {
+        InstalledCustomisations = new List<RoboticonCustomisation>();
         CurrentTile = selectedTile;
     }
 

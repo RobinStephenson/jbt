@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &3673768
 SpriteRenderer:
@@ -720,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &46944215
 SpriteRenderer:
@@ -880,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &84026925
 SpriteRenderer:
@@ -1015,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &96096292
 SpriteRenderer:
@@ -1209,7 +1213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 173}
   m_SizeDelta: {x: 725, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111908309
@@ -1398,6 +1402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &119496237
 SpriteRenderer:
@@ -1770,6 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &150240427
 SpriteRenderer:
@@ -1936,6 +1942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &155832152
 SpriteRenderer:
@@ -2028,6 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &163320828
 SpriteRenderer:
@@ -2188,6 +2196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &179677913
 SpriteRenderer:
@@ -2345,7 +2354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.79999, y: -21.5}
+  m_AnchoredPosition: {x: -233.79999, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &191792146
@@ -2470,6 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &207777406
 SpriteRenderer:
@@ -2562,6 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &207816899
 SpriteRenderer:
@@ -2699,6 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &215624151
 SpriteRenderer:
@@ -2791,6 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &222150324
 SpriteRenderer:
@@ -2878,7 +2891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252.5, y: -21.5}
+  m_AnchoredPosition: {x: 252.5, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &223593362
@@ -3079,6 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &246480616
 SpriteRenderer:
@@ -3171,6 +3185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &253209014
 SpriteRenderer:
@@ -3338,6 +3353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &256427192
 SpriteRenderer:
@@ -3430,6 +3446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &273845519
 SpriteRenderer:
@@ -3596,6 +3613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &277169709
 SpriteRenderer:
@@ -3799,6 +3817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &305347534
 SpriteRenderer:
@@ -3893,6 +3912,117 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316277372}
+--- !u!1 &322273074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 322273075}
+  - component: {fileID: 322273078}
+  - component: {fileID: 322273077}
+  - component: {fileID: 322273076}
+  m_Layer: 5
+  m_Name: Cancel Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &322273075
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1396519887}
+  m_Father: {fileID: 1276377815}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -598, y: 44}
+  m_SizeDelta: {x: 146.4, y: 41.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &322273076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 322273077}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &322273077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bd2d5582e179677448e7405c9baff239, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &322273078
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
 --- !u!1 &326405465
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,6 +4250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &344639773
 SpriteRenderer:
@@ -4360,6 +4491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &357093172
 SpriteRenderer:
@@ -4637,6 +4769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &387256664
 SpriteRenderer:
@@ -4803,6 +4936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &396065700
 SpriteRenderer:
@@ -4895,6 +5029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &397347676
 SpriteRenderer:
@@ -5247,6 +5382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &437031593
 SpriteRenderer:
@@ -5411,6 +5547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &444612313
 SpriteRenderer:
@@ -5949,6 +6086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &508026562
 SpriteRenderer:
@@ -6358,7 +6496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 156.20012, y: 90.5}
+  m_AnchoredPosition: {x: 156.20012, y: 111}
   m_SizeDelta: {x: -541, y: -284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540857648
@@ -6442,6 +6580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &548567444
 SpriteRenderer:
@@ -6534,6 +6673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &566117237
 SpriteRenderer:
@@ -6626,6 +6766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &569651254
 SpriteRenderer:
@@ -6718,6 +6859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &585406720
 SpriteRenderer:
@@ -6879,7 +7021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.8, y: -21.5}
+  m_AnchoredPosition: {x: 76.8, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &604609732
@@ -7004,6 +7146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &610449251
 SpriteRenderer:
@@ -7096,6 +7239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &614935081
 SpriteRenderer:
@@ -7188,6 +7332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &615762046
 SpriteRenderer:
@@ -7280,6 +7425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &620564860
 SpriteRenderer:
@@ -7416,6 +7562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &641140549
 SpriteRenderer:
@@ -7508,6 +7655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &659230727
 SpriteRenderer:
@@ -7600,6 +7748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &662996383
 SpriteRenderer:
@@ -7766,6 +7915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &686252925
 SpriteRenderer:
@@ -7926,6 +8076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &706248560
 SpriteRenderer:
@@ -8279,6 +8430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &749570632
 SpriteRenderer:
@@ -8445,6 +8597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &765519996
 SpriteRenderer:
@@ -8660,6 +8813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &798618200
 SpriteRenderer:
@@ -8752,6 +8906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &800987383
 SpriteRenderer:
@@ -8844,6 +8999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &809266280
 SpriteRenderer:
@@ -8936,6 +9092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &818686001
 SpriteRenderer:
@@ -9028,6 +9185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &839371372
 SpriteRenderer:
@@ -9162,6 +9320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &846108517
 SpriteRenderer:
@@ -9254,6 +9413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &849328723
 SpriteRenderer:
@@ -9489,6 +9649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &865308306
 SpriteRenderer:
@@ -9655,6 +9816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &866499598
 SpriteRenderer:
@@ -9815,6 +9977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &873339754
 SpriteRenderer:
@@ -9907,6 +10070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &874680163
 SpriteRenderer:
@@ -10067,6 +10231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &896398359
 SpriteRenderer:
@@ -10370,6 +10535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &918345612
 SpriteRenderer:
@@ -10530,6 +10696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &942424181
 SpriteRenderer:
@@ -10655,7 +10822,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 943567161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: InstallRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &943567161
@@ -10850,6 +11028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &956807316
 SpriteRenderer:
@@ -10942,6 +11121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &957637858
 SpriteRenderer:
@@ -11034,6 +11214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &967539833
 SpriteRenderer:
@@ -11274,6 +11455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1026204830
 SpriteRenderer:
@@ -11366,6 +11548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1060012104
 SpriteRenderer:
@@ -11458,6 +11641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1076117612
 SpriteRenderer:
@@ -11624,6 +11808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1088385620
 SpriteRenderer:
@@ -11784,6 +11969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1103453999
 SpriteRenderer:
@@ -12023,6 +12209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1116363031
 SpriteRenderer:
@@ -12115,6 +12302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1160808648
 SpriteRenderer:
@@ -12207,6 +12395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1164048394
 SpriteRenderer:
@@ -12299,6 +12488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1185040243
 SpriteRenderer:
@@ -12391,6 +12581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1193280305
 SpriteRenderer:
@@ -12483,6 +12674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1199217862
 SpriteRenderer:
@@ -12712,6 +12904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1261331590
 SpriteRenderer:
@@ -12878,6 +13071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1268524461
 SpriteRenderer:
@@ -12970,6 +13164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1269570250
 SpriteRenderer:
@@ -13036,7 +13231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1276377815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13052,13 +13247,14 @@ RectTransform:
   - {fileID: 604609731}
   - {fileID: 223593361}
   - {fileID: 540857647}
+  - {fileID: 322273075}
   m_Father: {fileID: 215045701}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 3.999878, y: 167}
-  m_SizeDelta: {x: 725, y: 355}
+  m_SizeDelta: {x: 725, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276377816
 MonoBehaviour:
@@ -13135,6 +13331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1300146123
 SpriteRenderer:
@@ -13408,6 +13605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1344178058
 SpriteRenderer:
@@ -13500,6 +13698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1350232019
 SpriteRenderer:
@@ -13661,6 +13860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1393459669
 SpriteRenderer:
@@ -13711,6 +13911,80 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &1396519886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1396519887}
+  - component: {fileID: 1396519889}
+  - component: {fileID: 1396519888}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1396519887
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322273075}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.00000095367}
+  m_SizeDelta: {x: 30.4, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1396519888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 26
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Cancel
+--- !u!222 &1396519889
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
 --- !u!1 &1405606149
 GameObject:
   m_ObjectHideFlags: 0
@@ -13753,6 +14027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1405606152
 SpriteRenderer:
@@ -13845,6 +14120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1412367248
 SpriteRenderer:
@@ -14191,6 +14467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1455539508
 SpriteRenderer:
@@ -14358,6 +14635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1461877313
 SpriteRenderer:
@@ -14589,6 +14867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1476179680
 SpriteRenderer:
@@ -14681,6 +14960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1476180169
 SpriteRenderer:
@@ -14928,6 +15208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1500311233
 SpriteRenderer:
@@ -15020,6 +15301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1513981676
 SpriteRenderer:
@@ -15186,6 +15468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1539944504
 SpriteRenderer:
@@ -15352,6 +15635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1553548404
 SpriteRenderer:
@@ -15657,6 +15941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1606927772
 SpriteRenderer:
@@ -15749,6 +16034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1609312840
 SpriteRenderer:
@@ -15841,6 +16127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1613347634
 SpriteRenderer:
@@ -15933,6 +16220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1614203129
 SpriteRenderer:
@@ -16025,6 +16313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1645381216
 SpriteRenderer:
@@ -16117,6 +16406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1652654531
 SpriteRenderer:
@@ -16351,6 +16641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1696206151
 SpriteRenderer:
@@ -16739,6 +17030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1708488076
 SpriteRenderer:
@@ -16831,6 +17123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1708904688
 SpriteRenderer:
@@ -17071,6 +17364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1732503836
 SpriteRenderer:
@@ -17237,6 +17531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1736664130
 SpriteRenderer:
@@ -17451,6 +17746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1759286068
 SpriteRenderer:
@@ -17729,6 +18025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1800795479
 SpriteRenderer:
@@ -17895,6 +18192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1842314290
 SpriteRenderer:
@@ -17987,6 +18285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1860262756
 SpriteRenderer:
@@ -18230,6 +18529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1872398442
 SpriteRenderer:
@@ -18396,6 +18696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1903267956
 SpriteRenderer:
@@ -18562,6 +18863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1911472732
 SpriteRenderer:
@@ -18755,7 +19057,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930010247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: CancelInstallRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1930010247
@@ -19049,6 +19362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1948875002
 SpriteRenderer:
@@ -19445,6 +19759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1980862409
 SpriteRenderer:
@@ -19537,6 +19852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1996847824
 SpriteRenderer:
@@ -19629,6 +19945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &1997622815
 SpriteRenderer:
@@ -19824,6 +20141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!61 &2008991063
 BoxCollider2D:
@@ -19955,6 +20273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2016131614
 SpriteRenderer:
@@ -20047,6 +20366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2016719683
 SpriteRenderer:
@@ -20139,6 +20459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2036875249
 SpriteRenderer:
@@ -20373,6 +20694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2074725896
 SpriteRenderer:
@@ -20465,6 +20787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2074845251
 SpriteRenderer:
@@ -20557,6 +20880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2078122697
 SpriteRenderer:
@@ -20791,6 +21115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2115458819
 SpriteRenderer:
@@ -20883,6 +21208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2128593360
 SpriteRenderer:
@@ -20975,6 +21301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
 --- !u!212 &2142212016
 SpriteRenderer:

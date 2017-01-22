@@ -58,9 +58,9 @@ public class TurnController : MonoBehaviour {
             Debug.Log(market.Stock.TileCount().ToString());
             Debug.Log(market.Stock.Tiles.Contains(PhysicalTile.selectedTile.ContainedTile));
         }
-            //Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.PlayerName.ToString());
+        
         UIController.UpdateTimerDisplay(currentTimer);
-        UIController.UpdateResourceDisplay(activePlayer.Inv);
+        UIController.UpdateResourceDisplay(activePlayer);
 
         //Display information about currently selected tile, can only be done on phase 1 and phase 3
         if (phaseCount == 1 || phaseCount == 3)
@@ -152,7 +152,7 @@ public class TurnController : MonoBehaviour {
         }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
-        UIController.UpdateResourceDisplay(activePlayer.Inv);
+        UIController.UpdateResourceDisplay(activePlayer);
         currentTimer = new Timeout(PhaseTimes[phaseCount - 1]);
         
         switch(phaseCount)
@@ -236,5 +236,7 @@ public class TurnController : MonoBehaviour {
     public void RemoveRoboticonPressed()
     {
         PhysicalTile.selectedTile.ContainedTile.RemoveRoboticon();
+        UIController.HideCustomiseRoboticon();
+        PhysicalTile.canSelect = true;
     }
 }

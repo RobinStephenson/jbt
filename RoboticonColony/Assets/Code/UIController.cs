@@ -91,12 +91,12 @@ public class UIController : MonoBehaviour {
         controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
     }
 
-    public static void UpdateResourceDisplay(Inventory playerInv)
+    public static void UpdateResourceDisplay(AbstractPlayer player)
     {
-        controller.MoneyDisplay.text = playerInv.Money.ToString("000");
-        controller.OreDisplay.text = playerInv.GetItemAmount(ItemType.Ore).ToString("000");
-        controller.PowerDisplay.text = playerInv.GetItemAmount(ItemType.Power).ToString("000");
-        controller.RoboticonDisplay.text = "00" + "/" + playerInv.GetItemAmount(ItemType.Roboticon).ToString("00");
+        controller.MoneyDisplay.text = player.Inv.Money.ToString("000");
+        controller.OreDisplay.text = player.Inv.GetItemAmount(ItemType.Ore).ToString("000");
+        controller.PowerDisplay.text = player.Inv.GetItemAmount(ItemType.Power).ToString("000");
+        controller.RoboticonDisplay.text = player.InstalledRoboticonCount.ToString("00") + "/" + player.Inv.GetItemAmount(ItemType.Roboticon).ToString("00");
     }
 
     public static void ShowBuyRoboticon(Market m)
