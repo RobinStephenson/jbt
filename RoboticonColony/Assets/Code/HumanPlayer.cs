@@ -33,7 +33,7 @@ public class HumanPlayer : AbstractPlayer
     /// The player may choose to buy a plot of land
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void DoPhaseOne(Timeout timeout)
+    public override void StartPhaseOne(Timeout timeout)
     {
         // check the player has enough money for at least the cheapest tile
         if (!CanBuyCheapest())
@@ -134,7 +134,7 @@ public class HumanPlayer : AbstractPlayer
     /// The player may purchase and customise roboticons
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void DoPhaseTwo(Timeout timeout)
+    public override void StartPhaseTwo(Timeout timeout)
     {
         PurchaseRoboticons(timeout);
 
@@ -205,7 +205,7 @@ public class HumanPlayer : AbstractPlayer
     /// The player may remove and install roboticons from their owned tiles
     /// </summary>
     /// <param name="timeout">a time for which the phase can run</param>
-    public override void DoPhaseThree(Timeout timeout)
+    public override void StartPhaseThree(Timeout timeout)
     {
         // remove roboticons frist so that the player can then install them elsewhere
         // TODO: notify the user that this will clear their customisations
@@ -221,7 +221,7 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// Show the player their inventory after the colony has produced
     /// </summary>
-    public override void DoPhaseFour()
+    public override void StartPhaseFour()
     {
         int OreProduction = 0;
         int EnergyProduction = 0;
@@ -239,7 +239,7 @@ public class HumanPlayer : AbstractPlayer
     /// <summary>
     /// The player may buy or sell to the market
     /// </summary>
-    public override void DoPhaseFive()
+    public override void StartPhaseFive()
     {
         Action<ItemType?> ChooseQuantityToSell = delegate (ItemType? resource)
         {
@@ -297,7 +297,7 @@ public class HumanPlayer : AbstractPlayer
             }
 
             // recurive so the player can buy/sell again
-            DoPhaseFive();
+            StartPhaseFive();
         };
 
         Input.PromptBool("Do you want to buy or sell at the market?", ChooseResource, trueOption: "Buy", falseOption: "Sell", cancelable: true);

@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class TurnController : MonoBehaviour {
 
-    Market m;
+    //Used to set UI elements text
+    private UIController UIC;
+
+    private Market market;
     public AbstractPlayer player1;
     public AbstractPlayer player2;
 
+    //Market
     public int turnCount;
     public int activePhase;
     public AbstractPlayer activePlayer;
@@ -17,24 +21,19 @@ public class TurnController : MonoBehaviour {
     public Text TimerText;
     private float phaseDuration = 60;
     private float currentPhaseTime;
-
-    //Turn Display variables
-    public Text TurnDisplay;
-    public Text PhaseDisplay;
-    public Text PlayerDisplay;
-
-    //Tile information display variables
-    public GameObject selectedInfoPanel;
-    public Text selectedInfoText;
-    private string infoString;
+    
+    //Hardcoded(for now) time limits for each phase
+    private int[] PhaseTimes = new int[5] { 60, 60, 60, 60, 60 };
 
 	void Start () {
-        //Initialise
+        //Set the UI controller
+        UIC = GetComponent<UIController>();
+
+        //Initialise Turn/Phase variables and set the activePlayer to player 1
         turnCount = 1;
         activePhase = 1;
         currentPhaseTime = 0;
         activePlayer = player1;
-        infoString = selectedInfoText.text;
 
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
@@ -43,12 +42,12 @@ public class TurnController : MonoBehaviour {
             allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<Tile>());
         }
 
-        //Create Market instance for this game
-        m = new Market(5,6,3,5,3,5);
-        m.Stock.SetTiles(allTiles);
+        //Create Market instance for this game and populate it with the new tiles
+        market = new Market(5,6,3,5,3,5);
+        market.Stock.SetTiles(allTiles);
 
         //Start the game
-        activePlayer.StartPhase1();
+        activePlayer.StartPhaseOne();
         SetTurnText();
 	}
 	
@@ -61,7 +60,7 @@ public class TurnController : MonoBehaviour {
         if(Tile.selectedTile != null)
         {
             selectedInfoPanel.SetActive(true);
-            selectedInfoText.text = string.Format(infoString, "Nobody", 15, Tile.selectedTile.Ore.ToString("00"), Tile.selectedTile.Power.ToString("00"), "No roboticon installed");
+            
         }
         else
         {
@@ -93,28 +92,20 @@ public class TurnController : MonoBehaviour {
         switch(activePhase)
         {
             case 1:
-                activePlayer.StartPhase1();
+                activePlayer.StartPhaseOne();
                 break;
             case 2:
-                activePlayer.StartPhase2();
+                activePlayer.StartPhaseTwo();
                 break;
             case 3:
-                activePlayer.StartPhase3();
+                activePlayer.StartPhaseThree();
                 break;
             case 4:
-                activePlayer.StartPhase4();
+                activePlayer.StartPhaseFour();
                 break;
             case 5:
-                activePlayer.StartPhase5();
+                activePlayer.StartPhaseFive();
                 break;
         }
-    }
-
-    private void SetTurnText()
-    {
-        TurnDisplay.text = "Turn " + turnCount.ToString();
-        PhaseDisplay.text = "Phase " + activePhase.ToString();
-        //Debug.Log(activePlayer.Name);
-        PlayerDisplay.text = activePlayer.Name;
     }
 }
