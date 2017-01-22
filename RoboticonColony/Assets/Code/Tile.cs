@@ -89,4 +89,17 @@ sealed public class Tile
         get { return resources[ItemType.Power]; }
     }
 
+    /// <summary>
+    /// Sets the owner of the tile to the newOwner
+    /// </summary>
+    /// <param name="newOwner">The reference to the new owner.</param>
+    /// <exception cref="ArgumentException">The Exception thrown when the old owner = the new owner. </exception>
+    public void SetOwner(AbstractPlayer newOwner)
+    {
+        if(Owner == newOwner)
+        {
+            throw new ArgumentException("New owner cannot be the same as the old owner.");
+        }
+        Owner = newOwner;
+    }
 }
