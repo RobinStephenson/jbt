@@ -80,6 +80,6 @@ public class UIController : MonoBehaviour {
         controller.MoneyDisplay.text = playerInv.Money.ToString("000");
         controller.OreDisplay.text = playerInv.GetItemAmount(ItemType.Ore).ToString("000");
         controller.PowerDisplay.text = playerInv.GetItemAmount(ItemType.Power).ToString("000");
-        controller.RoboticonDisplay.text = "00" + playerInv.GetItemAmount(ItemType.Roboticon).ToString("00");
+        controller.RoboticonDisplay.text = "00" + "/" + playerInv.GetItemAmount(ItemType.Roboticon).ToString("00");
     }
 }
