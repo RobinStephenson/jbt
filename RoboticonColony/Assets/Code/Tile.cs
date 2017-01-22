@@ -66,10 +66,8 @@ sealed public class Tile
     /// remove the roboticon installed on this tile
     /// </summary>
     /// <exception cref="InvalidOperationException">there is no roboticon installed</exception>
-    /// <returns>the removed roboticon</returns>
     public void RemoveRoboticon()
     {
-        // should also set installed tile to null on the roboticon
         if (InstalledRoboticon == null)
         {
             throw new InvalidOperationException("No Roboticon installed");
