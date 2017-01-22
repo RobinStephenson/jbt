@@ -216,9 +216,16 @@ public class TurnController : MonoBehaviour {
             return;
         }
 
-        activePlayer.DoPhaseThreeInstall(PhysicalTile.selectedTile);
-        UIController.HideInstallRoboticon();
-        PhysicalTile.canSelect = true;
+        if (activePlayer.DoPhaseThreeInstall(PhysicalTile.selectedTile))
+        {
+            UIController.HideInstallRoboticon();
+            PhysicalTile.canSelect = true;
+            UIController.DisplayMessage("Installed Roboticon!");
+        }
+        else
+        {
+            UIController.DisplayMessage("You don't have enough roboticons!");
+        }
     }
 
     public void CancelInstallRoboticonPressed()
@@ -236,6 +243,7 @@ public class TurnController : MonoBehaviour {
     public void RemoveRoboticonPressed()
     {
         PhysicalTile.selectedTile.ContainedTile.RemoveRoboticon();
+        PhysicalTile.selectedTile.RemoveAttachedRoboticon();
         UIController.HideCustomiseRoboticon();
         PhysicalTile.canSelect = true;
     }

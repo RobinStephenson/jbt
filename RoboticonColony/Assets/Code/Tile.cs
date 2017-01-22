@@ -70,10 +70,12 @@ sealed public class Tile
             throw new RoboticonAlreadyInstalledException();
         }
 
-        if(player.Inv.GetItemAmount(ItemType.Roboticon) > player.InstalledRoboticonCount)
+        if (player.Inv.GetItemAmount(ItemType.Roboticon) <= player.InstalledRoboticonCount)
         {
-            InstalledRoboticon = new Roboticon(this);
+            throw new ArgumentOutOfRangeException("Not enough spare roboticons in inventory to install");
         }
+
+        InstalledRoboticon = new Roboticon(this);
     }
 
     /// <summary>

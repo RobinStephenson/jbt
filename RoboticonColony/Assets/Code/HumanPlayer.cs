@@ -80,6 +80,10 @@ public class HumanPlayer : AbstractPlayer
         {
             return false;
         }
+        catch(ArgumentOutOfRangeException)
+        {
+            return false;
+        }
     }
 
     public override bool DoPhaseThreeCustomise(PhysicalTile t, RoboticonCustomisation rc)
