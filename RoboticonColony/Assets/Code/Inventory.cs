@@ -12,7 +12,7 @@ sealed public class Inventory
     public List<Tile> Tiles;
 
     private List<Tile> tiles;
-    private Dictionary<ItemType, int> items;
+    private Dictionary<ItemType, int> Items;
 
     /// <summary>
     /// Create an inventory instance, which holds all resources for a player or market.
@@ -55,7 +55,7 @@ sealed public class Inventory
     /// <returns>The amount of the specified item.</returns>
     public int GetItemAmount(ItemType item)
     {
-        return items[item];
+        return Items[item];
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ sealed public class Inventory
         {
             throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
         }
-        items[item] += amount;
+        Items[item] += amount;
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ sealed public class Inventory
     /// <exception cref="NotEnoughItemException">The Excpetion thrown when market doesn't have enough of the specified item. </exception>
     public void TransferItem(ItemType item, int quantity, Inventory to)
     {
-        if (items[item] - quantity < 0)
+        if (Items[item] - quantity < 0)
         {
             throw new NotEnoughItemException();
         }
@@ -136,7 +136,7 @@ sealed public class Inventory
             throw new ArgumentOutOfRangeException("Cannot transfer negative amounts of items");
         }
 
-        items[item] -= quantity;
+        Items[item] -= quantity;
         to.AddItem(item, quantity);
         return;
     }
