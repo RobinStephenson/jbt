@@ -6,6 +6,7 @@ using System.Text;
 
 sealed public class Tile
 {
+
     public int Price { get; private set; }
     public AbstractPlayer Owner { get; private set; }
     public Roboticon InstalledRoboticon { get; private set; }
