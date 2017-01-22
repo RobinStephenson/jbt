@@ -169,11 +169,12 @@ sealed public class Inventory
     /// </summary>
     /// <param name="tile">The tile to transfer</param>
     /// <param name="to">The inventory to transfer to</param>
+    /// <exception cref="ArgumentException">The tile being transfered out isnt in this inventory</exception>
     public void TransferTile(Tile tile, Inventory to)
     {
         if(!Tiles.Contains(tile))
         {
-            throw new ArgumentOutOfRangeException("Supplied tile does not belong to this inventory");
+            throw new ArgumentException("Supplied tile does not belong to this inventory");
         }
 
         Tiles.Remove(tile);
