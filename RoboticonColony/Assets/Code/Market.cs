@@ -240,7 +240,7 @@ sealed public class Market
     /// </summary>
     /// <param name="tile">The tile to buy</param>
     /// <param name="playerInventory">Reference ot the players inventory</param>
-    public void BuyTile(Tile tile, Inventory playerInventory, AbstractPlayer Player)
+    public void BuyTile(Tile tile, Inventory playerInventory, AbstractPlayer player)
     {
         //Attempt to remove the money for the purchase form the player
         try
@@ -251,7 +251,18 @@ sealed public class Market
             try
             {
                 Stock.TransferTile(tile, playerInventory);
-                tile.Owner = Player
+                //Attempt to set the owner of the tile to the new owner
+                try
+                {
+                    tile.SetOwner(player);
+                }
+                catch (ArgumentException)
+                {
+                    playerInventory.AddMoney(tile.Price);
+                    playerInventory.TransferTile(tile, Stock);
+                    throw;
+                }
+
                 //If the transfer completes without error, then the transaction is complete
                 return;
             }
