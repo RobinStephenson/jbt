@@ -10,14 +10,11 @@ public class Roboticon
 {
     public Tile CurrentTile { get; private set; }
 
-    public AbstractPlayer Owner { get; private set; }
-
     public List<RoboticonCustomisation> InstalledCustomisations;
 
-    public Roboticon(Tile selectedTile, AbstractPlayer owner)
+    public Roboticon(Tile selectedTile)
     {
         CurrentTile = selectedTile;
-        Owner = owner;
     }
 
     /// <summary>
