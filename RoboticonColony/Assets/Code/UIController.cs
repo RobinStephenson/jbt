@@ -130,11 +130,10 @@ public class UIController : MonoBehaviour {
 
     }
 
-    public static void ShowProductionDisplay()
+    public static void ShowProductionDisplay(Dictionary<ItemType, int> production)
     {
         controller.ProductionDisplay.SetActive(true);
-
-        controller.ProductionText.text = string.Format(controller.BaseProductionText, "FUCK", "UNITY");
+        controller.ProductionText.text = string.Format(controller.BaseProductionText, production[ItemType.Ore].ToString("000"), production[ItemType.Power].ToString("000"));
     }
 
     public static void HideProductionDisplay()

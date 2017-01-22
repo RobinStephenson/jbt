@@ -47,7 +47,7 @@ public class Timeout
     {
         get
         {
-            return SecondsRemaining <= 0;
+            return timeAllowed - stopwatch.Elapsed.Seconds < 0;
         }
     }
 }

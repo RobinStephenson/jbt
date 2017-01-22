@@ -20,7 +20,7 @@ public class TurnController : MonoBehaviour {
     public Timeout currentTimer;
     
     //Hardcoded(for now) time limits for each phase
-    private int[] PhaseTimes = new int[5] { 60, 60, 60, 60, 60 };
+    private int[] PhaseTimes = new int[5] { 5, 60, 60, 60, 60 };
 
 	void Start () {
         //Get a list of all tiles to populate the market with
@@ -148,7 +148,7 @@ public class TurnController : MonoBehaviour {
             case 4:
                 UIController.HideInstallRoboticon();
                 UIController.HideCustomiseRoboticon();
-                UIController.ShowProductionDisplay();
+                UIController.ShowProductionDisplay(activePlayer.DoPhaseFour());
                 UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:
@@ -170,10 +170,5 @@ public class TurnController : MonoBehaviour {
         {
             UIController.DisplayMessage("Could not purchase the required amount of roboticons");
         }
-    }
-
-    public void NextPhasePressed()
-    {
-        NextPhase();
     }
 }

@@ -40,25 +40,24 @@ public class HumanPlayer : AbstractPlayer
 
     public override bool DoPhaseOne(Tile t)
     {
-        //try
-        //{
+        try
+        {
             Market.BuyTile(t, this);
             return true;
-        //}
-        //catch(NotEnoughMoneyException)
-        //{
-        //    return false;
-        //}
-        //catch(ArgumentOutOfRangeException)
-        //{
-        //    return false;
-        //
-        //catch(Exception)
-        //{
-        //    throw;
-        //}
+        }
+        catch (NotEnoughMoneyException)
+        {
+            return false;
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            return false;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
 
-        //return false;
     }
 
     public override bool DoPhaseTwo(int amount)
@@ -76,8 +75,24 @@ public class HumanPlayer : AbstractPlayer
         {
             return false;
         }
+    }
 
-        return false;
+    public override Dictionary<ItemType,int> DoPhaseFour()
+    {
+        Dictionary<ItemType, int> production = new Dictionary<ItemType, int>();
+        production[ItemType.Ore] = 0;
+        production[ItemType.Power] = 0;
+
+        foreach(Tile t in Inv.Tiles)
+        {
+            production[ItemType.Ore] += t.Produce()[ItemType.Ore];
+            production[ItemType.Power] += t.Produce()[ItemType.Power];
+        }
+
+        Inv.AddItem(ItemType.Ore, production[ItemType.Ore]);
+        Inv.AddItem(ItemType.Power, production[ItemType.Power]);
+
+        return production;
     }
 
     private void PurchaseRoboticons()
