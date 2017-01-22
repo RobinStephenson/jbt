@@ -70,7 +70,7 @@ sealed public class Tile
         }
         else
         {
-            InstalledRoboticon = new Roboticon(tileID);
+            //add roboticon to tile
         }
         
     }
