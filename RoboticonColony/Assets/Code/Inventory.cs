@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Collections.Generic;
 sealed public class Inventory
 {
     public int Money { get; private set; }
+    public List<Tile> Tiles;
 
     private List<Tile> tiles;
     private Dictionary<ItemType, int> items;
@@ -29,11 +30,11 @@ sealed public class Inventory
         }
 
         Money = money;
-        tiles = new List<Tile>();
-        items = new Dictionary<ItemType, int>();
-        items[ItemType.Ore] = ore;
-        items[ItemType.Power] = power;
-        items[ItemType.Roboticon] = roboticons;
+        Tiles = new List<Tile>();
+        Items = new Dictionary<ItemType, int>();
+        Items[ItemType.Ore] = ore;
+        Items[ItemType.Power] = power;
+        Items[ItemType.Roboticon] = roboticons;
     }
 
     /// <summary>
@@ -41,6 +42,12 @@ sealed public class Inventory
     /// </summary>
     public Inventory() : this(0, 0, 0, 0) { }
 
+    //TEMP
+    public void SetTiles(List<Tile> t)
+    {
+        Tiles = t;
+    }
+  
     /// <summary>
     /// Get the amount of the specified item in this inventory instance.
     /// </summary>
