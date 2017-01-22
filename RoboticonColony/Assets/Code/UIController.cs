@@ -20,6 +20,9 @@ public class UIController : MonoBehaviour {
     public Text PhaseDisplay;
     public Text PlayerDisplay;
 
+    //Message variables
+    public Text MessageText;
+
     void Start () {
         //Set the static reference to the controller to the only controller in the scene
         controller = GetComponent<UIController>();
@@ -32,7 +35,7 @@ public class UIController : MonoBehaviour {
 		
 	}
 
-    public static void DisplayTileInfo(Tile t)
+    public static void DisplayTileInfo(PhysicalTile t)
     {
         controller.selectedTilePanel.SetActive(true);
         controller.selectedTileText.text = string.Format(controller.baseTileText, "Nobody", 15, t.Ore.ToString("00"), t.Power.ToString("00"), "No roboticon installed");
@@ -48,5 +51,10 @@ public class UIController : MonoBehaviour {
         controller.TurnDisplay.text = "Turn " + turn.ToString();
         controller.PhaseDisplay.text = "Phase " + phase.ToString();
         controller.PlayerDisplay.text = playerName;
+    }
+
+    public static void DisplayMessage(string message)
+    {
+        controller.MessageText.text = message;
     }
 }

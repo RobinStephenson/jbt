@@ -245,7 +245,7 @@ sealed public class Market
         //Attempt to remove the money for the purchase form the player
         try
         {
-            playerInventory.SubtractMoney(tile.GetCost());
+            playerInventory.SubtractMoney(tile.Price);
 
             //Attempt to transfer the requested tile from the markets inventory
             try
@@ -258,7 +258,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the change in the players balance
-                playerInventory.AddMoney(tile.GetCost());
+                playerInventory.AddMoney(tile.Price);
                 throw;
             }
         }

@@ -14,7 +14,7 @@ public class TurnController : MonoBehaviour {
 
     //Market
     public int turnCount;
-    public int activePhase;
+    public int phaseCount;
     public AbstractPlayer activePlayer;
 
     //Timer variables
@@ -31,7 +31,7 @@ public class TurnController : MonoBehaviour {
 
         //Initialise Turn/Phase variables and set the activePlayer to player 1
         turnCount = 1;
-        activePhase = 1;
+        phaseCount = 1;
         currentPhaseTime = 0;
         activePlayer = player1;
 
@@ -48,23 +48,22 @@ public class TurnController : MonoBehaviour {
 
         //Start the game
         activePlayer.StartPhaseOne();
-        SetTurnText();
+        UIController.UpdateTurnInfo(turnCount,phaseCount,activePlayer.PlayerName);
 	}
 	
 	void Update () {
-        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + activePhase.ToString() + " Player: " + activePlayer.Name.ToString());
+        Debug.Log("Turn: " + turnCount.ToString() + " Phase: " + phaseCount.ToString() + " Player: " + activePlayer.Name.ToString());
         currentPhaseTime += Time.deltaTime;
         TimerText.text = (int)(phaseDuration - currentPhaseTime) + "s";
 
         //Display information about currently selected tile
-        if(Tile.selectedTile != null)
+        if(PhysicalTile.selectedTile != null)
         {
-            selectedInfoPanel.SetActive(true);
-            
+            UIController.DisplayTileInfo(PhysicalTile.selectedTile);            
         }
         else
         {
-            selectedInfoPanel.SetActive(false);
+            UIController.HideTileInfo();
         }
 	}
 
@@ -79,17 +78,17 @@ public class TurnController : MonoBehaviour {
         }
         else
         {
-            activePhase++;
+            phaseCount++;
             activePlayer = player1;
         }
 
-        if (activePhase == 6)
-            activePhase = 0;
+        if (phaseCount == 6)
+            phaseCount = 0;
 
         SetTurnText();
         currentPhaseTime = 0;
         
-        switch(activePhase)
+        switch(phaseCount)
         {
             case 1:
                 activePlayer.StartPhaseOne();
