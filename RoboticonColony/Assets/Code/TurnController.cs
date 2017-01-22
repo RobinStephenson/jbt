@@ -39,8 +39,8 @@ public class TurnController : MonoBehaviour {
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
-        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Player1 Tile"));
-        player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Player2 Tile"));
+        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
+        player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
 
 
         //Start the game
@@ -97,6 +97,22 @@ public class TurnController : MonoBehaviour {
                 }
             }
         }
+        else if(phaseCount == 3)
+        {
+            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
+            {
+                if (PhysicalTile.selectedTile.ContainedTile.Owner != activePlayer)
+                {
+                    UIController.DisplayMessage("This is not your tile!");
+                    return;
+                }
+                else
+                {
+                    PhysicalTile.canSelect = false;
+                    UIController.ShowInstallRoboticon();
+                }
+            }
+        }
 	}
 
     public void NextPhase()
@@ -134,25 +150,37 @@ public class TurnController : MonoBehaviour {
         switch(phaseCount)
         {
             case 1:
+                PhysicalTile.canSelect = true;
                 UIController.HideMarketDisplay();
                 UIController.DisplayMessage("Buy a tile, or click next phase!");
                 break;
             case 2:
+                PhysicalTile.ClearSelected();
+                PhysicalTile.canSelect = false;
                 UIController.ShowBuyRoboticon(market);
                 UIController.DisplayMessage("Buy roboticons from the market, click next phase when finished!");
                 break;
             case 3:
+                PhysicalTile.canSelect = true;
                 UIController.HideBuyRoboticon();
                 UIController.DisplayMessage("Install/Customise Roboticons, click next phase when finished!");
                 break;
             case 4:
+                PhysicalTile.ClearSelected();
+                PhysicalTile.canSelect = false;
                 UIController.HideInstallRoboticon();
                 UIController.HideCustomiseRoboticon();
                 UIController.ShowProductionDisplay(activePlayer.DoPhaseFour());
-                market.BuyRoboticonOre();
+                //Convert ore to roboticons in market once per phase 4
+                if (activePlayer == player2)
+                {
+                    market.BuyRoboticonOre();
+                }
                 UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:
+                PhysicalTile.ClearSelected();
+                PhysicalTile.canSelect = false;
                 UIController.HideProductionDisplay();
                 UIController.ShowMarketDisplay();
                 UIController.DisplayMessage("Buy/Sell from the market, then click next phase when finished!");

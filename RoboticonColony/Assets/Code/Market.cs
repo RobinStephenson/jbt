@@ -174,7 +174,7 @@ sealed public class Market
     public void BuyRoboticonOre()
     {
         int converted = 0;
-        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 6)
+        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 5)
         {
             Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);

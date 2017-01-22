@@ -9,6 +9,7 @@ public class PhysicalTile : MonoBehaviour {
 
     private static int TotalTiles;
     public static PhysicalTile selectedTile;
+    public static bool canSelect;
 
     public int Id;
     public Tile ContainedTile;
@@ -35,11 +36,15 @@ public class PhysicalTile : MonoBehaviour {
 
     public void OnMouseEnter()
     {
+        if (!canSelect)
+            return;
         MakeSelected(this);
     }
 
     public void OnMouseExit()
     {
+        if (!canSelect)
+            return;
         ClearSelected();
     }
 
@@ -60,7 +65,7 @@ public class PhysicalTile : MonoBehaviour {
         selectedTile.GetComponent<SpriteRenderer>().color = tileColor;
     }
 
-    private static void ClearSelected()
+    public static void ClearSelected()
     {
         if (selectedTile != null)
         {
