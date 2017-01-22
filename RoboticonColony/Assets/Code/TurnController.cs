@@ -211,6 +211,30 @@ public class TurnController : MonoBehaviour {
 
     public void InstallRoboticonPressed()
     {
+        if(PhysicalTile.selectedTile.ContainedTile.Owner != activePlayer)
+        {
+            return;
+        }
 
+        activePlayer.DoPhaseThreeInstall(PhysicalTile.selectedTile);
+        UIController.HideInstallRoboticon();
+        PhysicalTile.canSelect = true;
+    }
+
+    public void CancelInstallRoboticonPressed()
+    {
+        UIController.HideInstallRoboticon();
+        PhysicalTile.canSelect = true;
+    }
+
+    public void CancelCustomiseRoboticonPressed()
+    {
+        UIController.HideCustomiseRoboticon();
+        PhysicalTile.canSelect = true;
+    }
+
+    public void RemoveRoboticonPressed()
+    {
+        PhysicalTile.selectedTile.ContainedTile.RemoveRoboticon();
     }
 }

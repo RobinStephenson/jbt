@@ -12,13 +12,9 @@ public abstract class AbstractPlayer
 
     public abstract bool DoPhaseOne(Tile t);
     public abstract bool DoPhaseTwo(int amount);
+    public abstract bool DoPhaseThreeInstall(PhysicalTile t);
+    public abstract bool DoPhaseThreeCustomise(PhysicalTile t, RoboticonCustomisation rc);
     public abstract Dictionary<ItemType, int> DoPhaseFour();
-
-    public abstract void StartPhaseOne();
-    public abstract void StartPhaseTwo();
-    public abstract void StartPhaseThree();
-    public abstract void StartPhaseFour();
-    public abstract void StartPhaseFive();
 
     protected AbstractPlayer(string playerName, Inventory inv, Market market, Sprite tileSprite)
     {

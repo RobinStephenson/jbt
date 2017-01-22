@@ -37,7 +37,7 @@ sealed public class Tile
     /// <summary>
     /// Get the production of the tile
     /// </summary>
-    /// <returns>Dictionary of ItemType -> Ammount produced of that resource</returns>
+    /// <returns>Dictionary of ItemType -> Amount produced of that resource</returns>
     public Dictionary<ItemType, int> Produce()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
@@ -62,24 +62,32 @@ sealed public class Tile
     /// install a roboticon on this tile
     /// </summary>
     /// <exception cref="RoboticonAlreadyInstalledException">A roboticon is already installled</exception>
-    /// <param name="inventory">the players inventory</param>
-    public void InstallRoboticon(Inventory inventory)
+    /// <param name="player">Reference to the player buying the tile</param>
+    public void InstallRoboticon(AbstractPlayer player)
     {
         if (InstalledRoboticon != null)
         {
             throw new RoboticonAlreadyInstalledException();
         }
+
+        if(player.Inv.GetItemAmount(ItemType.Roboticon) > player.InstalledRoboticonCount)
+        {
+            InstalledRoboticon = new Roboticon(this);
+        }
     }
 
-     /// <summary>
-    /// remove the roboticon installed on this tile
+    /// <summary>
+    /// Remove the roboticon installed on this tile
     /// </summary>
     /// <exception cref="InvalidOperationException">there is no roboticon installed</exception>
     /// <returns>the removed roboticon</returns>
-    public Roboticon RemoveRoboticon()
+    public void RemoveRoboticon()
     {
-        // should also set installed tile to null on the roboticon
-        throw new InvalidOperationException("No Roboticon installed");
+        if (InstalledRoboticon == null)
+        {
+            throw new InvalidOperationException("No Roboticon installed");
+        }
+        InstalledRoboticon = null;
     }
   
     /// <summary>

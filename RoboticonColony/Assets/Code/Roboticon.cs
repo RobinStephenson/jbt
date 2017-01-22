@@ -48,7 +48,7 @@ public class Roboticon
             throw new ArgumentException("Roboticon is not valid");
         }
 
-        int CurrentBestMultiplier = 0;
+        int CurrentBestMultiplier = 1;
         foreach (RoboticonCustomisation customisation in InstalledCustomisations)
         {
             int NewMultiplier = customisation.GetMultiplier(itemType);

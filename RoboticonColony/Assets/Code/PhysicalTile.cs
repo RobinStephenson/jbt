@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PhysicalTile : MonoBehaviour {
 
+    public GameObject AttachedRoboticonObject;
     private static int TotalTiles;
     public static PhysicalTile selectedTile;
     public static bool canSelect;
@@ -51,6 +52,17 @@ public class PhysicalTile : MonoBehaviour {
     public void SetSprite(Sprite s)
     {
         GetComponent<SpriteRenderer>().sprite = s;
+    }
+
+    public void SetAttachedRoboticon(string path)
+    {
+        AttachedRoboticonObject = Instantiate(Resources.Load(path), transform.position, Quaternion.identity) as GameObject;
+        AttachedRoboticonObject.transform.parent = transform;
+    }
+
+    public void RemoveAttachedRoboticon()
+    {
+        Destroy(AttachedRoboticonObject);
     }
 
     private static void MakeSelected(PhysicalTile t)
