@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System;
 using NUnit.Framework;
@@ -10,7 +10,6 @@ public class MarketTest {
     {
         //Create an empty market instance
         Market market = new Market(3,9,3,8,4,6);
-
         //Verify that the markets inventory is empty
         Assert.AreEqual(0, market.Stock.Money);
         Assert.AreEqual(0, market.Stock.GetItemAmount(ItemType.Ore));
@@ -166,21 +165,60 @@ public class MarketTest {
     }
 
     [Test]
-    public void SuccessfulTileBuy()
+    public void CreateNewCustomisations()
     {
-        Assert.Fail();
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 6, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //TODO: Add customisation to market
+        //Create new customisation
+        //market.createCustomisations("test2", 3, null, ItemType.Ore, 10);
+
+        //Check if customisation was added to Customisation list
+        //Assert.AreEqual(1, market.CustomisationList.count());
     }
 
     [Test]
-    public void FailedTileBuy()
+    public void SuccessfulBuyRoboticonWithOre()
     {
-        Assert.Fail();
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 6, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Attempt to buy a roboticon with ore
+        market.BuyRoboticonOre();
+
+        //Check if the roboticon was bought and ore was taken
+        Assert.AreEqual(3, market.Stock.GetItemAmount(ItemType.Roboticon));
+        Assert.AreEqual(5, market.Stock.GetItemAmount(ItemType.Ore));
+    }
+
+    [Test]
+    public void FailedBuyRoboticonWithOre()
+    {
+        //Create an inventory instance
+        Inventory marketInv = new Inventory(150, 0, 7, 2);
+
+        //Create a market instance with the inventory
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+
+        //Attempt to buy a roboticon with ore
+        market.BuyRoboticonOre();
+
+        //Check to ensure the stock remains the same
+        Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
+        Assert.AreEqual(0, market.Stock.GetItemAmount(ItemType.Ore));
     }
 
     /// <summary>
-    /// Used by the CreateNegativeMarket Test method to attempt to create a market with negative prices
+    /// Used by the MetNegativeMarket Test method to attempt to create a market with negative prices
     /// </summary>
-    Market NegativeMarket()
+    private Market NegativeMarket()
     {
         return new Market(4, 5, 6, 2, -3, 5);
     }

@@ -95,7 +95,7 @@ public class InventoryTest
         //Create two inventories
         Inventory inv1 = new Inventory(8, 2, 3, 4);
         Inventory inv2 = new Inventory(10, 11, 12, 13);
-        
+
         //Attempt to transfer 2 money from inv1 to inv2, which should work
         inv1.TransferMoney(2, inv2);
 
