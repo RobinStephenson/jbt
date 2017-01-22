@@ -32,11 +32,9 @@ public class TurnController : MonoBehaviour {
         }
 
         //Create Market instance for this game and populate it with the new tiles
-        market = new Market(5,6,3,5,3,5);
+        Inventory marketInv = new Inventory(500, 10, 10, 10);
+        market = new Market(marketInv,5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
-        Debug.Log(allTiles.Contains(allTiles[4]));
-        Debug.Log(market.Stock.Tiles.Contains(allTiles[5]));
-        Debug.Log(allTiles[5] == allTiles[6]);
 
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
@@ -44,11 +42,16 @@ public class TurnController : MonoBehaviour {
         player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Player1 Tile"));
         player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Player2 Tile"));
 
+
+
         //Start the game
         NextPhase();
 	}
 	
 	void Update () {
+        //for(int i = 0; i < 100; i++)
+        //    Debug.Log(market.Stock.Tiles[0].Id);
+
         if (PhysicalTile.selectedTile != null)
         {
             Debug.Log(market.Stock.TileCount().ToString());
@@ -135,6 +138,7 @@ public class TurnController : MonoBehaviour {
                 break;
             case 2:
                 activePlayer.StartPhaseTwo();
+                UIController.ShowBuyRoboticon(market);
                 UIController.DisplayMessage("Buy roboticons from the market, click next phase when finished!");
                 break;
             case 3:
@@ -149,6 +153,18 @@ public class TurnController : MonoBehaviour {
                 activePlayer.StartPhaseFive();
                 UIController.DisplayMessage("Buy/Sell from the market, then click next phase when finished!");
                 break;
+        }
+    }
+
+    public void BuyRoboticonPressed(int amount)
+    {
+        if(activePlayer.DoPhaseTwo(amount))
+        {
+            UIController.DisplayMessage("You bought " + amount.ToString() + " Roboticons!");
+        }
+        else
+        {
+            UIController.DisplayMessage("Could not purchase the required amount of roboticons");
         }
     }
 }

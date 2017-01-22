@@ -11,6 +11,7 @@ public abstract class AbstractPlayer
     protected Market Market;
 
     public abstract bool DoPhaseOne(Tile t);
+    public abstract bool DoPhaseTwo(int amount);
 
     public abstract void StartPhaseOne();
     public abstract void StartPhaseTwo();

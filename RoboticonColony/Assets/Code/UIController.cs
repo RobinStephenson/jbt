@@ -32,6 +32,15 @@ public class UIController : MonoBehaviour {
     //Timer variables
     public Text TimerText;
 
+    //Phase 2 variables
+    public GameObject BuyRoboticonPanel;
+    public Text MarketRoboticonStock;
+    public string baseRoboticonStockText;
+
+    //Phase 3 variables
+    public GameObject InstallRobitconPanel;
+    public GameObject CustomiseRoboticonPanel;
+
     private void Awake()
     {
         //Set the static reference to the controller to the only controller in the scene
@@ -41,6 +50,7 @@ public class UIController : MonoBehaviour {
     void Start () {
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
+        baseRoboticonStockText = MarketRoboticonStock.text;
     }
 	
 	void Update () {
@@ -81,5 +91,16 @@ public class UIController : MonoBehaviour {
         controller.OreDisplay.text = playerInv.GetItemAmount(ItemType.Ore).ToString("000");
         controller.PowerDisplay.text = playerInv.GetItemAmount(ItemType.Power).ToString("000");
         controller.RoboticonDisplay.text = "00" + "/" + playerInv.GetItemAmount(ItemType.Roboticon).ToString("00");
+    }
+
+    public static void ShowBuyRoboticon(Market m)
+    {
+        controller.BuyRoboticonPanel.SetActive(true);
+        controller.MarketRoboticonStock.text = string.Format(controller.baseRoboticonStockText, m.Stock.GetItemAmount(ItemType.Roboticon));
+    }
+
+    public static void HideBuyRoboticon()
+    {
+        controller.BuyRoboticonPanel.SetActive(false);
     }
 }

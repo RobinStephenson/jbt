@@ -77,7 +77,7 @@ public class MarketTest
         //Create a mock player inventory
         Inventory playerInv = new Inventory(50, 0, 0, 0);
 
-        HumanPlayer player = new HumanPlayer("p1", playerInv, market);
+        HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to buy 5 power from the market at the cost of 11 each, more than the player can afford, which should throw an exception
         Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Power, 5, player), typeof(NotEnoughMoneyException)));
@@ -107,7 +107,7 @@ public class MarketTest
         //Create a mock player inventory
         Inventory playerInv = new Inventory(50, 0, 0, 0);
 
-        HumanPlayer player = new HumanPlayer("p1", playerInv, market);
+        HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to buy 3 power from the market at the cost of 11 each, which should work and not throw an exception
         Assert.False(TestHelper.Throws(() => market.Buy(ItemType.Power, 3, player), typeof(TransactionException)));
@@ -131,7 +131,7 @@ public class MarketTest
         //Create a mock player inventory
         Inventory playerInv = new Inventory(37, 3, 6, 27);
 
-        HumanPlayer player = new HumanPlayer("p1", playerInv, market);
+        HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to sell 5 ore to the market at the cost of 9 each, which is more ore than the player has, which should throw an exception
         Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Ore, 5, player), typeof(NotEnoughItemException)));
@@ -161,7 +161,7 @@ public class MarketTest
         //Create a mock player inventory
         Inventory playerInv = new Inventory(37, 3, 6, 27);
 
-        HumanPlayer player = new HumanPlayer("p1", playerInv, market);
+        HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to sell 4 power to the market at the cost of 8 each, which should work and not throw an exception
         Assert.False(TestHelper.Throws(() => market.Sell(ItemType.Power, 4, player), typeof(TransactionException)));

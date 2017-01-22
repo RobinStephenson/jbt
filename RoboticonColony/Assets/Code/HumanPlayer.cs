@@ -52,13 +52,32 @@ public class HumanPlayer : AbstractPlayer
         //catch(ArgumentOutOfRangeException)
         //{
         //    return false;
-        //}
+        //
         //catch(Exception)
         //{
         //    throw;
         //}
 
         //return false;
+    }
+
+    public override bool DoPhaseTwo(int amount)
+    {
+        try
+        {
+            Market.Buy(ItemType.Roboticon, amount, this);
+            return true;
+        }
+        catch (NotEnoughItemException)
+        {
+            return false;
+        }
+        catch (NotEnoughMoneyException)
+        {
+            return false;
+        }
+
+        return false;
     }
 
     private void PurchaseRoboticons()

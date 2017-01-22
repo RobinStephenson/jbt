@@ -41,7 +41,7 @@ sealed public class Inventory
     /// </summary>
     public Inventory() : this(0, 0, 0, 0) { }
 
-    //TEMP
+    
     public void SetTiles(List<Tile> t)
     {
         Tiles = t;
