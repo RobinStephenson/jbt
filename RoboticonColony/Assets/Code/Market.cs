@@ -255,7 +255,7 @@ sealed public class Market
                 //If the transfer completes without error, then the transaction is complete
                 return;
             }
-            catch (NotEnoughItemException)
+            catch (ArgumentOutOfRangeException)
             {
                 //If the item transfer was unsuccessful, then revert the change in the players balance
                 playerInventory.AddMoney(tile.Price);
