@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour {
+public class PhysicalTile : MonoBehaviour {
 
     private static int TotalTiles;
     public static Tile selectedTile;
