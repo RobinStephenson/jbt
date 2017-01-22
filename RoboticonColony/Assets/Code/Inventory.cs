@@ -9,9 +9,8 @@ using System.Collections.Generic;
 sealed public class Inventory
 {
     public int Money { get; private set; }
-    public List<Tile> Tiles;
 
-    private List<Tile> tiles;
+    private List<Tile> Tiles;
     private Dictionary<ItemType, int> Items;
 
     /// <summary>
@@ -44,10 +43,10 @@ sealed public class Inventory
 
     //TEMP
     public void SetTiles(List<Tile> t)
-    {
-        Tiles = t;
-    }
-  
+     {
+         Tiles = t;
+     }
+
     /// <summary>
     /// Get the amount of the specified item in this inventory instance.
     /// </summary>
@@ -106,13 +105,13 @@ sealed public class Inventory
     /// <param name="tile">The tile to add to this inventory instance</param>
     public void AddTile(Tile tile)
     {
-        if(tiles.Contains(tile))
+        if(Tiles.Contains(tile))
         {
             throw new ArgumentException("The supplied tile already located in this inventory");
         }
         else
         {
-            tiles.Add(tile);
+            Tiles.Add(tile);
         }
     }
 
@@ -172,12 +171,12 @@ sealed public class Inventory
     /// <param name="to">The inventory to transfer to</param>
     public void TransferTile(Tile tile, Inventory to)
     {
-        if(!tiles.Contains(tile))
+        if(!Tiles.Contains(tile))
         {
             throw new ArgumentOutOfRangeException("Supplied tile does not belong to this inventory");
         }
 
-        tiles.Remove(tile);
+        Tiles.Remove(tile);
         to.AddTile(tile);
         return;
     }
@@ -188,7 +187,7 @@ sealed public class Inventory
     /// <returns>The amount of tiles in the tiles list</returns>
     public int TileCount()
     {
-        return tiles.Count;
+        return Tiles.Count;
     }
 
     /// <summary>
@@ -198,11 +197,11 @@ sealed public class Inventory
     /// <returns>The requested tile reference</returns>
     public Tile GetTile(int index)
     {
-        if(index < tiles.Count - 1)
+        if(index < Tiles.Count - 1)
         {
-            throw new ArgumentOutOfRangeException("Supplied index is greater than length of tile list: " + tiles.Count.ToString());
+            throw new ArgumentOutOfRangeException("Supplied index is greater than length of tile list: " + Tiles.Count.ToString());
         }
 
-        return tiles[index];
+        return Tiles[index];
     }
 }
