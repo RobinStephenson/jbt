@@ -25,14 +25,6 @@ public class Roboticon
     /// <exception cref="ArgumentException">The prerequisite customisations are not installed</exception>
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
-        // check customisations prerequisites are installed
-        //foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
-        //{
-        //    if (!InstalledCustomisations.Contains(prerequisite))
-        //    {
-        //        throw new ArgumentException("Prerequisite customisations not installed");
-        //    }
-        //}
         InstalledCustomisations.Add(customisation);
     }
 
