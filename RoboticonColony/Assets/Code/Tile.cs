@@ -6,7 +6,6 @@ using System.Text;
 
 sealed public class Tile
 {
-    public int Id { get; private set; }
     public int Price { get; private set; }
     public AbstractPlayer Owner { get; private set; }
     public Roboticon InstalledRoboticon { get; private set; }
@@ -18,9 +17,8 @@ sealed public class Tile
     /// <param name="cost">Cost of the tile</param>
     /// <param name="ore">Ore that the tile has</param>
     /// <param name="power">Power that the tile has</param>
-    public Tile(int id, int price, int ore, int power)
+    public Tile(int price, int ore, int power)
     {
-        Id = id;
         Price = price;
         resources = new Dictionary<ItemType, int>();
         resources[ItemType.Ore] = ore;
@@ -29,15 +27,10 @@ sealed public class Tile
         InstalledRoboticon = null;
     }
 
-    public void SetOwner(AbstractPlayer p)
-    {
-        Owner = p;
-    }
-
     /// <summary>
     /// Get the production of the tile
     /// </summary>
-    /// <returns>Dictionary of ItemType -> Amount produced of that resource</returns>
+    /// <returns>Dictionary of ItemType -> Ammount produced of that resource</returns>
     public Dictionary<ItemType, int> Produce()
     {
         Dictionary<ItemType, int> produced = new Dictionary<ItemType, int>();
@@ -62,34 +55,22 @@ sealed public class Tile
     /// install a roboticon on this tile
     /// </summary>
     /// <exception cref="RoboticonAlreadyInstalledException">A roboticon is already installled</exception>
-    /// <param name="player">Reference to the player buying the tile</param>
-    public void InstallRoboticon(AbstractPlayer player)
+    /// <param name="inventory">the players inventory</param>
+    public void InstallRoboticon(Inventory inventory)
     {
-        if (InstalledRoboticon != null)
-        {
-            throw new RoboticonAlreadyInstalledException();
-        }
-
-        if (player.Inv.GetItemAmount(ItemType.Roboticon) <= player.InstalledRoboticonCount)
-        {
-            throw new ArgumentOutOfRangeException("Not enough spare roboticons in inventory to install");
-        }
-
-        InstalledRoboticon = new Roboticon(this);
+        // should also set the installedTile on the roboticon to this one
+        throw new RoboticonAlreadyInstalledException();
     }
 
-    /// <summary>
-    /// Remove the roboticon installed on this tile
+     /// <summary>
+    /// remove the roboticon installed on this tile
     /// </summary>
     /// <exception cref="InvalidOperationException">there is no roboticon installed</exception>
     /// <returns>the removed roboticon</returns>
-    public void RemoveRoboticon()
+    public Roboticon RemoveRoboticon()
     {
-        if (InstalledRoboticon == null)
-        {
-            throw new InvalidOperationException("No Roboticon installed");
-        }
-        InstalledRoboticon = null;
+        // should also set installed tile to null on the roboticon
+        throw new InvalidOperationException("No Roboticon installed");
     }
   
     /// <summary>
@@ -108,17 +89,17 @@ sealed public class Tile
         get { return resources[ItemType.Power]; }
     }
 
-    public override bool Equals(object obj)
+    /// <summary>
+    /// Sets the owner of the tile to the newOwner
+    /// </summary>
+    /// <param name="newOwner">The reference to the new owner.</param>
+    /// <exception cref="ArgumentException">The Exception thrown when the old owner = the new owner. </exception>
+    public void SetOwner(AbstractPlayer newOwner)
     {
-        if (!(obj is Tile))
-            return false;
-
-        return Id == ((Tile)obj).Id;
+        if(Owner == newOwner)
+        {
+            throw new ArgumentException("New owner cannot be the same as the old owner.");
+        }
+        Owner = newOwner;
     }
-
-    public override int GetHashCode()
-    {
-        return Id;
-    }
-
 }

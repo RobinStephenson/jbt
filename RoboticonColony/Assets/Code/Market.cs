@@ -34,8 +34,6 @@ sealed public class Market
         buyprice = new Dictionary<ItemType, int>();
         sellprice = new Dictionary<ItemType, int>();
 
-        CustomisationsList = new List<RoboticonCustomisation>();
-
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         buyprice[ItemType.Ore] = oreBuyPrice;
         buyprice[ItemType.Power] = powerBuyPrice;
@@ -75,9 +73,9 @@ sealed public class Market
     /// </summary>
     /// <param name="item">The item the player wishes to buy.</param>
     /// <param name="Quantity">The quantity the player withes to buy.</param>
-    /// <param name="player">Reference to the player buying</param>
+    /// <param name="playerInventory">Reference to the players inventory.</param>
     /// <exception cref="ArgumentOutOfRangeException">The Excpetion thrown when a negative amount of items are bought.</exception>
-    public void Buy(ItemType item, int quantity, AbstractPlayer player)
+    public void Buy(ItemType item, int quantity, Inventory playerInventory)
     {
         if(quantity < 0)
         {
@@ -87,12 +85,12 @@ sealed public class Market
         //Attempt to transfer money from the player to the market
         try
         {
-            player.Inv.TransferMoney(buyprice[item] * quantity, Stock);
+            playerInventory.TransferMoney(buyprice[item] * quantity, Stock);
 
             //Attempt to transfer the requested item(s) into the players inventory.
             try
             {
-                Stock.TransferItem(item, quantity, player.Inv);
+                Stock.TransferItem(item, quantity, playerInventory);
 
                 //If the transfer completes without error, then the transaction is complete
                 return;
@@ -100,7 +98,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
-                Stock.TransferMoney(buyprice[item] * quantity, player.Inv);
+                Stock.TransferMoney(buyprice[item] * quantity, playerInventory);
                 throw;
             }
         }
@@ -116,9 +114,9 @@ sealed public class Market
     /// </summary>
     /// <param name="item">The item the player wishes to sell.</param>
     /// <param name="quantity">The quantity the player wishes to sell</param>
-    /// <param name="player">Reference to the player selling.</param>
+    /// <param name="playerInventory">Reference to the players inventory.</param>
     /// <exception cref="ArgumentOutOfRangeException">The Exception thrown when a negative quanitity of items are sold.</exception>
-    public void Sell(ItemType item, int quantity, AbstractPlayer player)
+    public void Sell(ItemType item, int quantity, Inventory playerInventory)
     {
         if (quantity < 0)
         {
@@ -128,12 +126,12 @@ sealed public class Market
         //Attempt to transfer money from the market to the player.
         try
         {
-            Stock.TransferMoney(sellprice[item] * quantity, player.Inv);
+            Stock.TransferMoney(sellprice[item] * quantity, playerInventory);
 
             //Attempt to transfer the requested item(s) into the markets inventory.
             try
             {                
-                player.Inv.TransferItem(item, quantity, Stock);
+                playerInventory.TransferItem(item, quantity, Stock);
 
                 //If the transfer completes without error, then the transaction is complete
                 return;
@@ -141,7 +139,7 @@ sealed public class Market
             catch (NotEnoughItemException)
             {
                 //If the item transfer was unsuccessful, then revert the money transfer and re-throw the exception
-                player.Inv.TransferMoney(sellprice[item] * quantity, Stock);
+                playerInventory.TransferMoney(sellprice[item] * quantity, Stock);
                 throw;
             }
         }
@@ -152,9 +150,17 @@ sealed public class Market
         }
     }
   
-    public void AddCustomisation(RoboticonCustomisation rc)
+    /// <summary>
+    /// Creates an customisation type for roboticons.
+    /// </summary>
+    /// <param name="selectedName"> The name of the customisation. </param>
+    /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
+    /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
+    /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
+    /// <param name="reqPrice"> The required price of the customisation. </param>
+    private void CreateCustomisations(string selectedName, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
     {
-        CustomisationsList.Add(rc);
+        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonuses, prereq, reqPrice));
     }
 
     public int GetTilePrice(Tile tile)
@@ -163,16 +169,15 @@ sealed public class Market
     }
   
     /// <summary>
-    /// Converts up to 5 ore in the markets inventory into roboticons per turn
+    /// Adds a roboticon to the market stock.
     /// </summary>
     public void BuyRoboticonOre()
     {
-        int converted = 0;
-        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 5)
+        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
+        if (Stock.GetItemAmount(ItemType.Ore) > 0)
         {
-            Stock.SubtractItem(ItemType.Ore, 1);
+            Stock.AddItem(ItemType.Ore, -1);
             Stock.AddItem(ItemType.Roboticon, 1);
-            converted++;
         }
     }
 
@@ -187,11 +192,11 @@ sealed public class Market
         if (inventory.Money > customisation.Price)
         {
             roboticon.AddCustomisation(customisation);
-            inventory.SubtractMoney(customisation.Price);
+            inventory.AddMoney(-customisation.Price);
         }
         else
         {
-            throw new ArgumentException("Not enough money in inventory to buy this customisation.");
+            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
         }
 
     }
@@ -229,35 +234,46 @@ sealed public class Market
             return quantity;
         }
     }
-
+      
     /// <summary>
     /// Allows players to buy tiles from the market. Purchased tiles from the market do not actually reduce the markets balance.
     /// </summary>
     /// <param name="tile">The tile to buy</param>
-    /// <param name="player">Reference ot the player buying</param>
-    public void BuyTile(Tile tile, AbstractPlayer player)
+    /// <param name="playerInventory">Reference ot the players inventory</param>
+    public void BuyTile(Tile tile, Inventory playerInventory, AbstractPlayer player)
     {
         //Attempt to remove the money for the purchase form the player
         try
         {
-            player.Inv.SubtractMoney(tile.Price);
+            playerInventory.SubtractMoney(tile.Price);
 
             //Attempt to transfer the requested tile from the markets inventory
             try
             {
-                Stock.TransferTile(tile, player.Inv);
-                tile.SetOwner(player);
+                Stock.TransferTile(tile, playerInventory);
+                //Attempt to set the owner of the tile to the new owner
+                try
+                {
+                    tile.SetOwner(player);
+                }
+                catch (ArgumentException)
+                {
+                    playerInventory.AddMoney(tile.Price);
+                    playerInventory.TransferTile(tile, Stock);
+                    throw;
+                }
+
                 //If the transfer completes without error, then the transaction is complete
                 return;
             }
             catch (ArgumentOutOfRangeException)
             {
                 //If the item transfer was unsuccessful, then revert the change in the players balance
-                player.Inv.AddMoney(tile.Price);
+                playerInventory.AddMoney(tile.Price);
                 throw;
             }
         }
-        catch (NotEnoughMoneyException)
+        catch (ArgumentOutOfRangeException)
         {
             //If the initial money transfer was unsuccessful, then re-throw the exception
             throw;
