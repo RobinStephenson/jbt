@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TurnController : MonoBehaviour {
-
+public class TurnController : MonoBehaviour
+{
     //Player and market variables
     private Market market;
     public AbstractPlayer player1;
@@ -18,11 +18,12 @@ public class TurnController : MonoBehaviour {
     //Timer variables
     public Text TimerText;
     public Timeout currentTimer;
-    
+
     //Hardcoded(for now) time limits for each phase
     private int[] PhaseTimes = new int[5] { -1, 40, 40, -1, -1 };
 
-	void Start () {
+    void Start()
+    {
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
 
@@ -33,7 +34,7 @@ public class TurnController : MonoBehaviour {
 
         //Create Market instance for this game and populate it with the new tiles and starting inventory values
         Inventory marketInv = new Inventory(99999999, 0, 16, 12);
-        market = new Market(marketInv,5,6,3,5,3,5);
+        market = new Market(marketInv, 5, 6, 3, 5, 3, 5);
         market.Stock.SetTiles(allTiles);
 
         //Create customisations for the Market
@@ -56,15 +57,16 @@ public class TurnController : MonoBehaviour {
 
         //Start the game
         NextPhase();
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
         //The timer is only used in phase 2 and 3, as per the requirements
-        if(currentTimer.Finished && (phaseCount == 2 || phaseCount == 3))
+        if (currentTimer.Finished && (phaseCount == 2 || phaseCount == 3))
         {
             NextPhase();
         }
-        
+
         UIController.UpdateTimerDisplay(currentTimer);
         UIController.UpdateResourceDisplay(activePlayer);
 
@@ -82,11 +84,11 @@ public class TurnController : MonoBehaviour {
         }
 
         //Logic for selecting a tile in phase 1 and 3, these are the only phases where a user can select a tile
-        if(phaseCount == 1)
+        if (phaseCount == 1)
         {
-            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
+            if (Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
             {
-                if(PhysicalTile.selectedTile.ContainedTile.Owner != null)
+                if (PhysicalTile.selectedTile.ContainedTile.Owner != null)
                 {
                     UIController.DisplayMessage("This tile is already owned by a player!");
                     return;
@@ -104,12 +106,13 @@ public class TurnController : MonoBehaviour {
                 }
             }
         }
-        else if(phaseCount == 3)
+        else if (phaseCount == 3)
         {
-            if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
+            if (Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
             {
                 if (PhysicalTile.selectedTile.ContainedTile.Owner != activePlayer)
                 {
+                    //If the selected tile is not owened by the active player, then tell them so
                     UIController.DisplayMessage("This is not your tile!");
                     return;
                 }
@@ -122,24 +125,27 @@ public class TurnController : MonoBehaviour {
                         UIController.ShowInstallRoboticon();
                     }
                     else
-                    {                      
+                    {
                         UIController.ShowCustomiseRoboticon(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon);
                     }
                 }
             }
         }
-	}
+    }
 
+    /// <summary>
+    /// Called after every player finishes a phase. This causes the game to switch control to the opposing player or go to the next phase/turn depending on what the state of the game is.
+    /// </summary>
     public void NextPhase()
     {
         //If activePlayer is null, then the game has just begun, initialise variables and start the game
-        if(activePlayer == null)
+        if (activePlayer == null)
         {
             turnCount = 1;
             phaseCount = 1;
             activePlayer = player1;
         }
-        else if(activePlayer == player1)
+        else if (activePlayer == player1)
         {
             activePlayer = player2;
         }
@@ -153,6 +159,7 @@ public class TurnController : MonoBehaviour {
         {
             turnCount++;
             phaseCount = 1;
+
             //Convert ore to roboticons in market once per turn
             market.NewTurn(5);
         }
@@ -160,8 +167,8 @@ public class TurnController : MonoBehaviour {
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
         UIController.UpdateResourceDisplay(activePlayer);
         currentTimer = new Timeout(PhaseTimes[phaseCount - 1]);
-        
-        switch(phaseCount)
+
+        switch (phaseCount)
         {
             case 1:
                 PhysicalTile.canSelect = true;
@@ -199,9 +206,10 @@ public class TurnController : MonoBehaviour {
         }
     }
 
+
     public void BuyRoboticonPressed(int amount)
     {
-        if(activePlayer.DoPhaseTwo(amount))
+        if (activePlayer.DoPhaseTwo(amount))
         {
             UIController.DisplayMessage("You bought " + amount.ToString() + " roboticons!");
             UIController.ShowBuyRoboticon(market);
@@ -266,7 +274,7 @@ public class TurnController : MonoBehaviour {
 
     public void InstallRoboticonPressed()
     {
-        if(PhysicalTile.selectedTile.ContainedTile.Owner != activePlayer)
+        if (PhysicalTile.selectedTile.ContainedTile.Owner != activePlayer)
         {
             return;
         }
@@ -302,7 +310,7 @@ public class TurnController : MonoBehaviour {
         UIController.HideCustomiseRoboticon();
         UIController.ShowInstallRoboticon();
     }
-    
+
     public void BuyCustomisationPressed(int customisationIndex)
     {
         if (activePlayer.DoPhaseThreeCustomise(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon, market.CustomisationsList[customisationIndex]))
