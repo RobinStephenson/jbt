@@ -163,7 +163,20 @@ sealed public class Market
         CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonuses, prereq, reqPrice));
     }
 
-    public int GetTilePrice(Tile tile)
+    /// <summary>
+    /// Initiates a new turn sequence for the Market inventory.
+    /// </summary>
+    /// <param name="numRoboticons">The number of roboticons to attempt to buy this turn</param>
+    public void NewTurn(int numRoboticons)
+    {
+        while(numRoboticons > 0)
+        {
+            BuyRoboticonOre();
+            numRoboticons -= 1;
+        }
+    }
+
+    private int GetTilePrice(Tile tile)
     {
         return tile.Price;
     }
@@ -171,12 +184,12 @@ sealed public class Market
     /// <summary>
     /// Adds a roboticon to the market stock.
     /// </summary>
-    public void BuyRoboticonOre()
+    private void BuyRoboticonOre()
     {
-        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
         if (Stock.GetItemAmount(ItemType.Ore) > 0)
         {
-            Stock.AddItem(ItemType.Ore, -1);
+            Inventory bin = new Inventory();
+            Stock.TransferItem(ItemType.Ore, 1, bin);
             Stock.AddItem(ItemType.Roboticon, 1);
         }
     }
