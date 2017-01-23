@@ -134,29 +134,4 @@ public class HumanPlayer : AbstractPlayer
             return false;
         }
     }
-
-    /// <summary>
-    /// the maximum quanitity of an item a player can buy based on market stock and player money
-    /// </summary>
-    /// <param name="item">the item the being bought</param>
-    /// <returns>the maximum quantity</returns>
-    private int MaxQuantityPlayerCanBuy(ItemType item)
-    {
-        int ItemPrice = Market.GetBuyPrice(ItemType.Roboticon);
-        int QuantityInMarket = Market.Stock.GetItemAmount(item);
-        int QuantityPlayerCanAfford = Inv.Money / ItemPrice;
-        return Math.Min(QuantityInMarket, QuantityPlayerCanAfford);
-    }
-
-    /// <summary>
-    /// the maximum quantity of an item a player can sell to the market, based on user stock and market ruless
-    /// </summary>
-    /// <param name="item">the item being sold</param>
-    /// <returns>the maximum quantity</returns>
-    private int MaxQuantityPlayerCanSell(ItemType item)
-    {
-        // TODO: use a market method which will return the max the shop will buy based on the money in the shop and the shop not wanting to buy too many of an item
-        int QuantityShopWillBuy = int.MaxValue;
-        return Math.Min(Inv.GetItemAmount(item), QuantityShopWillBuy);
-    }
 }

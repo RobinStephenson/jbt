@@ -161,19 +161,29 @@ sealed public class Market
     {
         return tile.Price;
     }
-  
+
     /// <summary>
-    /// Converts up to 5 ore in the markets inventory into roboticons per turn
+    /// Converts up to a selected amount of ore in the markets inventory into roboticons
     /// </summary>
-    public void BuyRoboticonOre()
+    /// <param name="maxAmount">The max amount to convert into roboticons</param>
+    private void BuyRoboticonOre(int maxAmount)
     {
         int converted = 0;
-        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 5)
+        while (Stock.GetItemAmount(ItemType.Ore) > 0 && converted < maxAmount)
         {
             Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
-            converted++;
+            converted += 1;
         }
+    }
+
+    /// <summary>
+    /// Initiates a new turn sequence for the Market inventory.
+    /// </summary>
+    /// <param name="numRoboticons">The number of roboticons to attempt to buy this turn</param>
+    public void NewTurn(int numRoboticons)
+    {
+        BuyRoboticonOre(numRoboticons);
     }
 
     /// <summary>
@@ -203,28 +213,18 @@ sealed public class Market
     /// <returns>An int which represents the maximum number of the specified type of item that the market will buy.</returns>
     public int MaxWillBuy(ItemType typeToBeBought)
     {
-        if (Stock.Money - (GetBuyPrice(typeToBeBought) * 10) > 0)
+        if (Stock.Money - (GetSellPrice(typeToBeBought) * 10) > 0)
         {
-            if (Stock.GetItemAmount(typeToBeBought) >= 10)
-            {
-                return 10;
-            }
-            else
-            {
-                return Stock.GetItemAmount(typeToBeBought);
-            }
-
+            return 10;
         }
         else
         {
             int moneyAvailable = Stock.Money;
-            int quantityAvailable = Stock.GetItemAmount(typeToBeBought);
             int quantity = 0;
-            while ((moneyAvailable > 0) && quantityAvailable > 0)
+            while (moneyAvailable > 0)
             {
-                moneyAvailable -= GetBuyPrice(typeToBeBought);
+                moneyAvailable -= GetSellPrice(typeToBeBought);
                 quantity += 1;
-                quantityAvailable -= 1;
             }
             return quantity;
         }
