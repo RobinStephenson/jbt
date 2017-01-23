@@ -44,7 +44,7 @@ public class TurnController : MonoBehaviour {
         powerIBonus[ItemType.Ore] = 1;
         powerIBonus[ItemType.Power] = 2;
         RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Sprites/OreRobo");
-        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Sprites/EnergyRobo");
+        RoboticonCustomisation powerI = new RoboticonCustomisation("Power I", powerIBonus, null, 15, "Sprites/EnergyRobo");
         market.AddCustomisation(oreI);
         market.AddCustomisation(powerI);
 
@@ -182,6 +182,8 @@ public class TurnController : MonoBehaviour {
             case 3:
                 PhysicalTile.canSelect = true;
                 UIController.HideBuyRoboticon();
+                UIController.HideInstallRoboticon();
+                UIController.HideCustomiseRoboticon();
                 UIController.DisplayMessage("Install/Customise Roboticons, click next phase when finished!");
                 break;
             case 4:

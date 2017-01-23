@@ -84,11 +84,11 @@ public class UIController : MonoBehaviour {
         {
             if(t.ContainedTile.InstalledRoboticon.InstalledCustomisations.Count == 0)
             {
-                roboticonName = "Base Roboticon";
+                roboticonName = "Roboticon Installed: Base";
             }
             else
             {
-                roboticonName = t.ContainedTile.InstalledRoboticon.InstalledCustomisations[0].Name;
+                roboticonName = "Roboticon Installed: " + t.ContainedTile.InstalledRoboticon.InstalledCustomisations[0].Name;
             }
         }
         controller.selectedTilePanel.SetActive(true);
