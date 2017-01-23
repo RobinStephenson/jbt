@@ -2,33 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to represent a tile gameobject in the scene
+/// </summary>
 public class PhysicalTile : MonoBehaviour {
 
+    public GameObject AttachedRoboticonObject;
     private static int TotalTiles;
-    public static Tile selectedTile;
+    public static PhysicalTile selectedTile;
+    public static bool canSelect;
 
     public int Id;
-    public int Cost;
-    public int Ore;
-    public int Power;
+    public Tile ContainedTile;
 
-    public bool Bought;
-
-    public void Start()
+    public void Awake()
     {
-        Id = TotalTiles++;
-        Cost = Random.Range(5, 50);
-        Ore = Random.Range(0, 5);
-        Power = Random.Range(0, 5);
-        Bought = false;
+        Id = TotalTiles;
+        ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(1,6), Random.Range(1,6));
+        TotalTiles++;
     }
 
     public override bool Equals(object obj)
     {
-        if (!(obj is Tile))
+        if (!(obj is PhysicalTile))
             return false;
 
-        return Id == ((Tile)obj).Id;
+        return Id == ((PhysicalTile)obj).Id;
     }
 
     public override int GetHashCode()
@@ -38,15 +37,44 @@ public class PhysicalTile : MonoBehaviour {
 
     public void OnMouseEnter()
     {
+        if (!canSelect)
+            return;
         MakeSelected(this);
     }
 
     public void OnMouseExit()
     {
+        if (!canSelect)
+            return;
         ClearSelected();
     }
 
-    private static void MakeSelected(Tile t)
+    public void SetSprite(Sprite s)
+    {
+        GetComponent<SpriteRenderer>().sprite = s;
+    }
+
+    public void SetAttachedRoboticon(string path)
+    {
+        AttachedRoboticonObject = Instantiate(Resources.Load(path), transform.position, Quaternion.identity) as GameObject;
+        AttachedRoboticonObject.transform.parent = transform;
+    }
+
+    public void RemoveAttachedRoboticon()
+    {
+        Destroy(AttachedRoboticonObject);
+    }
+
+    public void SetAttachedRoboticonCustomisation(string path)
+    {
+        if(AttachedRoboticonObject == null)
+        {
+            return;
+        }
+        AttachedRoboticonObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
+    }
+
+    private static void MakeSelected(PhysicalTile t)
     {
         ClearSelected();
 
@@ -58,7 +86,7 @@ public class PhysicalTile : MonoBehaviour {
         selectedTile.GetComponent<SpriteRenderer>().color = tileColor;
     }
 
-    private static void ClearSelected()
+    public static void ClearSelected()
     {
         if (selectedTile != null)
         {
@@ -69,5 +97,20 @@ public class PhysicalTile : MonoBehaviour {
             selectedTile.GetComponent<SpriteRenderer>().color = tileColor;
             selectedTile = null;
         }
+    }
+
+    public int Price
+    {
+        get { return ContainedTile.Price; }
+    }
+
+    public int Ore
+    {
+        get { return ContainedTile.Ore; }
+    }
+
+    public int Power
+    {
+        get { return ContainedTile.Power; }
     }
 }

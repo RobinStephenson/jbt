@@ -4,20 +4,44 @@ using System;
 
 public abstract class AbstractPlayer
 {
-    protected Inventory Inventory;
-    protected InputController Input;
+    public string PlayerName { get; private set; }
+    public Sprite TileSprite { get; private set; }
+    public Inventory Inv;
     protected Market Market;
 
-    public abstract void DoPhaseOne(Timeout timeout);
-    public abstract void DoPhaseTwo(Timeout timeout);
-    public abstract void DoPhaseThree(Timeout timeout);
-    public abstract void DoPhaseFour();
-    public abstract void DoPhaseFive();
+    public abstract bool DoPhaseOne(Tile t);
+    public abstract bool DoPhaseTwo(int amount);
+    public abstract bool DoPhaseThreeInstall(PhysicalTile t);
+    public abstract bool DoPhaseThreeCustomise(Roboticon r, RoboticonCustomisation rc);
+    public abstract Dictionary<ItemType, int> DoPhaseFour();
+    public abstract bool DoPhaseFiveBuy(ItemType t, int amount);
+    public abstract bool DoPhaseFiveSell(ItemType t, int amount);
 
-    protected AbstractPlayer(InputController inputController, Inventory inv, Market market)
+    protected AbstractPlayer(string playerName, Inventory inv, Market market, Sprite tileSprite)
     {
-        Input = inputController;
-        Inventory = inv;
+        PlayerName = playerName;
+        Inv = inv;
         Market = market;
+        TileSprite = tileSprite;
+    }
+    
+    /// <summary>
+    /// The total amount of installed roboticons that this player has
+    /// </summary>
+    public int InstalledRoboticonCount
+    {
+        get
+        {
+            int amount = 0;
+            foreach(Tile t in Inv.Tiles)
+            {
+                if(t.InstalledRoboticon != null)
+                {
+                    amount++;
+                }
+            }
+
+            return amount;
+        }
     }
 }

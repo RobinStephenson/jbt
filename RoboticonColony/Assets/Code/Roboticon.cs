@@ -14,6 +14,7 @@ public class Roboticon
 
     public Roboticon(Tile selectedTile)
     {
+        InstalledCustomisations = new List<RoboticonCustomisation>();
         CurrentTile = selectedTile;
     }
 
@@ -25,13 +26,13 @@ public class Roboticon
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
         // check customisations prerequisites are installed
-        foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
-        {
-            if (!InstalledCustomisations.Contains(prerequisite))
-            {
-                throw new ArgumentException("Prerequisite customisations not installed");
-            }
-        }
+        //foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
+        //{
+        //    if (!InstalledCustomisations.Contains(prerequisite))
+        //    {
+        //        throw new ArgumentException("Prerequisite customisations not installed");
+        //    }
+        //}
         InstalledCustomisations.Add(customisation);
     }
 
@@ -48,7 +49,7 @@ public class Roboticon
             throw new ArgumentException("Roboticon is not valid");
         }
 
-        int CurrentBestMultiplier = 0;
+        int CurrentBestMultiplier = 1;
         foreach (RoboticonCustomisation customisation in InstalledCustomisations)
         {
             int NewMultiplier = customisation.GetMultiplier(itemType);

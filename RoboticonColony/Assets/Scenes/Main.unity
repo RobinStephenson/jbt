@@ -133,11 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &3673768
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -289,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -372, y: 71.399994}
+  m_AnchoredPosition: {x: -372, y: 56}
   m_SizeDelta: {x: 76, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19198704
@@ -330,7 +327,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 19198705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyRoboticonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &19198705
@@ -662,6 +670,7 @@ RectTransform:
   - {fileID: 1328964489}
   - {fileID: 623816089}
   - {fileID: 215045701}
+  - {fileID: 149077288}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -712,11 +721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &46944215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -876,11 +882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &84026925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1015,11 +1018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &96096292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104835800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: RemoveRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &104835800
@@ -1213,7 +1224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: 173}
   m_SizeDelta: {x: 725, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111908309
@@ -1402,11 +1413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &119496237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1632,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -51}
+  m_AnchoredPosition: {x: 0, y: -38}
   m_SizeDelta: {x: -309, y: -284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141393641
@@ -1674,6 +1682,68 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141393639}
+--- !u!1 &149077287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 149077288}
+  - component: {fileID: 149077290}
+  - component: {fileID: 149077289}
+  m_Layer: 5
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149077288
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 40334273}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149077289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &149077290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149077287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!1 &150240424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,11 +1786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &150240427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1837,7 +1904,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mikeywalsh: Production'
+  m_Text: Production
 --- !u!222 &152065669
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1886,11 +1953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &155832152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1982,11 +2046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &163320828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2146,11 +2207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &179677913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2307,7 +2365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.79999, y: -21.5}
+  m_AnchoredPosition: {x: -233.79999, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &191792146
@@ -2432,11 +2490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &207777406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2528,11 +2583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &207816899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2669,11 +2721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &215624151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2765,11 +2814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &222150324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2856,7 +2902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252.5, y: -21.5}
+  m_AnchoredPosition: {x: 252.5, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &223593362
@@ -2934,7 +2980,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Current:
 
-    Base'
+    {0}'
 --- !u!222 &223933776
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3057,11 +3103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &246480616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3153,11 +3196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &253209014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3275,7 +3315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sell - 05
+  m_Text: Sell - {0}
 --- !u!222 &254336337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3324,11 +3364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &256427192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3420,11 +3457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &273845519
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3590,11 +3624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &277169709
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3674,7 +3705,7 @@ RectTransform:
   m_Children:
   - {fileID: 850998935}
   m_Father: {fileID: 767934962}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3719,7 +3750,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 281740613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &281740613
@@ -3797,11 +3839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &305347534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3877,10 +3916,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 326405466}
   - {fileID: 844481034}
-  - {fileID: 1313636854}
   - {fileID: 1976159638}
+  - {fileID: 1313636854}
+  - {fileID: 326405466}
   m_Father: {fileID: 1328964489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3895,6 +3934,128 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316277372}
+--- !u!1 &322273074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 322273075}
+  - component: {fileID: 322273078}
+  - component: {fileID: 322273077}
+  - component: {fileID: 322273076}
+  m_Layer: 5
+  m_Name: Cancel Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &322273075
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1396519887}
+  m_Father: {fileID: 1276377815}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -598, y: 44}
+  m_SizeDelta: {x: 146.4, y: 41.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &322273076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 322273077}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: CancelCustomiseRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &322273077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bd2d5582e179677448e7405c9baff239, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &322273078
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 322273074}
 --- !u!1 &326405465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,7 +4085,7 @@ RectTransform:
   - {fileID: 867498036}
   - {fileID: 1712245190}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4073,7 +4234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy - 08
+  m_Text: Buy - {0}
 --- !u!222 &339533381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4122,11 +4283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &344639773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4366,11 +4524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &357093172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4495,7 +4650,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365365541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &365365541
@@ -4647,11 +4813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &387256664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4817,11 +4980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &396065700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4913,11 +5073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &397347676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5000,6 +5157,7 @@ RectTransform:
   - {fileID: 141393640}
   - {fileID: 1534851605}
   - {fileID: 19198703}
+  - {fileID: 1137346122}
   m_Father: {fileID: 215045701}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5116,7 +5274,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 412394043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &412394043
@@ -5161,6 +5330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429270496}
   - component: {fileID: 429270495}
+  - component: {fileID: 429270497}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -5179,17 +5349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d3a9c782f8f2b469a534deeda28e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
   turnCount: 0
-  activePhase: 0
-  activePlayer: {fileID: 0}
+  phaseCount: 0
   TimerText: {fileID: 345426296}
-  TurnDisplay: {fileID: 497086995}
-  PhaseDisplay: {fileID: 393560840}
-  PlayerDisplay: {fileID: 1934902278}
-  selectedInfoPanel: {fileID: 29254506}
-  selectedInfoText: {fileID: 742051876}
 --- !u!4 &429270496
 Transform:
   m_ObjectHideFlags: 0
@@ -5203,6 +5365,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429270497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429270494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74a1bdc5975e32428d54ef0deaf56a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTilePanel: {fileID: 29254506}
+  selectedTileText: {fileID: 742051876}
+  baseTileText: 
+  TurnDisplay: {fileID: 497086995}
+  PhaseDisplay: {fileID: 393560840}
+  PlayerDisplay: {fileID: 1934902278}
+  MoneyDisplay: {fileID: 664753673}
+  OreDisplay: {fileID: 593775997}
+  PowerDisplay: {fileID: 1575384002}
+  RoboticonDisplay: {fileID: 1712245191}
+  MessageText: {fileID: 1080771205}
+  TimerText: {fileID: 345426296}
+  BuyRoboticonPanel: {fileID: 405640798}
+  MarketRoboticonStock: {fileID: 141393641}
+  baseRoboticonStockText: 
+  RoboticonPriceText: {fileID: 1137346124}
+  baseRoboticonPriceText: 
+  InstallRobitconPanel: {fileID: 1969057458}
+  CustomiseRoboticonPanel: {fileID: 1276377814}
+  CurrentCustomisationName: {fileID: 223933775}
+  CurrentCustomisationText: {fileID: 758472872}
+  CustomisationNameTemplate: 
+  CurrentCustomisationDescription: 
+  UpgradeOne: {fileID: 604609730}
+  UpgradeTwo: {fileID: 223593360}
+  CurrentUpgradeImage: {fileID: 897041278}
+  ProductionDisplay: {fileID: 440486306}
+  ProductionText: {fileID: 1868672148}
+  BaseProductionText: 
+  MarketPanel: {fileID: 1578565660}
+  OreStockText: {fileID: 197487734}
+  PowerStockText: {fileID: 1707819050}
+  StockTextTemplate: 
+  OreBuyText: {fileID: 339533380}
+  OreSellText: {fileID: 254336336}
+  PowerBuyText: {fileID: 474043777}
+  PowerSellText: {fileID: 1458490556}
+  BuyTextTemplate: 
+  SellTextTemplate: 
 --- !u!1 &437031590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,11 +5457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &437031593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5413,11 +5622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &444612313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5542,7 +5748,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 458443675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &458443675
@@ -5720,7 +5937,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Buy - 04
+  m_Text: Buy - {0}
 --- !u!222 &474043778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5803,7 +6020,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484143665}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyCustomisationPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &484143665
@@ -5955,11 +6183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &508026562
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6181,7 +6406,7 @@ RectTransform:
   m_Children:
   - {fileID: 1711945872}
   m_Father: {fileID: 953371215}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6226,7 +6451,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 529955577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &529955577
@@ -6368,7 +6604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 156.20012, y: 90.5}
+  m_AnchoredPosition: {x: 156.20012, y: 111}
   m_SizeDelta: {x: -541, y: -284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540857648
@@ -6452,11 +6688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &548567444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6548,11 +6781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &566117237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6644,11 +6874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &569651254
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6740,11 +6967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &585406720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6861,7 +7085,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 000
 --- !u!222 &593775998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6905,7 +7129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.8, y: -21.5}
+  m_AnchoredPosition: {x: 76.8, y: -3}
   m_SizeDelta: {x: 180.59998, y: 265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &604609732
@@ -7030,11 +7254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &610449251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7126,11 +7347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &614935081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7222,11 +7440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &615762046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7318,11 +7533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &620564860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7458,11 +7670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &641140549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7554,11 +7763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &659230727
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7650,11 +7856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &662996383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7820,11 +8023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &686252925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7984,11 +8184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &706248560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8341,11 +8538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &749570632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8462,7 +8656,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x01    x01
+  m_Text: x{0}    x{1}
 --- !u!222 &758472873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8511,11 +8705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &765519996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8597,8 +8788,8 @@ RectTransform:
   - {fileID: 458443673}
   - {fileID: 474043776}
   - {fileID: 1458490555}
-  - {fileID: 1706146964}
   - {fileID: 281740611}
+  - {fileID: 1706146964}
   - {fileID: 1550114571}
   m_Father: {fileID: 1578565661}
   m_RootOrder: 2
@@ -8730,11 +8921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &798618200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8826,11 +9014,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &800987383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8922,11 +9107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &809266280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9018,11 +9200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &818686001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9114,11 +9293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &839371372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9197,11 +9373,11 @@ RectTransform:
   - {fileID: 31339984}
   - {fileID: 664753672}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -166.9, y: 1.1}
+  m_AnchoredPosition: {x: -185.5, y: 1.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &844481035
@@ -9252,11 +9428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &846108517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9348,11 +9521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &849328723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9587,11 +9757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &865308306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9757,11 +9924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &866499598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9921,11 +10085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &873339754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10017,11 +10178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &874680163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10181,11 +10339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &896398359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10488,11 +10643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &918345612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10652,11 +10804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &942424181
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10781,7 +10930,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 943567161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: InstallRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &943567161
@@ -10917,8 +11077,8 @@ RectTransform:
   - {fileID: 1435185127}
   - {fileID: 339533379}
   - {fileID: 254336335}
-  - {fileID: 529955575}
   - {fileID: 1698932640}
+  - {fileID: 529955575}
   - {fileID: 276640532}
   m_Father: {fileID: 1578565661}
   m_RootOrder: 1
@@ -10976,11 +11136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &956807316
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11072,11 +11229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &957637858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11168,11 +11322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &967539833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11412,11 +11563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1026204830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11508,11 +11656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1060012104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11604,11 +11749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1076117612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11774,11 +11916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1088385620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11860,7 +11999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000012398, y: 34.7}
+  m_AnchoredPosition: {x: 0.000012398, y: 48}
   m_SizeDelta: {x: -595.9, y: -229.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097576985
@@ -11938,11 +12077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1103453999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12181,11 +12317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1116363031
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12235,6 +12368,81 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &1137346121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1137346122}
+  - component: {fileID: 1137346123}
+  - component: {fileID: 1137346124}
+  m_Layer: 5
+  m_Name: Price Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1137346122
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137346121}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1779711880}
+  m_Father: {fileID: 405640799}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -72}
+  m_SizeDelta: {x: -309, y: -284}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1137346123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137346121}
+--- !u!114 &1137346124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137346121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 28
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '{0}     each'
 --- !u!1 &1160808645
 GameObject:
   m_ObjectHideFlags: 0
@@ -12277,11 +12485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1160808648
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12373,11 +12578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1164048394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12469,11 +12671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1185040243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12565,11 +12764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1193280305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12661,11 +12857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1199217862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12894,11 +13087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1261331590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13064,11 +13254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1268524461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13160,11 +13347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1269570250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13230,7 +13414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276377815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13246,13 +13430,14 @@ RectTransform:
   - {fileID: 604609731}
   - {fileID: 223593361}
   - {fileID: 540857647}
+  - {fileID: 322273075}
   m_Father: {fileID: 215045701}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 3.999878, y: 167}
-  m_SizeDelta: {x: 725, y: 355}
+  m_SizeDelta: {x: 725, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276377816
 MonoBehaviour:
@@ -13329,11 +13514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1300146123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13484,7 +13666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25.3, y: 0.1}
+  m_AnchoredPosition: {x: -37.7, y: 0.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1313636855
@@ -13606,11 +13788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1344178058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13702,11 +13881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1350232019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13867,11 +14043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1393459669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13921,6 +14094,80 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &1396519886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1396519887}
+  - component: {fileID: 1396519889}
+  - component: {fileID: 1396519888}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1396519887
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 322273075}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.00000095367}
+  m_SizeDelta: {x: 30.4, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1396519888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 26
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Cancel
+--- !u!222 &1396519889
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396519886}
 --- !u!1 &1405606149
 GameObject:
   m_ObjectHideFlags: 0
@@ -13963,11 +14210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1405606152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14059,11 +14303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1412367248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14331,7 +14572,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435185129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1435185129
@@ -14409,11 +14661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1455539508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14531,7 +14780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sell - 14
+  m_Text: Sell - {0}
 --- !u!222 &1458490557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14580,11 +14829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1461877313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14815,11 +15061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1476179680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14911,11 +15154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1476180169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15162,11 +15402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1500311233
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15258,11 +15495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1513981676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15344,7 +15578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -85.099976, y: -106.10004}
+  m_AnchoredPosition: {x: -85.099976, y: -121}
   m_SizeDelta: {x: -473.80005, y: -284.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534851606
@@ -15428,11 +15662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1539944504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15598,11 +15829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1553548404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15787,7 +16015,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 000
 --- !u!222 &1575384003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15907,11 +16135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1606927772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16003,11 +16228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1609312840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16099,11 +16321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1613347634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16195,11 +16414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1614203129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16291,11 +16507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1645381216
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16387,11 +16600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1652654531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16625,11 +16835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1696206151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16709,7 +16916,7 @@ RectTransform:
   m_Children:
   - {fileID: 797502261}
   m_Father: {fileID: 953371215}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16754,7 +16961,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1698932642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1698932642
@@ -16820,7 +17038,7 @@ RectTransform:
   m_Children:
   - {fileID: 534232301}
   m_Father: {fileID: 767934962}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16865,7 +17083,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1706146966}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1706146966
@@ -17017,11 +17246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1708488076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17113,11 +17339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1708904688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17357,11 +17580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1732503836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17527,11 +17747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1736664130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17656,7 +17873,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748798576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: NextPhase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1748798576
@@ -17734,11 +17962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1759286068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17864,7 +18089,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765448355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyCustomisationPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1765448355
@@ -17900,6 +18136,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765448352}
+--- !u!1 &1779711879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1779711880}
+  - component: {fileID: 1779711882}
+  - component: {fileID: 1779711881}
+  m_Layer: 5
+  m_Name: Money Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1779711880
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779711879}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1137346122}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20.8, y: -1}
+  m_SizeDelta: {x: -390.10004, y: -46.100006}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1779711881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779711879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: aba3da36134d90f4cac0dd89d653b9a5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1779711882
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779711879}
 --- !u!1 &1795057961
 GameObject:
   m_ObjectHideFlags: 0
@@ -18016,11 +18320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1800795479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18186,11 +18487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1842314290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18282,11 +18580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1860262756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18406,10 +18701,10 @@ MonoBehaviour:
   m_Text: 'You produced:
 
 
-    027
+    {0}
 
 
-    019
+    {1}
 
 
     This turn!'
@@ -18529,11 +18824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1872398442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18699,11 +18991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1903267956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18869,11 +19158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1911472732
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19066,7 +19352,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930010247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: CancelInstallRoboticonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1930010247
@@ -19169,7 +19466,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ': Mikeywalsh'
+  m_Text: 'Player 1
+
+'
 --- !u!222 &1934902279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19360,11 +19659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1948875002
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19448,7 +19744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -284, y: 71.39999}
+  m_AnchoredPosition: {x: -284, y: 56}
   m_SizeDelta: {x: 76, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1955518809
@@ -19489,7 +19785,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1955518810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyRoboticonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1955518810
@@ -19694,11 +20001,11 @@ RectTransform:
   - {fileID: 5291820}
   - {fileID: 593775996}
   m_Father: {fileID: 316277373}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87.2, y: 1.1}
+  m_AnchoredPosition: {x: -112.8, y: 1.1}
   m_SizeDelta: {x: 57, y: 31.947998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1976159639
@@ -19749,11 +20056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1980862409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19845,11 +20149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1996847824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19941,11 +20242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &1997622815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20140,11 +20438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!61 &2008991063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20275,11 +20570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2016131614
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20371,11 +20663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2016719683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20467,11 +20756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2036875249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20705,11 +20991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2074725896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20801,11 +21084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2074845251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20897,11 +21177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2078122697
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21135,11 +21412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2115458819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21231,11 +21505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2128593360
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21327,11 +21598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d4ad9aa7bba649aac959db0bead73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttachedRoboticonObject: {fileID: 0}
   Id: 0
-  Cost: 0
-  Ore: 0
-  Power: 0
-  Bought: 0
 --- !u!212 &2142212016
 SpriteRenderer:
   m_ObjectHideFlags: 0

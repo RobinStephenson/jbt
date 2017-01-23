@@ -3,7 +3,10 @@ using System.Collections.Generic;
 
 sealed public class RoboticonCustomisation
 {
+    public static string BaseSpritePath = "Objects/BaseRobo";
+
     public string Name { get; private set; }
+    public string SpritePath { get; private set; }
 
     /// <summary>
     /// Prerequisite customisations that a roboticon must have in order for this one to be applied
@@ -21,11 +24,14 @@ sealed public class RoboticonCustomisation
     /// </summary>
     public int Price { get; private set; }
 
-    public RoboticonCustomisation(string name, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prerequisites, int price)
+    public RoboticonCustomisation(string name, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prerequisites, int price, string path)
     {
+        prerequisites = new List<RoboticonCustomisation>();
+
         Name = name;
         ProductionMultipliers = bonuses;
         Price = price;
+        SpritePath = path;
     }
 
     /// <summary>

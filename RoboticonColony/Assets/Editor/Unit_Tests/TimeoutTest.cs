@@ -18,8 +18,8 @@ public class TimeoutTest {
     public void InvalidConstructionTest()
     {
         // Trying to create a timeout with less than 1 second should throw an error
-        Assert.True(TestHelper.Throws(() => new Timeout(0), typeof(ArgumentOutOfRangeException)));
-        Assert.True(TestHelper.Throws(() => new Timeout(-1), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Timeout(0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Timeout(-16));
     }
 
     [Test]
