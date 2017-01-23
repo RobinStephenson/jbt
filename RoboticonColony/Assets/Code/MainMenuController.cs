@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
 
-    public static string PlayerOneName = "Player One";
-    public static string PlayerTwoName = "Player Two";
+    public static string PlayerOneName = "Player 1";
+    public static string PlayerTwoName = "Player 2";
 
     public Text PlayerOneNameText;
     public Text PlayerTwoNameText;
@@ -16,7 +16,7 @@ public class MainMenuController : MonoBehaviour {
     {
         if (PlayerOneNameText.text.Length == 0)
         {
-            PlayerOneName = "Player One";
+            PlayerOneName = "Player 1";
         }
         else
         {
@@ -25,7 +25,7 @@ public class MainMenuController : MonoBehaviour {
 
         if (PlayerTwoNameText.text.Length == 0)
         {
-            PlayerTwoName = "Player Two";
+            PlayerTwoName = "Player 2";
         }
         else
         {
