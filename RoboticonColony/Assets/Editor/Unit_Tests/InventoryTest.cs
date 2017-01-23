@@ -140,7 +140,19 @@ public class InventoryTest
     [Test]
     public void SuccessfulTileTransfer()
     {
-        Assert.Fail();
+        Tile tile = new global::Tile(1, 5, 2, 3);
+        Inventory playerInv = new Inventory(100, 10, 10, 10);
+        Inventory playerToInv = new Inventory(100, 10, 10, 10);
+        HumanPlayer player = new HumanPlayer("P1", playerInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
+        HumanPlayer playerTo = new HumanPlayer("p2", playerToInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
+        playerInv.AddTile(tile);
+        playerInv.TransferTile(tile, playerToInv);
+
+        //Check that both inventories have the right number of tiles after transfer and that the tile is contained in the new inventory
+        Assert.AreEqual(1, playerToInv.TileCount());
+        Assert.AreEqual(0, playerInv.TileCount());
+        Assert.Contains(tile, playerToInv.Tiles);
+
     }
 
     [Test]
