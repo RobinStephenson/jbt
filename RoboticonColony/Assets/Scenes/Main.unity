@@ -19466,7 +19466,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ': Mikeywalsh'
+  m_Text: 'Player 1
+
+'
 --- !u!222 &1934902279
 CanvasRenderer:
   m_ObjectHideFlags: 0
