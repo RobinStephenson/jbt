@@ -20,19 +20,19 @@ public class TurnController : MonoBehaviour {
     public Timeout currentTimer;
     
     //Hardcoded(for now) time limits for each phase
-    private int[] PhaseTimes = new int[5] { -1, 60, 60, -1, -1 };
+    private int[] PhaseTimes = new int[5] { -1, 40, 40, -1, -1 };
 
 	void Start () {
         //Get a list of all tiles to populate the market with
         List<Tile> allTiles = new List<Tile>();
-        Debug.Log(GameObject.Find("Tiles").transform.childCount.ToString());
+
         for (int i = 0; i < GameObject.Find("Tiles").transform.childCount; i++)
         {
             allTiles.Add(GameObject.Find("Tiles").transform.GetChild(i).GetComponent<PhysicalTile>().ContainedTile);
         }
 
-        //Create Market instance for this game and populate it with the new tiles
-        Inventory marketInv = new Inventory(500, 10, 10, 10);
+        //Create Market instance for this game and populate it with the new tiles and starting inventory values
+        Inventory marketInv = new Inventory(500, 0, 16, 12);
         market = new Market(marketInv,5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
 
@@ -63,12 +63,6 @@ public class TurnController : MonoBehaviour {
         if(currentTimer.Finished && (phaseCount == 2 || phaseCount == 3))
         {
             NextPhase();
-        }
-
-        if (PhysicalTile.selectedTile != null)
-        {
-            Debug.Log(market.Stock.TileCount().ToString());
-            Debug.Log(market.Stock.Tiles.Contains(PhysicalTile.selectedTile.ContainedTile));
         }
         
         UIController.UpdateTimerDisplay(currentTimer);
@@ -146,9 +140,6 @@ public class TurnController : MonoBehaviour {
         }
         else if(activePlayer == player1)
         {
-            Debug.Log((activePlayer == player1).ToString());
-            Debug.Log(player1.PlayerName);
-            Debug.Log(player2.PlayerName);
             activePlayer = player2;
         }
         else
