@@ -42,6 +42,7 @@ public class UIController : MonoBehaviour {
     public GameObject CustomiseRoboticonPanel;
     public Text CurrentCustomisationName;
     public Text CurrentCustomisationText;
+    public string CustomisationNameTemplate;
     public string CurrentCustomisationDescription;
     public GameObject UpgradeOne;
     public GameObject UpgradeTwo;
@@ -64,6 +65,7 @@ public class UIController : MonoBehaviour {
         baseRoboticonStockText = MarketRoboticonStock.text;
         BaseProductionText = ProductionText.text;
         CurrentCustomisationDescription = CurrentCustomisationText.text;
+        CustomisationNameTemplate = CurrentCustomisationName.text;
     }
 	
 	void Update () {
@@ -72,8 +74,25 @@ public class UIController : MonoBehaviour {
 
     public static void DisplayTileInfo(PhysicalTile t)
     {
+        string roboticonName = "No roboticon installed";
+
+        if (t.ContainedTile.InstalledRoboticon == null)
+        {
+            roboticonName = "No roboticon installed";
+        }
+        else
+        {
+            if(t.ContainedTile.InstalledRoboticon.InstalledCustomisations.Count == 0)
+            {
+                roboticonName = "Base Roboticon";
+            }
+            else
+            {
+                roboticonName = t.ContainedTile.InstalledRoboticon.InstalledCustomisations[0].Name;
+            }
+        }
         controller.selectedTilePanel.SetActive(true);
-        controller.selectedTileText.text = string.Format(controller.baseTileText, t.ContainedTile.Owner == null? "Nobody" : t.ContainedTile.Owner.PlayerName, t.Price, t.Ore.ToString("00"), t.Power.ToString("00"), "No roboticon installed");
+        controller.selectedTileText.text = string.Format(controller.baseTileText, t.ContainedTile.Owner == null? "Nobody" : t.ContainedTile.Owner.PlayerName, t.Price, t.Ore.ToString("00"), t.Power.ToString("00"), roboticonName);
     }
 
     public static void HideTileInfo()
@@ -125,19 +144,27 @@ public class UIController : MonoBehaviour {
     public static void ShowCustomiseRoboticon(Roboticon rc)
     {
         string spritePath;
+        string customisationName;
 
         if (rc.InstalledCustomisations.Count == 0)
         {
             spritePath = "Sprites/BaseRobo";
+            customisationName = "Base";
+            ShowUpgrades();  
         }
         else
         {
             spritePath = rc.InstalledCustomisations[0].SpritePath;
+            customisationName = rc.InstalledCustomisations[0].Name;
+
+            //Remove upgrades shown for now if an upgrade has been applied
+            HideUpgrades();
         }
 
         controller.CustomiseRoboticonPanel.SetActive(true);
 
         controller.CurrentUpgradeImage.sprite = Resources.Load<Sprite>(spritePath);
+        controller.CurrentCustomisationName.text = string.Format(controller.CustomisationNameTemplate, customisationName);
         controller.CurrentCustomisationText.text = string.Format(controller.CurrentCustomisationDescription, rc.ProductionMultiplier(ItemType.Ore).ToString("00"), rc.ProductionMultiplier(ItemType.Power).ToString("00"));
     }
 

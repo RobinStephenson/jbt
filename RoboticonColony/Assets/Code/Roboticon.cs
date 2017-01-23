@@ -26,13 +26,13 @@ public class Roboticon
     public void AddCustomisation(RoboticonCustomisation customisation)
     {
         // check customisations prerequisites are installed
-        foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
-        {
-            if (!InstalledCustomisations.Contains(prerequisite))
-            {
-                throw new ArgumentException("Prerequisite customisations not installed");
-            }
-        }
+        //foreach (RoboticonCustomisation prerequisite in customisation.Prerequisites)
+        //{
+        //    if (!InstalledCustomisations.Contains(prerequisite))
+        //    {
+        //        throw new ArgumentException("Prerequisite customisations not installed");
+        //    }
+        //}
         InstalledCustomisations.Add(customisation);
     }
 

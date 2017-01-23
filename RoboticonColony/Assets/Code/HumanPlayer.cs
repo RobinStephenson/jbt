@@ -14,21 +14,6 @@ public class HumanPlayer : AbstractPlayer
     {
     }
 
-    private bool CanBuyCheapest()
-    {
-        int CheapestTilePrice = int.MaxValue;
-        //TODO: Uncomment when estateagent is merged
-        //foreach (Tile UnsoldTile in Market.GetUnsoldTiles())
-        //{
-        //    int CurrentTilePrice = Market.GetTilePrice(UnsoldTile);
-        //    if (CurrentTilePrice < CheapestTilePrice)
-        //    {
-        //        CheapestTilePrice = CurrentTilePrice;
-        //    }
-        //}
-        return CheapestTilePrice <= Inv.Money;
-    }
-
     public override bool DoPhaseOne(Tile t)
     {
         try
@@ -48,7 +33,6 @@ public class HumanPlayer : AbstractPlayer
         {
             throw;
         }
-
     }
 
     public override bool DoPhaseTwo(int amount)
@@ -86,9 +70,17 @@ public class HumanPlayer : AbstractPlayer
         }
     }
 
-    public override bool DoPhaseThreeCustomise(PhysicalTile t, RoboticonCustomisation rc)
+    public override bool DoPhaseThreeCustomise(Roboticon r, RoboticonCustomisation rc)
     {
-        return true;
+        try
+        {
+            Market.BuyCustomisation(rc, r, Inv);
+            return true;
+        }
+        catch (ArgumentException)
+        {
+            return false;
+        }
     }
 
     public override Dictionary<ItemType,int> DoPhaseFour()

@@ -191,7 +191,7 @@ sealed public class Market
         }
         else
         {
-            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+            throw new ArgumentException("Not enough money in inventory to buy this customisation.");
         }
 
     }

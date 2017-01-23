@@ -26,6 +26,8 @@ sealed public class RoboticonCustomisation
 
     public RoboticonCustomisation(string name, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prerequisites, int price, string path)
     {
+        prerequisites = new List<RoboticonCustomisation>();
+
         Name = name;
         ProductionMultipliers = bonuses;
         Price = price;

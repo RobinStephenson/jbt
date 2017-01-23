@@ -40,9 +40,11 @@ public class TurnController : MonoBehaviour {
         Dictionary<ItemType, int> oreIBonus = new Dictionary<ItemType, int>();
         Dictionary<ItemType, int> powerIBonus = new Dictionary<ItemType, int>();
         oreIBonus[ItemType.Ore] = 2;
+        oreIBonus[ItemType.Power] = 1;
+        powerIBonus[ItemType.Ore] = 1;
         powerIBonus[ItemType.Power] = 2;
         RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Sprites/OreRobo");
-        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Sprites/PowerRobo");
+        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Sprites/EnergyRobo");
         market.AddCustomisation(oreI);
         market.AddCustomisation(powerI);
 
@@ -228,7 +230,7 @@ public class TurnController : MonoBehaviour {
         if (activePlayer.DoPhaseThreeInstall(PhysicalTile.selectedTile))
         {
             UIController.HideInstallRoboticon();
-            PhysicalTile.canSelect = true;
+            UIController.ShowCustomiseRoboticon(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon);
             UIController.DisplayMessage("Installed Roboticon!");
         }
         else
@@ -254,6 +256,28 @@ public class TurnController : MonoBehaviour {
         PhysicalTile.selectedTile.ContainedTile.RemoveRoboticon();
         PhysicalTile.selectedTile.RemoveAttachedRoboticon();
         UIController.HideCustomiseRoboticon();
-        PhysicalTile.canSelect = true;
+        UIController.ShowInstallRoboticon();
+    }
+    
+    public void BuyCustomisationPressed(int customisationIndex)
+    {
+        if (activePlayer.DoPhaseThreeCustomise(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon, market.CustomisationsList[customisationIndex]))
+        {
+            UIController.DisplayMessage("Customised Roboticon");
+            PhysicalTile.selectedTile.SetAttachedRoboticonCustomisation(market.CustomisationsList[customisationIndex].SpritePath);
+
+            //Refresh the panel to show the bought customisation
+            UIController.ShowCustomiseRoboticon(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon);
+        }
+        else
+        {
+            UIController.DisplayMessage("You can't afford this customistaion");
+        }
+    }
+
+    //Hardcoded to power I for now
+    public void BuyCustomisationTwoPressed()
+    {
+
     }
 }

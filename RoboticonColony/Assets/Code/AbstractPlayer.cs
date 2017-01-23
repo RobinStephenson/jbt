@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-using UnityEngine;
 
 public abstract class AbstractPlayer
 {
@@ -13,7 +12,7 @@ public abstract class AbstractPlayer
     public abstract bool DoPhaseOne(Tile t);
     public abstract bool DoPhaseTwo(int amount);
     public abstract bool DoPhaseThreeInstall(PhysicalTile t);
-    public abstract bool DoPhaseThreeCustomise(PhysicalTile t, RoboticonCustomisation rc);
+    public abstract bool DoPhaseThreeCustomise(Roboticon r, RoboticonCustomisation rc);
     public abstract Dictionary<ItemType, int> DoPhaseFour();
 
     protected AbstractPlayer(string playerName, Inventory inv, Market market, Sprite tileSprite)

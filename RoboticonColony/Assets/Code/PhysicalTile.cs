@@ -65,6 +65,15 @@ public class PhysicalTile : MonoBehaviour {
         Destroy(AttachedRoboticonObject);
     }
 
+    public void SetAttachedRoboticonCustomisation(string path)
+    {
+        if(AttachedRoboticonObject == null)
+        {
+            return;
+        }
+        AttachedRoboticonObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
+    }
+
     private static void MakeSelected(PhysicalTile t)
     {
         ClearSelected();
