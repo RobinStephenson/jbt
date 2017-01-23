@@ -140,6 +140,7 @@ public class InventoryTest
     [Test]
     public void SuccessfulTileTransfer()
     {
+        //creates 2 players, adds a tile to one of the players' inventories then transfers the tile
         Tile tile = new global::Tile(1, 5, 2, 3);
         Inventory playerInv = new Inventory(100, 10, 10, 10);
         Inventory playerToInv = new Inventory(100, 10, 10, 10);
@@ -152,13 +153,21 @@ public class InventoryTest
         Assert.AreEqual(1, playerToInv.TileCount());
         Assert.AreEqual(0, playerInv.TileCount());
         Assert.Contains(tile, playerToInv.Tiles);
-
     }
 
     [Test]
     public void FailedTileTransfer()
     {
-        Assert.Fail();
+        //creates 2 players and adds a tile to one of the players' inventories
+        Tile tile = new global::Tile(1, 5, 2, 3);
+        Inventory playerInv = new Inventory(100, 10, 10, 10);
+        Inventory playerToInv = new Inventory(100, 10, 10, 10);
+        HumanPlayer player = new HumanPlayer("P1", playerInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
+        HumanPlayer playerTo = new HumanPlayer("p2", playerToInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
+        playerToInv.AddTile(tile);
+        
+        //Checks that an exception is thrown if the player does not own the tile being transferred
+        Assert.Throws<ArgumentOutOfRangeException>(() => playerInv.TransferTile(tile, playerToInv));
     }
 
     /// <summary>
