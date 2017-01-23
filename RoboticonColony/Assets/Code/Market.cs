@@ -34,6 +34,8 @@ sealed public class Market
         buyprice = new Dictionary<ItemType, int>();
         sellprice = new Dictionary<ItemType, int>();
 
+        CustomisationsList = new List<RoboticonCustomisation>();
+
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         buyprice[ItemType.Ore] = oreBuyPrice;
         buyprice[ItemType.Power] = powerBuyPrice;
@@ -150,17 +152,9 @@ sealed public class Market
         }
     }
   
-    /// <summary>
-    /// Creates an customisation type for roboticons.
-    /// </summary>
-    /// <param name="selectedName"> The name of the customisation. </param>
-    /// <param name="bonusMult"> The multiplier which the production will be boosted by. </param>
-    /// <param name="prereq"> The list of other customisations which must completed already before this customisation can be applied. </param>
-    /// <param name="selectedResource"> The type of resource which the customisation augments. </param>
-    /// <param name="reqPrice"> The required price of the customisation. </param>
-    private void CreateCustomisations(string selectedName, Dictionary<ItemType, int> bonuses, List<RoboticonCustomisation> prereq, ItemType selectedResource, int reqPrice)
+    public void AddCustomisation(RoboticonCustomisation rc)
     {
-        CustomisationsList.Add(new RoboticonCustomisation(selectedName, bonuses, prereq, reqPrice));
+        CustomisationsList.Add(rc);
     }
 
     public int GetTilePrice(Tile tile)
@@ -169,15 +163,16 @@ sealed public class Market
     }
   
     /// <summary>
-    /// Adds a roboticon to the market stock.
+    /// Converts up to 5 ore in the markets inventory into roboticons per turn
     /// </summary>
     public void BuyRoboticonOre()
     {
-        //TODO: Update to not use negative numbers, as this will no longer work with inventory in future
-        if (Stock.GetItemAmount(ItemType.Ore) > 0)
+        int converted = 0;
+        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 5)
         {
-            Stock.AddItem(ItemType.Ore, -1);
+            Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
+            converted++;
         }
     }
 
@@ -192,11 +187,11 @@ sealed public class Market
         if (inventory.Money > customisation.Price)
         {
             roboticon.AddCustomisation(customisation);
-            inventory.AddMoney(-customisation.Price);
+            inventory.SubtractMoney(customisation.Price);
         }
         else
         {
-            throw new ArgumentException("Not enough money in inventory to buy this customisation. ");
+            throw new ArgumentException("Not enough money in inventory to buy this customisation.");
         }
 
     }

@@ -7,19 +7,19 @@ using UnityEngine;
 /// </summary>
 public class PhysicalTile : MonoBehaviour {
 
+    public GameObject AttachedRoboticonObject;
     private static int TotalTiles;
     public static PhysicalTile selectedTile;
+    public static bool canSelect;
 
     public int Id;
     public Tile ContainedTile;
 
-    public bool Bought;
-
-    public void Start()
+    public void Awake()
     {
-        Id = TotalTiles++;
-        ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(5, 50), Random.Range(5, 50));
-        Bought = false;
+        Id = TotalTiles;
+        ContainedTile = new Tile(Id, Random.Range(5, 50), Random.Range(1,6), Random.Range(1,6));
+        TotalTiles++;
     }
 
     public override bool Equals(object obj)
@@ -37,17 +37,41 @@ public class PhysicalTile : MonoBehaviour {
 
     public void OnMouseEnter()
     {
+        if (!canSelect)
+            return;
         MakeSelected(this);
     }
 
     public void OnMouseExit()
     {
+        if (!canSelect)
+            return;
         ClearSelected();
     }
 
     public void SetSprite(Sprite s)
     {
         GetComponent<SpriteRenderer>().sprite = s;
+    }
+
+    public void SetAttachedRoboticon(string path)
+    {
+        AttachedRoboticonObject = Instantiate(Resources.Load(path), transform.position, Quaternion.identity) as GameObject;
+        AttachedRoboticonObject.transform.parent = transform;
+    }
+
+    public void RemoveAttachedRoboticon()
+    {
+        Destroy(AttachedRoboticonObject);
+    }
+
+    public void SetAttachedRoboticonCustomisation(string path)
+    {
+        if(AttachedRoboticonObject == null)
+        {
+            return;
+        }
+        AttachedRoboticonObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
     }
 
     private static void MakeSelected(PhysicalTile t)
@@ -62,7 +86,7 @@ public class PhysicalTile : MonoBehaviour {
         selectedTile.GetComponent<SpriteRenderer>().color = tileColor;
     }
 
-    private static void ClearSelected()
+    public static void ClearSelected()
     {
         if (selectedTile != null)
         {

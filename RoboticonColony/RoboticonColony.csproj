@@ -83,7 +83,6 @@
     <Compile Include="Assets\Code\Exceptions\TileAlreadyOwnedException.cs" />
     <Compile Include="Assets\Code\Exceptions\TransactionException.cs" />
     <Compile Include="Assets\Code\HumanPlayer.cs" />
-    <Compile Include="Assets\Code\InputController.cs" />
     <Compile Include="Assets\Code\Inventory.cs" />
     <Compile Include="Assets\Code\ItemType.cs" />
     <Compile Include="Assets\Code\MainMenuController.cs" />

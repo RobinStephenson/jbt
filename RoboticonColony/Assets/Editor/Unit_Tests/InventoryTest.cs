@@ -36,7 +36,7 @@ public class InventoryTest
     public void CreateNegativeInventory()
     {
         //Attempt to create an inventory with some negative items, which should not work and return an error
-        Assert.True(TestHelper.Throws(() => NegativeInventory(), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => NegativeInventory());
     }
 
     [Test]
@@ -79,10 +79,10 @@ public class InventoryTest
         Inventory inv2 = new Inventory(10, 11, 12, 13);
 
         //Attempt to transfer 2 money from inv1 to inv2, even though inv1 only has 1 money, which should throw an error
-        Assert.True(TestHelper.Throws(() => inv1.TransferMoney(2, inv2), typeof(NotEnoughMoneyException)));
+        Assert.Throws<NotEnoughMoneyException>(() => inv1.TransferMoney(2, inv2));
 
         //Attempt to transfer -1 money from inv1 to inv2, which should throw an error as it is not possible
-        Assert.True(TestHelper.Throws(() => inv1.TransferMoney(-1, inv2), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => inv1.TransferMoney(-1, inv2));
 
         //Check that both inventories still have the amount of money they started with
         Assert.AreEqual(1, inv1.Money);
@@ -112,10 +112,10 @@ public class InventoryTest
         Inventory inv2 = new Inventory(8, 2, 4, 7);
 
         //Attempt to transfer 5 power from inv2 to inv1, even though inv2 only has 4 power, which should throw an error
-        Assert.True(TestHelper.Throws(() => inv2.TransferItem(ItemType.Power, 5, inv1), typeof(NotEnoughItemException)));
+        Assert.Throws<NotEnoughItemException>(() => inv2.TransferItem(ItemType.Power, 5, inv1));
 
         //Attempt to transfer -2 power from inv2 to inv1, which should throw an error as it is not possible
-        Assert.True(TestHelper.Throws(() => inv2.TransferItem(ItemType.Power, -2, inv1), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => inv2.TransferItem(ItemType.Power, -2, inv1));
 
         //Check that the two inventories still have the same amount of power they started with
         Assert.AreEqual(2, inv1.GetItemAmount(ItemType.Power));

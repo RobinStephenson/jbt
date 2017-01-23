@@ -130,7 +130,6 @@
     <Compile Include="Assets\Editor\Unit_Tests\MarketTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\RoboticonCustomisationTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\RoboticonTest.cs" />
-    <Compile Include="Assets\Editor\Unit_Tests\TestHelper.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\TileTest.cs" />
     <Compile Include="Assets\Editor\Unit_Tests\TimeoutTest.cs" />
   </ItemGroup>
