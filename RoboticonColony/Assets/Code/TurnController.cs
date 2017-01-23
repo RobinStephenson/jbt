@@ -32,7 +32,7 @@ public class TurnController : MonoBehaviour {
         }
 
         //Create Market instance for this game and populate it with the new tiles and starting inventory values
-        Inventory marketInv = new Inventory(500, 0, 16, 12);
+        Inventory marketInv = new Inventory(99999999, 0, 16, 12);
         market = new Market(marketInv,5,6,3,5,3,5);
         market.Stock.SetTiles(allTiles);
 
@@ -51,8 +51,8 @@ public class TurnController : MonoBehaviour {
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
-        player1 = new HumanPlayer("Player 1", p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
-        player2 = new HumanPlayer("Player 2", p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
+        player1 = new HumanPlayer(MainMenuController.PlayerOneName, p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
+        player2 = new HumanPlayer(MainMenuController.PlayerTwoName, p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
 
         //Start the game
         NextPhase();
