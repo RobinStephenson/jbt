@@ -214,4 +214,22 @@ public class MarketTest
     {
         return new Market(4, 5, 6, 2, -3, 5);
     }
+
+    [Test]
+    public void SuccessfulBuyTile()
+    {
+        //Creates a market and player and their inventories and assigns a tile to the market
+        Inventory marketInv = new Inventory(150, 6, 7, 2);
+        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
+        Inventory playerInv = new Inventory(50, 0, 0, 0);
+        HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
+        Tile tile = new Tile(2, 23, 4, 3);
+        marketInv.AddTile(tile);
+        //Gets player to buy the tile
+        market.BuyTile(tile, player);
+
+        //Checks that the tile is in the player's inventory and that the player's money has been reduced by the tile price
+        Assert.Contains(tile, playerInv.Tiles);
+        Assert.AreEqual(50 - 23, playerInv.Money);
+    }
 }
