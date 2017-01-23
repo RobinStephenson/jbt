@@ -125,7 +125,14 @@ public class UIController : MonoBehaviour {
 
     public static void UpdateTimerDisplay(Timeout t)
     {
-        controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
+        if (t.SecondsRemaining == -1)
+        {
+            controller.TimerText.text = "Infinite";
+        }
+        else
+        {
+            controller.TimerText.text = t.SecondsRemaining.ToString() + "s";
+        }
     }
 
     public static void UpdateResourceDisplay(AbstractPlayer player)

@@ -20,7 +20,7 @@ public class TurnController : MonoBehaviour {
     public Timeout currentTimer;
     
     //Hardcoded(for now) time limits for each phase
-    private int[] PhaseTimes = new int[5] { 5, 60, 60, 60, 60 };
+    private int[] PhaseTimes = new int[5] { -1, 60, 60, -1, -1 };
 
 	void Start () {
         //Get a list of all tiles to populate the market with
@@ -59,7 +59,8 @@ public class TurnController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if(currentTimer.Finished)
+        //The timer is only used in phase 2 and 3, as per the requirements
+        if(currentTimer.Finished && (phaseCount == 2 || phaseCount == 3))
         {
             NextPhase();
         }
