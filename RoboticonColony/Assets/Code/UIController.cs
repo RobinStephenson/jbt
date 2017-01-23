@@ -53,6 +53,18 @@ public class UIController : MonoBehaviour {
     public Text ProductionText;
     public string BaseProductionText;
 
+    //Phase 5 variables
+    public GameObject MarketPanel;
+    public Text OreStockText;
+    public Text PowerStockText;
+    public string StockTextTemplate;
+    public Text OreBuyText;
+    public Text OreSellText;
+    public Text PowerBuyText;
+    public Text PowerSellText;
+    public string BuyTextTemplate;
+    public string SellTextTemplate;
+
     private void Awake()
     {
         //Set the static reference to the controller to the only controller in the scene
@@ -66,11 +78,10 @@ public class UIController : MonoBehaviour {
         BaseProductionText = ProductionText.text;
         CurrentCustomisationDescription = CurrentCustomisationText.text;
         CustomisationNameTemplate = CurrentCustomisationName.text;
+        StockTextTemplate = OreStockText.text;
+        BuyTextTemplate = OreBuyText.text;
+        SellTextTemplate = OreSellText.text;
     }
-	
-	void Update () {
-        
-	}
 
     public static void DisplayTileInfo(PhysicalTile t)
     {
@@ -189,23 +200,29 @@ public class UIController : MonoBehaviour {
         controller.ProductionDisplay.SetActive(false);
     }
 
-    public static void ShowMarketDisplay()
+    public static void ShowMarketDisplay(Market m)
     {
-
+        controller.MarketPanel.SetActive(true);
+        controller.OreStockText.text = string.Format(controller.StockTextTemplate, m.Stock.GetItemAmount(ItemType.Ore).ToString("00"));
+        controller.PowerStockText.text = string.Format(controller.StockTextTemplate, m.Stock.GetItemAmount(ItemType.Power).ToString("00"));
+        controller.OreBuyText.text = string.Format(controller.BuyTextTemplate, m.GetBuyPrice(ItemType.Ore).ToString("00"));
+        controller.PowerBuyText.text = string.Format(controller.BuyTextTemplate, m.GetBuyPrice(ItemType.Power).ToString("00"));
+        controller.OreSellText.text = string.Format(controller.SellTextTemplate, m.GetSellPrice(ItemType.Ore).ToString("00"));
+        controller.PowerSellText.text = string.Format(controller.SellTextTemplate, m.GetSellPrice(ItemType.Power).ToString("00"));
     }
 
     public static void HideMarketDisplay()
     {
-
+        controller.MarketPanel.SetActive(false);
     }
 
-    public static void ShowUpgrades()
+    private static void ShowUpgrades()
     {
         controller.UpgradeOne.SetActive(true);
         controller.UpgradeTwo.SetActive(true);
     }
 
-    public static void HideUpgrades()
+    private static void HideUpgrades()
     {
         controller.UpgradeOne.SetActive(false);
         controller.UpgradeTwo.SetActive(false);

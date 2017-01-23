@@ -101,6 +101,40 @@ public class HumanPlayer : AbstractPlayer
         return production;
     }
 
+    public override bool DoPhaseFiveBuy(ItemType t, int amount)
+    {
+        try
+        {
+            Market.Buy(t, amount, this);
+            return true;
+        }
+        catch (NotEnoughItemException)
+        {
+            return false;
+        }
+        catch (NotEnoughMoneyException)
+        {
+            return false;
+        }
+    }
+
+    public override bool DoPhaseFiveSell(ItemType t, int amount)
+    {
+        try
+        {
+            Market.Sell(t, amount, this);
+            return true;
+        }
+        catch (NotEnoughItemException)
+        {
+            return false;
+        }
+        catch (NotEnoughMoneyException)
+        {
+            return false;
+        }
+    }
+
     /// <summary>
     /// the maximum quanitity of an item a player can buy based on market stock and player money
     /// </summary>

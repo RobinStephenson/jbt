@@ -203,7 +203,7 @@ public class TurnController : MonoBehaviour {
                 PhysicalTile.ClearSelected();
                 PhysicalTile.canSelect = false;
                 UIController.HideProductionDisplay();
-                UIController.ShowMarketDisplay();
+                UIController.ShowMarketDisplay(market);
                 UIController.DisplayMessage("Buy/Sell from the market, then click next phase when finished!");
                 break;
         }
@@ -213,12 +213,64 @@ public class TurnController : MonoBehaviour {
     {
         if(activePlayer.DoPhaseTwo(amount))
         {
-            UIController.DisplayMessage("You bought " + amount.ToString() + " Roboticons!");
+            UIController.DisplayMessage("You bought " + amount.ToString() + " roboticons!");
             UIController.ShowBuyRoboticon(market);
         }
         else
         {
             UIController.DisplayMessage("Could not purchase the required amount of roboticons");
+        }
+    }
+
+    public void BuyOrePressed(int amount)
+    {
+        if (activePlayer.DoPhaseFiveBuy(ItemType.Ore, amount))
+        {
+            UIController.DisplayMessage("You bought " + amount.ToString() + " ore!");
+            UIController.ShowMarketDisplay(market);
+        }
+        else
+        {
+            UIController.DisplayMessage("Could not purchase the required amount of ore");
+        }
+    }
+
+    public void BuyPowerPressed(int amount)
+    {
+        if (activePlayer.DoPhaseFiveBuy(ItemType.Power, amount))
+        {
+            UIController.DisplayMessage("You bought " + amount.ToString() + " power!");
+            UIController.ShowMarketDisplay(market);
+        }
+        else
+        {
+            UIController.DisplayMessage("Could not purchase the required amount of power");
+        }
+    }
+
+    public void SellOrePressed(int amount)
+    {
+        if (activePlayer.DoPhaseFiveSell(ItemType.Ore, amount))
+        {
+            UIController.DisplayMessage("You sold " + amount.ToString() + " ore!");
+            UIController.ShowMarketDisplay(market);
+        }
+        else
+        {
+            UIController.DisplayMessage("Could not sell the required amount of ore");
+        }
+    }
+
+    public void SellPowerPressed(int amount)
+    {
+        if (activePlayer.DoPhaseFiveSell(ItemType.Power, amount))
+        {
+            UIController.DisplayMessage("You sold " + amount.ToString() + " power!");
+            UIController.ShowMarketDisplay(market);
+        }
+        else
+        {
+            UIController.DisplayMessage("Could not sell the required amount of power");
         }
     }
 
@@ -275,11 +327,5 @@ public class TurnController : MonoBehaviour {
         {
             UIController.DisplayMessage("You can't afford this customistaion");
         }
-    }
-
-    //Hardcoded to power I for now
-    public void BuyCustomisationTwoPressed()
-    {
-
     }
 }

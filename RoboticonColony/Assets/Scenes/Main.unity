@@ -3705,7 +3705,7 @@ RectTransform:
   m_Children:
   - {fileID: 850998935}
   m_Father: {fileID: 767934962}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3750,7 +3750,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 281740613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &281740613
@@ -4639,7 +4650,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365365541}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &365365541
@@ -5251,7 +5273,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 412394043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &412394043
@@ -5361,6 +5394,7 @@ MonoBehaviour:
   CustomiseRoboticonPanel: {fileID: 1276377814}
   CurrentCustomisationName: {fileID: 223933775}
   CurrentCustomisationText: {fileID: 758472872}
+  CustomisationNameTemplate: 
   CurrentCustomisationDescription: 
   UpgradeOne: {fileID: 604609730}
   UpgradeTwo: {fileID: 223593360}
@@ -5368,6 +5402,16 @@ MonoBehaviour:
   ProductionDisplay: {fileID: 440486306}
   ProductionText: {fileID: 1868672148}
   BaseProductionText: 
+  MarketPanel: {fileID: 1578565660}
+  OreStockText: {fileID: 197487734}
+  PowerStockText: {fileID: 1707819050}
+  StockTextTemplate: 
+  OreBuyText: {fileID: 339533380}
+  OreSellText: {fileID: 254336336}
+  PowerBuyText: {fileID: 474043777}
+  PowerSellText: {fileID: 1458490556}
+  BuyTextTemplate: 
+  SellTextTemplate: 
 --- !u!1 &437031590
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,7 +5745,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 458443675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &458443675
@@ -5962,7 +6017,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484143665}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyCustomisationPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &484143665
@@ -6337,7 +6403,7 @@ RectTransform:
   m_Children:
   - {fileID: 1711945872}
   m_Father: {fileID: 953371215}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6382,7 +6448,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 529955577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &529955577
@@ -8708,8 +8785,8 @@ RectTransform:
   - {fileID: 458443673}
   - {fileID: 474043776}
   - {fileID: 1458490555}
-  - {fileID: 1706146964}
   - {fileID: 281740611}
+  - {fileID: 1706146964}
   - {fileID: 1550114571}
   m_Father: {fileID: 1578565661}
   m_RootOrder: 2
@@ -10997,8 +11074,8 @@ RectTransform:
   - {fileID: 1435185127}
   - {fileID: 339533379}
   - {fileID: 254336335}
-  - {fileID: 529955575}
   - {fileID: 1698932640}
+  - {fileID: 529955575}
   - {fileID: 276640532}
   m_Father: {fileID: 1578565661}
   m_RootOrder: 1
@@ -13259,7 +13336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1276377815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14417,7 +14494,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435185129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1435185129
@@ -15872,7 +15960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1578565661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16750,7 +16838,7 @@ RectTransform:
   m_Children:
   - {fileID: 797502261}
   m_Father: {fileID: 953371215}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16795,7 +16883,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1698932642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellOrePressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1698932642
@@ -16861,7 +16960,7 @@ RectTransform:
   m_Children:
   - {fileID: 534232301}
   m_Father: {fileID: 767934962}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16906,7 +17005,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1706146966}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: SellPowerPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1706146966
@@ -17901,7 +18011,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1765448355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429270495}
+        m_MethodName: BuyCustomisationPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1765448355
