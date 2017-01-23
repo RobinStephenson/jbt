@@ -200,7 +200,7 @@ public class MarketTest
         Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
 
         //Attempt to buy roboticons with ore
-        market.BuyRoboticonOre();
+        market.NewTurn(5);
 
         //Check if the roboticon was bought and ore was taken
         Assert.AreEqual(7, market.Stock.GetItemAmount(ItemType.Roboticon));
