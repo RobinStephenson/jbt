@@ -5,7 +5,6 @@ using NUnit.Framework;
 
 public class MarketTest
 {
-
     [Test]
     public void CreateMarketWithoutInventory()
     {
@@ -38,7 +37,7 @@ public class MarketTest
     public void CreateNegativeMarket()
     {
         //Attempt to create a market with some negative prices, which should not work and return an error
-        Assert.True(TestHelper.Throws(() => NegativeMarket(), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => NegativeMarket());
     }
 
     [Test]
@@ -80,13 +79,13 @@ public class MarketTest
         HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to buy 5 power from the market at the cost of 11 each, more than the player can afford, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Power, 5, player), typeof(NotEnoughMoneyException)));
+        Assert.Throws<NotEnoughMoneyException>(() => market.Buy(ItemType.Power, 5, player));
 
         //Now try to buy 3 roboticons, when the market only has 2, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Buy(ItemType.Roboticon, 3, player), typeof(NotEnoughItemException)));
+        Assert.Throws<NotEnoughItemException>(() => market.Buy(ItemType.Roboticon, 3, player));
 
         //Now try to buy a negative amount of items from the market, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Ore, -4, player), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => market.Sell(ItemType.Ore, -4, player));
 
         //Check if the purchase was successful, which it shouldnt have been, and check if both inventories contain the same amount of roboticons and money
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
@@ -110,7 +109,7 @@ public class MarketTest
         HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to buy 3 power from the market at the cost of 11 each, which should work and not throw an exception
-        Assert.False(TestHelper.Throws(() => market.Buy(ItemType.Power, 3, player), typeof(TransactionException)));
+        market.Buy(ItemType.Power, 3, player);
 
         //Check if both inventories have been updated accordingly
         Assert.AreEqual(4, market.Stock.GetItemAmount(ItemType.Power));
@@ -134,13 +133,13 @@ public class MarketTest
         HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to sell 5 ore to the market at the cost of 9 each, which is more ore than the player has, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Ore, 5, player), typeof(NotEnoughItemException)));
+        Assert.Throws<NotEnoughItemException>(() => market.Sell(ItemType.Ore, 5, player));
 
         //Now try to sell 25 roboticons at 7 each, which the market cannot afford, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Roboticon, 25, player), typeof(NotEnoughMoneyException)));
+        Assert.Throws<NotEnoughMoneyException>(() => market.Sell(ItemType.Roboticon, 25, player));
 
         //Now try to sell a negative amount of items to the market, which should throw an exception
-        Assert.True(TestHelper.Throws(() => market.Sell(ItemType.Power, -2, player), typeof(ArgumentOutOfRangeException)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => market.Sell(ItemType.Power, -4, player));
 
         //Check if both inventories contain the same amount of roboticons and money
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
@@ -164,7 +163,7 @@ public class MarketTest
         HumanPlayer player = new HumanPlayer("p1", playerInv, market, new Sprite());
 
         //Attempt to sell 4 power to the market at the cost of 8 each, which should work and not throw an exception
-        Assert.False(TestHelper.Throws(() => market.Sell(ItemType.Power, 4, player), typeof(TransactionException)));
+        market.Sell(ItemType.Power, 4, player);
 
         //Check if both inventories have been updated accordingly
         Assert.AreEqual(11, market.Stock.GetItemAmount(ItemType.Power));
@@ -199,29 +198,12 @@ public class MarketTest
         //Create a market instance with the inventory
         Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
 
-        //Attempt to buy a roboticon with ore
+        //Attempt to buy roboticons with ore
         market.BuyRoboticonOre();
 
         //Check if the roboticon was bought and ore was taken
-        Assert.AreEqual(3, market.Stock.GetItemAmount(ItemType.Roboticon));
-        Assert.AreEqual(5, market.Stock.GetItemAmount(ItemType.Ore));
-    }
-
-    [Test]
-    public void FailedBuyRoboticonWithOre()
-    {
-        //Create an inventory instance
-        Inventory marketInv = new Inventory(150, 0, 7, 2);
-
-        //Create a market instance with the inventory
-        Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
-
-        //Attempt to buy a roboticon with ore
-        market.BuyRoboticonOre();
-
-        //Check to ensure the stock remains the same
-        Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
-        Assert.AreEqual(0, market.Stock.GetItemAmount(ItemType.Ore));
+        Assert.AreEqual(7, market.Stock.GetItemAmount(ItemType.Roboticon));
+        Assert.AreEqual(1, market.Stock.GetItemAmount(ItemType.Ore));
     }
 
     /// <summary>
