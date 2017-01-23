@@ -153,6 +153,8 @@ public class TurnController : MonoBehaviour {
         {
             turnCount++;
             phaseCount = 1;
+            //Convert ore to roboticons in market once per turn
+            market.NewTurn(5);
         }
 
         UIController.UpdateTurnInfo(turnCount, phaseCount, activePlayer.PlayerName);
@@ -185,11 +187,6 @@ public class TurnController : MonoBehaviour {
                 UIController.HideInstallRoboticon();
                 UIController.HideCustomiseRoboticon();
                 UIController.ShowProductionDisplay(activePlayer.DoPhaseFour());
-                //Convert ore to roboticons in market once per phase 4
-                if (activePlayer == player2)
-                {
-                    market.BuyRoboticonOre();
-                }
                 UIController.DisplayMessage("View your production, then click next phase!");
                 break;
             case 5:

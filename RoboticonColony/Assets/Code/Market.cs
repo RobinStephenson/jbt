@@ -161,19 +161,28 @@ sealed public class Market
     {
         return tile.Price;
     }
-  
+
     /// <summary>
-    /// Converts up to 5 ore in the markets inventory into roboticons per turn
+    /// Converts up to a selected amount of ore in the markets inventory into roboticons
     /// </summary>
-    public void BuyRoboticonOre()
+    /// <param name="maxAmount">The max amount to convert into roboticons</param>
+    private void BuyRoboticonOre(int maxAmount)
     {
         int converted = 0;
-        while(Stock.GetItemAmount(ItemType.Ore) > 0 && converted < 5)
+        while (Stock.GetItemAmount(ItemType.Ore) > 0 && converted < maxAmount)
         {
             Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
-            converted++;
         }
+    }
+
+    /// <summary>
+    /// Initiates a new turn sequence for the Market inventory.
+    /// </summary>
+    /// <param name="numRoboticons">The number of roboticons to attempt to buy this turn</param>
+    public void NewTurn(int numRoboticons)
+    {
+        BuyRoboticonOre(numRoboticons);
     }
 
     /// <summary>
