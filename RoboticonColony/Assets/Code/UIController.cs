@@ -36,6 +36,8 @@ public class UIController : MonoBehaviour {
     public GameObject BuyRoboticonPanel;
     public Text MarketRoboticonStock;
     public string baseRoboticonStockText;
+    public Text RoboticonPriceText;
+    public string baseRoboticonPriceText;
 
     //Phase 3 variables
     public GameObject InstallRobitconPanel;
@@ -75,6 +77,7 @@ public class UIController : MonoBehaviour {
         //Get the base tile description text, before formatting
         baseTileText = selectedTileText.text;
         baseRoboticonStockText = MarketRoboticonStock.text;
+        baseRoboticonPriceText = RoboticonPriceText.text;
         BaseProductionText = ProductionText.text;
         CurrentCustomisationDescription = CurrentCustomisationText.text;
         CustomisationNameTemplate = CurrentCustomisationName.text;
@@ -147,6 +150,7 @@ public class UIController : MonoBehaviour {
     {
         controller.BuyRoboticonPanel.SetActive(true);
         controller.MarketRoboticonStock.text = string.Format(controller.baseRoboticonStockText, m.Stock.GetItemAmount(ItemType.Roboticon));
+        controller.RoboticonPriceText.text = string.Format(controller.baseRoboticonPriceText, m.GetBuyPrice(ItemType.Roboticon).ToString("00"));
     }
 
     public static void HideBuyRoboticon()
