@@ -141,7 +141,7 @@ public class InventoryTest
     public void SuccessfulTileTransfer()
     {
         //creates 2 players, adds a tile to one of the players' inventories then transfers the tile
-        Tile tile = new global::Tile(1, 5, 2, 3);
+        Tile tile = new Tile(1, 5, 2, 3);
         Inventory playerInv = new Inventory(100, 10, 10, 10);
         Inventory playerToInv = new Inventory(100, 10, 10, 10);
         HumanPlayer player = new HumanPlayer("P1", playerInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
@@ -159,7 +159,7 @@ public class InventoryTest
     public void FailedTileTransfer()
     {
         //creates 2 players and adds a tile to one of the players' inventories
-        Tile tile = new global::Tile(1, 5, 2, 3);
+        Tile tile = new Tile(1, 5, 2, 3);
         Inventory playerInv = new Inventory(100, 10, 10, 10);
         Inventory playerToInv = new Inventory(100, 10, 10, 10);
         HumanPlayer player = new HumanPlayer("P1", playerInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
