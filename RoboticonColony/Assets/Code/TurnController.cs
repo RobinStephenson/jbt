@@ -39,10 +39,10 @@ public class TurnController : MonoBehaviour {
         //Create customisations for the Market
         Dictionary<ItemType, int> oreIBonus = new Dictionary<ItemType, int>();
         Dictionary<ItemType, int> powerIBonus = new Dictionary<ItemType, int>();
-        oreIBonus[ItemType.Ore] = 1;
-        oreIBonus[ItemType.Power] = 0;
-        powerIBonus[ItemType.Ore] = 0;
-        powerIBonus[ItemType.Power] = 1;
+        oreIBonus[ItemType.Ore] = 2;
+        oreIBonus[ItemType.Power] = 1;
+        powerIBonus[ItemType.Ore] = 1;
+        powerIBonus[ItemType.Power] = 2;
         RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Sprites/OreRobo");
         RoboticonCustomisation powerI = new RoboticonCustomisation("Power I", powerIBonus, null, 15, "Sprites/EnergyRobo");
         market.AddCustomisation(oreI);
@@ -81,6 +81,7 @@ public class TurnController : MonoBehaviour {
             }
         }
 
+        //Logic for selecting a tile in phase 1 and 3, these are the only phases where a user can select a tile
         if(phaseCount == 1)
         {
             if(Input.GetMouseButtonDown(0) && PhysicalTile.selectedTile != null)
