@@ -173,6 +173,7 @@ sealed public class Market
         {
             Stock.SubtractItem(ItemType.Ore, 1);
             Stock.AddItem(ItemType.Roboticon, 1);
+            converted += 1;
         }
     }
 
