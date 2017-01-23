@@ -35,4 +35,17 @@ public class TileTest
         Assert.AreEqual(production[ItemType.Ore], 3);
         Assert.AreEqual(production[ItemType.Power], 2);
     }
+    
+    [Test]
+    public void SuccessfulInstallRoboticon()
+    {
+        //Creates a new tile and assigns a roboticon to the tile
+        Tile tile = new Tile(2, 4, 3, 2);
+        Inventory playerInv = new Inventory(100, 10, 10, 10);
+        HumanPlayer player = new HumanPlayer("P1", playerInv, new Market(2, 2, 2, 2, 2, 2), new Sprite());
+        tile.InstallRoboticon(player);
+
+        //Checks that a roboticon is assigned to the tile
+        Assert.AreNotEqual(null, tile.InstalledRoboticon);
+    }
 }
