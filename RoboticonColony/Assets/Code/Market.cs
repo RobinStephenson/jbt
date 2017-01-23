@@ -192,7 +192,7 @@ sealed public class Market
         if (inventory.Money > customisation.Price)
         {
             roboticon.AddCustomisation(customisation);
-            inventory.AddMoney(-customisation.Price);
+            inventory.SubtractMoney(customisation.Price);
         }
         else
         {
