@@ -51,8 +51,8 @@ public class TurnController : MonoBehaviour {
         //Initialise players and inventories
         Inventory p1Inv = new Inventory(100, 10, 10, 0);
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
-        player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
-        player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
+        player1 = new HumanPlayer("Player 1", p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
+        player2 = new HumanPlayer("Player 2", p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
 
         //Start the game
         NextPhase();
