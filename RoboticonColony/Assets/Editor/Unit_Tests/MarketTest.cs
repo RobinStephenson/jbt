@@ -185,7 +185,7 @@ public class MarketTest {
         Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
 
         //Attempt to buy a roboticon with ore
-        market.BuyRoboticonOre();
+        market.NewTurn(1);
 
         //Check if the roboticon was bought and ore was taken
         Assert.AreEqual(3, market.Stock.GetItemAmount(ItemType.Roboticon));
@@ -202,7 +202,7 @@ public class MarketTest {
         Market market = new Market(marketInv, 10, 11, 12, 9, 8, 7);
 
         //Attempt to buy a roboticon with ore
-        market.BuyRoboticonOre();
+        market.NewTurn(1);
 
         //Check to ensure the stock remains the same
         Assert.AreEqual(2, market.Stock.GetItemAmount(ItemType.Roboticon));
