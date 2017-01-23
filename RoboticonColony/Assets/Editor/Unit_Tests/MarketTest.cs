@@ -10,6 +10,7 @@ public class MarketTest
     {
         //Create an empty market instance
         Market market = new Market(3, 9, 3, 8, 4, 6);
+
         //Verify that the markets inventory is empty
         Assert.AreEqual(0, market.Stock.Money);
         Assert.AreEqual(0, market.Stock.GetItemAmount(ItemType.Ore));
