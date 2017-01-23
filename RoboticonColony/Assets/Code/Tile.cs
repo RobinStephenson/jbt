@@ -57,11 +57,12 @@ sealed public class Tile
         }
         return produced;
     }
-  
+
     /// <summary>
     /// install a roboticon on this tile
     /// </summary>
     /// <exception cref="RoboticonAlreadyInstalledException">A roboticon is already installled</exception>
+    /// <exception cref="ArgumentOutOfRangeException">No spare roboticons to install</exception>
     /// <param name="player">Reference to the player buying the tile</param>
     public void InstallRoboticon(AbstractPlayer player)
     {
