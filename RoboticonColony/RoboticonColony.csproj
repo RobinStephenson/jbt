@@ -85,6 +85,7 @@
     <Compile Include="Assets\Code\HumanPlayer.cs" />
     <Compile Include="Assets\Code\Inventory.cs" />
     <Compile Include="Assets\Code\ItemType.cs" />
+    <Compile Include="Assets\Code\MainMenuController.cs" />
     <Compile Include="Assets\Code\Market.cs" />
     <Compile Include="Assets\Code\PhysicalTile.cs" />
     <Compile Include="Assets\Code\Roboticon.cs" />
