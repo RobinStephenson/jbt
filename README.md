@@ -1,4 +1,4 @@
-# Jamaican Bobsleigh Team [![Build Status](https://travis-ci.com/RobinStephenson/jbt.svg?token=HjdBafwzwwqM31btobaT&branch=master)](https://travis-ci.com/RobinStephenson/jbt)
+# Jamaican Bobsleigh Team
 Jamaican Bobsleigh Team SEPR project
 
 ## Git Workflow
