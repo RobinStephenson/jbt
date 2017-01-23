@@ -122,10 +122,23 @@ public class UIController : MonoBehaviour {
         controller.InstallRobitconPanel.SetActive(true);
     }
 
-    public static void ShowCustomiseRoboticon(string currentCustomisationPath)
+    public static void ShowCustomiseRoboticon(Roboticon rc)
     {
+        string spritePath;
+
+        if (rc.InstalledCustomisations.Count == 0)
+        {
+            spritePath = "Sprites/BaseRobo";
+        }
+        else
+        {
+            spritePath = rc.InstalledCustomisations[0].SpritePath;
+        }
+
         controller.CustomiseRoboticonPanel.SetActive(true);
-        controller.CurrentUpgradeImage.sprite = Resources.Load<Sprite>(currentCustomisationPath);
+
+        controller.CurrentUpgradeImage.sprite = Resources.Load<Sprite>(spritePath);
+        controller.CurrentCustomisationText.text = string.Format(controller.CurrentCustomisationDescription, rc.ProductionMultiplier(ItemType.Ore).ToString("00"), rc.ProductionMultiplier(ItemType.Power).ToString("00"));
     }
 
     public static void HideInstallRoboticon()

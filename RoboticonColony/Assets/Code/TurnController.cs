@@ -41,8 +41,8 @@ public class TurnController : MonoBehaviour {
         Dictionary<ItemType, int> powerIBonus = new Dictionary<ItemType, int>();
         oreIBonus[ItemType.Ore] = 2;
         powerIBonus[ItemType.Power] = 2;
-        RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Objects/OreRobo");
-        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Objects/PowerRobo");
+        RoboticonCustomisation oreI = new RoboticonCustomisation("Ore I", oreIBonus, null, 15, "Sprites/OreRobo");
+        RoboticonCustomisation powerI = new RoboticonCustomisation("Panel I", powerIBonus, null, 15, "Sprites/PowerRobo");
         market.AddCustomisation(oreI);
         market.AddCustomisation(powerI);
 
@@ -51,7 +51,6 @@ public class TurnController : MonoBehaviour {
         Inventory p2Inv = new Inventory(100, 10, 10, 0);
         player1 = new HumanPlayer("Mikeywalsh", p1Inv, market, Resources.Load<Sprite>("Sprites/Player1 Tile"));
         player2 = new HumanPlayer("Some Guy", p2Inv, market, Resources.Load<Sprite>("Sprites/Player2 Tile"));
-
 
         //Start the game
         NextPhase();
@@ -125,18 +124,8 @@ public class TurnController : MonoBehaviour {
                         UIController.ShowInstallRoboticon();
                     }
                     else
-                    {
-                        string spritePath;
-
-                        if (PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon.InstalledCustomisations.Count == 0)
-                        {
-                            spritePath = "Objects/BaseRobo";
-                        }
-                        else
-                        {
-                            spritePath = PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon.InstalledCustomisations[0].SpritePath;
-                        }
-                        UIController.ShowCustomiseRoboticon(spritePath);
+                    {                      
+                        UIController.ShowCustomiseRoboticon(PhysicalTile.selectedTile.ContainedTile.InstalledRoboticon);
                     }
                 }
             }

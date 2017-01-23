@@ -34,6 +34,8 @@ sealed public class Market
         buyprice = new Dictionary<ItemType, int>();
         sellprice = new Dictionary<ItemType, int>();
 
+        CustomisationsList = new List<RoboticonCustomisation>();
+
         //TEMP: Set buy and sell price manually, will probably populate them from a text file in future
         buyprice[ItemType.Ore] = oreBuyPrice;
         buyprice[ItemType.Power] = powerBuyPrice;
@@ -185,7 +187,7 @@ sealed public class Market
         if (inventory.Money > customisation.Price)
         {
             roboticon.AddCustomisation(customisation);
-            inventory.AddMoney(-customisation.Price);
+            inventory.SubtractMoney(customisation.Price);
         }
         else
         {
