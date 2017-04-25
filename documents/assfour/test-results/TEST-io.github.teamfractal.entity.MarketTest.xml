@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.teamfractal.entity.MarketTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-04-25T15:48:49" hostname="nas10-240-253-230.york.ac.uk" time="0.025">
+  <properties/>
+  <testcase name="marketCanCheckResourceLessThanAmountYouWantToBuy" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketCanCheckResourceMoreThanAmountYouWantToBuy" classname="io.github.teamfractal.entity.MarketTest" time="0.005"/>
+  <testcase name="marketShouldReduceResourcesWhenSells" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketShouldInitWithCorrectValues" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketShouldUseOreToCreateRoboticons" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketCanCheckNoResources" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketShouldAbleToGetAndSetResources" classname="io.github.teamfractal.entity.MarketTest" time="0.001"/>
+  <testcase name="marketShouldReturnCorrectSellPrice" classname="io.github.teamfractal.entity.MarketTest" time="0.0"/>
+  <testcase name="marketShouldHaveCorrectPricesForResources" classname="io.github.teamfractal.entity.MarketTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

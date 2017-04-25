@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.teamfractal.entity.PlayerTest" tests="35" skipped="0" failures="0" errors="0" timestamp="2017-04-25T15:48:49" hostname="nas10-240-253-230.york.ac.uk" time="0.095">
+  <properties/>
+  <testcase name="setNegativeOre" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseRoboticonsNegative" classname="io.github.teamfractal.entity.PlayerTest" time="0.007"/>
+  <testcase name="purchaseRoboticonsMoneySubtracted" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="cantAffordLandPlot" classname="io.github.teamfractal.entity.PlayerTest" time="0.002"/>
+  <testcase name="purchaseRoboticonsFromMarketNotEnoughInMarket" classname="io.github.teamfractal.entity.PlayerTest" time="0.004"/>
+  <testcase name="testPlayerSellResource" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="setNegativeFood" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="purchaseCustomisationNullRoboticon" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseResourceNegative" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="getRoboticonQuantities" classname="io.github.teamfractal.entity.PlayerTest" time="0.005"/>
+  <testcase name="purchaseInvalidCustomisation" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="testPlayerInitialMoney" classname="io.github.teamfractal.entity.PlayerTest" time="0.003"/>
+  <testcase name="purchaseResourceNullMarket" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="purchaseRoboticonsNullMarket" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="setCustomisationResource" classname="io.github.teamfractal.entity.PlayerTest" time="0.003"/>
+  <testcase name="landPlotAlreadyOwned" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseNullLandPlot" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="getResourceUnknown" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="purchaseCustomisationNullMarket" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="setUnknownResource" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseCustomisationNotEnoughMoney" classname="io.github.teamfractal.entity.PlayerTest" time="0.002"/>
+  <testcase name="setNegativeEnergy" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="getScoreWithChancellor" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="purchaseRoboticonsZero" classname="io.github.teamfractal.entity.PlayerTest" time="0.004"/>
+  <testcase name="setNegativeMoney" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseResourceNotEnoughMoney" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseResourceNotEnoughStock" classname="io.github.teamfractal.entity.PlayerTest" time="0.0"/>
+  <testcase name="purchaseResourceZero" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="testPlayerBuyResource" classname="io.github.teamfractal.entity.PlayerTest" time="0.002"/>
+  <testcase name="purchaseRoboticonsFromMarketNotEnoughMoney" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="getResourceCustomisation" classname="io.github.teamfractal.entity.PlayerTest" time="0.002"/>
+  <testcase name="produceCorrectAmounts" classname="io.github.teamfractal.entity.PlayerTest" time="0.004"/>
+  <testcase name="purchaseCustomisationSuccessful" classname="io.github.teamfractal.entity.PlayerTest" time="0.002"/>
+  <testcase name="getScore" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <testcase name="purchaseRoboticonsListUpdated" classname="io.github.teamfractal.entity.PlayerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
