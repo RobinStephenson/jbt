@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.teamfractal.entity.AIPlayerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-04-25T15:48:48" hostname="nas10-240-253-230.york.ac.uk" time="0.03">
+  <properties/>
+  <testcase name="testPlayerInitialMoney" classname="io.github.teamfractal.entity.AIPlayerTest" time="0.004"/>
+  <testcase name="testAIPlayerCannotSellMoreOreThanAllowed" classname="io.github.teamfractal.entity.AIPlayerTest" time="0.003"/>
+  <testcase name="testAIPlayerCannotSellMoreEnergyThanAllowed" classname="io.github.teamfractal.entity.AIPlayerTest" time="0.001"/>
+  <testcase name="testAIPlayerCannotSellMoreFoodThanAllowed" classname="io.github.teamfractal.entity.AIPlayerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

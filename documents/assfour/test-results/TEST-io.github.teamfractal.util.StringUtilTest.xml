@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.teamfractal.util.StringUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-25T15:48:49" hostname="nas10-240-253-230.york.ac.uk" time="0.0">
+  <properties/>
+  <testcase name="capitaliseShouldBeDoneProperly" classname="io.github.teamfractal.util.StringUtilTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

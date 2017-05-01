@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.teamfractal.entity.RoboticonTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2017-04-25T15:48:49" hostname="nas10-240-253-230.york.ac.uk" time="0.014">
+  <properties/>
+  <testcase name="removeFromPlotNotInstalledTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.002"/>
+  <testcase name="removeFromPlotTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.001"/>
+  <testcase name="setLandPlotTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.001"/>
+  <testcase name="robotitonIDTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.0"/>
+  <testcase name="alreadyInstalledSetPlotTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.001"/>
+  <testcase name="getLandPlotWhenNoneSetTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.001"/>
+  <testcase name="setNullPlotTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.001"/>
+  <testcase name="customisationTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.0"/>
+  <testcase name="initialisationTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.0"/>
+  <testcase name="getLandPlotTest" classname="io.github.teamfractal.entity.RoboticonTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
